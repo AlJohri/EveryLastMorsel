@@ -6,11 +6,22 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem 'cancan'
-gem 'devise'
+
+# Authentication Gems
+# https://github.com/intridea/omniauth/wiki/List-of-Strategies
+gem "devise", ">= 2.2.3"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-pinterest'
+gem 'omniauth-github'
+gem "cancan", ">= 1.6.9"
+gem "rolify", ">= 3.2.0"
+
+
 gem 'figaro'
 gem 'pg'
-gem 'rolify'
 gem 'thin'
 group :development do
   gem 'better_errors'
@@ -18,3 +29,5 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
 end
+
+# TODO: https://github.com/FriendlyId/friendly_id%

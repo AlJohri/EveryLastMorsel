@@ -12,4 +12,8 @@ MANDRILL_API_KEY: Your_API_Key
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
+FACEBOOK_APPID: facebook_appid
+FACEBOOK_APPSECRET: facebook_appsecret
+GOOGLE_APPID: google_appid #client id
+GOOGLE_APPSECRET: google_appsecret
 ROLES: [admin, user, VIP]
