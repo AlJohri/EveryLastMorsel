@@ -28,8 +28,6 @@ EveryLastMorsel::Application.configure do
     :password  => ENV["MANDRILL_API_KEY"]
   }
 
-
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
