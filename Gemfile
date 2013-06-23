@@ -15,8 +15,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
-gem 'omniauth-pinterest'
-gem 'omniauth-github'
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 
@@ -31,4 +29,4 @@ group :development do
   gem 'quiet_assets'
 end
 
-# TODO: https://github.com/FriendlyId/friendly_id%
+# TODO: https://github.com/FriendlyId/friendly_id

@@ -1,9 +1,8 @@
 require "omniauth-facebook"
 require "omniauth-google-oauth2"
 require "omniauth-twitter"
-require "omniauth-pinterest"
 
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+# OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
@@ -226,8 +225,10 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, ENV['FACEBOOK_APPID'], ENV['FACEBOOK_APPSECRET'], {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+  config.omniauth :facebook, ENV['FACEBOOK_APPID'], ENV['FACEBOOK_APPSECRET'], {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   config.omniauth :google_oauth2, ENV['GOOGLE_APPID'], ENV['GOOGLE_APPSECRET'], { access_type: "offline", approval_prompt: "" }
+  config.omniauth :twitter, ENV['TWITTER_APPID'], ENV["TWITTER_APPSECRET"]
+  # config.omniauth :linkedin, LINKEDIN_CONSUMER_KEY, LINKEDIN_CONSUMER_SECRET, :scope => “r_basicprofile r_emailaddress”
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
