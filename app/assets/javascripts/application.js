@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require lib/jquery-1.7.1.min.js
+//= require lib/plugins.js
+//= require elm.js
+// require_tree .

@@ -1,26 +1,30 @@
-<%= link_to "Everylastmorsel", root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if user_signed_in? %>
-    <li>
+<% if user_signed_in? %>
+  <li>
+    Welcome <%= current_user.name %>
+    <span class="separator">|</span>
+  </li>
+  <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
+    <span class="separator">|</span>
+  </li>
+<% else %>
+  <li>
+    <a href="#sign-in" data-toggle="modal" title="Sign In">Sign In</a>
+    <span class="separator">|</span>
+  </li>
+<% end %>
+
+<% if user_signed_in? %>
+  <li>
     <%= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
-      </li>
-    <% end %>
-  <% else %>
+  </li>
+  <% if current_user.has_role? :admin %>
     <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Admin', users_path %>
     </li>
   <% end %>
-</ul>
+<% else %>
+  <li>
+    <a href="#sign-up" data-toggle="modal" title="Sign Up">Sign Up</a>
+  </li>
+<% end %>

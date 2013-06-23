@@ -1,9 +1,6 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
-
+<h3>My Profile</h3>
 
 <% if user_signed_in? %>
-  <div>Signed in as... <%= current_user.email %></div>
+  <div>Name <%= current_user.name %> </div>
+  <div>Email <%= current_user.email %></div>
 <% end %>

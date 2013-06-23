@@ -9,20 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require 960/reset.css
+ *= require screen.css
 */
-.brand {
-  float: left;
-  padding-right: 8px;
-}
-ul.nav {
-  list-style: none;
-  margin: 0 0 2em;
-  padding: 0;
-}
-ul.nav li {
-  display: inline;
-}
+
 #flash_notice, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
