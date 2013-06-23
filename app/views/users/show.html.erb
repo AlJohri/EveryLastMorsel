@@ -1,3 +1,69 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<div class="two-column profile-layout clearfix">
+    <div id="column-left" role="aside" class="column-left">
+        <figure id="main-image">
+            <img src="http://alpha.everylastmorsel.com/media/placeholder.jpg" title="Todd Jones" width="200px" />
+        </figure>
+        <ul id="profile-navigation" class="utility-navigation">
+            <li class="active">
+                <a href="http://alpha.everylastmorsel.com/profile/" title="My Profile"><span class="icon person"></span>My Profile</a>
+            </li>
+            <li>
+                <a href="http://alpha.everylastmorsel.com/communication/list/" title="Communication Hub">
+                    <span class="icon drawer">
+                    </span>Communication Hub
+                </a>
+            </li>
+            <li>
+                <a href="http://alpha.everylastmorsel.com/profile/settings/" title="Settings"><span class="icon cog"></span>Settings</a>
+            </li>
+        </ul>
+        <div id="lower-column">
+            <div class="content followers">
+                <h3>Following</h3>
+                <ul>
+                    <li><a href="#somebody">Some one following</a></li>
+                    <li><a href="#somebody">Some one following</a></li>
+                    <li><a href="#somebody">Some one following</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content" role="contentinfo" class="main-content clearfix">
+        <div class="top clearfix">
+            <div class="pushed">
+                <h1><%= @user.name %></h1>
+                <ul class="list-inline">
+                    <li><span class="icon location"></span>Elmhurst, Illinois</li>
+                </ul>
+                <p></p>
+            </div>
+        </div>
+        <div class="inner-content-wrapper profile about">
+            <nav id="profile-navigation" class="styled">
+                <ul class="list-block">
+                    <li class="is-active">
+                        <a href="http://alpha.everylastmorsel.com/profile/">About</a>
+                    </li>
+                    <!--<li><a href="" title="About Me">News</a></li>-->
+                    <li>
+                        <a href="http://alpha.everylastmorsel.com/profile/plots/">Plots</a>
+                    </li>
+                    <li>
+                        <a href="http://alpha.everylastmorsel.com/profile/crops/">Crops</a>
+                    </li>
+                </ul>
+            </nav>
+            <section class="content">
+                <p class="buttons-set">
+                    <a href="http://alpha.everylastmorsel.com/profile/about-edit/" class="btn wider btn-orange">
+                        <span>Edit About</span>
+                    </a>
+                </p>
+
+                <article>
+                    <h3>Share a little about yourself. Everyone's eager to hear more!</h3>
+                </article>
+            </section>
+        </div>
+    </div>
+</div>

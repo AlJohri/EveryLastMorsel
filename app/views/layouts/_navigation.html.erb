@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <li>
-    Welcome <%= current_user.name %>
+    <a href='/users/<%= current_user.id %>' title="Profile">Welcome <%= current_user.name %></a>
     <span class="separator">|</span>
   </li>
   <li>

@@ -400,7 +400,7 @@ body.ie9 > div.wrapper { display: table; height: 100%; }
 }
 footer { height: 200px; padding: 25px 0; }
 /** Two columns */
-body.two-column .main-container { background: #ecf0df url(bg-noise.jpg) repeat; }
+.main-container { background: #ecf0df url(bg-noise.jpg) repeat; }
 .main-container .two-column { margin: 0 auto; width: 960px; }
 .two-column .column-left {
     float: left;
