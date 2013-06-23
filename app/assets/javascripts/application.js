@@ -15,4 +15,5 @@
 //= require lib/jquery-1.7.1.min.js
 //= require lib/plugins.js
 //= require elm.js
+//= require lib/bootstrap-combine.js
 // require_tree .
