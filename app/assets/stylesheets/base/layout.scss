@@ -1,0 +1,42 @@
+body {
+  color: #58585A;
+  font: normal 13px/1.2 "Sanchez", serif;
+}
+
+/**
+  Defaults
+*/
+h1 { font-weight: normal; font-size: 36px; }
+h2 {
+    color: #d9d9d9;
+    font-weight: normal;
+    font-size: 24px;
+}
+h3 {
+    color: #343434;
+    font-weight: normal;
+    font-size: 16px;
+}
+h4 {
+    color: #7dc6ca;
+    font-weight: normal;
+    font-size: 24px;
+}
+p { line-height: 1.4; }
+a {
+  color: #343434;
+  cursor: pointer;
+  text-decoration: none;
+  -moz-transition: color .1s ease-in-out;
+  -o-transition: color .1s ease-in-out;
+  -webkit-transition: color .1s ease-in-out;
+  transition: color .1s ease-in-out;
+}
+
+img {
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+}

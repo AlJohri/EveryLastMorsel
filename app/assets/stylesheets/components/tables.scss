@@ -1,0 +1,19 @@
+/** Data Lists: crops */
+table.data-table { }
+table.data-table th,
+table.data-table td {
+  color: #010101;
+  font-size: 13px;
+  padding: 5px 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+table.data-table th {
+  color: #a8a9a9;
+  font-size: 14px;
+  padding: 7px 3px;
+  text-transform: capitalize;
+}
+table.data-table td { }
+table.data-table tr.alt td { background: #e5f1f2; }
+table.data-table td a { color: #010101; text-decoration: underline; }

@@ -1,0 +1,83 @@
+/** Form defaults */
+form ul.fieldset { list-style: none; margin-left: 0; }
+form ul.fieldset > li { position: relative; margin-bottom: 20px; }
+form ul.fieldset > li > label {
+  color: #929292;
+  display: inline-block;
+    font-size: 14px;
+  font-style: italic;
+}
+
+form ul.fieldset > li > label + div {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  /*width: 270px;*/
+}
+form .buttons-set input,
+form ul.fieldset > li input,
+form ul.fieldset > li textarea {
+    background: #ebebeb;
+  border: 1px solid #ebebeb;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  color: #343434;
+  font-size: 14px;
+  margin: 0;
+  padding: 6px 10px;
+  width: 250px;
+}
+form .buttons-set input:focus,
+form ul.fieldset > li input:focus,
+form ul.fieldset > li textarea:focus { border-color: #cbcbcb; }
+form ul.fieldset > li > div label {
+    color: #7dc6ca;
+    line-height: 20px;
+    text-transform: capitalize;
+    text-align: left;
+    width: 250px;
+}
+form ul.fieldset > li > div label.error {
+    font-size: 12px;
+    float: left;
+    clear: left;
+    letter-spacing: 0;
+    line-height: 1;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+form ul.fieldset > li.control > label {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 5px;
+}
+form ul.fieldset > li.control > label + div { display: block; clear: both; }
+form ul.fieldset > li.control input[type="radio"],
+form ul.fieldset > li.control input[type="radio"],
+form ul.fieldset > li > div label > input {
+    clear: both;
+    margin-right: 10px;
+    width: auto;
+}
+.buttons-set { margin-top: 20px; }
+.buttons-set .btn { float: left; }
+
+
+/**
+  Login/Create/Password Reset
+*/
+.account-form { text-align: center; }
+.account-form h1 { font-weight: bold;  margin-bottom: 30px; }
+.account-form form { margin: 30px auto; width: 470px; }
+.account-form form .fieldset label { width: 170px;}
+.account-form form .fieldset textarea { height: 150px; }
+.account-form form .buttons-set { float: right; margin-right: 7px; }
+.account-form form .buttons-set button { float: none; margin-left: 15px;  }
+body.elm-profile-login .account-form form { width: 400px; }
+body.elm-profile-login .account-form form .fieldset label { width: 100px; }
+body.elm-profile-forgot-password .account-form form { width: 380px; }
+body.elm-profile-forgot-password .account-form form .fieldset label { width: 75px; }
+.account-confirmation p { margin: 0 auto 20px; width: 410px; }
+

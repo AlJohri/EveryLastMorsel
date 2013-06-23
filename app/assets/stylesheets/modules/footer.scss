@@ -1,0 +1,74 @@
+/**
+ * Footer
+ */
+.footer-container {
+    background: #747a2f url("footer-green-noise.jpg") repeat;
+    /*
+    background: #747a2f;
+    background: -moz-linear-gradient(top,  #747a2f 0%, #6d732c 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#747a2f), color-stop(100%,#6d732c));
+    background: -webkit-linear-gradient(top,  #747a2f 0%,#6d732c 100%);
+    background: -o-linear-gradient(top,  #747a2f 0%,#6d732c 100%);
+    background: -ms-linear-gradient(top,  #747a2f 0%,#6d732c 100%);
+    background: linear-gradient(to bottom,  #747a2f 0%,#6d732c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#747a2f', endColorstr='#6d732c',GradientType=0 );
+    */
+
+    border-top: 1px solid #747a2f;
+    -moz-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
+    -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
+}
+footer { color: #fff; font-size: 14px; }
+footer .container { position: relative; }
+footer a, footer h3 { color: #fff; }
+footer a:hover { color: #ddd; }
+footer .column {
+    float: left;
+    margin-right: 15px;
+    position: relative;
+    width: 150px;
+    z-index: 12;
+}
+footer .column .social li { margin-right: 5px; }
+footer .column.newsletter { width: 275px; }
+footer .column.newsletter form { position: relative; }
+footer .column.newsletter form label {
+    color: #343434;
+    cursor: text;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+footer .column.newsletter form input {
+    background: #ebebeb;
+    border: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #343434;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    width: 240px;
+}
+footer .column h3 { font-size: 1em; margin-bottom: 15px; text-transform: uppercase; }
+footer .column ul li { margin-bottom: 10px; }
+footer .copyright {
+    clear: both;
+    font-size: 11px;
+    margin-top: 45px;
+    text-transform: uppercase;
+}
+footer .copyright p { display: inline; }
+footer .copyright ul { display: inline; margin-left: 15px; }
+footer .copyright ul li .separator { font-size: 12px; margin: 0 5px 0 8px; }
+footer .watermark {
+    background: url(watermark.png) no-repeat 0 0;
+    height: 225px;
+    width: 300px;
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    z-index: 10;
+}
