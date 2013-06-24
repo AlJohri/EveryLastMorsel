@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Plot:</b>
+  <%= @crop.plot_id %>
+</p>
+
+<p>
+  <b>Plant:</b>
+  <%= @crop.plant %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @crop.type %>
+</p>
+
+<p>
+  <b>Coverage number:</b>
+  <%= @crop.coverage_number %>
+</p>
+
+<p>
+  <b>Coverage unit:</b>
+  <%= @crop.coverage_unit %>
+</p>
+
+<p>
+  <b>Date planted:</b>
+  <%= @crop.date_planted %>
+</p>
+
+<p>
+  <b>Starting type:</b>
+  <%= @crop.starting_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @crop.description %>
+</p>
+
+<p>
+  <b>Yield number:</b>
+  <%= @crop.yield_number %>
+</p>
+
+<p>
+  <b>Yield unit:</b>
+  <%= @crop.yield_unit %>
+</p>
+
+<p>
+  <b>Date picked:</b>
+  <%= @crop.date_picked %>
+</p>
+
+<p>
+  <b>Quantity number:</b>
+  <%= @crop.quantity_number %>
+</p>
+
+<p>
+  <b>Quantity type:</b>
+  <%= @crop.quantity_type %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @crop.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_crop_path(@crop) %> |
+<%= link_to 'Back', crops_path %>

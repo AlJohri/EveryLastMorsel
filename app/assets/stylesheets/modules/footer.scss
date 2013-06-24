@@ -2,7 +2,7 @@
  * Footer
  */
 .footer-container {
-    background: #747a2f url("footer-green-noise.jpg") repeat;
+    background: #747a2f url("/assets/footer-green-noise.jpg") repeat;
     /*
     background: #747a2f;
     background: -moz-linear-gradient(top,  #747a2f 0%, #6d732c 100%);
@@ -64,7 +64,7 @@ footer .copyright p { display: inline; }
 footer .copyright ul { display: inline; margin-left: 15px; }
 footer .copyright ul li .separator { font-size: 12px; margin: 0 5px 0 8px; }
 footer .watermark {
-    background: url(watermark.png) no-repeat 0 0;
+    background: url(/assets/watermark.png) no-repeat 0 0;
     height: 225px;
     width: 300px;
     position: absolute;

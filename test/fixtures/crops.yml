@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  plot_id: 1
+  plant: MyString
+  type: 
+  coverage_number: 1
+  coverage_unit: MyString
+  date_planted: 2013-06-23 19:48:37
+  starting_type: MyString
+  description: MyText
+  yield_number: 1
+  yield_unit: MyString
+  date_picked: 2013-06-23 19:48:37
+  quantity_number: 1
+  quantity_type: MyString
+  price: 9.99
+
+two:
+  plot_id: 1
+  plant: MyString
+  type: 
+  coverage_number: 1
+  coverage_unit: MyString
+  date_planted: 2013-06-23 19:48:37
+  starting_type: MyString
+  description: MyText
+  yield_number: 1
+  yield_unit: MyString
+  date_picked: 2013-06-23 19:48:37
+  quantity_number: 1
+  quantity_type: MyString
+  price: 9.99

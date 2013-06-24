@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   attr_accessible :provider, :uid
 
   has_many :posts
+  has_many :plots
+  has_many :crops, :through => :plots
 
   def self.new_with_session(params, session)
     super.tap do |user|

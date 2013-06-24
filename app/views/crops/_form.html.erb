@@ -1,0 +1,74 @@
+<%= form_for(@crop) do |f| %>
+  <% if @crop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
+
+      <ul>
+      <% @crop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :plot_id %><br />
+    <%= f.number_field :plot_id %>
+  <!-- rails collection_select method -->
+  </div>
+  <div class="field">
+    <%= f.label :plant %><br />
+    <%= f.text_field :plant %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :coverage_number %><br />
+    <%= f.number_field :coverage_number %>
+  </div>
+  <div class="field">
+    <%= f.label :coverage_unit %><br />
+    <%= f.text_field :coverage_unit %>
+  </div>
+  <div class="field">
+    <%= f.label :date_planted %><br />
+    <%= f.datetime_select :date_planted %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_type %><br />
+    <%= f.text_field :starting_type %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :yield_number %><br />
+    <%= f.number_field :yield_number %>
+  </div>
+  <div class="field">
+    <%= f.label :yield_unit %><br />
+    <%= f.text_field :yield_unit %>
+  </div>
+  <div class="field">
+    <%= f.label :date_picked %><br />
+    <%= f.datetime_select :date_picked %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity_number %><br />
+    <%= f.number_field :quantity_number %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity_type %><br />
+    <%= f.text_field :quantity_type %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

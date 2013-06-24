@@ -79,7 +79,7 @@ button.btn-grey > span {
 .btn.oversized > span { padding: 10px 15px; }
 .btn.icon { height: auto; display: block; width: auto; }
 .btn.icon > span > span {
-    background: url("sprite.png") no-repeat -4px -99px;
+    background: url("/assets/sprite.png") no-repeat -4px -99px;
     padding-left: 35px;
 }
 .btn.icon.contact > span > span { background-position: -4px -99px; }

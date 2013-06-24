@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @plot.user_id %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%= @plot.admin_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @plot.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @plot.type %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @plot.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @plot.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @plot.zip %>
+</p>
+
+<p>
+  <b>Visibility:</b>
+  <%= @plot.visibility %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @plot.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_plot_path(@plot) %> |
+<%= link_to 'Back', plots_path %>
