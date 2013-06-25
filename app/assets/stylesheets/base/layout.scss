@@ -36,12 +36,44 @@ a {
   transition: color .1s ease-in-out;
 }
 
-img {
-  border: 1px solid #ccc;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  padding: 5px;
-}
+// img {
+//   border: 1px solid #ccc;
+//   -moz-border-radius: 3px;
+//   -webkit-border-radius: 3px;
+//   border-radius: 3px;
+//   padding: 5px;
+// }
 
 .hide { display: none; }
+
+.main-content { }
+.main-container { padding: 40px 0; }
+.container { margin: 0 auto; width: 960px; }
+html, body { height: 100%; }
+body > div.wrapper { min-height: 100%; }
+body > div.wrapper > .page {  padding-bottom: 250px;  }
+body.ie8 > div.wrapper,
+body.ie9 > div.wrapper { display: table; height: 100%; }
+
+.main-container { background: #ecf0df url(bg-noise.jpg) repeat; }
+.main-container .two-column { margin: 0 auto; width: 960px; }
+.two-column .column-left {
+    float: left;
+    margin: 20px 0 25px 25px;
+    position: relative;
+    width: 220px;
+}
+.two-column .main-content {
+    float: right;
+    margin: 20px 25px 25px 0;
+    min-height: 300px;
+    position: relative;
+    width: 665px;
+}
+/** Left column buttons */
+#column-left .buttons-set .btn {
+    clear: both;
+    margin-bottom: 10px;
+    width: 100%;
+}
+#column-left .buttons-set .btn > span { }

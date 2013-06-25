@@ -378,8 +378,7 @@ function calcSidebarTop() {
 }
 
 $(document).ready(function () {
-    // var IS_IE = $.browser.msie ? true : false;
-    var IS_IE = false;
+    var IS_IE = false; //$.browser.msie ? true : false;
     var CHANGE_EVT = IS_IE ? 'click' : 'change';
     $.ajaxSetup({
         type: 'POST',
@@ -393,10 +392,10 @@ $(document).ready(function () {
         $('div#notifications').slideUp(overlayAnimSpeed);
         sidebarOrigTop -= notificationHeight;
     }, 7000);
-    $('form.stdform').submit(function () {
+    $('form.stdform').on('submit', function () {
         formLoadingOn($(this));
     });
-    $('a.forgotpassword').click(function (evt) {
+    $('a.forgotpassword').on('click', function (evt) {
         evt.preventDefault();
         var forgot = $('form.forgotpassword');
         if (forgot.is(':visible')) {
@@ -407,20 +406,20 @@ $(document).ready(function () {
             forgot.find('ul :input:first').focus();
         }
     });
-    $('form.closefarmaccount').submit(function () {
+    $('form.closefarmaccount').on('submit', function () {
         var sure = confirm('Just making certain: are you sure you want to close your account? Click OK if you are.');
         if (!sure) {
             return false;
         }
     });
-    $('a.revokeuseraccess').click(function (evt) {
+    $('a.revokeuseraccess').on('click', function (evt) {
         var sure = confirm('Are you sure you want to revoke this user\'s access? They will no longer be able to access the farm\'s information at all.');
         if (sure) {
             window.location = $(this).attr('href');
         }
         return false;
     });
-    $('a.addfield').click(function (evt) {
+    $('a.addfield').on('click', function (evt) {
         evt.preventDefault();
         if (!$('div#addfieldform').is(':visible')) {
             if ($('div#editfieldform').is(':visible')) {
@@ -437,7 +436,7 @@ $(document).ready(function () {
             });
         }
     });
-    $('a.editfield').click(function (evt) {
+    $('a.editfield').on('click', function (evt) {
         evt.preventDefault();
         if (!$('div#editfieldform').is(':visible')) {
             if ($('div#addfieldform').is(':visible')) {
@@ -454,7 +453,7 @@ $(document).ready(function () {
             });
         }
     });
-    $('form.fieldeditform').submit(function (evt) {
+    $('form.fieldeditform').on('submit', function (evt) {
         evt.preventDefault();
         var targetForm = $(this);
         var formWrap = targetForm.parents('div.fieldeditform');
@@ -482,7 +481,7 @@ $(document).ready(function () {
             }
         });
     });
-    $('a.addcrop').click(function (evt) {
+    $('a.addcrop').on('click', function (evt) {
         evt.preventDefault();
         if ($('div.cropadder').is(':visible')) {
             $('div.cropadder').slideUp(overlayAnimSpeed, function () {
@@ -495,7 +494,7 @@ $(document).ready(function () {
             setFieldWidth();
         }
     });
-    $('div.cropadder div.subsectionswitcher a').click(function (evt) {
+    $('div.cropadder div.subsectionswitcher a').on('click', function (evt) {
         evt.preventDefault();
         if (!$(this).hasClass('selected')) {
             $(this).parent().children('a').removeClass('selected');
@@ -514,7 +513,7 @@ $(document).ready(function () {
         }
         $('div.cropadder form :input').trigger('change');
     });
-    $('form span.bedrounding a').click(function (evt) {
+    $('form span.bedrounding a').on('click', function (evt) {
         evt.preventDefault();
         var parentForm = $(this).parents('form');
         if (!$(this).hasClass('selected')) {
@@ -527,7 +526,7 @@ $(document).ready(function () {
         }
         parentForm.find(':input').trigger('change');
     });
-    $('form select').change(function (evt) {
+    $('form select').on(CHANGE_EVT, function (evt) {
         if (IS_IE) {
             var parent = $(this).closest('span.succession');
             parent.addClass('changingunit');
@@ -545,8 +544,8 @@ $(document).ready(function () {
         }
         return false;
     });
-    $('div.cropadder form :input').keyup(recomputeCrop);
-    $('form.cropaddform').submit(function (evt) {
+    $('div.cropadder form :input').on('change keyup', recomputeCrop);
+    $('form.cropaddform').on('submit', function (evt) {
         evt.preventDefault();
         var targetForm = $(this);
         var formWrap = targetForm.parents('div.cropadder');
@@ -574,7 +573,7 @@ $(document).ready(function () {
             }
         });
     });
-    $('form.planting a.growthinfo').click(function (evt) {
+    $('form.planting a.growthinfo').on('click', function (evt) {
         evt.preventDefault();
         var growthInfo = $(this).parents('form').find('li.growthinfo');
         if (growthInfo.is(':visible')) {
@@ -583,8 +582,8 @@ $(document).ready(function () {
             growthInfo.slideDown(overlayAnimSpeed);
         }
     });
-    $('form.planting :input').keyup(recomputePlanting);
-    $('div.successions span.succession').hover(function (evt) {
+    $('form.planting :input').on('change keyup', recomputePlanting);
+    $('div.successions span.succession').on('mouseover mouseenter mouseleave', function (evt) {
         if (evt.type == 'mouseover') {
             $(this).addClass('hoveron');
             if ($(this).hasClass('editon') == false) {
@@ -602,7 +601,7 @@ $(document).ready(function () {
         $('div.successions span.succession.editon').not('.hoveron').not('.changingunit').removeClass('editon dragon resizeon').find('div.plantingeditorwrap').remove();
     });
 
-    $('div.plantingeditorwrap a.canceledit').click(function (evt) {
+    $('div.plantingeditorwrap a.canceledit').on('click', function (evt) {
         evt.preventDefault();
         evt.stopPropagation();
         $(this).closest('span.succession').removeClass('editon dragon resizeon');
@@ -618,14 +617,14 @@ $(document).ready(function () {
 
     $('div.successions span.succession').on('fetchPlantingForm', getPlantingForm);
 
-    $('div.successions span.succession').mousedown(function (evt) {
+    $('div.successions span.succession').on('mousedown', function (evt) {
         lastSuccessionMousedown = new Date().getTime();
         if (!$(this).hasClass('editon')) {
             successionAwaitsMouseup = true;
         }
     });
 
-    $('div.successions span.succession').mouseup(function (evt) {
+    $('div.successions span.succession').on('mouseup', function (evt) {
         var now = new Date().getTime();
         if (now - lastSuccessionMousedown < BEGIN_DRAG_DELAY) {
             $(this).trigger('fetchPlantingForm');
@@ -633,7 +632,7 @@ $(document).ready(function () {
         }
     });
 
-    $('div.plant .addplanting').click(function (evt) {
+    $('div.plant .addplanting').on('click', function (evt) {
         evt.preventDefault();
         loadingBegin();
         var wrapper = getPlantWrapper($(this));
@@ -662,7 +661,7 @@ $(document).ready(function () {
         });
     });
 
-    $('div.plant .deleteplanting').click(function (evt) {
+    $('div.plant .deleteplanting').on('click', function (evt) {
         evt.preventDefault();
         var sure = confirm('Are you sure you want to delete this planting?');
         if (sure) {
@@ -698,21 +697,21 @@ $(document).ready(function () {
         }
     });
 
-    $('div.plantingeditorwrap form.planting').submit(plantingEdit);
+    $('div.plantingeditorwrap form.planting').on('submit', plantingEdit);
 
-    $('div.plantingeditorwrap').mouseup(function (evt) {
+    $('div.plantingeditorwrap').on('mouseup', function (evt) {
         evt.stopPropagation();
         return false;
     });
 
     $('div.graph.fieldfullness').removeClass('jsdisabled');
 
-    $('div.graph.fieldfullness div.bar').mouseenter(function (evt) {
+    $('div.graph.fieldfullness div.bar').on('mouseenter', function (evt) {
         $(this).siblings().removeClass('hovered');
         $(this).addClass('hovered');
     });
 
-    $('div.graph.fieldfullness div.bar').mouseleave(function (evt) {
+    $('div.graph.fieldfullness div.bar').on('mouseleave', function (evt) {
         var target = $(this);
         setTimeout(function () {
             target.removeClass('hovered');
@@ -724,7 +723,7 @@ $(document).ready(function () {
     var resizeBeginMouseX = null;
     var resizeBeginPlantingX = null;
 
-    $('div.successions span.succession div.draghandle.whole').mousedown(function (evt) {
+    $('div.successions span.succession div.draghandle.whole').on('mousedown', function (evt) {
         var targetPlanting = $(this).closest('span.succession');
         if (targetPlanting.hasClass('editon') == false) {
             evt.preventDefault();
@@ -734,7 +733,7 @@ $(document).ready(function () {
         }
     });
 
-    $('div.successions span.succession div.draghandle.harvest').mousedown(function (evt) {
+    $('div.successions span.succession div.draghandle.harvest').on('mousedown', function (evt) {
         var targetPlanting = $(this).closest('span.succession');
         if (targetPlanting.hasClass('editon') == false) {
             evt.preventDefault();
@@ -790,7 +789,7 @@ $(document).ready(function () {
             }
             affected = affected.eq(0);
             var formData = affected.find('form.plantingdata').serialize();
-            reschedulePlanting(affected, formData);
+            // reschedulePlanting(affected, formData);
         }
         successionAwaitsMouseup = false;
         if (affected) {

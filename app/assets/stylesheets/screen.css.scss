@@ -43,48 +43,7 @@ ul.list-block { float: left; margin: 0; width: 100%; }
 ul.list-block li { display: block; float: left; }
 .separator { font-size: 14px; margin: 0 8px 0 11px; }
 
-
-/**
-  Main Layout/Structure
-*/
-.main-content { }
-.main-container { padding: 40px 0; }
-.container { margin: 0 auto; width: 960px; }
-/** Sticky Footer */
-html, body { height: 100%; }
-body > div.wrapper { min-height: 100%; }
-body > div.wrapper > .page { overflow: auto; padding-bottom: 250px; }
-body.ie8 > div.wrapper,
-body.ie9 > div.wrapper { display: table; height: 100%; }
-.footer-container {
-    clear: both;
-    margin-top: -251px; /** add 1 b/c of border */
-    position: relative;
-}
-footer { height: 200px; padding: 25px 0; }
 /** Two columns */
-.main-container { background: #ecf0df url(bg-noise.jpg) repeat; }
-.main-container .two-column { margin: 0 auto; width: 960px; }
-.two-column .column-left {
-    float: left;
-    margin: 20px 0 25px 25px;
-    position: relative;
-    width: 220px;
-}
-.two-column .main-content {
-    float: right;
-    margin: 20px 25px 25px 0;
-    min-height: 300px;
-    position: relative;
-    width: 665px;
-}
-/** Left column buttons */
-#column-left .buttons-set .btn {
-    clear: both;
-    margin-bottom: 10px;
-    width: 100%;
-}
-#column-left .buttons-set .btn > span { }
 
 /**
  * Account/Profile Pages

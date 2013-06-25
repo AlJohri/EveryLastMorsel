@@ -19,6 +19,14 @@
     // -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
     // box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
 }
+
+.footer-container {
+    clear: both;
+    margin-top: -251px; /** add 1 b/c of border */
+    position: relative;
+}
+
+footer { height: 200px; padding: 25px 0; }
 footer { color: #fff; font-size: 14px; }
 footer .container { position: relative; }
 footer a, footer h3 { color: #fff; }
@@ -69,6 +77,6 @@ footer .watermark {
     width: 300px;
     position: absolute;
     right: 0;
-    bottom: -30px;
+    // bottom: -30px;
     z-index: 10;
 }

@@ -1,0 +1,62 @@
+  <script>
+    var Elm = {
+      domain : '//alpha.everylastmorsel.com/',
+      environment : 'development',
+      api : 'AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI'
+    };
+    window.Elm = Elm;
+  </script>
+  <!--
+  <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI&sensor=true"></script>
+  <script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script> 
+  -->
+  <script>
+  !function(d, s, id) {
+    // FB
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk');
+  // g+
+  !function(d, s) {
+    var po = d.createElement(s);
+    po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = d.getElementsByTagName(s)[0];
+    s.parentNode.insertBefore(po, s);
+  }(document, 'script');
+  // twitter
+  !function(d, s, id) {
+    var js,fjs = d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, 'script', 'twitter-wjs');
+  </script>
+
+  <script id="_webengage_script_tag" type="text/javascript">
+  // window.webengageWidgetInit = window.webengageWidgetInit || function(){
+  //   webengage.init({
+  //     licenseCode:"~47b66612"
+  //   }).onReady(function(){
+  //     webengage.render();
+  //   });
+  // };
+  // (function(d){
+  //   var _we = d.createElement('script');
+  //   _we.type = 'text/javascript';
+  //   _we.async = true;
+  //   _we.src = (d.location.protocol == 'https:' ? "//ssl.widgets.webengage.com" : "//cdn.widgets.webengage.com") + "/js/widget/webengage-min-v-3.0.js";
+  //   var _sNode = d.getElementById('_webengage_script_tag');
+  //   _sNode.parentNode.insertBefore(_we, _sNode);
+  // })(document);
+  </script>
