@@ -1,0 +1,56 @@
+
+/** How it works */
+#howItWorks {
+  background: #64c4c8;
+  overflow: hidden;
+  padding: 25px 0 25px 55px;
+  position: absolute;
+  right: -960px;
+  top: 200px;
+  height: 270px;
+  z-index: 100;
+  width: 940px;
+
+  -moz-transition: right .3s ease-in-out;
+  -o-transition: right .3s ease-in-out;
+  -webkit-transition: right .3s ease-in-out;
+  transition: right .3s ease-in-out;
+}
+#howItWorks.active { right: 0; }
+#howItWorks a[href="#how-it-works"] {
+  background: url('sprites.png') no-repeat -192px -425px;
+  height: 75px;
+  position: absolute;
+  left: 0;
+  top: 115px;
+  width: 40px;
+}
+#howItWorks.active a[href="#how-it-works"] {
+  background-position: -230px -425px;
+}
+#howItWorks h4 {
+  color: #fff;
+  font: bold 34px/1 'Varela', Helvetica, Arial, sans-serif;
+  letter-spacing: -2px;
+}
+#howItWorks ul { margin-top: 10px; }
+#howItWorks ul li {
+  color: #fff;
+  margin-left: 25px;
+  text-align: center;
+  width: 145px;
+}
+#howItWorks ul li:first-child { margin-left: 0; }
+#howItWorks ul li h3 {
+  background: url(sprites.png) no-repeat;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-top: 135px;
+}
+#howItWorks ul li.claim-it h3 { background-position: -180px -130px; }
+#howItWorks ul li.track-it h3 { background-position: -337px -130px; }
+#howItWorks ul li.learn-it h3 { background-position: -492px -130px; }
+#howItWorks ul li.share-it h3 { background-position: -650px -130px; }
+#howItWorks ul li.build-it h3 { background-position: -807px -130px; }
+#howItWorks ul li p { font-size: 13px; }

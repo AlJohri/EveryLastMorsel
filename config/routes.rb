@@ -15,6 +15,7 @@ EveryLastMorsel::Application.routes.draw do
 
   get "/about", controller: "home", action: "about", as: "about"
   get '/help', controller: "home", action: "help", as: "help"
+  get '/records', controller: "records", action: "index", as: "records"
 
   #mount Blogit::Engine => "/blog"
 end

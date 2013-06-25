@@ -1,36 +1,21 @@
-/**
- * Global header
- */
+@import "compass/css3";
+
 .header-container {
-    -moz-box-shadow: 0px 1px 4px #ccc;
-    -webkit-box-shadow: 0px 1px 4px #ccc;
-    box-shadow: 0px 1px 4px #ccc;
+    @include box-shadow(0px 1px 4px #ccc);
     position: relative;
 }
+
 .header-container .utility {
     background: #7dc6ca url("/assets/utility-blue-noise.jpg") repeat;
-    /*
-    background: #7dc6cb;
-    background: -moz-linear-gradient(top,  #7dc6cb 0%, #83cfd3 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7dc6cb), color-stop(100%,#83cfd3));
-    background: -webkit-linear-gradient(top,  #7dc6cb 0%,#83cfd3 100%);
-    background: -o-linear-gradient(top,  #7dc6cb 0%,#83cfd3 100%);
-    background: -ms-linear-gradient(top,  #7dc6cb 0%,#83cfd3 100%);
-    background: linear-gradient(to bottom,  #7dc6cb 0%,#83cfd3 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dc6cb', endColorstr='#83cfd3',GradientType=0 );
-    */
-
     border-bottom: 1px solid #75bbbf;
-    -moz-box-shadow: inset 0 -1px 1px rgba(255,255,255,.3);
-    -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,.3);
-    box-shadow: inset 0 -1px 1px rgba(255,255,255,.3);
-
+    @include box-shadow(inset 0 -1px 1px rgba(255,255,255,0.3));
     padding: 8px 0;
 }
+
 .header-container .utility ul { }
 .header-container .utility ul li,
 .header-container .utility ul li a { color: #fff; font-size: 12px; }
-/** Header & Nav */
+
 header { height: 110px; }
 header h1 { float: left; }
 header h1 img { border: 0; margin-top: 18px; padding: 0; }

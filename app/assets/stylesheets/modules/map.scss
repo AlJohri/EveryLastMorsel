@@ -1,0 +1,91 @@
+/** Map Canvas */
+div.map-container > .top,
+div.map-container > .bottom {
+  background: transparent;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+div.map-container > .top {
+  top: 0;
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+div.map-container > .bottom {
+  bottom: -1px;
+  -moz-box-shadow: 0 -2px 5px rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 -2px 5px rgba(0,0,0,.2);
+  box-shadow: 0 -2px 5px rgba(0,0,0,.2);
+}
+div#mapCanvas {
+  /*height: 450px;
+  margin-bottom: 50px;*/
+  position: absolute;
+  /*top: 100px;*/
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75%;
+}
+div.mapMarker > div {
+  background: #818940;
+  background: rgba(129,137,64,.87);
+  /*border: 1px solid #595d3b;*/
+  color: #414710;
+  line-height: 1.2;
+  padding: 25px;
+  /*height: 225px;*/
+  width: 470px;
+}
+div.mapMarker.small > div { width: 320px; }
+div.mapMarker > div:after {
+  background: url('infobox-arrow.png') no-repeat;
+  /*background: #818940;
+  background: rgba(129,137,64,.8);*/
+  content: '\0020';
+  display: block;
+  height: 45px;
+  position: absolute;
+  bottom: -45px;
+  left: 40px;
+  width: 50px;
+}
+div.mapMarker > div h3 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  -moz-text-shadow: 0 1px 1px rgba(0,0,0,.6);
+  -webkit-text-shadow: 0 1px 1px rgba(0,0,0,.6);
+  text-shadow: 0 1px 1px rgba(0,0,0,.6);
+}
+div.mapMarker > div h3 > span { color: #7acfd3; }
+div.mapMarker > div div.content { margin-top: 20px; }
+div.mapMarker > div div.content p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+div.mapMarker > div div.content input[type="text"] {
+  border: 1px solid #d6d6d6;
+  font-size: 16px;
+  float: left;
+  padding: 10px 6px;
+  width: 410px;
+}
+div.mapMarker > div div.content p.buttons-set { text-align: center; }
+div.mapMarker > div div.content button.btn { margin: 0; float: none; }
+div.mapMarker > div div.content button.search {
+  background: url('sprites.png') no-repeat -345px -3px;
+  float: left;
+  margin-left: 10px;
+  height: 50px;
+  width: 50px;
+}
+div.mapMarker.plot-info > div div.content p.buttons-set { text-align: left; }
+div.mapMarker.plot-info > div div.content p.buttons-set a {
+  color: #fff;
+  font-size: 13px;
+  text-decoration: underline;
+  text-transform: lowercase;
+}

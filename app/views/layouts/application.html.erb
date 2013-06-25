@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Everylastmorsel" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Everylastmorsel" %>">
-    <!--
+    
     <script>
       var Elm = {
         domain : '//alpha.everylastmorsel.com/',
@@ -13,7 +13,7 @@
       };
       window.Elm = Elm;
     </script>
-
+    <!--
     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI&sensor=true"></script>
     <script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script> 
     -->
@@ -54,7 +54,7 @@
                   <li><a href="/help" title="Help">Help</a></li>
               </ul>
           </nav>
-          <div id="search" class="no-display"></div>
+          <div id="search" class="hide"></div>
         </header>
       </div>
       <div class="main-container">

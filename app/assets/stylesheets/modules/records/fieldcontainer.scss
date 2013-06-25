@@ -1,0 +1,124 @@
+div.fieldsidebarwrap { float:left; position:relative; max-width:310px; padding-top:4px; }
+div.fieldsidebarwrap h2 { margin-bottom:5px; }
+div.fieldsidebarwrap a#sidebaraddcrop { display:none; padding:5px; }
+div.fieldsidebarwrap div.fieldsidebar { position:relative; z-index:5; margin-bottom:28px; padding:11px 14px; }
+div.fieldsidebarwrap div.fieldsidebar.cropadder h2 { margin-bottom:10px; }
+div.fieldcontainer { margin-left:336px; }
+div.fieldcontainer div.fieldheading { position:relative; z-index:5; }
+div.fieldcontainer div.fieldheading span.fieldname { display:inline-block;  }
+div.fieldcontainer div.fieldheading span.fielddetails { display:inline-block; margin-left:10px; position:relative; top:-5px; }
+div.fieldcontainer div.fieldheading span.fielddetails span.separator { margin:0 10px; }
+div.fieldcontainer div.graph.fieldfullness div.label { position:absolute; top:-17px; left:13px; }
+div.fieldcontainer div.graph.fieldfullness img.loading { position:absolute; top:13px; left:13px; }
+div.fieldcontainer div.graph.fieldfullness div.capacityline
+{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:1px;
+  background:#e1e1e1;
+}
+div.fieldcontainer div.graph.fieldfullness div.innerwrap { position:relative; height:100%; }
+div.fieldcontainer div.graph.fieldfullness div.innerwrap div.bar { position:absolute; bottom:0; width:.273972603%; background:#f2d1ac; }
+div.fieldcontainer div.graph.fieldfullness div.innerwrap div.bar div.tooltipwrap { top:-27px; }
+div.fieldcontainer div.graph.fieldfullness div.innerwrap div.bar.jsdisabled:hover,div.fieldcontainer div.graph.fieldfullness div.innerwrap div.bar.hovered { background:#1e1b13; }
+div.fieldcontainer div.graph.fieldfullness div.innerwrap div.bar.jsdisabled:hover div.tooltipwrap,div.fieldcontainer div.graph.fieldfullness div.innerwrap div.bar.hovered div.tooltipwrap { display:block; }
+div.fieldcontainer div.plantwrap { position:relative; margin-top:25px; min-height:218px; }
+div.fieldcontainer div.plantwrap div.calendaroverlay { width:100%; position:absolute; top:0; bottom:0; }
+div.fieldcontainer div.plantwrap div.calendaroverlay > div { position:absolute; top:1px; bottom:1px; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.today { width:1px; background:#d6cdc5; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment { width:52px; border-right:1px solid #f2e9e1; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment > div
+{
+  position:absolute;
+  z-index:10;
+  bottom:100%;
+  left:0;
+  right:0;
+  padding-bottom:3px;
+  text-align:center;
+}
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.jan { border-left:1px solid #f2e9e1; left:0; width:8.493%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.feb { left:8.493%; width:7.671%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.mar { left:16.164%; width:8.493%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.apr { left:24.658%; width:8.219%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.may { left:32.877%; width:8.493%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.jun { left:41.37%; width:8.219%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.jul { left:49.589%; width:8.493%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.aug { left:58.082%; width:8.493%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.sep { left:66.575%; width:8.219%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.oct { left:74.795%; width:8.493%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.nov { left:83.288%; width:8.219%; }
+div.fieldcontainer div.plantwrap div.calendaroverlay div.calendarsegment.dec { left:91.507%; width:8.493%; }
+div.fieldcontainer div.plantwrap div.fieldplaceholderwrap
+{
+  position:absolute;
+  z-index:10;
+  top:50%;
+  left:0;
+  right:0;
+  text-align:center;
+}
+
+div.fieldcontainer div.plantwrap div.fieldplaceholderwrap .fieldplaceholder { position:relative; top:-13px; }
+div.fieldcontainer div.plantwrap div.plant { margin-left:-13px; margin-right:-13px; border-bottom:1px solid #d6cdc5; padding:12.22px 13px 13px; }
+div.fieldcontainer div.plantwrap div.plant.first { border-top:1px solid #d6cdc5; }
+div.fieldcontainer div.plantwrap div.plant span.plantname { position:relative; z-index:10; display:inline-block; }
+div.fieldcontainer div.plantwrap div.plant div.plantheading { position:relative; z-index:10; }
+div.fieldcontainer div.plantwrap div.plant div.plantheading span.plantcontrols { display:inline-block; position:relative; top:-1px; margin-left:-3px; }
+div.fieldcontainer div.plantwrap div.plant div.plantheading span.plantcontrols span.separator { position:relative; top:-1px; color:#c3b39c; margin:0 5px; }
+div.fieldcontainer div.plantwrap div.plant div.variety { margin-left:-13px; margin-right:-13px; padding:2.6px 13px 6.5px; }
+div.fieldcontainer div.plantwrap div.plant div.variety.first { margin-top:2.6px; }
+div.fieldcontainer div.plantwrap div.plant div.variety.last { margin-bottom:-6.5px; }
+div.fieldcontainer div.plantwrap div.plant div.successions { position:relative; height:22px; margin-top:2px; }
+div.fieldcontainer div.plantwrap div.plant div.successions span.succession
+{
+  position:absolute;
+  z-index:10;
+  display:block;
+  top:0;
+  left:0;
+  height:11px;
+  width:58px;
+  cursor:default;
+  background:#f2d1ac;
+  border:1px solid #cdb697;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -moz-border-radius:2px;
+  -wekit-border-radius:2px;
+  border-radius:2px;
+}
+div.fieldcontainer div.plantwrap div.plant div.successions span.succession div.draghandle { position:absolute; top:0; bottom:0; }
+div.fieldcontainer div.plantwrap div.plant div.successions span.succession div.draghandle.whole { left:0; right:0; }
+div.fieldcontainer div.plantwrap div.plant div.successions span.succession div.draghandle.harvest { z-index:10; right:0; width:20px; max-width:50%; cursor:col-resize; }
+div.fieldcontainer div.plantwrap div.plant.active,div.fieldcontainer div.plantwrap div.plant div.variety.active { background:#f7e5d7; }
+
+div.fieldcontainer div.plantingeditorwrap { position:absolute; z-index:50; bottom:100%; right:50%; padding-bottom:12px; }
+div.fieldcontainer div.plantingeditorwrap div.plantingeditor
+{
+  position:relative;
+  margin-right:-223px;
+  color:#f7f2ec;
+  background:#1e1b13;
+  border:1px solid #000;
+  -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie-opacity);
+  filter:alpha(opacity=96);
+  opacity:0.96;
+  -moz-border-radius:3px;
+  -wekit-border-radius:3px;
+  border-radius:3px;
+  -moz-box-shadow:0 3px 10px #111;
+  -webkit-box-shadow:0 3px 10px #111;
+  box-shadow:0 3px 10px #111;
+  padding:11px 14px;
+}
+div.fieldcontainer div.graph.fieldfullness
+{
+  position:relative;
+  height:40px;
+  padding-left:13px;
+  padding-right:13px;
+  margin:22px -13px -7px;
+}

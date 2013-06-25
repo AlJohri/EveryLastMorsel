@@ -1,6 +1,5 @@
-/**
- * Footer
- */
+@import "compass/css3";
+
 .footer-container {
     background: #747a2f url("/assets/footer-green-noise.jpg") repeat;
     /*
@@ -13,11 +12,12 @@
     background: linear-gradient(to bottom,  #747a2f 0%,#6d732c 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#747a2f', endColorstr='#6d732c',GradientType=0 );
     */
-
     border-top: 1px solid #747a2f;
-    -moz-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
-    -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
+    @include box-shadow(inset 0 1px 1px rgba(255,255,255,0.3));
+
+    // -moz-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
+    // -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
+    // box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
 }
 footer { color: #fff; font-size: 14px; }
 footer .container { position: relative; }
