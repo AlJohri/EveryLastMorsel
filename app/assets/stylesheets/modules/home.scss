@@ -74,6 +74,7 @@ text-shadow: 5px 2px #7dc6ca;
 
 ul.tools {
   margin-top: 20px;
+  width: 100%;
   max-width: 1140px;
   @include display-box;
   @include box-orient(horizontal);
