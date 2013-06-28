@@ -1,32 +1,32 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-sizing";
 
-.alert {
-  background: #ccc;
-  @include box-sizing(border-box);
-  @include border-radius(4px);
-  color: #fff;
-  clear: both;
-  margin: 10px auto;
-  padding: 10px;
-  position: relative;
-  width: 100%;
-}
-.alert a {
-  color: #fff;
-  text-decoration: underline;
-}
-.alert > a.close {
-  display: none !important; /** required to prevent overlap on modal close button */
-  float: right;
-}
-.alert.alert-success { background: #6C722C; }
-.alert.alert-error { background: #80883b; }
-.alert.alert-info { background: #FAC13D; }
-.inner-content-wrapper div.alert {
-  margin-bottom: 30px;
-  /*width: 645px;*/
-}
+// .alert {
+//   background: #ccc;
+//   @include box-sizing(border-box);
+//   @include border-radius(4px);
+//   color: #fff;
+//   clear: both;
+//   margin: 10px auto;
+//   padding: 10px;
+//   position: relative;
+//   width: 100%;
+// }
+// .alert a {
+//   color: #fff;
+//   text-decoration: underline;
+// }
+// .alert > a.close {
+//   display: none !important; /** required to prevent overlap on modal close button */
+//   float: right;
+// }
+// .alert.alert-success { background: #6C722C; }
+// .alert.alert-error { background: #80883b; }
+// .alert.alert-info { background: #FAC13D; }
+// .inner-content-wrapper div.alert {
+//   margin-bottom: 30px;
+//   /*width: 645px;*/
+// }
 
 #flash_notice, #flash_alert {
   padding: 5px 8px;

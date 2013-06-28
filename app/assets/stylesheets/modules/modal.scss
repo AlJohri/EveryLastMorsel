@@ -69,39 +69,39 @@
 
 
 /** Map Modal */
-#mapModal {
-  margin-left: -200px;
-  width: 400px;
-}
-#mapModal .buttons-set .btn span {
-  background: #74D2D1;
-  border: 1px solid #33a3a9;
-  border-bottom-width: 2px;
-  border-top: 2px solid #9de5e9;
-}
-#mapModal .buttons-set a.cancel { display: none; }
-/** Contact Modal */
-#contactModal {
-  margin-left: -190px;
-  width: 380px;
-}
-#contactSuccessModal { min-height: 0; }
-#contactSuccessModal .modal-header { display: none; }
-#contactSuccessModal .modal-body {
-  margin: 20px 0;
-  text-align: center;
-  width: 340px;
-}
-#contactSuccessModal .modal-body h3 { font-size: 26px; }
-#contactSuccessModal .modal-body .buttons-set {
-  margin-top: 30px;
-  text-align: center;
-}
-/** Involve Me Modal */
-#involveMeModal .buttons-set { margin-top: 25px; }
-/** Shared Crop Yield Modals */
-.crops-modal form { width: 300px; }
-.crops-modal .buttons-set { margin-top: 30px; }
-.crops-modal .mark-for-sale { color: #fff; text-align: left; width: 160px; }
-.crops-modal .mark-for-sale a { text-decoration: underline; }
+// #mapModal {
+//   margin-left: -200px;
+//   width: 400px;
+// }
+// #mapModal .buttons-set .btn span {
+//   background: #74D2D1;
+//   border: 1px solid #33a3a9;
+//   border-bottom-width: 2px;
+//   border-top: 2px solid #9de5e9;
+// }
+// #mapModal .buttons-set a.cancel { display: none; }
+// /** Contact Modal */
+// #contactModal {
+//   margin-left: -190px;
+//   width: 380px;
+// }
+// #contactSuccessModal { min-height: 0; }
+// #contactSuccessModal .modal-header { display: none; }
+// #contactSuccessModal .modal-body {
+//   margin: 20px 0;
+//   text-align: center;
+//   width: 340px;
+// }
+// #contactSuccessModal .modal-body h3 { font-size: 26px; }
+// #contactSuccessModal .modal-body .buttons-set {
+//   margin-top: 30px;
+//   text-align: center;
+// }
+// /** Involve Me Modal */
+// #involveMeModal .buttons-set { margin-top: 25px; }
+// /** Shared Crop Yield Modals */
+// .crops-modal form { width: 300px; }
+// .crops-modal .buttons-set { margin-top: 30px; }
+// .crops-modal .mark-for-sale { color: #fff; text-align: left; width: 160px; }
+// .crops-modal .mark-for-sale a { text-decoration: underline; }
 

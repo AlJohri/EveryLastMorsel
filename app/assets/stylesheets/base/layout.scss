@@ -1,18 +1,8 @@
-@font-face {
-  font-family: 'Sanchez';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Sanchez'), local('Sanchez-Regular'), url(http://themes.googleusercontent.com/static/fonts/sanchez/v1/9T6om-IyqE2CuKLLQr0lcgLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-}
+@import "compass/css3";
 
-@font-face {
-  font-family: 'Sanchez';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Sanchez Italic'), local('Sanchez-Italic'), url(http://themes.googleusercontent.com/static/fonts/sanchez/v1/HsmMg_Kwn-sTuZvQJORnl7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
-}
 
 body {
+  background: white;
   color: #58585A;
   font: normal 13px/1.2 "Sanchez", serif;
   font-family: 'Sanchez';
@@ -30,50 +20,16 @@ a {
   color: #343434;
   cursor: pointer;
   text-decoration: none;
-  -moz-transition: color .1s ease-in-out;
-  -o-transition: color .1s ease-in-out;
-  -webkit-transition: color .1s ease-in-out;
-  transition: color .1s ease-in-out;
+  @include transition-property(color);
+  @include transition-duration(.1s);
+  @include transition-timing-function(ease-in-out);
 }
 
-// img {
-//   border: 1px solid #ccc;
-//   -moz-border-radius: 3px;
-//   -webkit-border-radius: 3px;
-//   border-radius: 3px;
-//   padding: 5px;
-// }
-
-.hide { display: none; }
-
-.main-content { }
-.main-container { padding: 40px 0; }
-.container { margin: 0 auto; width: 960px; }
-html, body { height: 100%; }
-body > div.wrapper { min-height: 100%; }
-body > div.wrapper > .page {  padding-bottom: 250px;  }
-body.ie8 > div.wrapper,
-body.ie9 > div.wrapper { display: table; height: 100%; }
-
-.main-container { background: #ecf0df url(bg-noise.jpg) repeat; }
-.main-container .two-column { margin: 0 auto; width: 960px; }
-.two-column .column-left {
-    float: left;
-    margin: 20px 0 25px 25px;
-    position: relative;
-    width: 220px;
+.hide { 
+  display: none; 
 }
-.two-column .main-content {
-    float: right;
-    margin: 20px 25px 25px 0;
-    min-height: 300px;
-    position: relative;
-    width: 665px;
+
+.wrapper {
+  // max-width: 1140px;
+  margin: 0 auto;
 }
-/** Left column buttons */
-#column-left .buttons-set .btn {
-    clear: both;
-    margin-bottom: 10px;
-    width: 100%;
-}
-#column-left .buttons-set .btn > span { }

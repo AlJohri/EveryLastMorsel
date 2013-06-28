@@ -1,35 +1,27 @@
 @import "compass/css3";
 
-.footer-container {
-    background: #747a2f url("/assets/footer-green-noise.jpg") repeat;
-    /*
-    background: #747a2f;
-    background: -moz-linear-gradient(top,  #747a2f 0%, #6d732c 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#747a2f), color-stop(100%,#6d732c));
-    background: -webkit-linear-gradient(top,  #747a2f 0%,#6d732c 100%);
-    background: -o-linear-gradient(top,  #747a2f 0%,#6d732c 100%);
-    background: -ms-linear-gradient(top,  #747a2f 0%,#6d732c 100%);
-    background: linear-gradient(to bottom,  #747a2f 0%,#6d732c 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#747a2f', endColorstr='#6d732c',GradientType=0 );
-    */
+footer { 
+    background: #747a2f url("/assets/footer-green-noise.jpg") repeat;    
     border-top: 1px solid #747a2f;
     @include box-shadow(inset 0 1px 1px rgba(255,255,255,0.3));
-
-    // -moz-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
-    // -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
-    // box-shadow: inset 0 1px 1px rgba(255,255,255,.3);
-}
-
-.footer-container {
     clear: both;
-    margin-top: -251px; /** add 1 b/c of border */
-    position: relative;
+    position: relative;    
+    height: 200px; 
+    padding: 25px 0; 
+    color: #fff;
+    font-size: 14px;
 }
 
-footer { height: 200px; padding: 25px 0; }
-footer { color: #fff; font-size: 14px; }
-footer .container { position: relative; }
-footer a, footer h3 { color: #fff; }
+footer .container { 
+    position: relative; 
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+footer a, footer h3 { 
+    color: #fff; 
+}
+
 footer a:hover { color: #ddd; }
 footer .column {
     float: left;
@@ -79,4 +71,12 @@ footer .watermark {
     right: 0;
     // bottom: -30px;
     z-index: 10;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 970px) {
+    .watermark { display: none; }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    .watermark { display: none; }   
 }

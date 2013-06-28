@@ -1,0 +1,113 @@
+@import "compass/css3";
+
+.home {
+  background-color: #ecf0de;
+}
+
+.section-hero {
+  width: 100%;
+  // min-height: 400px;
+  background-image: url(/assets/hero.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 35px;
+  padding-bottom: 200px;
+}
+
+.hero-headline {
+  margin: 0 auto;
+  max-width: 771px;
+  height: auto;
+  padding: 10px;
+  img {
+    width: 100%;
+  }
+  span {
+    display: block;
+  }
+  .get-started {
+    padding: 10px 0px;
+  }
+}
+
+/*
+font-family: 'Open Sans';
+font-size: 70px;
+text-transform: uppercase;
+text-align: center;
+color: white;
+text-shadow: 5px 2px #7dc6ca;
+*/
+
+.action-block {
+  height: auto;
+  max-width: 460px;
+  margin: 3px;
+  background: rgba(255,255,255,0.9);
+  padding: 11px 13px;
+  text-align: center;
+}
+
+.action-block-wrapper {
+  border: 10px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0);
+  width:auto;
+  margin: 0 auto;
+  height: auto;
+  max-width: 467px;
+}
+
+
+.section-tool {
+  margin: 0 auto;
+  max-width: 1140px;
+  height: 390px;
+  text-align: center;
+  h1 {
+    padding-top: 55px;
+    color: #6b722b;
+  }
+  h2 {
+    color: #6d6d6d;
+  }
+}
+
+ul.tools {
+  margin-top: 20px;
+  max-width: 1140px;
+  @include display-box;
+  @include box-orient(horizontal);
+  @include box-align(stretch);
+  @include box-pack(center);
+  li {
+    @include box-flex(1);
+    span {
+      display: block;
+      text-transform: uppercase;
+    }
+  }
+  img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .hero-headline {
+    font-size: 30px;
+  }
+  .section-tool {
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 475px) and (max-width: 675px) {
+  .hero-headline {
+    font-size: 50px;
+  }
+}

@@ -1,9 +1,37 @@
-.hero
-  / font gotham htf black
-  %h1.pitchfork FROM PITCHFORK 
-  %h1 TO SALAD FORK
-  .outer-border
-    .action-block
-      %p Every Last Morsel is a community where buyers, growers and friends gather to share the fruits of their labor.
-      .get-started
-        GET STARTED
+%article.home
+  %section.section-hero
+    / font gotham htf black
+    .hero-headline
+      / %span From Pitchfork
+      / %span To Salad fork
+      %img{:src => "/assets/hometext.png"}/
+      
+    .action-block-wrapper
+      .action-block
+        %p
+          Every Last Morsel is a community where buyers, growers and friends gather to share the fruits of their labor.
+        %a{:href => "/users/sign_up"}
+          %button.get-started.btn-orange
+            %span
+              GET STARTED
+  %section.section-tool
+    %h1
+      Every Last Morsel is a tool for gardeners.
+    %h2
+      The ah ha! moment for most folks comes when they understand that ELM can help them buy fresh, organic groceries from their neighbor's backyard.
+    %ul.tools
+      %li
+        %img{:src => "/assets/map.svg"}/
+        %span Map
+      %li
+        %img{:src => "/assets/track.svg"}/
+        %span Track
+      %li
+        %img{:src => "/assets/learn.svg"}/
+        %span Learn
+      %li
+        %img{:src => "/assets/share.svg"}/
+        %span Share
+      %li
+        %img{:src => "/assets/grow.svg"}/
+        %span Grow
