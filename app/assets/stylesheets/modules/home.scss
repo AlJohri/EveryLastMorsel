@@ -63,9 +63,9 @@
 .section-tool {
   max-width: 1140px;
   margin: 0 auto;
-  // height: 390px;
   text-align: center;
   padding: 0 5%;
+  padding-bottom: 60px;
   h1 {
     padding-top: 5%;
     color: #6b722b;
@@ -78,7 +78,6 @@
 ul.tools {
   margin-top: 20px;
   width: 100%;
-  max-width: 1140px;
   @include display-box;
   @include box-orient(horizontal);
   @include box-align(stretch);
@@ -91,6 +90,76 @@ ul.tools {
     }
   }
   img { height: 100px; width: 100px; }
+}
+
+.section-claims {
+  width: 100%;
+  background-color: white;
+  position: relative;
+  img {
+    position: absolute;
+    left: 15%;
+    bottom: -40px;
+    float: left;
+    max-width: 720px;
+  }
+  .section-claims-content {
+    position: relative;
+    left: 60%;
+    width: 310px;
+    padding-top: 130px;
+    padding-bottom: 130px;
+    padding-right: 200px;
+    h1 {
+      color: #4b4b4b;
+      font-size: 36px;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #6d6d6d;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    a {
+      color: #f07519;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+  }
+
+}
+
+.section-track {
+  background-color: #7dc6ca;
+  background-image: url('/assets/graph.png');
+  background-repeat: no-repeat;
+  // background-position: right bottom;
+  background-position: 100% 170%;
+  overflow: hidden;
+
+  .section-track-content {
+    position: relative;
+    left: 15%;
+    width: 400px;
+    padding-top: 130px;
+    padding-bottom: 130px;
+    padding-right: 200px;
+    h1 {
+      color: white;
+      font-size: 36px;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: white;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    a {
+      color: #4b4b4b;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+  }  
 }
 
 @media only screen and (max-width: 675px) {
