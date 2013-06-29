@@ -84,6 +84,7 @@ ul.tools {
   @include box-align(stretch);
   @include box-pack(center);
   li {
+    @include box-flex(1);
     span {
       display: block;
       text-transform: uppercase;
