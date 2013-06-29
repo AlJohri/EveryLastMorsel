@@ -1,82 +1,82 @@
-@import "compass/css3";
+// @import "compass/css3";
 
-footer { 
-    background: #747a2f url("/assets/footer-green-noise.jpg") repeat;    
-    border-top: 1px solid #747a2f;
-    @include box-shadow(inset 0 1px 1px rgba(255,255,255,0.3));
-    clear: both;
-    position: relative;    
-    height: 200px; 
-    padding: 25px 0; 
-    color: #fff;
-    font-size: 14px;
-}
+// footer { 
+//     background: #747a2f url("/assets/footer-green-noise.jpg") repeat;    
+//     border-top: 1px solid #747a2f;
+//     @include box-shadow(inset 0 1px 1px rgba(255,255,255,0.3));
+//     clear: both;
+//     position: relative;    
+//     height: 200px; 
+//     padding: 25px 0; 
+//     color: #fff;
+//     font-size: 14px;
+// }
 
-footer .container { 
-    position: relative; 
-    max-width: 1140px;
-    margin: 0 auto;
-}
+// footer .container { 
+//     position: relative; 
+//     max-width: 1140px;
+//     margin: 0 auto;
+// }
 
-footer a, footer h3 { 
-    color: #fff; 
-}
+// footer a, footer h3 { 
+//     color: #fff; 
+// }
 
-footer a:hover { color: #ddd; }
-footer .column {
-    float: left;
-    margin-right: 15px;
-    position: relative;
-    width: 150px;
-    z-index: 12;
-}
-footer .column .social li { margin-right: 5px; }
-footer .column.newsletter { width: 275px; }
-footer .column.newsletter form { position: relative; }
-footer .column.newsletter form label {
-    color: #343434;
-    cursor: text;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 100;
-}
-footer .column.newsletter form input {
-    background: #ebebeb;
-    border: 0;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    color: #343434;
-    margin-bottom: 8px;
-    padding: 8px 10px;
-    width: 240px;
-}
-footer .column h3 { font-size: 1em; margin-bottom: 15px; text-transform: uppercase; }
-footer .column ul li { margin-bottom: 10px; }
-footer .copyright {
-    clear: both;
-    font-size: 11px;
-    margin-top: 45px;
-    text-transform: uppercase;
-}
-footer .copyright p { display: inline; }
-footer .copyright ul { display: inline; margin-left: 15px; }
-footer .copyright ul li .separator { font-size: 12px; margin: 0 5px 0 8px; }
-footer .watermark {
-    background: url(/assets/watermark.png) no-repeat 0 0;
-    height: 225px;
-    width: 300px;
-    position: absolute;
-    right: 0;
-    // bottom: -30px;
-    z-index: 10;
-}
+// footer a:hover { color: #ddd; }
+// footer .column {
+//     float: left;
+//     margin-right: 15px;
+//     position: relative;
+//     width: 150px;
+//     z-index: 12;
+// }
+// footer .column .social li { margin-right: 5px; }
+// footer .column.newsletter { width: 275px; }
+// footer .column.newsletter form { position: relative; }
+// footer .column.newsletter form label {
+//     color: #343434;
+//     cursor: text;
+//     position: absolute;
+//     top: 10px;
+//     left: 10px;
+//     z-index: 100;
+// }
+// footer .column.newsletter form input {
+//     background: #ebebeb;
+//     border: 0;
+//     -moz-border-radius: 3px;
+//     -webkit-border-radius: 3px;
+//     border-radius: 3px;
+//     color: #343434;
+//     margin-bottom: 8px;
+//     padding: 8px 10px;
+//     width: 240px;
+// }
+// footer .column h3 { font-size: 1em; margin-bottom: 15px; text-transform: uppercase; }
+// footer .column ul li { margin-bottom: 10px; }
+// footer .copyright {
+//     clear: both;
+//     font-size: 11px;
+//     margin-top: 45px;
+//     text-transform: uppercase;
+// }
+// footer .copyright p { display: inline; }
+// footer .copyright ul { display: inline; margin-left: 15px; }
+// footer .copyright ul li .separator { font-size: 12px; margin: 0 5px 0 8px; }
+// footer .watermark {
+//     background: url(/assets/watermark.png) no-repeat 0 0;
+//     height: 225px;
+//     width: 300px;
+//     position: absolute;
+//     right: 0;
+//     // bottom: -30px;
+//     z-index: 10;
+// }
 
-@media only screen and (min-width: 600px) and (max-width: 970px) {
-    .watermark { display: none; }
-}
+// @media only screen and (min-width: 600px) and (max-width: 970px) {
+//     .watermark { display: none; }
+// }
 
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-    .watermark { display: none; }   
-}
+// @media only screen and (min-width: 600px) and (max-width: 900px) {
+//     .watermark { display: none; }   
+// }
