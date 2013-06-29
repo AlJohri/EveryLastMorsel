@@ -16,6 +16,7 @@ footer .container {
     position: relative; 
     max-width: 1140px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 footer a, footer h3 { 
@@ -73,10 +74,8 @@ footer .watermark {
     z-index: 10;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 970px) {
-    .watermark { display: none; }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-    .watermark { display: none; }   
+@media only screen and (max-width: 630px) {
+	.newsletter {
+		display: none
+	};
 }
