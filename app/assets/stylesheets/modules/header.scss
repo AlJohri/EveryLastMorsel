@@ -70,6 +70,7 @@ $bottombar-fontsize: 14px;
   float: left;
   img {
     border: 0; 
+    margin: 0 auto;
     margin-top: 18px; 
     padding: 0; 
     width: 100%;
@@ -89,5 +90,14 @@ $bottombar-fontsize: 14px;
 @media only screen and (min-width: 1px) and (max-width: 368px) {
   .header-bottombar nav { display: none; }
   .logo-desktop { display: none; }
-  .logo-mobile { display: inline; }
+  .logo-mobile { 
+    display: block;
+  }
+  .header-bottombar h1 {  
+    float: none;
+    img {
+      width: 75px;
+      margin-bottom: 20px;
+    }
+  }
 }

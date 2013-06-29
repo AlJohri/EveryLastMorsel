@@ -31,7 +31,10 @@ footer .column {
     width: 150px;
     z-index: 12;
 }
-footer .column .social li { margin-right: 5px; }
+footer .column .social li { 
+    display: inline;
+    margin-right: 5px; 
+}
 footer .column.newsletter { width: 275px; }
 footer .column.newsletter form { position: relative; }
 footer .column.newsletter form label {
@@ -75,7 +78,7 @@ footer .watermark {
 }
 
 @media only screen and (max-width: 630px) {
-	.newsletter {
+	.newsletter, .copyright {
 		display: none
 	};
 }

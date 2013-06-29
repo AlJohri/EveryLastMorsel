@@ -203,8 +203,12 @@ ul.tools {
 
 @media only screen and (max-width: 675px) {
 
+  .section-track {
+    background-size: 61% 61%;
+  }  
+
   .section-track .section-track-content {
-    width: 330px;
+    width: 266px;
     padding-top: 50px;
     padding-bottom: 50px;    
     h1 { font-size: 20px; }
@@ -284,5 +288,13 @@ ul.tools {
     left: 0%;
     padding-top: 30px;
     padding-bottom: 30px;
-  }    
+  }
+
+  .section-track .section-track-content {
+    margin: 0 auto;
+    left: 0%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
 }
