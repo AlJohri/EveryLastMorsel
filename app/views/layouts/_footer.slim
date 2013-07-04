@@ -28,22 +28,19 @@ footer#footer
       h3
         | Sign Up For News & Updates
       form.labelify.email-signup[action="<?= $this->url('newsletter/signup'); ?>" method="post"]
-        label[for="newsletter-email"]
-          | Email
         div
-          input#newsletter-email[type="email" name="email"]
-        button.btn.btn-blue[type="submit" name="submit"]
+          input#newsletter-email[type="email" name="email" placeholder="Email"]
+        button.button.btn-blue[type="submit" name="submit"]
           span
             | Submit
     .copyright.f-left
       p
         | Copyright © Every Last Morsel 2013
-      ul.list-inline
+      ul
         li
-          a[href="terms_of_service"]
+          a href="terms_of_service"
             | Terms of Service
           span.separator
-            | |
         li
-          a[href="privacy_policy"]
+          a href="privacy_policy"
             | Privacy Policy

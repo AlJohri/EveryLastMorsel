@@ -29,7 +29,6 @@
     left: 50%;
   margin-left: -200px;
   max-height: 460px;
-  width: 430px;
   overflow: hidden;
   padding: 25px;
   position: fixed;
@@ -56,16 +55,18 @@
     width: 35px;
     white-space: nowrap;
 }
-/** Body and content */
+// /** Body and content */
 .modal h3 { color: #343434; font-size: 18px; margin-bottom: 20px; }
 .modal p.note { color: #6d6d6d; font-size: 14px; margin-bottom: 20px; }
 .modal .modal-body form { margin-bottom: 0; }
 .modal .modal-body ul.fieldset li { margin-bottom: 10px; }
+.modal .modal-body form input { display: inline; }
+.modal .modal-body form label { display: inline; }
 .modal .modal-body form textarea { height: 100px; width: 410px; }
-.modal .modal-body .buttons-set { text-align: left; }
+.modal .modal-body .buttons-set { margin-top: 10px; text-align: left; }
 .modal .modal-body .buttons-set .btn { /*float: none;*/ }
 .modal .modal-body .buttons-set .btn + .loader { margin-left: 10px; margin-top: 10px; }
-.modal .modal-body .alert { background-color: #562a09; width: 100%; }
+// .modal .modal-body .alert { background-color: #562a09; width: 100%; }
 
 
 /** Map Modal */
@@ -97,6 +98,8 @@
 //   margin-top: 30px;
 //   text-align: center;
 // }
+
+
 // /** Involve Me Modal */
 // #involveMeModal .buttons-set { margin-top: 25px; }
 // /** Shared Crop Yield Modals */

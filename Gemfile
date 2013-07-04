@@ -37,3 +37,6 @@ group :development do
 end
 
 # TODO: https://github.com/FriendlyId/friendly_id
+
+
+# :require => 'friendly_id'

@@ -16,7 +16,7 @@ footer .footer-container {
     position: relative; 
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 footer a, footer h3 { 
@@ -55,8 +55,9 @@ footer .column.newsletter form input {
     margin-bottom: 8px;
     padding: 8px 10px;
     width: 240px;
+    height: auto;
 }
-footer .column h3 { font-size: 1em; margin-bottom: 15px; text-transform: uppercase; }
+footer .column h3 { font-size: 1em; /*margin-bottom: 15px;*/ text-transform: uppercase; line-height: 20px; }
 footer .column ul li { margin-bottom: 10px; }
 footer .copyright {
     clear: both;
@@ -66,7 +67,15 @@ footer .copyright {
 }
 footer .copyright p { display: inline; }
 footer .copyright ul { display: inline; margin-left: 15px; }
-footer .copyright ul li .separator { font-size: 12px; margin: 0 5px 0 8px; }
+// footer .copyright ul li .separator { font-size: 12px; margin: 0 5px 0 8px; }
+footer .copyright ul li { 
+    display: inline; 
+    margin-left: 20px;
+}
+footer .copyright ul li:first-child { 
+    margin-left: 0px;
+}
+
 footer .watermark {
     background: url(/assets/watermark.png) no-repeat 0 0;
     height: 225px;

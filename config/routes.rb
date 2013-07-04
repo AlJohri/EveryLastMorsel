@@ -8,6 +8,7 @@ EveryLastMorsel::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :crops, :plots, :posts
   resources :users, :path => '', :only => [:show]
+  
 
   get "/about", controller: "static", action: "about", as: "about"
   get '/help', controller: "static", action: "help", as: "help"

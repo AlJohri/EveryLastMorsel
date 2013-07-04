@@ -608,6 +608,15 @@ ul, ol {
   margin: 0;
 }
 
+li {
+	line-height: 16px;
+}
+
+h1, h2, h3 {
+	// line-height: 20px;
+	line-height: normal;
+}
+
 @media (max-width: 767px) {
   body {
     padding-left: 0px;

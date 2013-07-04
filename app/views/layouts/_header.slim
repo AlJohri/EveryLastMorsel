@@ -8,16 +8,19 @@ header.header
               a href="#{current_user.slug}" title="Profile"
                 | Welcome 
                 = current_user.name
+            li
               span.separator
             li
-              a href="/users/sign_out" title="Sign Out"
+              a href='/users/sign_out' data-method='delete' title='Sign Out'
                 | Sign Out
               / = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+            li  
               span.separator
           - else
             li
               a href="#sign-in" data-toggle="modal" title="Sign In"
                 | Sign In
+            li
               span.separator
           - if user_signed_in?
             li
@@ -47,5 +50,6 @@ header.header
             a href="/about" title=("About Us")  About Us
           li
             a href="/help" title="Help"  Help
+
             
 = render 'layouts/messages'
