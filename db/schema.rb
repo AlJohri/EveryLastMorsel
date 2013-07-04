@@ -11,40 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702185421) do
-
-  create_table "crops", :force => true do |t|
-    t.integer  "plot_id"
-    t.string   "plant"
-    t.string   "type"
-    t.integer  "coverage_number"
-    t.string   "coverage_unit"
-    t.datetime "date_planted"
-    t.string   "starting_type"
-    t.text     "description"
-    t.integer  "yield_number"
-    t.string   "yield_unit"
-    t.datetime "date_picked"
-    t.integer  "quantity_number"
-    t.string   "quantity_type"
-    t.decimal  "price"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "plots", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "admin_id"
-    t.string   "name"
-    t.string   "type"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "visibility"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130704154618) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -66,6 +33,11 @@ ActiveRecord::Schema.define(:version => 20130702185421) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "city"
+    t.string   "state"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -76,18 +48,20 @@ ActiveRecord::Schema.define(:version => 20130702185421) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "name"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "provider"
-    t.string   "uid"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "slug"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "image"
+    t.string   "url"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true

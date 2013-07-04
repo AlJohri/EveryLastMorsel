@@ -604,6 +604,10 @@ $fluidGridGutterWidth768:      percentage($gridGutterWidth768/$gridRowWidth768);
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+.alert {
+	margin-bottom: 0px;
+}
+
 ul, ol {
   margin: 0;
 }

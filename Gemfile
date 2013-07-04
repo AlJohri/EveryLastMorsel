@@ -29,6 +29,7 @@ gem 'pg', '~> 0.15.1'
 gem 'thin', '~> 1.5.1'
 gem "haml", "~> 4.0.3"
 gem 'slim', '~> 2.0.0'
+gem "gibbon", "~> 0.4.6"
 
 group :development do
   gem "better_errors", "~> 0.9.0"

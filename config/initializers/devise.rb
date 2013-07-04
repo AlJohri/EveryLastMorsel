@@ -225,8 +225,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, ENV['FACEBOOK_APPID'], ENV['FACEBOOK_APPSECRET'], {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
-  config.omniauth :google_oauth2, ENV['GOOGLE_APPID'], ENV['GOOGLE_APPSECRET'], { access_type: "offline", approval_prompt: "" }
+  # https://developers.facebook.com/docs/reference/login/public-profile-and-friend-list/
+  config.omniauth :facebook, ENV['FACEBOOK_APPID'], ENV['FACEBOOK_APPSECRET'], {:scope => 'email, user_location, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :google_oauth2, ENV['GOOGLE_APPID'], ENV['GOOGLE_APPSECRET'], { :scope => 'userinfo.email, userinfo.profile', :access_type => "offline", :approval_prompt => "" }
   config.omniauth :twitter, ENV['TWITTER_APPID'], ENV["TWITTER_APPSECRET"]
   # config.omniauth :linkedin, LINKEDIN_CONSUMER_KEY, LINKEDIN_CONSUMER_SECRET, :scope => “r_basicprofile r_emailaddress”
 

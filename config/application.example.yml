@@ -7,13 +7,16 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-MANDRILL_USERNAME: Your_Username
-MANDRILL_API_KEY: Your_API_Key
-ADMIN_NAME: First User
-ADMIN_EMAIL: user@example.com
-ADMIN_PASSWORD: changeme
-FACEBOOK_APPID: facebook_appid
-FACEBOOK_APPSECRET: facebook_appsecret
-GOOGLE_APPID: google_appid #client id
-GOOGLE_APPSECRET: google_appsecret
+MANDRILL_USERNAME: username
+MANDRILL_API_KEY: api
+MAILCHIMP_API_KEY: api
+ADMIN_NAME: admin
+ADMIN_EMAIL: admin@example.com
+ADMIN_PASSWORD: admin
+FACEBOOK_APPID: appid
+FACEBOOK_APPSECRET: appsecret
+GOOGLE_APPID: appid
+GOOGLE_APPSECRET: appsecret
+TWITTER_APPID: appid
+TWITTER_APPSECRET: appsecret
 ROLES: [admin, user, VIP]

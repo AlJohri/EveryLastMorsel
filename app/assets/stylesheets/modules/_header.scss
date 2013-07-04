@@ -9,7 +9,8 @@ $bottombar-fontsize: 14px;
 
 .separator:before {
   font-size: 14px;
-  // margin-left: $header-spacing;
+  margin-left: $header-spacing;
+  margin-right: $header-spacing;
   content: "|";
 }
 
@@ -25,7 +26,6 @@ $bottombar-fontsize: 14px;
     @include box-orient(horizontal);
     @include box-align(center);
     @include box-pack(stretch);
-    // justify-content: space-between;
   }
   li {
     @include box-flex(1);
@@ -52,7 +52,7 @@ $bottombar-fontsize: 14px;
   color: white;
   font-size: $topbar-fontsize;
   nav {
-    width: 140px;
+    // width: 140px;
   }
 }
 
