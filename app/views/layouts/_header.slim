@@ -1,0 +1,51 @@
+header.header
+  .header-topbar
+    .header-topbar-content
+      nav role="sitenav" 
+        ul
+          - if user_signed_in?
+            li
+              a href="#{current_user.slug}" title="Profile"
+                | Welcome 
+                = current_user.name
+              span.separator
+            li
+              a href="/users/sign_out" title="Sign Out"
+                | Sign Out
+              / = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+              span.separator
+          - else
+            li
+              a href="#sign-in" data-toggle="modal" title="Sign In"
+                | Sign In
+              span.separator
+          - if user_signed_in?
+            li
+              = link_to 'Edit account', edit_user_registration_path
+            - if current_user.has_role? :admin
+              li
+                = link_to 'Admin', users_path
+          - else
+            li
+              a[href="#sign-up" data-toggle="modal" title="Sign Up"]
+                | Sign Up        
+        / = render 'layouts/navigation'
+
+  .header-bottombar
+    .header-bottombar-content
+      h1
+        a href="/" title=("Every Last Morsel") 
+          img.logo-desktop alt=("Every Last Morsel") src="/assets/logo.gif" title=("Every Last Morsel") /
+          img.logo-mobile alt=("Every Last Morsel") src="/assets/logo-small.gif" title=("Every Last Morsel") /
+      nav role="sitenav" 
+        ul
+          li
+            a href="/map" title="Map"  Map
+          li
+            a href="/marketplace" title="Marketplace"  Marketplace
+          li
+            a href="/about" title=("About Us")  About Us
+          li
+            a href="/help" title="Help"  Help
+            
+= render 'layouts/messages'

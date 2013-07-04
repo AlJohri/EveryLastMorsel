@@ -1,14 +1,13 @@
 /** Buttons & form defaults */
-a.btn,button,button.btn {
+.button[disable="disable"] { opacity: .6; }
+.button {
   background: transparent;
   border: 0;
   cursor: pointer;
   line-height: 1;
   margin: 0;
   padding: 0;
-}
-button[disable="disable"],button.btn[disable="disable"] { opacity: .6; }
-a.btn > span, button > span {
+
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -18,13 +17,16 @@ a.btn > span, button > span {
   cursor: pointer;
   display: block;
   font: 14px/1.2 "Sanchez", serif;
-  padding: 10px 14px;
+  padding: 7px 11px;
   text-align: center;
   text-transform: uppercase;
+  * {
+    vertical-align: middle;
+  }
 }
-a.btn.wider > span,button.wider > span { padding: 8px 16px; }
-a.btn:active > span,button:active > span { position: relative; top: 1px; /*border-bottom-color: rgba(0,0,0,.1);*/ }
-a.btn-orange > span,button.btn-orange > span {
+.button.wider { padding: 8px 16px; }
+.button:active { position: relative; top: 1px; /*border-bottom-color: rgba(0,0,0,.1);*/ }
+.button.btn-orange {
     background: #ff8b35; /* Old browsers */
     background: -moz-linear-gradient(top,  #ff8b35 0%, #f0751a 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8b35), color-stop(100%,#f0751a)); /* Chrome,Safari4+ */
@@ -34,7 +36,7 @@ a.btn-orange > span,button.btn-orange > span {
     background: linear-gradient(to bottom,  #ff8b35 0%,#f0751a 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8b35', endColorstr='#f0751a',GradientType=0 ); /* IE6-9 */
 }
-a.btn-blue > span,button.btn-blue > span {
+.button.btn-blue {
     background: #87d6da; /* Old browsers */
     background: -moz-linear-gradient(top,  #87d6da 0%, #6fafb3 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87d6da), color-stop(100%,#6fafb3)); /* Chrome,Safari4+ */
@@ -44,8 +46,8 @@ a.btn-blue > span,button.btn-blue > span {
     background: linear-gradient(to bottom,  #87d6da 0%,#6fafb3 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87d6da', endColorstr='#6fafb3',GradientType=0 ); /* IE6-9 */
 }
-a.btn-blue:hover > span,button.btn-blue:hover > span { background: #6fafb3; }
-a.btn-green > span,button.btn-green > span {
+.button.btn-blue:hover { background: #6fafb3; }
+.button.btn-green {
     background: #87d6da; /* Old browsers */
     background: -moz-linear-gradient(top,  #8b9438 0%, #6b722b 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8b9438), color-stop(100%,#6b722b)); /* Chrome,Safari4+ */
@@ -55,19 +57,20 @@ a.btn-green > span,button.btn-green > span {
     background: linear-gradient(to bottom,  #8b9438 0%,#6b722b 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b9438', endColorstr='#6b722b',GradientType=0 ); /* IE6-9 */
 }
-a.btn-green:hover > span,button.btn-green:hover > span { background: #6b722b; }
-a.btn-grey > span,button.btn-grey > span {
+.button.btn-green:hover { background: #6b722b; }
+.button.btn-grey {
   background-color: red;
   border: 2px solid #a5a5a5;
   border-top: 2px solid #e5e5e5;
 }
-.btn.oversized > span { padding: 10px 15px; }
-.btn.icon { height: auto; display: block; width: auto; }
-.btn.icon > span > span {
+.button.oversized { padding: 10px 15px; }
+.button.icon { height: auto; display: block; width: auto; }
+
+.button.icon {
     background: url("/assets/sprite.png") no-repeat -4px -99px;
     padding-left: 35px;
 }
-.btn.icon.contact > span > span { background-position: -4px -99px; }
-.btn.icon.follow > span > span { background-position: -4px -146px; padding-left: 22px; }
-.btn.icon.following > span > span { background-position: -4px -146px; padding-left: 22px; }
-.btn.icon.secure > span > span { background-position: -4px -378px; padding-left: 40px; }
+.btn.icon.contact > span { background-position: -4px -99px; }
+.btn.icon.follow > span { background-position: -4px -146px; padding-left: 22px; }
+.btn.icon.following > span { background-position: -4px -146px; padding-left: 22px; }
+.btn.icon.secure > span { background-position: -4px -378px; padding-left: 40px; }

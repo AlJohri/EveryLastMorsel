@@ -1,5 +1,5 @@
 @import "compass/css3";
-
+@import "compass/utilities";
 
 body {
   background: white;
@@ -31,5 +31,8 @@ a {
 
 .wrapper {
   // max-width: 1140px;
+  @include clearfix;
   margin: 0 auto;
+  background-color: #ecf0de;
+
 }

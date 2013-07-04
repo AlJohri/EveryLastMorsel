@@ -1,21 +1,16 @@
 EveryLastMorsel::Application.routes.draw do
-  resources :crops
+  # authenticated :user do
+  #   root :to => 'home#index'
+  # end
 
+  root :to => "static#index"
 
-  resources :plots
-
-
-  resources :posts
-  authenticated :user do
-    root :to => 'home#index'
-  end
-  root :to => "home#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users
+  resources :users, :crops, :plots, :posts
+  resources :users, :path => '', :only => [:show]
 
-  get "/about", controller: "home", action: "about", as: "about"
-  get '/help', controller: "home", action: "help", as: "help"
+  get "/about", controller: "static", action: "about", as: "about"
+  get '/help', controller: "static", action: "help", as: "help"
   get '/records', controller: "records", action: "index", as: "records"
 
-  #mount Blogit::Engine => "/blog"
 end

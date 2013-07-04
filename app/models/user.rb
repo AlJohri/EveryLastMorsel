@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :plots
   has_many :crops, :through => :plots
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

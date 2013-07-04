@@ -1,9 +1,20 @@
-<div class="two-column profile-layout clearfix">
-    <div id="column-left" role="aside" class="column-left">
+<div class="profile-layout">
+
+    <div class="profile-top">
+        <div class="pushed">
+            <h1><%= @user.name %></h1>
+            <ul class="list-inline">
+                <li><span class="icon location"></span>Elmhurst, Illinois</li>
+            </ul>
+            <p></p>
+        </div>
+    </div>
+
+    <div role="aside" class="profile-left">
         <figure id="main-image">
-            <img src="http://alpha.everylastmorsel.com/media/placeholder.jpg" title="Todd Jones" width="200px" />
+            <img src="http://alpha.everylastmorsel.com/media/placeholder.jpg" title="Todd Jones"/>
         </figure>
-        <ul id="profile-navigation" class="utility-navigation">
+        <ul class="profile-navigation">
             <li class="active">
                 <a href="http://alpha.everylastmorsel.com/profile/" title="My Profile"><span class="icon person"></span>My Profile</a>
             </li>
@@ -17,8 +28,9 @@
                 <a href="http://alpha.everylastmorsel.com/profile/settings/" title="Settings"><span class="icon cog"></span>Settings</a>
             </li>
         </ul>
-        <div id="lower-column">
-            <div class="content followers">
+
+<!--         <div>
+            <div class="profile-content followers">
                 <h3>Following</h3>
                 <ul>
                     <li><a href="#somebody">Some one following</a></li>
@@ -26,32 +38,39 @@
                     <li><a href="#somebody">Some one following</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
+
     </div>
 
-    <div id="content" role="contentinfo" class="main-content clearfix">
-        <div class="top clearfix">
-            <div class="pushed">
-                <h1><%= @user.name %></h1>
-                <ul class="list-inline">
-                    <li><span class="icon location"></span>Elmhurst, Illinois</li>
-                </ul>
-                <p></p>
-            </div>
-        </div>
+    <div role="contentinfo" class="profile-right">
         <div class="inner-content-wrapper profile about">
-            <nav id="profile-navigation" class="styled">
+<!--             <nav id="profile-navigation" class="styled">
                 <ul class="list-block">
-                    <li class="is-active"><a href="" title="Blog">Blog</a></li>
-                    <li><a href="" title="About">About</a></li>
-                    <li><a href="" title="Plots">Plots</a></li>
-                    <li><a href="" title="Crops">Crops</a></li>
+                    <li class="is-active"><a href="" title="About">About</a></li>
+                    <li class=""><a href="" title="Blog">Blog</a></li>
+                    <li class=""><a href="" title="Plots">Plots</a></li>
+                    <li class=""><a href="" title="Crops">Crops</a></li>
                 </ul>
-            </nav>
-            <section class="content">
+            </nav> -->
 
-                <%= render 'users/blog' %>
-                
+            <section class="profile-content">
+                <div class="tabbable tabs-left">
+                    <ul class="nav nav-tabs">
+                        <li class="<%= 'active' if params[:tab] == 'tab1' %>">
+                            <a href="#tab1" data-toggle="tab">About</a></li>
+                        <li class="<%= 'active' if params[:tab] == 'tab2' %>">
+                            <a href="#tab2" data-toggle="tab">Blog</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="tab1" class="<%= if (params[:tab] == 'tab1' || !params[:tab]) then 'tab-pane active'  else 'tab-pane' end%>" >
+                            <%= render 'users/about' %>
+                        </div>
+                        <div id="tab2" class="<%= if params[:tab] == 'tab9' then 'tab-pane active'  else 'tab-pane' end%>">
+                            <%= render 'users/blog' %>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>

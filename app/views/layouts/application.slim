@@ -1,0 +1,26 @@
+doctype
+html
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      = content_for?(:title) ? yield(:title) : "Everylastmorsel"
+    |  <meta name="description" content="
+    = content_for?(:description) ? yield(:description) : "Everylastmorsel"
+    | "> 
+    = stylesheet_link_tag "application", :media => "screen"
+    = javascript_include_tag "application"
+    link[href="/favicon.ico" rel="shortcut icon"]
+    = csrf_meta_tags
+    = yield(:head)
+  |  <body class="
+  = controller_name
+  = action_name
+  | "> 
+  = render 'layouts/header'
+  .wrapper
+    = yield
+  = render 'layouts/footer'
+  = render 'layouts/modals'
+  #action-loader.loader[style="display: none;"]
+  # = render 'layouts/scripts'
+  #fb-root

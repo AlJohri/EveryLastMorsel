@@ -7,9 +7,10 @@ $topbar-fontsize: 12px;
 $topbar-color: white;
 $bottombar-fontsize: 14px;
 
-.separator {
+.separator:before {
   font-size: 14px;
   margin-left: $header-spacing;
+  content: "|";
 }
 
 .header {
@@ -29,10 +30,14 @@ $bottombar-fontsize: 14px;
   li:first-child {
     margin-left: 0px;
   }
+
   .header-topbar-content, .header-bottombar-content {
     @include clearfix;
-    margin: 0px $header-spacing;
+    max-width: 1140px;
+    margin: 0 auto;    
+    padding: 0 $header-spacing;
   }
+
 }
 
 /* Header Top Bar */
@@ -60,7 +65,7 @@ $bottombar-fontsize: 14px;
 }
 
 .header-bottombar nav {
-  margin-top: 45px;
+  margin-top: 36px;
   a {
     text-transform: uppercase;
   }
@@ -71,7 +76,7 @@ $bottombar-fontsize: 14px;
   img {
     border: 0; 
     margin: 0 auto;
-    margin-top: 18px; 
+    // margin-top: 18px; 
     padding: 0; 
     width: 100%;
   }
@@ -79,15 +84,7 @@ $bottombar-fontsize: 14px;
 
 .logo-mobile { display: none; }  
 
-@media only screen and (max-width: 370px) {
-  .header-bottombar nav { display: none; }
-}
-
-@media only screen and (min-width: 370px) and (max-width: 745px) {
-  .header-bottombar nav { display: none; }
-}
-
-@media only screen and (min-width: 1px) and (max-width: 368px) {
+@mixin responsivenav {
   .header-bottombar nav { display: none; }
   .logo-desktop { display: none; }
   .logo-mobile { 
@@ -99,5 +96,9 @@ $bottombar-fontsize: 14px;
       width: 75px;
       margin-bottom: 20px;
     }
-  }
+  }  
+}
+
+@media only screen and (max-width: 745px) {
+  @include responsivenav;
 }

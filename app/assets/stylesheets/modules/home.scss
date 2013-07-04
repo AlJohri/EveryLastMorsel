@@ -1,9 +1,5 @@
 @import "compass/css3";
 
-.article-home {
-  background-color: #ecf0de;
-}
-
 .section-hero {
   width: 100%;
   // min-height: 400px;
@@ -25,7 +21,7 @@
       display: block;
     }
   }
-
+  
 }
 
 .hero-action-block {
@@ -41,7 +37,6 @@
     background: rgba(255,255,255,0);
     width:auto;
     margin: 0 auto;
-    // margin: 0 10px;
     height: auto;
   }
 
@@ -54,7 +49,8 @@
     padding: 11px 13px;
     text-align: center;
     .get-started {
-      margin: 10px 0px;
+      margin: 10px auto 0px auto;
+      // margin: 10px 0px;
     }  
   }
 
