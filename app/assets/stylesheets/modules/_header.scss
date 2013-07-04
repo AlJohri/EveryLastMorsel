@@ -21,7 +21,8 @@ $bottombar-fontsize: 14px;
   nav {
     float: right;
   }
-  nav ul { 
+  nav ul {
+    width: 100%;
     @include display-box;
     @include box-orient(horizontal);
     @include box-align(center);

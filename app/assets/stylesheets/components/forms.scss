@@ -1,68 +1,69 @@
 /** Form defaults */
-// form ul.fieldset { list-style: none; margin-left: 0; }
-// form ul.fieldset > li { position: relative; margin-bottom: 20px; }
-// form ul.fieldset > li > label {
-//   color: #929292;
-//   display: inline-block;
-//     font-size: 14px;
-//   font-style: italic;
-// }
+form ul.fieldset { list-style: none; margin-left: 0; }
+form ul.fieldset > li { position: relative; margin-bottom: 20px; }
+form ul.fieldset > li > label {
+  color: #929292;
+  display: inline-block;
+    font-size: 14px;
+  font-style: italic;
+}
 
-// form ul.fieldset > li > label + div {
-//   display: inline-block;
-//   position: relative;
-//   text-align: left;
-//   /*width: 270px;*/
-// }
-// form .buttons-set input,
-// form ul.fieldset > li input,
-// form ul.fieldset > li textarea {
-//     background: #ebebeb;
-//   border: 1px solid #ebebeb;
-//     -moz-border-radius: 4px;
-//     -webkit-border-radius: 4px;
-//     border-radius: 4px;
-//   color: #343434;
-//   font-size: 14px;
-//   margin: 0;
-//   padding: 6px 10px;
-//   width: 250px;
-// }
-// form .buttons-set input:focus,
-// form ul.fieldset > li input:focus,
-// form ul.fieldset > li textarea:focus { border-color: #cbcbcb; }
-// form ul.fieldset > li > div label {
-//     color: #7dc6ca;
-//     line-height: 20px;
-//     text-transform: capitalize;
-//     text-align: left;
-//     width: 250px;
-// }
-// form ul.fieldset > li > div label.error {
-//     font-size: 12px;
-//     float: left;
-//     clear: left;
-//     letter-spacing: 0;
-//     line-height: 1;
-//     margin-top: 5px;
-//     white-space: nowrap;
-// }
-// form ul.fieldset > li.control > label {
-//     position: relative;
-//     top: 0;
-//     left: 0;
-//     margin-bottom: 5px;
-// }
-// form ul.fieldset > li.control > label + div { display: block; clear: both; }
-// form ul.fieldset > li.control input[type="radio"],
-// form ul.fieldset > li.control input[type="radio"],
-// form ul.fieldset > li > div label > input {
-//     clear: both;
-//     margin-right: 10px;
-//     width: auto;
-// }
-// .buttons-set { margin-top: 20px; }
-// .buttons-set .btn { float: left; }
+form ul.fieldset > li > label + div {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  /*width: 270px;*/
+}
+form .buttons-set input,
+form ul.fieldset > li input,
+form ul.fieldset > li textarea {
+    background: #ebebeb;
+  border: 1px solid #ebebeb;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  color: #343434;
+  font-size: 14px;
+  margin: 0;
+  padding: 6px 10px;
+  width: 250px;
+  height: 34px;
+}
+form .buttons-set input:focus,
+form ul.fieldset > li input:focus,
+form ul.fieldset > li textarea:focus { border-color: #cbcbcb; }
+form ul.fieldset > li > div label {
+    color: #7dc6ca;
+    line-height: 20px;
+    text-transform: capitalize;
+    text-align: left;
+    width: 250px;
+}
+form ul.fieldset > li > div label.error {
+    font-size: 12px;
+    float: left;
+    clear: left;
+    letter-spacing: 0;
+    line-height: 1;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+form ul.fieldset > li.control > label {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 5px;
+}
+form ul.fieldset > li.control > label + div { display: block; clear: both; }
+form ul.fieldset > li.control input[type="radio"],
+form ul.fieldset > li.control input[type="radio"],
+form ul.fieldset > li > div label > input {
+    clear: both;
+    margin-right: 10px;
+    width: auto;
+}
+.buttons-set { margin-top: 20px; }
+.buttons-set .btn { float: left; }
 
 
 /**
