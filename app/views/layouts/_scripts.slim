@@ -1,19 +1,17 @@
-script
-	javascript:
-  		// var Elm = { domain : '//alpha.everylastmorsel.com/', environment : 'development', api : 'AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI' }; window.Elm = Elm; 
+/ javascript:
+		// var Elm = { domain : '//alpha.everylastmorsel.com/', environment : 'development', api : 'AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI' }; window.Elm = Elm; 
 
-script
-	javascript:
-	  // !function(d, s, id) { 
+/ javascript:
+  // !function(d, s, id) { 
 
-	  // FB var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'); 
-	  
-	  // g+ !function(d, s) { var po = d.createElement(s); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = d.getElementsByTagName(s)[0]; s.parentNode.insertBefore(po, s); }(document, 'script');
-	  
-	  // twitter !function(d, s, id) { var js,fjs = d.getElementsByTagName(s)[0]; if(!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs'); 
+  // FB var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'); 
+  
+  // g+ !function(d, s) { var po = d.createElement(s); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = d.getElementsByTagName(s)[0]; s.parentNode.insertBefore(po, s); }(document, 'script');
+  
+  // twitter !function(d, s, id) { var js,fjs = d.getElementsByTagName(s)[0]; if(!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs'); 
 
-script#_webengage_script_tag[type="text/javascript"]
-	javascript:
+/ script#_webengage_script_tag[type="text/javascript"]
+	/ javascript:
   		// window.webengageWidgetInit = window.webengageWidgetInit || function(){ 
   		// webengage.init({ 
   		// licenseCode:"~47b66612" 
@@ -28,3 +26,12 @@ script#_webengage_script_tag[type="text/javascript"]
   		// _we.src = (d.location.protocol == 'https:' ? "//ssl.widgets.webengage.com" : "//cdn.widgets.webengage.com") + "/js/widget/webengage-min-v-3.0.js"; 
   		// var _sNode = d.getElementById('_webengage_script_tag'); // _sNode.parentNode.insertBefore(_we, _sNode); 
   		// })(document);
+
+javascript:
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42260540-1', 'everylastmorsel.com');
+  ga('send', 'pageview');

@@ -2,27 +2,20 @@
 
 .section-hero {
   width: 100%;
-  // min-height: 400px;
   background-image: url(/assets/hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 35px;
-  padding-bottom: 100px;
+  padding: 35px 0px 100px 0px;
 
   .hero-headline {
     margin: 0 auto;
     max-width: 771px;
     height: auto;
-    padding: 10px;
-    padding-bottom: 30px;
-    img {
-      width: 100%;
-    }
-    span {
-      display: block;
-    }
+    padding: 10px 10px 30px 10px;
+    img { width: 100%; }
+    span { display: block; }
   }
-  
+
 }
 
 .hero-action-block {
@@ -49,10 +42,7 @@
     background: rgba(255,255,255,0.9);
     padding: 11px 13px;
     text-align: center;
-    .get-started {
-      margin: 10px auto 0px auto;
-      // margin: 10px 0px;
-    }  
+    .get-started { margin: 10px auto 0px auto; }
   }
 
 }
@@ -63,13 +53,8 @@
   text-align: center;
   padding: 0 5%;
   padding-bottom: 60px;
-  h1 {
-    padding-top: 5%;
-    color: #6b722b;
-  }
-  h2 {
-    color: #6d6d6d;
-  }
+  h1 { padding-top: 5%; color: #6b722b; }
+  h2 { color: #6d6d6d; }
 }
 
 ul.tools {
@@ -81,17 +66,25 @@ ul.tools {
   @include box-pack(center);
   li {
     @include box-flex(1);
-    // background: url('/assets/map.svg') no-repeat center top; // fill: #6b722b;
-    span {
-      display: block;
-      text-transform: uppercase;
-    }
+    span { display: block; text-transform: uppercase; }
   }
-  img { 
-    fill: #6b722b;
-    height: 100px; 
-    width: 100px; 
+  // embed { 
+  //   // fill: #6b722b;
+  //   fill: red;
+  //   height: 100px; 
+  //   width: 100px; 
+    
+  // }
+  .section-tool-icon {
+    fill: black;
+    height: 100px;
+    width: 100px;
     @include filter(invert(30%));
+  }
+  .section-tool-icon:hover {
+    fill: #6b722b;
+    cursor: pointer;
+    @include filter(invert(0%));
   }
 }
 
@@ -107,28 +100,15 @@ ul.tools {
     max-width: 720px;
     height: auto;
   }
+
   .section-claims-content {
     position: relative;
     left: 55%;
     width: 310px;
-    padding-top: 130px;
-    padding-bottom: 130px;
-    // padding-right: 200px;
-    h1 {
-      color: #4b4b4b;
-      font-size: 36px;
-      padding-bottom: 10px;
-    }
-    h2 {
-      color: #6d6d6d;
-      font-size: 20px;
-      padding-bottom: 10px;
-    }
-    a {
-      color: #f07519;
-      font-size: 18px;
-      text-transform: uppercase;
-    }
+    padding: 130px 0px 130px 0px;
+    h1 { color: #4b4b4b; font-size: 36px; padding-bottom: 10px; }
+    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
+    a { color: #f07519; font-size: 18px; text-transform: uppercase; }
   }
 
 }
@@ -146,69 +126,54 @@ ul.tools {
     width: 400px;
     padding-top: 130px;
     padding-bottom: 130px;
-    // padding-right: 200px;
-    h1 {
-      color: white;
-      font-size: 36px;
-      padding-bottom: 10px;
-    }
-    h2 {
-      color: white;
-      font-size: 20px;
-      padding-bottom: 10px;
-    }
-    a {
-      color: #4b4b4b;
-      font-size: 18px;
-      text-transform: uppercase;
-    }
+    h1 { color: white; font-size: 36px; padding-bottom: 10px; }
+    h2 { color: white; font-size: 20px; padding-bottom: 10px; }
+    a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
   }  
 }
 
-@media only screen and (max-width: 1100px) {
-  .section-claims img {
-    max-width: 620px;
-    bottom: -30px;
-    left: 10%
+.section-learn {
+  .section-learn-content {
+    text-align: center;
+    h1 { color: white; font-size: 36px; padding-bottom: 10px; }
+    h2 { color: white; font-size: 20px; padding-bottom: 10px; }
+    a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
   }
-  .section-claims .section-claims-content {
-    padding-top: 105px;
-    padding-bottom: 105px;    
-  } 
+}
 
+.section-share {
+  background-color: white;
+  .section-share-content {
+    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
+  }
+}
+
+.section-grow {
+  .section-grow-content {
+    h2 { color: #6d6d6d; }
+    a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .section-claims img { max-width: 620px; bottom: -30px; left: 10% }
+  .section-claims .section-claims-content { padding-top: 105px; padding-bottom: 105px; }
   .section-track {
     background-size: 80% 80%;
-    .section-track-content {
-      padding-top: 105px;
-      padding-bottom: 105px;    
-    }
+    .section-track-content { padding-top: 105px; padding-bottom: 105px; }
   }
 
 }
 
 @media only screen and (max-width: 850px) {
-  .section-claims img {
-    max-width: 520px;
-    bottom: -30px;
-    left: 5%
-  }
-
-  .section-claims .section-claims-content {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    left: 50%;
-  }
-
-  .section-track {
-    background-size: 68% 68%;
-  }
+  .section-claims img { max-width: 520px; bottom: -30px; left: 5% }
+  .section-claims .section-claims-content { padding-top: 80px; padding-bottom: 80px; left: 50%; }
+  .section-track { background-size: 68% 68%; }
 }
 
 @media only screen and (max-width: 675px) {
 
-  .section-track {
-    background-size: 61% 61%;
-  }  
+  .section-track { background-size: 61% 61%; }
 
   .section-track .section-track-content {
     width: 266px;
@@ -219,11 +184,7 @@ ul.tools {
     a { font-size: 12px; }    
   }
 
-  .section-claims img {
-    max-width: 420px;
-    bottom: -20px;
-    left: 5%
-  }
+  .section-claims img { max-width: 420px; bottom: -20px; left: 5% }
 
   .section-claims .section-claims-content {
     padding-top: 70px;
@@ -257,8 +218,6 @@ ul.tools {
       @include box-orient(horizontal);
       @include box-align(center);
       @include box-pack(center);
-      // margin: 10px 0px;
-
       span {
         display: inline-flex;
         font-size: 20px;
@@ -270,27 +229,13 @@ ul.tools {
 }
 
 @media only screen and (max-width: 675px) {
-  .section-claims img {
-    max-width: 320px;
-    bottom: -20px;
-    left: 5%
-  }
-  .section-claims .section-claims-content {
-    left: 45%;
-    padding-top: 40px;
-    padding-bottom: 40px;    
-  }    
+  .section-claims img { max-width: 320px; bottom: -20px; left: 5% }
+  .section-claims .section-claims-content { left: 45%; padding: 40px 0px; }
 }
 
 @media only screen and (max-width: 480px) {
-  .section-claims img {
-    display: none;
-  }
-
-  .section-track {
-    background-image: none;
-  }
-
+  .section-claims img { display: none; }
+  .section-track { background-image: none; }
   .section-claims .section-claims-content {
     width: 250px;
     margin: 0 auto;

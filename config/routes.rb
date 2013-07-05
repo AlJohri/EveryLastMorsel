@@ -1,9 +1,9 @@
 EveryLastMorsel::Application.routes.draw do
   # authenticated :user do
-  #   root :to => 'home#index'
+  #   root :to => 'home#home'
   # end
 
-  root :to => "static#index"
+  root :to => "static#home"
 
   get "/about", controller: "static", action: "about", as: "about"
   get '/help', controller: "static", action: "help", as: "help"

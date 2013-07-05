@@ -13,6 +13,39 @@
 
 ActiveRecord::Schema.define(:version => 20130704154618) do
 
+  create_table "crops", :force => true do |t|
+    t.integer  "plot_id"
+    t.string   "plant"
+    t.string   "type"
+    t.integer  "coverage_number"
+    t.string   "coverage_unit"
+    t.datetime "date_planted"
+    t.string   "starting_type"
+    t.text     "description"
+    t.integer  "yield_number"
+    t.string   "yield_unit"
+    t.datetime "date_picked"
+    t.integer  "quantity_number"
+    t.string   "quantity_type"
+    t.decimal  "price"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "plots", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.string   "name"
+    t.string   "type"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "visibility"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "text"
