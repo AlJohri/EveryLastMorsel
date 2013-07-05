@@ -81,12 +81,18 @@ ul.tools {
   @include box-pack(center);
   li {
     @include box-flex(1);
+    // background: url('/assets/map.svg') no-repeat center top; // fill: #6b722b;
     span {
       display: block;
       text-transform: uppercase;
     }
   }
-  img { height: 100px; width: 100px; }
+  img { 
+    fill: #6b722b;
+    height: 100px; 
+    width: 100px; 
+    @include filter(invert(30%));
+  }
 }
 
 .section-claims {
