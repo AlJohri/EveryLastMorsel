@@ -22,6 +22,8 @@ gem 'omniauth-google-oauth2'
 gem 'cancan', '>= 1.6.9'
 gem 'rolify', '>= 3.2.0'
 gem 'newrelic_rpm'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # gem "high_voltage", "~> 1.2.3"
 gem 'friendly_id', '~> 4.0.9'
