@@ -45,7 +45,7 @@ test:
   database: EveryLastMorsel_test
   pool: 5
   username: postgres
-  password: postgres
+  password: 
   template: template0
 
 production:
