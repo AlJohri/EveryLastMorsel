@@ -1,0 +1,46 @@
+footer#footer
+  .footer-container
+    .column
+      h3
+        | Resources
+      ul.list
+        li
+          a[href="/about"]
+            | About Us
+        li
+          a[href="/marketplace"]
+            | Marketplace
+        li
+          a[href="/help"]
+            | How it Works
+        li
+          a[href="/help"]
+            | Help
+    .column
+      h3
+        | Help Us Grow
+      ul.social
+        li
+          a.icon.twitter[href="http://twitter.com/@EveryLastMorsel" target="_blank" rel="twitter" title="Tweet With Us"]
+        li
+          a.icon.facebook[href="https://www.facebook.com/everylastmorsel" target="_blank" rel="facebook" title="Facebook Us"]
+    .column.newsletter
+      h3
+        | Sign Up For News & Updates
+      form.labelify.email-signup[action="<?= $this->url('newsletter/signup'); ?>" method="post"]
+        div
+          input#newsletter-email[type="email" name="email" placeholder="Email"]
+        button.button.btn-blue[type="submit" name="submit"]
+          span
+            | Submit
+    .copyright.f-left
+      p
+        | Copyright © Every Last Morsel 2013
+      ul
+        li
+          a href="terms_of_service"
+            | Terms of Service
+          span.separator
+        li
+          a href="privacy_policy"
+            | Privacy Policy

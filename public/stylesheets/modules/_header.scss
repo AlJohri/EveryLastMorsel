@@ -1,0 +1,108 @@
+// $header-spacing-first: 0px;
+$header-spacing: 20px;
+$topbar-fontsize: 12px;
+$topbar-color: white;
+$bottombar-fontsize: 14px;
+
+.separator:before {
+  font-size: 14px;
+  margin-left: $header-spacing;
+  margin-right: $header-spacing;
+  content: "|";
+}
+
+.header {
+  // height: 140px;
+  @include box-shadow(0px 1px 4px #ccc);
+  position: relative;
+  nav {
+    float: right;
+  }
+  nav ul {
+    width: 100%;
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(center);
+    @include box-pack(stretch);
+  }
+  li {
+    @include box-flex(1);
+    text-align: center;
+  }
+
+  .header-topbar-content, .header-bottombar-content {
+    @include clearfix;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 $header-spacing;
+  }
+
+}
+
+/* Header Top Bar */
+
+.header-topbar {
+  @include clearfix;
+  background: #7dc6ca url("/images/utility-blue-noise.jpg") repeat;
+  border-bottom: 1px solid #75bbbf;
+  // @include box-shadow(inset 0 -1px 1px rgba(255,255,255,1));
+  padding: 8px 0;
+  color: white;
+  font-size: $topbar-fontsize;
+  nav {
+    // width: 140px;
+  }
+}
+
+.header-topbar nav a {
+  color: white;
+}
+
+/* Header Bottom Bar */
+
+.header-bottombar {
+  // border-bottom: 1px solid #75bbbf;
+  background: white;
+  font-size: $bottombar-fontsize;
+}
+
+.header-bottombar nav {
+  width: 340px;
+  margin-top: 36px;
+  a {
+    text-transform: uppercase;
+  }
+}
+
+.header-bottombar h1 {
+  float: left;
+  img {
+    border: 0;
+    margin: 0 auto;
+    // margin-top: 18px;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.logo-mobile { display: none; }
+
+@media only screen and (max-width: 745px) {
+  .header-bottombar nav {
+    @include clearfix;
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .logo-desktop { display: none; }
+  .logo-mobile {
+    display: block;
+  }
+  .header-bottombar h1 {
+    float: none;
+    img {
+      width: 75px;
+      margin-bottom: 20px;
+    }
+  }
+}
