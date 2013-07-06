@@ -40,6 +40,10 @@ group :development do
   gem "quiet_assets", "~> 1.0.2"
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+end
+
 # TODO: https://github.com/FriendlyId/friendly_id
 
 
