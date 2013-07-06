@@ -1,0 +1,6 @@
+#! /bin/sh
+
+APPDIR=$(git rev-parse --show-toplevel)
+rm -rf ${APPDIR}/config
+rm -rf ${APPDIR}/log
+rm -rf ${APPDIR}/tmp
