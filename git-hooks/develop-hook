@@ -1,4 +1,0 @@
-#! /bin/sh
-
-APPDIR=$(git rev-parse --show-toplevel)
-cp ${APPDIR}/config/database.yml.sample ${APPDIR}/config/database.yml
