@@ -40,24 +40,33 @@ $mobile: new-breakpoint(max-width 650px 4);
       h1 { color: #4b4b4b; font-size: 36px; padding-bottom: 10px; }
       h2 { color: #6d6d6d; font-size: 24px; padding-bottom: 10px; }
       div {
-        //min-width: 300px;
         width: 100%;
-        //@include display-box;
-        //@include box-orient(horizontal);
-        //@include box-align(center);
-        //@include box-pack(start);
-
         input[type='text'] {
           width: 100%;
           height: 40px;
           font-size: 20px;
         }
 
-        input[type="submit"] {
+        input[type="submit"], button {
           width: 110px;
           margin-top: 10px;
+          margin-right: 10px;
+          display: inline;
         }
 
+        span.return {
+          font-size: 20px;             
+        }
+
+        span.return-success {
+          color: green;
+        }
+
+        span.return-error {
+          color: red;
+        }         
+
+    
       }
     }
   }
@@ -84,10 +93,6 @@ $mobile: new-breakpoint(max-width 650px 4);
   .section-track-content {
     max-width: 1140px;
     margin: 0 auto;
-    // @include display-box;
-    // @include box-orient(horizontal);
-    // @include box-align(center);
-    // @include box-pack(stretch);
 
     .section-track-copy {
       

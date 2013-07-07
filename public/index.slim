@@ -43,7 +43,35 @@ html
           }, false);
       }
 
+      $(document).ready(function(){
 
+          $("#subscribe-form").submit(function() {
+              var email = $("#subscribe-email").val();
+              if (email == "") $("#subscribe-form span.return").html("Pleaes enter an email.").addClass("return-error");
+              $.get($("#subscribe-form").attr("action"), $("#subscribe-email").serialize(), 
+                function(data) {
+
+                  console.log(data);
+                  if (data['code'] != null ) {
+                    if (data['code'] == 214) 
+                      $("#subscribe-form span.return").html("You've already subscribed!").addClass("return-error");
+                    else if (data['code'] == 502)
+                      $("#subscribe-form span.return").html("Invalid email address.").addClass("return-error");
+                    else 
+                      $("#subscribe-form span.return").html(data['error']).addClass("return-error");
+                  }
+                  else {
+                    $("#subscribe-form span.return").html("Subscribed!").addClass("return-success");
+                  }
+
+                  $("#subscribe-email").val("");
+
+                }, 
+                "json" );
+                return false;
+          });
+
+      });
 
       // Start of Zopim Live Chat Script
       window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=

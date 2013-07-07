@@ -7,5 +7,6 @@ gem 'rack-server-pages'
 gem 'tilt'
 gem 'slim'
 gem 'gibbon'
-gem 'bourbon' # bourbon install --path my/custom/path/
-gem 'neat' # neat install
+gem 'json'
+# gem 'bourbon' # bourbon install --path my/custom/path/
+# gem 'neat' # neat install
