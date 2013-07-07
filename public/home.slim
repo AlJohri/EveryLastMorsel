@@ -10,9 +10,10 @@ article.article-home
           h2 We're getting ready to launch this month!
           /h3 Get notified when you can start using every Last Morsel.
           div
-            input.awesome-text-box type="text" placeholder="Email"
-            input.button.btn-orange type="submit" value="Notify Me!"
-            /button.button.btn-orange
+            form action="/subscribe" method="get"
+              input.awesome-text-box type="text" placeholder="Email" name="email"
+              input.button.btn-orange type="submit" value="Notify Me!" name="submit"
+              /button.button.btn-orange
 
   section.section-track
     .section-track-content
