@@ -122,7 +122,10 @@ $mobile: new-breakpoint(max-width 650px 4);
           h2 { font-size: 20px !important; }
         }
 
-        @include media($mobile) { @include span-columns(4); }
+        @include media($mobile) { 
+          @include span-columns(4); 
+          margin-top: 20px;
+        }
 
       }
 
