@@ -128,7 +128,7 @@ $mobile: new-breakpoint(max-width 650px 4);
 
       h1 { color: white; font-size: 36px; padding-bottom: 10px; }
       h2 { color: white; font-size: 20px; padding-bottom: 10px; }
-      a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+      a { color: #4b4b4b; text-decoration:underline; }
     }
 
   }
