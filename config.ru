@@ -2,6 +2,7 @@ require 'rack-server-pages'
 require 'sinatra'
 require 'tilt'
 require 'slim'
+require 'sass'
 require 'gibbon'
 require 'json'
 
