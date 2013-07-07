@@ -58,10 +58,10 @@ html
                     else if (data['code'] == 502)
                       $("#subscribe-form span.return").html("Invalid email address.").addClass("return-error");
                     else 
-                      $("#subscribe-form span.return").html(data['error']).addClass("return-error");
+                      $("#subscribe-form span.return").html(data['error']).removeClass("return-success").addClass("return-error");
                   }
                   else {
-                    $("#subscribe-form span.return").html("Subscribed!").addClass("return-success");
+                    $("#subscribe-form span.return").html("Subscribed!").removeClass("return-error").addClass("return-success");
                   }
 
                   $("#subscribe-email").val("");
