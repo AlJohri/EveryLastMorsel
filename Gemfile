@@ -6,6 +6,7 @@ gem 'rack'
 gem 'rack-server-pages'
 gem 'tilt'
 gem 'slim'
+gem 'sass'
 gem 'gibbon'
 gem 'json'
 # gem 'bourbon' # bourbon install --path my/custom/path/

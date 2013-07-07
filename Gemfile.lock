@@ -15,6 +15,7 @@ GEM
       rack
     rack-server-pages (0.0.6)
       rack
+    sass (3.2.9)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -33,6 +34,7 @@ DEPENDENCIES
   json
   rack
   rack-server-pages
+  sass
   sinatra
   slim
   tilt
