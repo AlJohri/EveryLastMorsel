@@ -2,7 +2,7 @@ require 'rack-server-pages'
 require 'sinatra'
 require 'tilt'
 require 'slim'
-require 'Gibbon'
+require 'gibbon'
 
 run Sinatra::Application
 
