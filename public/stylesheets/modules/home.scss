@@ -24,7 +24,7 @@ $mobile: new-breakpoint(max-width 650px 4);
       @include media($tablet) {
         @include span-columns(3);
         h1 { font-size: 25px !important; }
-        h2 { font-size: 20px !important;}
+        h2 { font-size: 20px !important; }
       }
 
       @include media($mobile) {
@@ -79,16 +79,48 @@ $mobile: new-breakpoint(max-width 650px 4);
   @include display-box;
   @include box-align(center);
 
+  
+
   .section-track-content {
     max-width: 1140px;
     margin: 0 auto;
-    @include display-box;
-    @include box-orient(horizontal);
-    @include box-align(center);
-    @include box-pack(stretch);
+    // @include display-box;
+    // @include box-orient(horizontal);
+    // @include box-align(center);
+    // @include box-pack(stretch);
 
     .section-track-copy {
-      @include box-flex(1);
+      
+      @include outer-container;
+      
+
+      .section-track-copy-left {
+
+        @include span-columns(6);
+
+        @include media($tablet) {
+          @include span-columns(4);
+          h1 { font-size: 25px !important; }
+          h2 { font-size: 20px !important; }
+        }
+
+        @include media($mobile) { @include span-columns(4); }
+
+      }
+      .section-track-copy-right {
+
+        @include span-columns(6);
+
+        @include media($tablet) {
+          @include span-columns(4);
+          h1 { font-size: 25px !important; }
+          h2 { font-size: 20px !important; }
+        }
+
+        @include media($mobile) { @include span-columns(4); }
+
+      }
+
       h1 { color: white; font-size: 36px; padding-bottom: 10px; }
       h2 { color: white; font-size: 20px; padding-bottom: 10px; }
       a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
