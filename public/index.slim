@@ -1,17 +1,47 @@
 doctype html
 html
   head
-    title Slim Examples
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title Every Last Morsel
     meta name="keywords" content="template language"
     meta name="author" content="author"
     link rel="icon" type="image/png" href="favicon.png"
     link rel="stylesheet" type="text/css" href="/stylesheets/application.scss"
-
+    script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"
+    script type="text/javascript" src="/javascript/jquery.syncHeight.min.js"
 
   body
     == partial("public/_header")
 
     .wrapper
+      == partial("public/home")
 
 
     == partial("public/_footer")
+
+    javascript:
+
+      if (navigator.appName == "Microsoft Internet Explorer") {
+          $(window).load(function () {
+            $('.section-claims-image, .section-claims-copy-wrapper').syncHeight({ 'updateOnResize': true });
+          });
+      }
+      else {
+          window.addEventListener('load', function () {
+            $('.section-claims-image, .section-claims-copy-wrapper').syncHeight({ 'updateOnResize': true });
+          }, false);
+      }
+
+      $(window).resize(function(){
+          if($(window).width() < 480){
+              $('.section-claims-image, .section-claims-copy-wrapper').unSyncHeight();
+          }
+      });
+
+      // Start of Zopim Live Chat Script
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+      d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+      _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+      $.src='//v2.zopim.com/?1M9mF5u2KYeB2tQqMGbCidQModXftWIw';z.t=+new Date;$.
+      type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+      // End of Zopim Live Chat Script

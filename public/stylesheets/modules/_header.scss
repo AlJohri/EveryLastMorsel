@@ -2,7 +2,7 @@
 $header-spacing: 20px;
 $topbar-fontsize: 12px;
 $topbar-color: white;
-$bottombar-fontsize: 14px;
+$bottombar-fontsize: 15px;
 
 .separator:before {
   font-size: 14px;
@@ -61,6 +61,8 @@ $bottombar-fontsize: 14px;
 /* Header Bottom Bar */
 
 .header-bottombar {
+  padding-top: 15px;
+  padding-bottom: 7px;
   // border-bottom: 1px solid #75bbbf;
   background: white;
   font-size: $bottombar-fontsize;
@@ -87,7 +89,7 @@ $bottombar-fontsize: 14px;
 
 .logo-mobile { display: none; }
 
-@media only screen and (max-width: 745px) {
+@media only screen and (max-width: 768px) {
   .header-bottombar nav {
     @include clearfix;
     float: none;
@@ -105,4 +107,14 @@ $bottombar-fontsize: 14px;
       margin-bottom: 20px;
     }
   }
+}
+
+@media only screen and (max-width: 400px) {
+  .header-bottombar {
+    font-size: 12px;
+    nav {
+      width: 275px;
+    }
+  }
+
 }

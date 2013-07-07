@@ -1,4 +1,12 @@
+$max-width: 1140px;
+
 @import "base/normalize.css";
 @import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/typography";
+@import "base/layout";
+@import "components/button";
+@import "components/form";
 @import "modules/header";
 @import "modules/footer";
+@import "modules/home";

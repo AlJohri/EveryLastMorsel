@@ -1,0 +1,99 @@
+$tablet: new-breakpoint(max-width 800px 8);
+$mobile: new-breakpoint(max-width 480px 4);
+
+.section-claims {
+  max-width: 1140px;
+  margin: 0 auto;
+  background-color: inherit;
+
+  .section-claims-content {
+
+    @include outer-container;
+    padding: 30px;
+
+    .section-claims-image {
+      @include span-columns(6);
+      @include media($tablet) { @include span-columns(4); }
+      @include media($mobile) { @include span-columns(4); }
+
+      img { display: block; width: 100%; }
+    }
+    .section-claims-copy-wrapper {
+      @include span-columns(6);
+
+      @include media($tablet) {
+        @include span-columns(4);
+        h1 { font-size: 25px !important; }
+        h2 { font-size: 20px !important;}
+      }
+
+      @include media($mobile) {
+        @include span-columns(4);
+        h1 { text-align: left; }
+        h2 { text-align: left; }
+        input[type="submit"] { margin: 10px auto; }
+      }
+
+      @include display-box;
+      @include box-align(center);
+      .section-claims-copy { display: block; }
+      h1 { color: #4b4b4b; font-size: 36px; padding-bottom: 10px; }
+      h2 { color: #6d6d6d; font-size: 24px; padding-bottom: 10px; }
+      div {
+        //min-width: 300px;
+        width: 100%;
+        //@include display-box;
+        //@include box-orient(horizontal);
+        //@include box-align(center);
+        //@include box-pack(start);
+
+        input[type='text'] {
+          width: 100%;
+          height: 40px;
+          font-size: 20px;
+        }
+
+        input[type="submit"] {
+          width: 110px;
+          margin-top: 10px;
+        }
+
+      }
+    }
+  }
+}
+
+
+
+.section-track {
+
+  overflow: hidden;
+
+  @include span-columns(12);
+
+  width: 100%;
+  min-height: 300px;
+  background-color: #7dc6ca;
+  padding: 30px;
+
+  @include display-box;
+  @include box-align(center);
+
+  .section-track-content {
+    max-width: 1140px;
+    margin: 0 auto;
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(center);
+    @include box-pack(stretch);
+
+    .section-track-copy {
+      @include box-flex(1);
+      h1 { color: white; font-size: 36px; padding-bottom: 10px; }
+      h2 { color: white; font-size: 20px; padding-bottom: 10px; }
+      a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+    }
+
+  }
+
+}
