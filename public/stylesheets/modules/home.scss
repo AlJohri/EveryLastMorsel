@@ -1,5 +1,5 @@
 $tablet: new-breakpoint(max-width 800px 8);
-$mobile: new-breakpoint(max-width 480px 4);
+$mobile: new-breakpoint(max-width 650px 4);
 
 .section-claims {
   max-width: 1140px;
@@ -13,7 +13,7 @@ $mobile: new-breakpoint(max-width 480px 4);
 
     .section-claims-image {
       @include span-columns(6);
-      @include media($tablet) { @include span-columns(4); }
+      @include media($tablet) { @include span-columns(5); }
       @include media($mobile) { @include span-columns(4); }
 
       img { display: block; width: 100%; }
@@ -22,7 +22,7 @@ $mobile: new-breakpoint(max-width 480px 4);
       @include span-columns(6);
 
       @include media($tablet) {
-        @include span-columns(4);
+        @include span-columns(3);
         h1 { font-size: 25px !important; }
         h2 { font-size: 20px !important;}
       }

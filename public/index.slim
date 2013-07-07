@@ -21,22 +21,29 @@ html
 
     javascript:
 
+      function sync() {
+        $('.section-claims-image, .section-claims-copy-wrapper').syncHeight({ 'updateOnResize': true });
+        unSyncIfMobile();
+      }
+
+      function unSyncIfMobile() {
+        if($(window).width() < 650) { $('.section-claims-image, .section-claims-copy-wrapper').unSyncHeight(); }
+      }
+
       if (navigator.appName == "Microsoft Internet Explorer") {
-          $(window).load(function () {
-            $('.section-claims-image, .section-claims-copy-wrapper').syncHeight({ 'updateOnResize': true });
+          $(window).load(function () { 
+            sync(); 
+            $(window).resize(function(){ unSyncIfMobile(); });
           });
       }
       else {
-          window.addEventListener('load', function () {
-            $('.section-claims-image, .section-claims-copy-wrapper').syncHeight({ 'updateOnResize': true });
+          window.addEventListener('load', function () { 
+            sync();
+            $(window).resize(function(){ unSyncIfMobile(); });
           }, false);
       }
 
-      $(window).resize(function(){
-          if($(window).width() < 480){
-              $('.section-claims-image, .section-claims-copy-wrapper').unSyncHeight();
-          }
-      });
+
 
       // Start of Zopim Live Chat Script
       window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
