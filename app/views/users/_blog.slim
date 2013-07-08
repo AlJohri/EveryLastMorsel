@@ -1,0 +1,10 @@
+article.profile-blog
+  ul
+    |  <% @posts.each do |post| %> 
+    li
+      h2
+        |  <%= post.title %> 
+      span[style="line-height: 1.35px;"]
+        | <%= truncate(post.text, :length => 255)%> 
+      |  <%= link_to "Read More...", post_url(post.id) %> 
+    |  <% end %> 
