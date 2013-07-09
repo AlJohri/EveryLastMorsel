@@ -24,6 +24,9 @@ gem 'rolify', '>= 3.2.0'
 gem 'newrelic_rpm'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'acts-as-taggable-on'
+gem "acts_as_follower"
+
 
 # gem "high_voltage", "~> 1.2.3"
 gem 'friendly_id', '~> 4.0.9'
@@ -38,6 +41,7 @@ group :development do
   gem "better_errors", "~> 0.9.0"
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
   gem "quiet_assets", "~> 1.0.2"
+  gem 'nested_scaffold'
 end
 
 group :development, :test do
