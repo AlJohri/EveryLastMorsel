@@ -1,4 +1,8 @@
 EveryLastMorsel::Application.routes.draw do
+  resources :users do
+    resources :posts
+  end
+
   # authenticated :user do
   #   root :to => 'home#home'
   # end
@@ -13,7 +17,7 @@ EveryLastMorsel::Application.routes.draw do
   # get '/hub', controller: "hub", action: "index", as: "index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, :crops, :plots, :posts
+  resources :users, :crops, :plots
   resources :users, :path => '', :only => [:show]
 
 end

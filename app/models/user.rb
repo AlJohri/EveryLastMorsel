@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts
   after_create :update_mailchimp
   rolify
   # Include default devise modules. Others available are:
@@ -16,7 +17,6 @@ class User < ActiveRecord::Base
   attr_accessible :city, :state
   attr_accessible :image, :url
 
-  has_many :posts
   has_many :plots
   has_many :crops, :through => :plots
 

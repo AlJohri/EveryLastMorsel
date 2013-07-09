@@ -19,4 +19,7 @@ GOOGLE_APPID: appid
 GOOGLE_APPSECRET: appsecret
 TWITTER_APPID: appid
 TWITTER_APPSECRET: appsecret
+AWS_BUCKET: bucket
+AWS_ACCESS_KEY_ID: keyid
+AWS_SECRET_ACCESS_KEY: accesskey
 ROLES: [admin, user, VIP]
