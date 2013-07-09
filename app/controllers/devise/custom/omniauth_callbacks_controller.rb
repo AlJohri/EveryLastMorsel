@@ -1,5 +1,6 @@
 # https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
-class Users::OmniauthCallbacksController < ApplicationController
+class Devise::Custom::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
   def facebook
     # You need to implement the method below in your model (e.g. app/models/user.rb)
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
@@ -39,27 +40,27 @@ class Users::OmniauthCallbacksController < ApplicationController
       end
   end
 
-  def failure
-    flash[:alert] = I18n.t "devise.omniauth_callbacks.failure", :kind => OmniAuth::Utils.camelize(failed_strategy.name), :reason => failure_message
-    redirect_to new_user_registration_url
-  end
+  # def failure
+  #   flash[:alert] = I18n.t "devise.omniauth_callbacks.failure", :kind => OmniAuth::Utils.camelize(failed_strategy.name), :reason => failure_message
+  #   redirect_to new_user_registration_url
+  # end
 
-  def failed_strategy
-    env["omniauth.error.strategy"]
-  end
+  # def failed_strategy
+  #   env["omniauth.error.strategy"]
+  # end
 
-  protected
+  # protected
 
-  def failure_message
-    exception = env["omniauth.error"]
-    error   = exception.error_reason if exception.respond_to?(:error_reason)
-    error ||= exception.error        if exception.respond_to?(:error)
-    error ||= env["omniauth.error.type"].to_s
-    error.to_s.humanize if error
-  end
+  # def failure_message
+  #   exception = env["omniauth.error"]
+  #   error   = exception.error_reason if exception.respond_to?(:error_reason)
+  #   error ||= exception.error        if exception.respond_to?(:error)
+  #   error ||= env["omniauth.error.type"].to_s
+  #   error.to_s.humanize if error
+  # end
   
-  def handle_unverified_request
-    true
-  end
+  # def handle_unverified_request
+  #   true
+  # end
 
 end
