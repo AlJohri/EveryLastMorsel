@@ -14,24 +14,24 @@ end
 
 # Authentication Gems
 # https://github.com/intridea/omniauth/wiki/List-of-Strategies
-gem 'devise', '>= 2.2.3'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
-gem 'cancan', '>= 1.6.9'
-gem 'rolify', '>= 3.2.0'
-gem 'newrelic_rpm'
-gem 'paperclip'
-gem 'aws-sdk'
-gem 'acts-as-taggable-on'
-gem "acts_as_follower"
-gem 'rails3-jquery-autocomplete'
+gem 'devise', '>= 2.2.3' # https://github.com/plataformatec/devise
+gem 'omniauth' # https://github.com/intridea/omniauth
+gem 'omniauth-facebook' # https://github.com/mkdynamic/omniauth-facebook
+gem 'omniauth-twitter' # https://github.com/arunagw/omniauth-twitter
+gem 'omniauth-google-oauth2' # https://github.com/zquestz/omniauth-google-oauth2
+gem 'cancan', '>= 1.6.9' # https://github.com/ryanb/cancan
+gem 'rolify', '>= 3.2.0' # https://github.com/EppO/rolify
+gem 'newrelic_rpm' # https://github.com/newrelic/rpm
+gem 'paperclip' # https://github.com/thoughtbot/paperclip
+gem 'aws-sdk', '~> 1.0' # https://github.com/aws/aws-sdk-ruby
+gem 'acts-as-taggable-on' # https://github.com/mbleigh/acts-as-taggable-on
+gem "acts_as_follower" # https://github.com/tcocca/acts_as_follower/
+gem 'rails3-jquery-autocomplete' # https://github.com/crowdint/rails3-jquery-autocomplete
 
 # gem "high_voltage", "~> 1.2.3"
-gem 'friendly_id', '~> 4.0.9'
-gem 'figaro', '~> 0.7.0'
-gem 'pg', '~> 0.15.1'
+gem 'friendly_id', '~> 4.0.9' # https://github.com/norman/friendly_id
+gem 'figaro', '~> 0.7.0' # https://github.com/laserlemon/figaro
+gem 'pg', '~> 0.15.1' 
 gem 'thin', '~> 1.5.1'
 gem "haml", "~> 4.0.3"
 gem 'slim', '~> 2.0.0'
@@ -47,8 +47,3 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
 end
-
-# TODO: https://github.com/FriendlyId/friendly_id
-
-
-# :require => 'friendly_id'
