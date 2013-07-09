@@ -1,19 +1,32 @@
 <%= content_tag(:article, id: "blog_post_#{post.id}", class: "blog_post") do %>
 
   <%# Render the header for this blog post %>
-  <%= render "blogit/posts/post_head", post: post %>
+  <%= blog_tag :header do %>
+    <%= content_tag(:h1, link_to(post.title, post)) %>
+  <% end %>
 
   <%# Render the body of this blog post (as Markdown) %>
-  <%= render "blogit/posts/post_body", post: post %>
+  <%= format_content(post.body) %>
 
   <%# Render admin links to edit/delete this post %>
-  <%= render "blogit/posts/post_links", post: post %>
+  <%= login_required do  %>
+    <%= actions do %>
+      <%= link_to(t(:edit, scope: 'blogit.posts'), edit_post_path(post)) %> | <%= link_to(t(:delete, scope: 'blogit.posts'), post, method: :delete, confirm: t(:are_you_sure_you_want_to_remove_this_post, scope: 'blogit.posts')) %>
+    <% end %>
+  <% end unless blogit_conf.author_edits_only and not this_blogger?(post) %>
 
   <%# Render info about the person who wrote this post %>
-  <%= render "blogit/posts/blogger_information", post: post %>
+  <%= blog_tag :footer do %>
+      <%=t :written_by, scope: 'blogit.posts', author: post.blogger_display_name %>
+      <%= time_tag(post.created_at, pubdate: true, format: blogit_conf.datetime_format) %>
+  <% end %>
 
   <%# Render the no. of comments %>
-  <%= render "blogit/posts/comments_count",
-    post: post if defined?(show_comments_count) and show_comments_count %>
+  <%#= render "blogit/posts/comments_count", post: post if defined?(show_comments_count) and show_comments_count %>
+  <%= content_tag(:div, class: "blog_post_comments_count", id: "blog_post_#{post.id}_comments_count") do %>
+    <%= link_to(post_path(post, anchor: "comments")) do %>
+      <%=t :comment, scope: 'blogit.posts', count: post.comments_count %>
+    <% end %>
+  <% end %>
 
 <% end %>
