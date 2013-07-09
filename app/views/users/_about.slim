@@ -1,2 +1,15 @@
 article.profile-about
-  |  @user. 
+  - if (user_signed_in? && current_user.id == @user.id)
+      button.button.btn-orange Edit About
+  / end
+  p Name: #{@user.name}
+  p Email: #{@user.name}
+  p City: #{@user.city}
+  p State: #{@user.state}
+  p Slug: #{@user.slug}
+  p 
+    | Image: 
+    a href=@user.image #{@user.image}
+  p 
+    | URL:
+    a href=@user.url #{@user.url}

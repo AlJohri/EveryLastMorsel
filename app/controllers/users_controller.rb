@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
   end
+
+  def about
+    @user = User.find(params[:id])
+  end
   
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
@@ -32,5 +36,8 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
+  def hub
+  end  
 
 end

@@ -1,45 +1,19 @@
-.profile-layout
-  .profile-top
-    .pushed
-      h1
-        | <%= @user.name %>
-      ul.list-inline
-        li
-          span.icon.location
-          | Elmhurst, Illinois
-      p
-  .profile-left[role="aside"]
-    figure#main-image
-      img[src="/assets/placeholder.jpg" title="Todd Jones"]
-    ul.profile-navigation
-      li.active
-        a[href="/" title="My Profile"]
-          span.icon.person
-          | My Profile
-      li
-        a[href="/" title="Communication Hub"]
-          span.icon.drawer
-
-          | Communication Hub 
-      li
-        a[href="/" title="Settings"]
-          span.icon.cog
-          | Settings
-  .profile-right[role="contentinfo"]
-    .inner-content-wrapper.profile.about
-      section.profile-content
-        .tabbable.tabs-left
-          ul.nav.nav-tabs
-            li.<%=.'active'.if.params[:tab].==.'tab1'.%>
-              a[href="#tab1" data-toggle="tab"]
-                | About
-            li.<%=.'active'.if.params[:tab].==.'tab2'.%>
-              a[href="#tab2" data-toggle="tab"]
-                | Blog
-          .tab-content
-            #tab1.<%=.if.(params[:tab].==.'tab1'.||.!params[:tab]).then.'tab-pane.active'.else.'tab-pane'.end%>
-              |  <%= render 'users/about' %> 
-            #tab2.<%=.if.params[:tab].==.'tab2'.then.'tab-pane.active'.else.'tab-pane'.end%>
-              |  <%= render 'users/blog' %> 
-            #tab3.<%=.if.params[:tab].==.'tab3'.then.'tab-pane.active'.else.'tab-pane'.end%>
-              |  <%= render 'users/blog' %> 
+.tabbable.tabs-top
+  ul.nav.nav-tabs
+    li class=('active' if params[:tab] == 'tab1' || !params[:tab] )
+      a href="#tab1" data-toggle="tab" About
+    li class=('active' if params[:tab] == 'tab2')
+      a href="#tab2" data-toggle="tab" Blog
+    li class=('active' if params[:tab] == 'tab3')
+      a href="#tab2" data-toggle="tab" Plots
+    li class=('active' if params[:tab] == 'tab4')
+      a href="#tab2" data-toggle="tab" Crops
+  .tab-content
+    #tab1 class=(if (params[:tab] == 'tab1' || !params[:tab]) then 'tab-pane active'  else 'tab-pane' end)
+      =  render 'users/about'
+    #tab2 class=(if params[:tab] == 'tab2' then 'tab-pane active'  else 'tab-pane' end)
+      =  render 'users/blog'
+    #tab2 class=(if params[:tab] == 'tab3' then 'tab-pane active'  else 'tab-pane' end)
+      =  render 'users/plots'
+    #tab2 class=(if params[:tab] == 'tab4' then 'tab-pane active'  else 'tab-pane' end)
+      =  render 'users/crops'

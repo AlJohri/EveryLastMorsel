@@ -3,36 +3,25 @@ header.header
     .header-topbar-content
       nav role="sitenav" 
         ul
+
           - if user_signed_in?
-            li
-              a href="#{current_user.slug}" title="Profile"
-                | Welcome 
-                = current_user.name
-            li
-              span.separator
-            li
-              a href='/users/sign_out' data-method='delete' title='Sign Out'
-                | Sign Out
-              / = link_to 'Logout', destroy_user_session_path, :method=>'delete'
-            li  
-              span.separator
+              li: a href=(!current_user.slug.blank? ? current_user.slug : current_user.id) title="Profile" Welcome #{current_user.name}
+              li: span.separator
+              li: a href='/users/sign_out' data-method='delete' title='Sign Out' Sign Out
+              li: span.separator
           - else
-            li
-              a href="#sign-in" data-toggle="modal" title="Sign In"
-                | Sign In
-            li
-              span.separator
+              li: a href="#sign-in" data-toggle="modal" title="Sign In" Sign In
+              li: span.separator
+          / end
+
           - if user_signed_in?
-            li
-              = link_to 'Edit account', edit_user_registration_path
-            - if current_user.has_role? :admin
-              li
-                = link_to 'Admin', users_path
+              li: a href="/users/edit" title="Edit Account" Edit Account
+              - if current_user.has_role? :admin
+                  li = link_to 'Admin', users_path
+              / end
           - else
-            li
-              a[href="#sign-up" data-toggle="modal" title="Sign Up"]
-                | Sign Up        
-        / = render 'layouts/navigation'
+              li: a href="#sign-up" data-toggle="modal" title="Sign Up" Sign Up
+          / end
 
   .header-bottombar
     .header-bottombar-content

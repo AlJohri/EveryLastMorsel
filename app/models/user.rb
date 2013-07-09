@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
               email: auth.info.email,
               password: Devise.friendly_token[0,20]
             )
-      user.skip_confirmation!
+      # user.skip_confirmation!
       user.save
     end
     user
@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
                   email: "#{auth.extra.raw_info.screen_name}@twitter.com", 
                   password: Devise.friendly_token[0,20]
                 )
-          user.skip_confirmation!
+          # user.skip_confirmation!
           user.save
       end
       user
@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
                 password: Devise.friendly_token[0,20]
                 # uid: auth.info["id"],
               )
-        user.skip_confirmation!
+        # user.skip_confirmation!
         user.save
       end
       user
