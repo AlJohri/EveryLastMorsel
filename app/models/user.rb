@@ -16,13 +16,17 @@ class User < ActiveRecord::Base
   attr_accessible :city, :state
   attr_accessible :image, :url
 
-  has_many :plots
-  has_many :crops, :through => :plots
+  # has_many :plots
+  # has_many :crops, :through => :plots
 
   extend FriendlyId
   friendly_id :name, use: :slugged
 
   blogs
+
+  def name
+    "#{first_name} #{last_name}"
+  end  
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -102,40 +106,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
-
-# #<OmniAuth::AuthHash credentials=
-
-# #<OmniAuth::AuthHash 
-
-# expires=true
-# expires_at=1372955959
-# token="ya29.AHES6ZR4q65p57hxwTHA-Fivnl3PDomFUcS-uPu9nfGyNdcr7jw"> 
-
-# extra=#<OmniAuth::AuthHash 
-
-# raw_info=#<OmniAuth::AuthHash 
-
-# birthday="0000-05-04" 
-# email="al.johri@gmail.com" 
-# family_name="Johri" 
-# gender="male" 
-# given_name="Atul" 
-# id="108843247220387263464" 
-# link="https://plus.google.com/108843247220387263464" 
-# locale="en" 
-# name="Atul Johri" 
-# picture="https://lh3.googleusercontent.com/-A3XwPX0cUKw/AAAAAAAAAAI/AAAAAAAABnM/W2QI5jqfC1M/photo.jpg" 
-# verified_email=true>> 
-
-
-# info=#<OmniAuth::AuthHash::InfoHash 
-
-# email="al.johri@gmail.com" 
-# first_name="Atul" 
-# image="https://lh3.googleusercontent.com/-A3XwPX0cUKw/AAAAAAAAAAI/AAAAAAAABnM/W2QI5jqfC1M/photo.jpg"
-# last_name="Johri" name="Atul Johri" 
-# urls=#<OmniAuth::AuthHash Google="https://plus.google.com/108843247220387263464">> 
-# provider="google_oauth2" 
-
-# uid="108843247220387263464">

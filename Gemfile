@@ -38,6 +38,8 @@ gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 
 gem "blogit"
+# gem 'blogit', github: "katanacode/blogit", branch: "master"
+# config.layout = "my_custom_layout"
 
 
 group :development do

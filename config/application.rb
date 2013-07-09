@@ -22,12 +22,17 @@ module EveryLastMorsel
     end
 
     config.to_prepare do
+      Devise::RegistrationsController.layout proc { |controller| action_name == 'edit' ? "users" : "application" }
       Devise::SessionsController.layout "application"
-      # Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "application" }
-      Devise::RegistrationsController.layout proc{ |controller| action_name == 'edit' ? "users" : "application" }
-      Devise::ConfirmationsController.layout "users"
-      Devise::UnlocksController.layout "users"
-      Devise::PasswordsController.layout "users"
+      Devise::ConfirmationsController.layout "application"
+      Devise::UnlocksController.layout "application"
+      Devise::PasswordsController.layout "application"
+    end
+
+    config.to_prepare do
+      Blogit::PostsController.layout proc { |controller| action_name == 'new' || action_name == 'edit' ? "posts" : "application" }
+      Blogit::CommentsController.layout "application"
+      Blogit::ApplicationController.layout "application"
     end
 
     # Settings in config/environments/* take precedence over those specified here.

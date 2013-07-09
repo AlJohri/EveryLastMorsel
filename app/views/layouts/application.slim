@@ -15,7 +15,7 @@ html
     .wrapper
         = content_for?(:content) ? yield(:content) : yield
     = render 'layouts/footer'
-    / = render 'layouts/modals'
+    = render 'layouts/modals'
     #action-loader.loader style="display: none;"
     = render 'layouts/scripts'
     #fb-root
