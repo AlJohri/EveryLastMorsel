@@ -26,7 +26,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'acts-as-taggable-on'
 gem "acts_as_follower"
-
+gem 'rails3-jquery-autocomplete'
 
 # gem "high_voltage", "~> 1.2.3"
 gem 'friendly_id', '~> 4.0.9'
