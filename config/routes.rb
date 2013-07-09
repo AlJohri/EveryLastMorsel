@@ -29,19 +29,19 @@ EveryLastMorsel::Application.routes.draw do
 
   end
 
-  # # Route to enable URLS 
-  # resources :users, :path => '', :only => [:show] do
-  #   resources :plots
+  # Route to enable URLS 
+  resources :users, :path => '', :only => [:show] do
+    resources :plots
 
-  #   ######## BlOG ROUTE #########
-  #   scope module:'blogit' do 
-  #     resources :posts do
-  #         resources :comments, only: [:create, :destroy]
-  #     end
-  #   end
-  #   ###### END BLOG ROUTE ######
+    ######## BlOG ROUTE #########
+    scope module:'blogit' do 
+      resources :posts do
+          resources :comments, only: [:create, :destroy]
+      end
+    end
+    ###### END BLOG ROUTE ######
 
-  # end
+  end
 
 end
 
