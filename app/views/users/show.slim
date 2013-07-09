@@ -5,15 +5,15 @@
     li class=('active' if params[:tab] == 'tab2')
       a href="#tab2" data-toggle="tab" Blog
     li class=('active' if params[:tab] == 'tab3')
-      a href="#tab2" data-toggle="tab" Plots
+      a href="#tab3" data-toggle="tab" Plots
     li class=('active' if params[:tab] == 'tab4')
-      a href="#tab2" data-toggle="tab" Crops
+      a href="#tab4" data-toggle="tab" Crops
   .tab-content
     #tab1 class=(if (params[:tab] == 'tab1' || !params[:tab]) then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/about'
     #tab2 class=(if params[:tab] == 'tab2' then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/blog'
-    #tab2 class=(if params[:tab] == 'tab3' then 'tab-pane active'  else 'tab-pane' end)
+    #tab3 class=(if params[:tab] == 'tab3' then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/plots'
-    #tab2 class=(if params[:tab] == 'tab4' then 'tab-pane active'  else 'tab-pane' end)
+    #tab4 class=(if params[:tab] == 'tab4' then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/crops'

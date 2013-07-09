@@ -6,18 +6,18 @@
 	      ul.list-inline
 	        li
 	          span.icon.location 
-	          | Elmhurst, Illinois
+	          = @user.city.presence || "Add your city!"
 	      p
 	  .profile-left[role="aside"]
 	    figure#main-image
-	      img src="/assets/placeholder.jpg" title="Todd Jones"
+	      img src=(@user.image.presence || "/assets/placeholder.jpg") title=@user.name
 	    ul.profile-navigation
 	      li.active
 	        a href="/" title="My Profile"
 	          span.icon.person 
 	          | My Profile
 	      li
-	        a href="/hub" title="Communication Hub"
+	        a href="#" title="Communication Hub"
 	          span.icon.drawer 
 	          | Communication Hub 
 	      li

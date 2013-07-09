@@ -1,2 +1,3 @@
 article.profile-crops
-	| Coming soon!
+  - if (user_signed_in? && current_user.id == @user.id)
+      button.button.btn-orange Create Crop
