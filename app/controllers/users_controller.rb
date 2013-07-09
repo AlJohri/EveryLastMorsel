@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Blogit::Post.where(blogger_id: @user.id)
   end
 
   def about
@@ -35,8 +36,5 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
-
-  def hub
-  end  
 
 end

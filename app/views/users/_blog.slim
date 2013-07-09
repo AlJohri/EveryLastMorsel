@@ -1,11 +1,15 @@
 article.profile-blog
   - if (user_signed_in? && current_user.id == @user.id)
-      button.button.btn-orange Create Post
-  / ul
-  /   - @posts.each do |post|
-  /     li
-  /       h2
-  /         = post.title
-  /       span style="line-height: 1.35px;"
-  /         = truncate(post.text, :length => 255)
-  /       = link_to "Read More...", post_url(post.id)
+      a href=(!current_user.slug.blank? ? "/" + current_user.slug + "/posts/new" : "/" + current_user.id + "/posts/new" )
+        button.button.btn-orange Create Post
+  ul
+    - @posts.each do |post|
+      li
+        h2
+          a href="/blog/posts/#{post.id}-#{post.title.parameterize}"
+            = post.title
+        span
+          = truncate(post.body, :length => 255)
+        br
+        a href="/blog/posts/#{post.id}-#{post.title.parameterize}"
+          | Read More ...

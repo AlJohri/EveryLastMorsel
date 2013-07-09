@@ -1,19 +1,19 @@
 .tabbable.tabs-top
   ul.nav.nav-tabs
-    li class=('active' if params[:tab] == 'tab1' || !params[:tab] )
-      a href="#tab1" data-toggle="tab" About
-    li class=('active' if params[:tab] == 'tab2')
-      a href="#tab2" data-toggle="tab" Blog
-    li class=('active' if params[:tab] == 'tab3')
-      a href="#tab3" data-toggle="tab" Plots
-    li class=('active' if params[:tab] == 'tab4')
-      a href="#tab4" data-toggle="tab" Crops
+    li class=('active' if params[:tab] == 'about' || !params[:tab] )
+      a href="#about" data-toggle="tab" About
+    li class=('active' if params[:tab] == 'blog')
+      a href="#blog" data-toggle="tab" Blog
+    li class=('active' if params[:tab] == 'plots')
+      a href="#plots" data-toggle="tab" Plots
+    li class=('active' if params[:tab] == 'crops')
+      a href="#crops" data-toggle="tab" Crops
   .tab-content
-    #tab1 class=(if (params[:tab] == 'tab1' || !params[:tab]) then 'tab-pane active'  else 'tab-pane' end)
+    #about class=(if (params[:tab] == 'about' || !params[:tab]) then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/about'
-    #tab2 class=(if params[:tab] == 'tab2' then 'tab-pane active'  else 'tab-pane' end)
+    #blog class=(if params[:tab] == 'blog' then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/blog'
-    #tab3 class=(if params[:tab] == 'tab3' then 'tab-pane active'  else 'tab-pane' end)
+    #plots class=(if params[:tab] == 'plots' then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/plots'
-    #tab4 class=(if params[:tab] == 'tab4' then 'tab-pane active'  else 'tab-pane' end)
+    #crops class=(if params[:tab] == 'crops' then 'tab-pane active'  else 'tab-pane' end)
       =  render 'users/crops'

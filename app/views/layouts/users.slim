@@ -1,23 +1,26 @@
 - content_for :content do
+
+	- if params[:controller] == "blogit/posts"
+		- if params[:action] == "new" || params[:action] == "edit"
+			- @user = current_user
+
 	.profile-layout
 	  .profile-top
 	    .pushed
-	      h1 Blah
-	      /* = @user.name.presence || "Name"
+	      h1  
+	      	= @user.name.presence || "Full Name"
 	      ul.list-inline
 	        li
 	          span.icon.location 
-	          /*= @user.city.presence || "Add your city!"
+	          = @user.city.presence || "Add your city!"
 	      p
 	  .profile-left[role="aside"]
 	    figure#main-image
-	      img src="/assets/placeholder.jpg"
-	      /*(@user.image.presence || 
-	      /*) title=@user.name
+	      img src=(@user.image.presence || "/assets/placeholder.jpg")
 	    ul.profile-navigation
 	      li.active
-	        a href="/" title="My Profile"
-	          span.icon.person 
+	        a href=(!@user.slug.blank? ? "/" + @user.slug : "/" + @user.id) title="My Profile"
+	          span.icon.person
 	          | My Profile
 	      li
 	        a href="#" title="Communication Hub"

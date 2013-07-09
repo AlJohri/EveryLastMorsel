@@ -8,7 +8,7 @@ Blogit.configure do |config|
   # config.disqus_shortname = ""
 
   # Should there be a share bar on every post ?
-  # config.include_share_bar = false
+  config.include_share_bar = true
 
   # Twitter username used in the share bar
   # config.twitter_username = ""
@@ -22,7 +22,7 @@ Blogit.configure do |config|
   config.blogger_display_name_method = :name
 
   # Which DateTime::FORMATS format do we use to display blog and comment publish time
-  # config.datetime_format = :short
+  config.datetime_format = :short
 
   # Should the controllers cache the blog pages as HTML?
   # config.cache_pages = false
@@ -40,12 +40,12 @@ Blogit.configure do |config|
   # If set to true, the create, edit, update and destroy actions
   # will be included. If set to false, you'll have to set these
   # yourself elsewhere in the app.
-  # config.include_admin_actions = true
+  config.include_admin_actions = true
 
   # If set to true, links for new posts, editing posts and deleting comments
   # will be available. If set to false, you'll have to set these
   # yourself in the templates.
-  # config.include_admin_links = true
+  config.include_admin_links = false
 
   # The default format for parsing the blog content.
   # config.default_parser = :markdown

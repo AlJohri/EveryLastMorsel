@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :image
       t.string :url
       t.string :slug
+      t.text :about
 
       ## Devise Database authenticatable
       t.string :email,              :null => false, :default => ""

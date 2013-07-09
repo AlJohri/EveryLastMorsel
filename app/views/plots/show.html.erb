@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @plot.name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @plot.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @plot.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @plot.zip %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%= @plot.about %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_plot_path(@plot.user, @plot) %> |
+<%= link_to 'Back', user_plots_path(@plot.user) %>

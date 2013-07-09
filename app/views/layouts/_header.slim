@@ -5,7 +5,7 @@ header.header
         ul
 
           - if user_signed_in?
-              li: a href=(!current_user.slug.blank? ? current_user.slug : current_user.id) title="Profile" Welcome #{current_user.name}
+              li: a href=(!current_user.slug.blank? ? "/" + current_user.slug : "/" + current_user.id) title="Profile" Welcome #{current_user.name}
               li: span.separator
               li: a href='/users/sign_out' data-method='delete' title='Sign Out' Sign Out
               li: span.separator
@@ -16,8 +16,8 @@ header.header
 
           - if user_signed_in?
               li: a href="/users/edit" title="Edit Account" Edit Account
-              - if current_user.has_role? :admin
-                  li = link_to 'Admin', users_path
+              / - if current_user.has_role? :admin
+                  / li = link_to 'Admin', users_path
               / end
           - else
               li: a href="#sign-up" data-toggle="modal" title="Sign Up" Sign Up
