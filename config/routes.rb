@@ -1,8 +1,7 @@
 EveryLastMorsel::Application.routes.draw do
-  resources :users do
-    resources :posts
-  end
 
+  mount Blogit::Engine => "/blog"
+  
   # authenticated :user do
   #   root :to => 'home#home'
   # end
@@ -19,5 +18,6 @@ EveryLastMorsel::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :crops, :plots
   resources :users, :path => '', :only => [:show]
+
 
 end

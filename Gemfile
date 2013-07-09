@@ -37,6 +37,9 @@ gem "haml", "~> 4.0.3"
 gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 
+gem "blogit"
+
+
 group :development do
   gem "better_errors", "~> 0.9.0"
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]

@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :posts
   after_create :update_mailchimp
   rolify
   # Include default devise modules. Others available are:
@@ -22,6 +21,8 @@ class User < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  blogs
 
   def self.new_with_session(params, session)
     super.tap do |user|
