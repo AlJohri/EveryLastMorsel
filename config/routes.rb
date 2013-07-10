@@ -6,6 +6,8 @@
 
 EveryLastMorsel::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   # Static Routes
   root :to => "static#home"
   get '/about' => "static#about"

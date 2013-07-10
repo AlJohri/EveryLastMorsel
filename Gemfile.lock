@@ -12,6 +12,27 @@ GIT
       pingr (>= 0.0.3)
       redcarpet (>= 2.0.1)
 
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: d0af3380182ed7b991a9a23eae3c114b88fe0a14
+  branch: rails-3.x
+  specs:
+    rails_admin (0.4.9)
+      bootstrap-sass (~> 2.2)
+      builder (~> 3.0)
+      coffee-rails (>= 3.1, < 5)
+      font-awesome-rails (~> 3.0)
+      haml (~> 4.0)
+      jquery-rails (>= 2.1, < 4)
+      jquery-ui-rails (>= 3.0, < 5)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.6)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      safe_yaml (~> 0.6)
+      sass-rails (~> 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -136,6 +157,7 @@ GEM
     multi_json (1.7.7)
     multi_xml (0.5.4)
     multipart-post (1.2.0)
+    nested_form (0.3.2)
     nested_scaffold (0.2.1)
       rails (~> 3.2.2)
     newrelic_rpm (3.6.5.130)
@@ -181,6 +203,9 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-pjax (0.7.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -206,6 +231,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (2.3.0)
+    remotipart (1.2.1)
     rolify (3.2.0)
     routing_concerns (0.1.0)
       actionpack (>= 3.2.0)
@@ -222,6 +248,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    safe_yaml (0.9.4)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -286,6 +313,7 @@ DEPENDENCIES
   quiet_assets (~> 1.0.2)
   rails (= 3.2.13)
   rails3-jquery-autocomplete
+  rails_admin!
   rolify (>= 3.2.0)
   routing_concerns (~> 0.1.0)
   rspec-rails (~> 2.0)

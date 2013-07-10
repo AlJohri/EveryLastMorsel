@@ -21,6 +21,8 @@ gem 'omniauth-twitter' # https://github.com/arunagw/omniauth-twitter
 gem 'omniauth-google-oauth2' # https://github.com/zquestz/omniauth-google-oauth2
 gem 'cancan', '>= 1.6.9' # https://github.com/ryanb/cancan
 gem 'rolify', '>= 3.2.0' # https://github.com/EppO/rolify
+
+
 gem 'newrelic_rpm' # https://github.com/newrelic/rpm
 gem 'paperclip' # https://github.com/thoughtbot/paperclip
 gem 'aws-sdk', '~> 1.0' # https://github.com/aws/aws-sdk-ruby
@@ -28,6 +30,7 @@ gem 'acts-as-taggable-on' # https://github.com/mbleigh/acts-as-taggable-on
 gem "acts_as_follower" # https://github.com/tcocca/acts_as_follower/
 gem 'rails3-jquery-autocomplete' # https://github.com/crowdint/rails3-jquery-autocomplete
 gem "routing_concerns", "~> 0.1.0" # https://github.com/rails/routing_concerns
+gem 'rails_admin', github: 'sferik/rails_admin', branch: 'rails-3.x'
 
 # gem "high_voltage", "~> 1.2.3"
 gem 'friendly_id', '~> 4.0.9' # https://github.com/norman/friendly_id
