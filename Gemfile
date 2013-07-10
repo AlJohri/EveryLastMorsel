@@ -38,9 +38,9 @@ gem "haml", "~> 4.0.3"
 gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 
-gem 'blogit'
+# gem 'blogit'
 
-# gem "blogit", git: 'git://github.com/AlJohri/blogit.git'
+gem "blogit", git: 'git://github.com/AlJohri/blogit.git'
 # gem 'blogit', github: "aljohri/blogit", branch: "master"
 # gem 'blogit', github: "katanacode/blogit", branch: "master"
 # config.layout = "my_custom_layout"

@@ -2,6 +2,8 @@
 # http://stackoverflow.com/questions/10353776/rails-routing-override-the-action-name-in-a-resource-member-block
 # https://github.com/rails/routing_concerns
 
+# http://stackoverflow.com/questions/14632471/rails-routing-one-controller-one-model-with-type-multiple-routes
+
 EveryLastMorsel::Application.routes.draw do
 
   # Static Routes
@@ -43,15 +45,15 @@ EveryLastMorsel::Application.routes.draw do
   # Nested Routes for User -> Plots and User -> Posts linked to "/users" URL.
   resources :users, concerns: :postable  do
     resources :plots, as: 'usfarm'
-    get 'about' => 'users#about', :as => 'about'
   end
+  get 'users/:id/about' => 'users#about', :as => 'about'
 
   match  '/:user_id/posts/tagged/:tag'    => 'blogit/custom/posts#tagged', as: :tagged_blog_posts
   match  '/:user_id/posts/page/:page'     => "blogit/custom/posts#index"
 
   # Nested Routes for User -> Plots and User -> Posts linked to ROOT URL.
+  get ':id/about' => 'users#about', :as => 'user_about'
   resources :users, :path => '', :only => [:show], concerns: :postable   do
     resources :plots
-    get 'about' => 'users#about', :as => 'about'
   end
 end

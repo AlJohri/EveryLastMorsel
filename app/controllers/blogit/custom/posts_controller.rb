@@ -8,8 +8,7 @@ class Blogit::Custom::PostsController < Blogit::PostsController
           @posts = Blogit::Post.order('created_at DESC')
         }
         format.html {
-          @posts = Blogit::Post.all
-          # for_index(params[Kaminari.config.param_name])
+          @posts = Blogit::Post.for_index(params[Kaminari.config.param_name])
         }
         format.rss {
           @posts = Blogit::Post.order('created_at DESC')
@@ -41,7 +40,7 @@ class Blogit::Custom::PostsController < Blogit::PostsController
       @post = current_blogger.blog_posts.new(params[:post])
       @user = User.find(current_blogger.id)
       if @post.save
-        redirect_to main_app.user_post_url(@user.slug, @post.id), notice: t(:blog_post_was_successfully_created, scope: 'blogit.posts')
+        redirect_to main_app.user_post_url(@user.slug, @post.to_param), notice: t(:blog_post_was_successfully_created, scope: 'blogit.posts')
       else
         render action: "new"
       end
