@@ -27,6 +27,7 @@ gem 'aws-sdk', '~> 1.0' # https://github.com/aws/aws-sdk-ruby
 gem 'acts-as-taggable-on' # https://github.com/mbleigh/acts-as-taggable-on
 gem "acts_as_follower" # https://github.com/tcocca/acts_as_follower/
 gem 'rails3-jquery-autocomplete' # https://github.com/crowdint/rails3-jquery-autocomplete
+gem "routing_concerns", "~> 0.1.0" # https://github.com/rails/routing_concerns
 
 # gem "high_voltage", "~> 1.2.3"
 gem 'friendly_id', '~> 4.0.9' # https://github.com/norman/friendly_id
@@ -37,7 +38,10 @@ gem "haml", "~> 4.0.3"
 gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 
-gem "blogit"
+gem 'blogit'
+
+# gem "blogit", git: 'git://github.com/AlJohri/blogit.git'
+# gem 'blogit', github: "aljohri/blogit", branch: "master"
 # gem 'blogit', github: "katanacode/blogit", branch: "master"
 # config.layout = "my_custom_layout"
 

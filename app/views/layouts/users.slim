@@ -7,8 +7,9 @@
 	.profile-layout
 	  .profile-top
 	    .pushed
-	      h1  
-	      	= @user.name.presence || "Full Name"
+	      a href=(!@user.slug.blank? ? "/" + @user.slug : "/" + @user.id)
+	      	h1
+	      	  = @user.name.presence || "Full Name"
 	      ul.list-inline
 	        li
 	          span.icon.location 

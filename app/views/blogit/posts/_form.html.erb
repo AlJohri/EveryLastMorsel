@@ -1,4 +1,4 @@
-<%= form_for([current_user, @post], html: {class: "new_blog_post", id: "new_blog_post"}) do |f| %>
+<%= form_for([@user, @post], html: {class: "new_blog_post", id: "new_blog_post"}) do |f| %>
 
   <% if @post.errors.any? %>
     <div id="error_explanation">

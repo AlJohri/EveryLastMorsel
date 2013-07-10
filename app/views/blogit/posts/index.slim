@@ -6,4 +6,7 @@
 - else
   = render partial: "blogit/posts/empty"
 
-= render "pagination"
+- if params['controller'] == 'blogit/custom/posts'
+	/ = paginate @posts, :controller => "blogit/custom/posts", :action => "index"
+- elsif params['controller'] == 'blogit/posts'
+	= paginate @posts, :controller => "blogit/posts", :action => "index"

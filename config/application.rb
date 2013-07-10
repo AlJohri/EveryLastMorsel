@@ -30,7 +30,7 @@ module EveryLastMorsel
     end
 
     config.to_prepare do
-      Blogit::PostsController.layout proc { |controller| action_name == 'new' || action_name == 'edit' ? "posts" : "application" }
+      Blogit::PostsController.layout "application"
       Blogit::CommentsController.layout "application"
       Blogit::ApplicationController.layout "application"
     end

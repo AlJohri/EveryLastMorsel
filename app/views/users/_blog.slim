@@ -6,10 +6,10 @@ article.profile-blog
     - @posts.each do |post|
       li
         h2
-          a href="/blog/posts/#{post.id}-#{post.title.parameterize}"
+          a href="/#{@user.slug}/posts/#{post.id}-#{post.title.parameterize}"
             = post.title
         span
           = truncate(post.body, :length => 255)
         br
-        a href="/blog/posts/#{post.id}-#{post.title.parameterize}"
+        a href="/#{@user.slug}/posts/#{post.id}-#{post.title.parameterize}"
           | Read More ...

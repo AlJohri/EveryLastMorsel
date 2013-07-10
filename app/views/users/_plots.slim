@@ -1,3 +1,4 @@
 article.profile-plots
   - if (user_signed_in? && current_user.id == @user.id)
-      button.button.btn-orange Create Plot
+      a href=(new_user_plot_url(@user.slug))
+        button.button.btn-orange Create Plot
