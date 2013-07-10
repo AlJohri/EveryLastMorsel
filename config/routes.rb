@@ -43,6 +43,7 @@ EveryLastMorsel::Application.routes.draw do
   # Nested Routes for User -> Plots and User -> Posts linked to "/users" URL.
   resources :users, concerns: :postable  do
     resources :plots, as: 'usfarm'
+    get 'about' => 'users#about', :as => 'about'
   end
 
   match  '/:user_id/posts/tagged/:tag'    => 'blogit/custom/posts#tagged', as: :tagged_blog_posts
@@ -51,5 +52,6 @@ EveryLastMorsel::Application.routes.draw do
   # Nested Routes for User -> Plots and User -> Posts linked to ROOT URL.
   resources :users, :path => '', :only => [:show], concerns: :postable   do
     resources :plots
+    get 'about' => 'users#about', :as => 'about'
   end
 end
