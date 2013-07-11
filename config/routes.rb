@@ -1,5 +1,8 @@
 EveryLastMorsel::Application.routes.draw do
   
+  resources :uploads
+
+
   ######## ROOT/STATIC ROUTES ########
   root :to => "static#home"
   scope :controller => "static" do

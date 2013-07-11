@@ -8,6 +8,7 @@ group :assets do
   gem 'compass-rails'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
+  gem 'jquery-fileupload-rails'
   gem 'uglifier', '>= 1.0.3'
   gem "font-awesome-rails", "~> 3.2.1.1"
 end

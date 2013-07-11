@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
   attr_accessible :city, :state
   attr_accessible :image, :url
 
+  # has_attached_file :avatar, styles: {
+  #   thumb: '100x100>',
+  #   square: '200x200#',
+  #   medium: '300x300>'
+  # }
+
   # has_many :plots
   # has_many :crops, :through => :plots
 
