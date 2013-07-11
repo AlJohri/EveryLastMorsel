@@ -87,6 +87,7 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
+    dalli (2.6.4)
     debug_inspector (0.0.2)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
@@ -120,6 +121,9 @@ GEM
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
+    jquery-fileupload-rails (0.4.1)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
     jquery-rails (3.0.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -273,12 +277,14 @@ DEPENDENCIES
   cancan (>= 1.6.9)
   coffee-rails (~> 3.2.1)
   compass-rails
+  dalli
   devise (>= 2.2.3)
   figaro (~> 0.7.0)
   font-awesome-rails (~> 3.2.1.1)
   friendly_id (~> 4.0.9)
   gibbon (~> 0.4.6)
   haml (~> 4.0.3)
+  jquery-fileupload-rails
   jquery-rails
   jquery-ui-rails
   kaminari

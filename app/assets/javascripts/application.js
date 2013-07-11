@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require bootstrap
+//= require jquery-fileupload
 
 //= require autocomplete-rails
 //= require lib/jquery/jquery.autoSuggest.js
