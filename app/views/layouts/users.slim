@@ -1,51 +1,51 @@
 - content_for :content do
 
-	- if params[:controller] == "blogit/posts"
-		- if params[:action] == "new" || params[:action] == "edit"
-			- @user = current_user
+    - if params[:controller] == "blogit/posts"
+        - if params[:action] == "new" || params[:action] == "edit"
+            - @user = current_user
 
-	.profile-layout
-	  .profile-top
-	    .pushed
-	      a href=(!@user.slug.blank? ? "/" + @user.slug : "/" + @user.id)
-	      	h1
-	      	  = @user.name.presence || "Full Name"
-	      ul.list-inline
-	        li
-	          span.icon.location 
-	          = @user.city.presence || "Add your city!"
-	      p
-	  .profile-left[role="aside"]
-	    figure#main-image
-	      img src=(@user.image.presence || "/assets/placeholder.jpg")
-	    ul.profile-navigation
-	      li class=('active' if controller.controller_name != 'registrations')
-	        a href=user_url(@user) title="My Profile"
-	          span.icon.person
-	          | My Profile
-	      / li
-	      /   a href=user_url(@user) title="Communication Hub"
-	      /     span.icon.drawer 
-	      /     | Communication Hub
-	      li class=('active' if controller.action_name == 'edit')
-	        a href=edit_user_registration_url title="Settings"
-	          span.icon.cog 
-	          | Settings
-	  .profile-right role="contentinfo"
-	    .inner-content-wrapper.profile
-			/ http://stackoverflow.com/questions/7524026/getting-started-with-tabs-in-rails-app
-			nav#profile-navigation.styled
-			  ul.nav.nav-tabs.list-block
-			    li class=('active' if controller.controller_name == "users" && controller.action_name == 'show')
-			      = link_to "About", user_about_path(@user), remote: false
-			    li class=('active' if controller.controller_name == 'posts')
-			      = link_to "Blog", user_posts_path(@user), remote: false
-			    li class=('active' if controller.controller_name == 'plots')
-			      = link_to "Plot", user_plots_path(@user), remote: false
-			    li class=('active' if controller.controller_name == 'crops')
-			      / # = link_to "Crop", user_posts_path(params[:id], remote: true)
-	      	section.profile-content
-	      		= content_for?(:profile_content) ? yield(:profile_content) : yield
+    .profile-layout
+      .profile-top
+        .pushed
+          a href=(!@user.slug.blank? ? "/" + @user.slug : "/" + @user.id)
+            h1
+              = @user.name.presence || "Full Name"
+          ul.list-inline
+            li
+              span.icon.location 
+              = @user.city.presence || "Add your city!"
+          p
+      .profile-left[role="aside"]
+        figure#main-image
+          img src=(@user.image.presence || "/assets/placeholder.jpg")
+        ul.profile-navigation
+          li class=('active' if controller.controller_name != 'registrations')
+            a href=user_url(@user) title="My Profile"
+              span.icon.person
+              | My Profile
+          / li
+          /   a href=user_url(@user) title="Communication Hub"
+          /     span.icon.drawer 
+          /     | Communication Hub
+          li class=('active' if controller.action_name == 'edit')
+            a href=edit_user_registration_url title="Settings"
+              span.icon.cog 
+              | Settings
+      .profile-right role="contentinfo"
+        .inner-content-wrapper.profile
+            / http://stackoverflow.com/questions/7524026/getting-started-with-tabs-in-rails-app
+            nav#profile-navigation.styled
+              ul.nav.nav-tabs.list-block
+                li class=('active' if controller.controller_name == "users" && controller.action_name == 'show')
+                  = link_to "About", user_about_path(@user), remote: false
+                li class=('active' if controller.controller_name == 'posts')
+                  = link_to "Blog", user_posts_path(@user), remote: false
+                li class=('active' if controller.controller_name == 'plots')
+                  = link_to "Plot", user_plots_path(@user), remote: false
+                li class=('active' if controller.controller_name == 'crops')
+                  / # = link_to "Crop", user_posts_path(params[:id], remote: true)
+            section.profile-content
+                = content_for?(:profile_content) ? yield(:profile_content) : yield
 
 javascript:
 

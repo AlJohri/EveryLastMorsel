@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3' # https://github.com/rails/sass-rails
-	gem 'bootstrap-sass', '~> 2.3.2.0' # https://github.com/thomas-mcdonald/bootstrap-sass
+  gem 'bootstrap-sass', '~> 2.3.2.0' # https://github.com/thomas-mcdonald/bootstrap-sass
   gem 'coffee-rails', '~> 3.2.1' # https://github.com/rails/coffee-rails
   gem 'compass-rails'
-	gem 'jquery-rails'
-	gem 'jquery-ui-rails'
+  gem 'jquery-rails'
+  gem 'jquery-ui-rails'
   gem 'uglifier', '>= 1.0.3'
   gem "font-awesome-rails", "~> 3.2.1.1"
 end

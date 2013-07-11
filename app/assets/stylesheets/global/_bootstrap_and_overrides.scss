@@ -605,11 +605,11 @@ $fluidGridGutterWidth768:      percentage($gridGutterWidth768/$gridRowWidth768);
 @import "bootstrap-responsive";
 
 .alert {
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .tab-content {
-	overflow: visible;
+    overflow: visible;
 }
 
 ul, ol {
@@ -617,12 +617,12 @@ ul, ol {
 }
 
 li {
-	line-height: 16px;
+    line-height: 16px;
 }
 
 h1, h2, h3 {
-	// line-height: 20px;
-	line-height: normal;
+    // line-height: 20px;
+    line-height: normal;
 }
 
 @media (max-width: 767px) {
