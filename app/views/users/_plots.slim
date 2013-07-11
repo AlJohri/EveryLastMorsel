@@ -1,6 +1,0 @@
-article.profile-plots
-  - if (user_signed_in? && current_user.id == @user.id)
-      a href=(new_user_plot_url(@user.slug))
-        button.button.btn-orange Create Plot
-javascript:
-  $(".tab-content").html("#{ escape_javascript(render(:partial => 'users/plots'))}");

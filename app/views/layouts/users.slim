@@ -36,7 +36,7 @@
 			/ http://stackoverflow.com/questions/7524026/getting-started-with-tabs-in-rails-app
 			nav#profile-navigation.styled
 			  ul.nav.nav-tabs.list-block
-			    li class=('active' if controller.action_name == 'show')
+			    li class=('active' if controller.controller_name == "users" && controller.action_name == 'show')
 			      = link_to "About", user_about_path(@user), remote: false
 			    li class=('active' if controller.controller_name == 'posts')
 			      = link_to "Blog", user_posts_path(@user), remote: false

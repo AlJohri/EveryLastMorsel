@@ -1,8 +1,8 @@
 - content_for :profile_content do
-  article.profile-blog
+  article.profile-plots
     - if (user_signed_in? && current_user.id == @user.id)
         a href=(!current_user.slug.blank? ? "/" + current_user.slug + "/posts/new" : "/" + current_user.id + "/posts/new" )
-          button.button.btn-orange Create Post
+          button.button.btn-orange Create Plot
     = yield
 
 = render template: "layouts/users"

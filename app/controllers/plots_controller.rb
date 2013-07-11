@@ -1,5 +1,5 @@
 class PlotsController < ApplicationController
-  layout "plot"
+  layout "plots"
   
   # GET users/1/plots
   # GET users/1/plots.json
