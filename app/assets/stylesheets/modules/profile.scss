@@ -132,3 +132,27 @@ ul.list-block li { display: block; float: left; }
     li a:hover .icon.drawer, li.active a .icon.drawer { background-position: -4px -287px; }
     li a:hover .icon.cog, li.active a .icon.cog { background-position: -5px -328px; }            
 }
+
+.profile-about {
+    margin-top: 25px;
+}
+
+.profile-about-header {
+    margin-top: 25px;
+}
+
+.name {
+    float: left;
+}
+
+.city {
+    float: right;
+}
+
+.profile-about-bioandimage {
+    margin-top: 25px;
+}
+
+.profile-about-btn {
+    margin-top: 25px
+}
