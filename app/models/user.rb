@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts
   has_many :plots
   after_create :update_mailchimp
   rolify

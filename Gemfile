@@ -21,7 +21,11 @@ gem 'omniauth-twitter' # https://github.com/arunagw/omniauth-twitter
 gem 'omniauth-google-oauth2' # https://github.com/zquestz/omniauth-google-oauth2
 gem 'cancan', '>= 1.6.9' # https://github.com/ryanb/cancan
 gem 'rolify', '>= 3.2.0' # https://github.com/EppO/rolify
+# gem 'inherited_resources' # https://github.com/josevalim/inherited_resources
+# gem 'has_scope' # http://github.com/plataformatec/has_scope
 
+# http://railscasts.com/episodes/230-inherited-resources
+# https://github.com/plataformatec/responders
 
 gem 'newrelic_rpm' # https://github.com/newrelic/rpm
 gem 'paperclip' # https://github.com/thoughtbot/paperclip

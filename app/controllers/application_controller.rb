@@ -11,6 +11,15 @@ class ApplicationController < ActionController::Base
 	  session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
 	end
 
+	def not_found
+	  raise ActionController::RoutingError.new('Not Found')
+	end	
+
+	  # def not_found
+	  #   render file => "public/404.html", status => 404, layout => false
+	  # end
+	
+
 	# def after_sign_in_path_for(resource)
 	#   session[:previous_url] || root_path
 	# end

@@ -1,25 +1,43 @@
 class PlotsController < ApplicationController
+  layout "plot"
+  
   # GET users/1/plots
   # GET users/1/plots.json
   def index
-    @user = User.find(params[:user_id])
-    @plots = @user.plots
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @plots = @user.plots
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @plots }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render :json => @plots }
+      end
+    else
+      @plots = Plot.all
+      respond_to do |format|
+        format.html { render :layout => 'application'}
+        format.json { render :json => @plots }
+      end
     end
   end
 
   # GET users/1/plots/1
   # GET users/1/plots/1.json
   def show
-    @user = User.find(params[:user_id])
-    @plot = @user.plots.find(params[:id])
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @plot = @user.plots.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @plot }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render :json => @plot }
+      end
+    else
+      @plot = Plot.find(params[:id])
+      respond_to do |format|
+        format.html { render :layout => 'application'}
+        format.json { render :json => @plot }
+      end
     end
   end
 

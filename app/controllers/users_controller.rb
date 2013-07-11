@@ -7,12 +7,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @posts = Blogit::Post.where(blogger_id: @user.id)
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    elsif params[:id]
+      @user = User.find(params[:id])
+    end
   end
 
   def about
-    @user = User.find(params[:id])
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    elsif params[:id]
+      @user = User.find(params[:id])
+    end    
   end
   
   def update

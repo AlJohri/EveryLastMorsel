@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710222959) do
+ActiveRecord::Schema.define(:version => 20130711012458) do
 
   create_table "blog_comments", :force => true do |t|
     t.string   "name",       :null => false
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(:version => 20130710222959) do
   end
 
   add_index "plots", ["user_id"], :name => "index_plots_on_user_id"
+
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

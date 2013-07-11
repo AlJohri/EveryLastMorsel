@@ -1,23 +1,5 @@
-.tabbable.tabs-top
-  nav#profile-navigation.styled
-    ul.nav.nav-tabs.list-block
-      li class=('active' if params[:tab] == 'about' || !params[:tab] )
-        = link_to "About", user_about_url(params[:id])
-      li class=('active' if params[:tab] == 'blog')
-        / # = link_to "Blog", user_posts(params[:user_id])
-        a href="#blog" Blog
-      li class=('active' if params[:tab] == 'plots')
-        a href="#plots" Plots
-      li class=('active' if params[:tab] == 'crops')
-        a href="#crops" Crops
-
-        / data-toggle="tab"        
-  .tab-content
-    / #about class=(if (params[:tab] == 'about' || !params[:tab]) then 'tab-pane active'  else 'tab-pane' end)
-    /   =  render 'users/about'
-    / #blog class=(if params[:tab] == 'blog' then 'tab-pane active'  else 'tab-pane' end)
-    /   =  render 'users/blog'
-    / #plots class=(if params[:tab] == 'plots' then 'tab-pane active'  else 'tab-pane' end)
-    /   =  render 'users/plots'
-    / #crops class=(if params[:tab] == 'crops' then 'tab-pane active'  else 'tab-pane' end)
-    /   =  render 'users/crops'
+#tab-content
+  - if controller.action_name == 'show'
+    = render partial: "users/about"
+  - else
+    = render partial: "users/#{controller.action_name}"
