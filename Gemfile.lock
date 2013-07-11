@@ -87,6 +87,7 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
+    dalli (2.6.4)
     debug_inspector (0.0.2)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
@@ -276,6 +277,7 @@ DEPENDENCIES
   cancan (>= 1.6.9)
   coffee-rails (~> 3.2.1)
   compass-rails
+  dalli
   devise (>= 2.2.3)
   figaro (~> 0.7.0)
   font-awesome-rails (~> 3.2.1.1)
