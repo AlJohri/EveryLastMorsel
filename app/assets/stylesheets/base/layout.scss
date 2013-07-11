@@ -49,37 +49,3 @@ a {
   *zoom: 1;
 }
 
-.user-posts {
-}
-
-.user-post {
-  margin: 35px 0;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #777777;
-}
-
-.user-post-gallery-images {
-  list-style-type: none
-}
-
-.user-post-content {
-  padding-top: 20px;
-}
-
-.user-post-gallery-image:first-child {
-  margin-left: 0
-}
-
-.user-post-gallery-image {
-  float: left;
-  max-width: 400px;
-  max-height: 200px;
-  overflow: hidden;
-  margin: 0 20px;
-  border: 1px solid #777777 
-}
-
-.user-post-gallery-image img {
-  width: 100%
-}
-

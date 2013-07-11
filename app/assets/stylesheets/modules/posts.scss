@@ -1,0 +1,31 @@
+/* Generic Post */
+.post { margin: 35px 0; padding-bottom: 25px; border-bottom: 1px solid #777777; }
+.post-gallery-images { list-style-type: none; }
+.post-content { padding-top: 20px; }
+.post-gallery-image:first-child { margin-left: 0 }
+.post-gallery-image {
+  float: left;
+  max-width: 400px;
+  max-height: 200px;
+  overflow: hidden;
+  margin: 0 20px;
+  border: 1px solid #777777;
+}
+.post-gallery-image img { width: 100%; }
+
+
+/* Posts Feed */
+.posts-feed {
+	width: 1140px;
+	margin: 0 auto;	
+	background: white;
+	ul { padding-left: 20px; padding-right: 50px; }
+	li:last-child { border-bottom: none; }
+	padding: 15px 0;
+}
+
+/* Posts User */
+.posts-user {
+
+}
+
