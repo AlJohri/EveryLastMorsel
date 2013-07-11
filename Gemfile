@@ -44,10 +44,12 @@ gem "gibbon", "~> 0.4.6"
 # gem 'blogit'
 
 gem "blogit", git: 'git://github.com/AlJohri/blogit.git'
+gem "kaminari", git: 'git://github.com/AlJohri/kaminari.git'
 # gem 'blogit', github: "aljohri/blogit", branch: "master"
 # gem 'blogit', github: "katanacode/blogit", branch: "master"
 # config.layout = "my_custom_layout"
-
+# gem 'blogit', github: "aljohri/blogit", branch: "master"
+# gem 'kaminari', github: "aljohri/kaminari", branch: "master"
 
 group :development do
   gem "better_errors", "~> 0.9.0"
