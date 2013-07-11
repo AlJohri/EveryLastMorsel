@@ -24,7 +24,7 @@ EveryLastMorsel::Application.routes.draw do
   }
 
   # Nested Routes for User -> Plots and User -> Posts linked to "/users" URL.
-  resources :users, concerns: :postable  do
+  resources :users  do
     resources :plots, as: 'usfarm'
   end
   get 'users/:id/about' => 'users#about', :as => 'about'

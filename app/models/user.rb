@@ -23,8 +23,6 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  blogs
-
   def name
     "#{first_name} #{last_name}"
   end  
