@@ -1,6 +1,6 @@
 - content_for :profile_content do
   article.profile-plots
-    - if (user_signed_in? && current_user.id == @user.id)
+    - if (user_signed_in? && current_user.id == @user.id && params[:action] == 'index')
         a href=(!current_user.slug.blank? ? "/" + current_user.slug + "/posts/new" : "/" + current_user.id + "/posts/new" )
           button.button.btn-orange Create Plot
     = yield
