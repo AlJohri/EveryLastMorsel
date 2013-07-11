@@ -2,16 +2,14 @@ ul.user-posts
   - @posts.each do |post|
     li.user-post
       h1 
-        = link_to "#{post.title}", post_path(post.id)
+        = link_to "#{post.title}", user_post_path(@user.id, post.id)
       - #if @posts.gallery_images != nil
       ul.user-post-gallery-images.clearfix
         - #@posts.gallery_images.each do |image|
         li.user-post-gallery-image
           img src="http://www.philipnixondesign.com/assets/Portfolios/Urban/Notting-Hill-London/80theak16.jpg"
         li.user-post-gallery-image
-          img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRzFCEhT6pJGpJcOFm5AokXxjL-bLNJ_KXOY1WGm3pUvh5DiB0W"
-        li.user-post-gallery-image
           img src="http://www.thisgardenisillegal.com/uploaded_images/urban-garden3.jpg"
-      p == simple_format(post.content)
+      p.user-post-content == simple_format(post.content)
  
 button.button.btn-orange = link_to 'Create Post', new_user_post_path(params[:user_id])
