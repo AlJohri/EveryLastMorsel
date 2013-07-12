@@ -4,7 +4,7 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
       li.post
         h1 
   	      - if params[:user_id]
-            = link_to "#{post.title}", user_post_path(@user.id, post.id)
+            = link_to "#{post.title}", user_post_path(@user, post.id)
           - else
             = link_to "#{post.title}", post_path(post.id)
         - #if @posts.gallery_images != nil
@@ -15,5 +15,5 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
           li.post-gallery-image
             img src="http://www.thisgardenisillegal.com/uploaded_images/urban-garden3.jpg"
         p.post-content == simple_format(post.content)
-        - if params[:user_id]
-          button.button.btn-orange = link_to 'Create Post', new_user_post_path(params[:user_id])
+        / - if params[:user_id]
+        /   button.button.btn-orange = link_to 'Create Post', new_user_post_path(params[:user_id])
