@@ -1,6 +1,11 @@
 p#notice = notice
 
-a href="#{user_posts_path}" Back to Stories
+- if params[:user_id] then
+  a href="#{user_posts_path}" Back to Stories
+- else
+  a href="#{posts_path}" Back to Stories
+end
+
 hr
 h1 = @post.title
 ul.user-post-gallery-images.clearfix
@@ -11,7 +16,7 @@ ul.user-post-gallery-images.clearfix
 
 p.user-post-content = simple_format(@post.content)
 
-- if (user_signed_in? && current_user.id == @user.id && params[:action] == 'show')
+- if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
 	button.button.btn-orange.post-btn 
 		= link_to 'Edit', edit_user_post_path(@post.user, @post)
 	button.button.btn-orange.post-btn
