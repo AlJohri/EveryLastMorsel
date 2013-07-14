@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
+    respond_to do |format|
+      format.html { render :layout => 'application'}
+      format.json { render :json => @users }
+    end    
   end
 
   def show
