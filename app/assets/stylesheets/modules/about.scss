@@ -34,7 +34,8 @@
 }
 
 .the-people {
-    margin: 50px 0;
+    margin: 0 auto;
+    max-width: 960px;
 }
 
 h2.the-people-header { 
@@ -45,6 +46,8 @@ h2.the-people-header {
     margin:10px 0 20px; 
 } 
 h2.the-people-header span { background:#fff; padding:0 10px; }
+
+
 
 .team-bio {
     width: 100%;
@@ -59,12 +62,17 @@ h2.the-people-header span { background:#fff; padding:0 10px; }
 .team-bio-image {
     float: left;
     border-radius: 50%;
-    width: 10%;
+    max-width: 10%;
+    max-height: 95px;
     overflow: hidden;
 }
 
 .right-justify {
     text-align: right;
+    width: 65%;
+    padding-left: 15%;
 }
+
+
 
 
