@@ -34,8 +34,8 @@
 }
 
 .the-people {
-    margin: 0 auto;
-    max-width: 960px;
+    margin: 60px auto;
+    width: 100%
 }
 
 h2.the-people-header { 
@@ -43,11 +43,9 @@ h2.the-people-header {
     text-align:center; 
     // border-bottom: 1px solid #000; 
     // line-height: 0.5em; 
-    margin:10px 0 20px; 
+    margin:10px 0 40px; 
 } 
-h2.the-people-header span { background:#fff; padding:0 10px; }
-
-
+h2.the-people-header span { background:#fff; padding:0 10px; margin-bottom: 20px; }
 
 .team-bio {
     width: 100%;
@@ -55,15 +53,15 @@ h2.the-people-header span { background:#fff; padding:0 10px; }
 
 .team-bio-copy {
     float: left;
-    width: 80%;
+    width: 75%;
     padding: 0 5%;
 }
 
 .team-bio-image {
     float: left;
     border-radius: 50%;
-    max-width: 10%;
-    max-height: 95px;
+    width: 15%;
+    height: 144px;
     overflow: hidden;
 }
 
