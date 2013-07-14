@@ -135,9 +135,10 @@ ul.tools {
 .section-learn {
   .section-learn-content {
     text-align: center;
-    h1 { color: white; font-size: 36px; padding-bottom: 10px; }
-    h2 { color: white; font-size: 20px; padding-bottom: 10px; }
+    h1 { color: #6d6d6d; font-size: 36px; padding-bottom: 10px; }
+    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+    padding: 3% 0;
   }
 }
 
@@ -145,6 +146,9 @@ ul.tools {
   background-color: white;
   .section-share-content {
     h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
+    a {font-size: 18px;}
+    text-align: center;
+    padding: 3% 0;
   }
 }
 
@@ -152,6 +156,8 @@ ul.tools {
   .section-grow-content {
     h2 { color: #6d6d6d; }
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+    text-align: center;
+    padding: 3% 0;
   }
 }
 
