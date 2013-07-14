@@ -6,8 +6,8 @@ article.profile-about
     h4.profile-about-header.city #{@user.city}, #{@user.state}
   
   .profile-about-bioandimage
-    -if !@user.image
-      p User doesn't have a profile image yet, upload one already!.
+    -if !@user.avatar?
+      p User doesn't have a profile image yet.
     -if @user.about
       p About #{@user.first_name}:
       p @user.about
@@ -20,4 +20,4 @@ article.profile-about
       p User URL: You don't have on yet, enter one
   .profile-about-btn
     - if (user_signed_in? && current_user.id == @user.id)
-      button.button.btn-orange =link_to "Edit About", edit_user_registration_url(@user.id) 
+      button.button.btn-orange =link_to "Edit Settings", edit_user_registration_url(@user.id)

@@ -10,10 +10,12 @@
       li: button.button.btn-orange type="submit"
         span.icon.secure
         span Sign in
-      li: button.button.btn-orange
-        span.icon-facebook
-      li: button.button.btn-orange
-        span.icon-google-plus
+      li: a href=user_omniauth_authorize_path(:facebook)
+        button.button.btn-orange type="button"
+          span.icon-facebook
+      li: a href=user_omniauth_authorize_path(:google_oauth2)
+        button.button.btn-orange type="button"
+          span.icon-google-plus
 
 javascript:
   jQuery("#login-form-validate").validate({

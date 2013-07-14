@@ -7,13 +7,19 @@
               = @user.name.presence || "Full Name"
           ul.list-inline
             li
-              span.icon.location 
-              = @user.city.presence || "Add your city!"
+              a href=edit_user_registration_url
+                span.icon.location
+                = @user.city.presence || "Add your city!"
           p
       .profile-left[role="aside"]
-        figure#main-image
-          a href=edit_user_registration_url
-            = image_tag @user.avatar.url
+        figure
+          .flip-container ontouchstart="this.classList.toggle('hover');"
+            .flipper
+              .front
+                a href=edit_user_registration_url
+                  = image_tag @user.avatar(:medium)
+              .back
+                h1 Back of card!
         ul.profile-navigation
           li class=('active' if controller.controller_name != 'registrations')
             a href=user_url(@user) title="My Profile"

@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20130714055010) do
     t.string   "uid"
     t.string   "city"
     t.string   "state"
-    t.string   "image"
     t.string   "url"
     t.string   "slug"
     t.text     "about"
