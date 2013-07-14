@@ -2,34 +2,34 @@ article.devise
   h2
     | Edit 
     = resource_name.to_s.humanize
-
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put })  do |f|
     = devise_error_messages!
 
-    div
-      = f.label :avatar
-      br
-      = f.file_field :avatar
-    p
-      = f.label :name
-      = f.text_field :name, :placeholder => "Full Name"
-    div
-      = f.label :email
-      = f.email_field :email
-    div
-      = f.label :password
-      i
-        | (leave blank if you don't want to change it)
-      br
-      = f.password_field :password, :autocomplete => "off"
-    div
-      = f.label :password_confirmation
-      br
-      = f.password_field :password_confirmation
-    div
-      = f.submit "Update"
+
+    = f.label :avatar
+    = f.file_field :avatar
+    = f.label :First
+    = f.text_field :first_name, :placeholder => "First"
+    = f.label :Last
+    = f.text_field :last_name, :placeholder => "Last"
+    = f.label :City
+    = f.text_field :city, :placeholder => "City"
+    = f.label :State
+    = f.text_field :state, :placeholder => "State"    
+    = f.label :email
+    = f.email_field :email, :placeholder => "Email"
+    = f.label :password
+    = f.password_field :password, :autocomplete => "off", :placeholder => "Password"
+    | &nbsp; (leave blank if you don't want to change it)
+    ul.inline
+      li: button.button.btn-orange type="submit"
+        span.icon.secure
+        span Update
+
     h3
       | Cancel my account
     p
       = link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
+
   = link_to "Back", :back

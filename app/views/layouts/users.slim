@@ -1,9 +1,4 @@
 - content_for :content do
-
-    - if params[:controller] == "blogit/posts"
-        - if params[:action] == "new" || params[:action] == "edit"
-            - @user = current_user
-
     .profile-layout
       .profile-top
         .pushed
@@ -17,7 +12,8 @@
           p
       .profile-left[role="aside"]
         figure#main-image
-          img src=(@user.avatar.url.presence || "/assets/placeholder.jpg")
+          a href=edit_user_registration_url
+            = image_tag @user.avatar.url
         ul.profile-navigation
           li class=('active' if controller.controller_name != 'registrations')
             a href=user_url(@user) title="My Profile"
@@ -46,8 +42,5 @@
                   / # = link_to "Crop", user_posts_path(params[:id], remote: true)
             section.profile-content
                 = content_for?(:profile_content) ? yield(:profile_content) : yield
-
-javascript:
-
 
 = render template: "layouts/application"

@@ -1,0 +1,37 @@
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  fieldset
+    div = f.email_field :email, :autofocus => true
+    div = f.password_field :password
+    - if devise_mapping.rememberable?
+      label.checkbox
+        = f.check_box :remember_me
+        | Remember Me
+    ul.inline
+      li: button.button.btn-orange type="submit"
+        span.icon.secure
+        span Sign in
+      li: button.button.btn-orange
+        span.icon-facebook
+      li: button.button.btn-orange
+        span.icon-google-plus
+
+javascript:
+  jQuery("#login-form-validate").validate({
+      onkeyup: false,
+      rules: {
+          email: {
+              required: true,
+              email: true
+          },
+          password: {required : true}
+      },
+      messages: {
+          email : "Incorrect email format",
+          password : "Please provide a password"
+      },
+      submitHandler : function(form) {
+          window.event.preventDefault();
+          Elm.Auth.Login(jQuery(form));
+          return false;
+      }
+  });

@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
   attr_accessible :avatar
   attr_reader :avatar_remote_url
   
-  has_attached_file :avatar, styles: {
+  has_attached_file :avatar, :default_url => "/assets/placeholder.jpg", 
+  styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'

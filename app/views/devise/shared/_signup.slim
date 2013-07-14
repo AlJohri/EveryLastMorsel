@@ -1,0 +1,57 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  fieldset
+    div = f.text_field :first_name, :placeholder => "First"
+    div = f.text_field :last_name, :placeholder => "Last"
+    div = f.email_field :email, :placeholder => "Email"
+    div = f.text_field :city, :placeholder => "City"
+    div = f.text_field :state, :placeholder => "State"
+    div = f.password_field :password, :placeholder => "Password"
+    ul.inline
+      li: button.button.btn-orange type="submit"
+        span.icon.secure
+        span Sign up
+      li: button.button.btn-orange
+        span.icon-facebook
+      li: button.button.btn-orange
+        span.icon-google-plus
+
+javascript:
+  jQuery("#create-form-validate").validate({
+      onkeyup: false,
+      rules: {
+          invite_code : {required : true},
+          firstname : {required : true},
+          lastname : {required : true},
+          city : {required : true},
+          state : {required : true},
+          email : {
+              required : true,
+              email : true
+          },
+          password : {
+              required : true
+          },
+          passwordVerify : {
+              required : true,
+              equalTo : '#password'
+          }
+      },
+      messages: {
+          firstname : "Please enter your first name",
+          lastname : "Please enter your last name",
+          city : "Please the city you live in",
+          state : "Please enter the state of your city",
+          email : "Incorrect email format",
+          password : "Please provide a password",
+          passwordVerify : {
+              required : "Please confirm your password",
+              equalTo : "Please enter the same password as above"
+          }
+      },
+      submitHandler : function(form) {
+          window.event.preventDefault();
+          Elm.Auth.Create(jQuery(form));
+          return false;
+      }
+  });

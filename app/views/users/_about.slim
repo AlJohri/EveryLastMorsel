@@ -20,4 +20,4 @@ article.profile-about
       p User URL: You don't have on yet, enter one
   .profile-about-btn
     - if (user_signed_in? && current_user.id == @user.id)
-      button.button.btn-orange =link_to "Edit About", edit_user_url(@user.id) 
+      button.button.btn-orange =link_to "Edit About", edit_user_registration_url(@user.id) 
