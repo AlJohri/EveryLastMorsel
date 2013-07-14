@@ -1,6 +1,7 @@
 .about-content {
     margin: 0px 70px;
     padding: 40px 40px;
+    background: white;
 }
 
 .about-header {
@@ -31,3 +32,39 @@
     -webkit-column-gap:40px; /* Safari and Chrome */
     column-gap:40px;
 }
+
+.the-people {
+    margin: 50px 0;
+}
+
+h2.the-people-header { 
+    width:100%; 
+    text-align:center; 
+    // border-bottom: 1px solid #000; 
+    // line-height: 0.5em; 
+    margin:10px 0 20px; 
+} 
+h2.the-people-header span { background:#fff; padding:0 10px; }
+
+.team-bio {
+    width: 100%;
+}
+
+.team-bio-copy {
+    float: left;
+    width: 80%;
+    padding: 0 5%;
+}
+
+.team-bio-image {
+    float: left;
+    border-radius: 50%;
+    width: 10%;
+    overflow: hidden;
+}
+
+.right-justify {
+    text-align: right;
+}
+
+
