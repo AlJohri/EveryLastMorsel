@@ -1,28 +1,8 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-sizing";
 
-// #flash_notice, #flash_alert {
-//   margin: 0 auto;
-//   width: 382px;
-//   height: 40px;
-//   text-align: center;
-//   position: absolute;
-//   top: 50px;
-//   left:50%;
-//   padding: 5px 8px;
-//   margin: 10px 0;
-//   margin-left:-200px;
-//   line-height: 40px;
-// }
-// #flash_notice {
-//   background-color: #CFC;
-//   border: solid 1px #6C6;
-// }
-// #flash_alert {
-//   background-color: #FCC;
-//   border: solid 1px #C66;
-// }
-
 .alert {
 	text-align: center;
+	font-weight: 800;
+	font-size: 15px;
 }

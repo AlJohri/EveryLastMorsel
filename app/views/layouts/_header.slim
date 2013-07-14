@@ -3,9 +3,8 @@ header.header
     .header-topbar-content
       nav role="sitenav" 
         ul
-
           - if user_signed_in?
-              li: a href=(!current_user.slug.blank? ? "/" + current_user.slug : "/" + current_user.id) title="Profile" Welcome #{current_user.name}
+              li: a href=user_url(current_user) title="Profile" Welcome #{current_user.name}
               li: span.separator
               li: a href='/users/sign_out' data-method='delete' title='Sign Out' Sign Out
               li: span.separator
@@ -16,9 +15,6 @@ header.header
 
           - if user_signed_in?
               li: a href="/users/edit" title="Edit Account" Edit Account
-              / - if current_user.has_role? :admin
-                  / li = link_to 'Admin', users_path
-              / end
           - else
               li: a href="#sign-up" data-toggle="modal" title="Sign Up" Sign Up
           / end
@@ -31,14 +27,9 @@ header.header
           img.logo-mobile alt=("Every Last Morsel") src="/assets/logo-small.gif" title=("Every Last Morsel") /
       nav role="sitenav" 
         ul
-          li
-            a href="/map" title="Map"  Map
-          li
-            a href="/marketplace" title="Marketplace"  Marketplace
-          li
-            a href="/about" title=("About Us")  About Us
-          li
-            a href="/help" title="Help"  Help
-
+          li: a href="/map" title="Map"  Map
+          li: a href="/marketplace" title="Marketplace"  Marketplace
+          li: a href="/about" title=("About Us")  About Us
+          li: a href="/help" title="Help"  Help
             
 = render 'layouts/messages'

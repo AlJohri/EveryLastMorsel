@@ -1,0 +1,129 @@
+.container
+  h2 Upload file
+  = form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f|
+    /! The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
+    .row.fileupload-buttonbar
+      .span7
+        /! The fileinput-button span is used to style the file input field as button
+        .btn.btn-success.fileinput-button
+          i.icon-plus.icon-white
+          span
+            | Add files...
+            = f.file_field :upload
+        button.btn.btn-primary.start type="submit"
+          i.icon-upload.icon-white
+          span Start upload
+        button type="reset" class="btn btn-warning cancel"
+          i.icon-ban-circle.icon-white
+          span Cancel upload
+        button type="button" class="btn btn-danger delete"
+          i class="icon-trash icon-white"
+          span Delete
+        input.toggle type="checkbox"
+      .span5
+        /! The global progress bar
+        .progress.progress-success.progress-striped.active.fade
+          .bar style="width: 0%;"
+    /! The loading indicator is shown during image processing
+    .fileupload-loading"
+    br
+    /! The table listing the files available for upload/download
+    table.table.table-striped
+      tbody.files data-toggle="modal-gallery" data-target="#modal-gallery"
+
+javascript:
+  var fileUploadErrors = {
+    maxFileSize: 'File is too big',
+    minFileSize: 'File is too small',
+    acceptFileTypes: 'Filetype not allowed',
+    maxNumberOfFiles: 'Max number of files exceeded',
+    uploadedBytes: 'Uploaded bytes exceed file size',
+    emptyResult: 'Empty file upload result'
+  };
+
+/! The template to display files available for upload
+script id="template-upload" type="text/x-tmpl"
+  | {% for (var i=0, file; file=o.files[i]; i++) { %}
+  tr.template-upload.fade
+    td.preview: span.fade
+    td.name: span | {%=file.name%}
+    td.size: span | {%=o.formatFileSize(file.size)%}
+    | {% if (file.error) { %}
+    td class="error" colspan="2": span.label.label-important | {%=locale.fileupload.error%}
+    | {%=locale.fileupload.errors[file.error] || file.error%}
+    | {% } else if (o.files.valid && !i) { %}
+    td: .progress.progress-success.progress-striped.active: .bar style="width: 0%;"
+    td.start
+      | {% if (!o.options.autoUpload) { %}
+      button.btn.btn-primary
+        i.icon-upload.icon-white
+        span
+          | {%=locale.fileupload.start%}
+      | {% } %}
+    | {% } else { %}
+    td colspan="2"
+      | {% } %}
+    td.cancel
+      | {% if (!i) { %}
+      button.btn.btn-warning
+        i.icon-ban-circle.icon-white
+        span | {%= locale.fileupload.cancel %}
+      | {% } %}
+  | {% } %}
+
+/! The template to display files available for download
+script id="template-download" type="text/x-tmpl"
+  |  {% for (var i=0, file; file=o.files[i]; i++) { %}
+  tr.template-download.fade
+
+    / IF FILE ERROR
+    | {% if (file.error) { %}
+    td
+    td.name: span | {%=file.name%}
+    td.size: span | {%=o.formatFileSize(file.size)%}
+    td.error colspan="2"
+      span.label.label-important | {%= locale.fileupload.error %}
+      | {%=locale.fileupload.errors[file.error] || file.error%}
+    / END IF FILE ERROR
+
+    / IF NO ERROR
+    | {% } else { %}
+    td.preview
+      | {% if (file.thumbnail_url) { %}
+      a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"
+        img src="{%=file.thumbnail_url%}"
+      | {% } %}
+    td.name
+      | <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%= file.name %}">
+      | {%=file.name%}
+      | </a>
+    td.size: span | {%=o.formatFileSize(file.size)%}    
+    td colspan="2"
+    | {% } %}
+    / END IF NO ERROR
+
+    td.delete
+      button.btn.btn-danger data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}"
+        i.icon-trash.icon-white
+        span Delete
+      input type="checkbox" name="delete" value="1"
+  | {% } %}
+
+javascript:
+  $(function () {
+      // Initialize the jQuery File Upload widget:
+      $('#fileupload').fileupload();
+      
+      // Load existing files:
+      $.getJSON($('#fileupload').prop('action'), function (files) {
+        var fu = $('#fileupload').data('blueimpFileupload'), template;
+        fu._adjustMaxNumberOfFiles(-files.length);
+        console.log(files);
+        template = fu._renderDownload(files).appendTo($('#fileupload .files'));
+        // Force reflow:
+        fu._reflow = fu._transition && template.length && template[0].offsetWidth;
+        template.addClass('in');
+        $('#loading').remove();
+      });
+
+  });

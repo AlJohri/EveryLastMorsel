@@ -43,7 +43,7 @@ gem 'figaro', '~> 0.7.0' # https://github.com/laserlemon/figaro
 gem 'pg', '~> 0.15.1' 
 gem 'thin', '~> 1.5.1'
 gem "haml", "~> 4.0.3"
-gem 'slim', '~> 2.0.0'
+gem "slim-rails" # gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 gem 'dalli'
 

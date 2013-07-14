@@ -17,7 +17,7 @@
           p
       .profile-left[role="aside"]
         figure#main-image
-          img src=(@user.image.presence || "/assets/placeholder.jpg")
+          img src=(@user.avatar.url.presence || "/assets/placeholder.jpg")
         ul.profile-navigation
           li class=('active' if controller.controller_name != 'registrations')
             a href=user_url(@user) title="My Profile"

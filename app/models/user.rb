@@ -14,15 +14,36 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
   attr_accessible :first_name, :last_name, :name, :email, :password, :password_confirmation, :remember_me
-  attr_accessible :provider, :uid
+  attr_accessible :provider, :uid, :about
   attr_accessible :city, :state
   attr_accessible :image, :url
+  attr_accessible :avatar
+  attr_reader :avatar_remote_url
+  
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+  
+  def avatar_remote_url(url_value, file_name)
+    self.avatar = URI.parse(url_value)
+    self.avatar_file_name = file_name
+    # self.avatar_content_type == "image/png"
+    @avatar_remote_url = url_value
+  end
 
-  # has_attached_file :avatar, styles: {
-  #   thumb: '100x100>',
-  #   square: '200x200#',
-  #   medium: '300x300>'
-  # }
+  include Rails.application.routes.url_helpers
+
+  def to_jq_upload
+    {
+      "name" => read_attribute(:upload_file_name),
+      "size" => read_attribute(:upload_file_size),
+      "url" => upload.url(:original),
+      "delete_url" => upload_path(self),
+      "delete_type" => "DELETE" 
+    }
+  end
 
   # has_many :plots
   # has_many :crops, :through => :plots
@@ -50,6 +71,7 @@ class User < ActiveRecord::Base
               first_name: auth.info.first_name,
               last_name: auth.info.last_name,
               city: auth.info.location,
+              url: auth.info['urls']['Facebook'],
               provider: auth.provider,
               uid: auth.uid,
               email: auth.info.email,
@@ -57,6 +79,7 @@ class User < ActiveRecord::Base
             )
       # user.skip_confirmation!
       user.save
+      user.avatar_remote_url(auth.info.image, user.slug)
     end
     user
   end
@@ -66,12 +89,18 @@ class User < ActiveRecord::Base
       unless user
           #Hack to resolve the required email issue with Twitter and Devise
           user = User.new(
-                  name: auth.extra.raw_info.screen_name, 
+                  name: auth.info.name,  #extra.raw_info.screen_name
+                  first_name: auth.info.name[0],
+                  last_name: auth.info.name[1],
+                  city: auth.info.location,
+                  about: auth.info.description,
+                  url: auth.info['urls']['Twitter'],
                   email: "#{auth.extra.raw_info.screen_name}@twitter.com", 
                   password: Devise.friendly_token[0,20]
                 )
           # user.skip_confirmation!
           user.save
+          user.avatar_remote_url(auth.info.image, user.slug)
       end
       user
   end
@@ -84,8 +113,7 @@ class User < ActiveRecord::Base
                 name: auth.info["name"],
                 first_name: auth.info["first_name"],
                 last_name: auth.info["last_name"],
-                city: "",
-                image: auth.info["image"],
+                # city: "",
                 url: auth.info['urls']['Google'],
                 provider: auth.provider,
                 email: auth.info["email"],
@@ -94,6 +122,7 @@ class User < ActiveRecord::Base
               )
         # user.skip_confirmation!
         user.save
+        user.avatar_remote_url(auth.info.image, user.slug)
       end
       user
   end

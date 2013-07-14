@@ -1,12 +1,14 @@
 - flash.each do |name, msg|
   - if msg.is_a?(String)
     - if name.to_s.include? "notice"
-        .alert.alert-success
-          button.close[type="button" data-dismiss="alert"]
-            | ×
+        .alert.alert-success.fade.in
+          button.close[type="button" data-dismiss="alert"] ×
           = msg
-    - else name.to_s.include? "alert"
-        .alert.alert-error
-          button.close[type="button" data-dismiss="alert"]
-            | ×
+    - elsif name.to_s.include? "alert"
+        .alert.alert-error.fade.in
+          button.close[type="button" data-dismiss="alert"] ×
+          = msg
+	- else
+        .alert.fade.in
+          button.close[type="button" data-dismiss="alert"] ×
           = msg
