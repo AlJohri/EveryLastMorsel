@@ -126,6 +126,7 @@ ul.tools {
     width: 400px;
     padding-top: 130px;
     padding-bottom: 130px;
+    // padding: 3% 10%;
     h1 { color: white; font-size: 36px; padding-bottom: 10px; }
     h2 { color: white; font-size: 20px; padding-bottom: 10px; }
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
@@ -135,9 +136,10 @@ ul.tools {
 .section-learn {
   .section-learn-content {
     text-align: center;
-    h1 { color: white; font-size: 36px; padding-bottom: 10px; }
-    h2 { color: white; font-size: 20px; padding-bottom: 10px; }
+    h1 { color: #6d6d6d; font-size: 36px; padding-bottom: 10px; }
+    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+    padding: 3% 10%;
   }
 }
 
@@ -145,6 +147,9 @@ ul.tools {
   background-color: white;
   .section-share-content {
     h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
+    a {font-size: 18px;}
+    text-align: center;
+    padding: 3% 10%;
   }
 }
 
@@ -152,6 +157,8 @@ ul.tools {
   .section-grow-content {
     h2 { color: #6d6d6d; }
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+    text-align: center;
+    padding: 3% 10%;
   }
 }
 
@@ -182,6 +189,13 @@ ul.tools {
     h1 { font-size: 20px; }
     h2 { font-size: 15px;  }
     a { font-size: 12px; }    
+  }
+
+  .section-learn .section-learn-content, .section-share .section-share-content, .section-grow .section-grow-content {
+    margin: 0 auto;
+    h1 { font-size: 20px; }
+    h2 { font-size: 15px;  }
+    a { font-size: 12px; }     
   }
 
   .section-claims img { max-width: 420px; bottom: -20px; left: 5% }
@@ -242,6 +256,7 @@ ul.tools {
     left: 0%;
     padding-top: 30px;
     padding-bottom: 30px;
+    text-align: center
   }
 
   .section-track .section-track-content {
@@ -250,6 +265,7 @@ ul.tools {
     left: 0%;
     padding-top: 30px;
     padding-bottom: 30px;
+    text-align: center
   }
 
 }
