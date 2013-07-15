@@ -15,13 +15,17 @@
 //= require jquery.ui.all
 //= require bootstrap
 //= require jquery-fileupload
-
 //= require autocomplete-rails
 //= require lib/jquery/jquery.autoSuggest.js
 //= require lib/jquery/jquery.validate.js
-
 //= require elm.js
 //= require jquery.placeheld.js
 //= require jquery.scrollTo.js
 //= require records.js
-// require_tree .
+
+$(document).ready(function() {
+	$(".get-started").click(function () {
+	   $('.section-signup').slideToggle('slow');
+	   // $('.section-signup')[0].scrollIntoView(true);
+	});
+});
