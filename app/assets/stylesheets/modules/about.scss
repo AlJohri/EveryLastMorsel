@@ -1,6 +1,7 @@
 .about-content {
     margin: 0px 70px;
     padding: 40px 40px;
+    background: white;
 }
 
 .about-header {
@@ -21,3 +22,57 @@
     }
 
 }
+
+.two-column {
+    -moz-column-count: 2; /* Firefox */
+    -webkit-column-count: 2; /* Safari and Chrome */
+    column-count: 2;
+
+    -moz-column-gap:40px; /* Firefox */
+    -webkit-column-gap:40px; /* Safari and Chrome */
+    column-gap:40px;
+}
+
+.the-people {
+    margin: 60px auto;
+    width: 100%
+}
+
+h2.the-people-header { 
+    width:100%; 
+    text-align:center; 
+    // border-bottom: 1px solid #000; 
+    // line-height: 0.5em; 
+    margin:10px 0 40px; 
+} 
+h2.the-people-header span { background:#fff; padding:0 10px; margin-bottom: 20px; }
+
+.team-bio {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.team-bio-copy {
+    float: left;
+    width: 75%;
+    padding: 0 5%;
+    font-style: italic;
+}
+
+.team-bio-image {
+    float: left;
+    border-radius: 50%;
+    width: 15%;
+    max-height: 168px;
+    overflow: hidden;
+}
+
+.right-justify {
+    text-align: right;
+    width: 65%;
+    padding-left: 15%;
+}
+
+
+
+
