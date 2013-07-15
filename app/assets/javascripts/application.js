@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require bootstrap
+//= require bootstrap-editable
 //= require jquery-fileupload
 //= require autocomplete-rails
 //= require lib/jquery/jquery.autoSuggest.js
@@ -26,6 +27,6 @@
 $(document).ready(function() {
 	$(".get-started").click(function () {
 	   $('.section-signup').slideToggle('slow');
-	   // $('.section-signup')[0].scrollIntoView(true);
+	   $('.section-signup')[0].scrollIntoView(true);
 	});
 });
