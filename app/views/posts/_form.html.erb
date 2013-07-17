@@ -1,5 +1,3 @@
-<h1> <%= editable Post, @post, 'name', e: @post.name %></h1>
-
 <%= form_for([@post.user, @post]) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
