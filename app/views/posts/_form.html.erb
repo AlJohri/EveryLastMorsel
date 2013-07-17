@@ -1,3 +1,5 @@
+<h1> <%= editable Post, @post, 'name', e: @post.name %></h1>
+
 <%= form_for([@post.user, @post]) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -23,3 +25,11 @@
     <%= f.submit "Submit", :class => 'button btn-orange' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+  $(window).ready( function () {
+    $('.editable').editable()
+  });
+
+</script>

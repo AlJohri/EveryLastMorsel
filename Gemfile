@@ -46,7 +46,9 @@ gem "haml", "~> 4.0.3"
 gem "slim-rails" # gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 gem 'dalli'
-gem 'bootstrap-x-editable-rails'
+gem 'faker'
+# gem 'bootstrap-x-editable-rails'
+# gem 'x-editable-rails'
 
 # gem "blogit"
 gem "kaminari"

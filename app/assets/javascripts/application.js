@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require bootstrap
-//= require bootstrap-editable
 //= require jquery-fileupload
 //= require autocomplete-rails
 //= require lib/jquery/jquery.autoSuggest.js
@@ -23,6 +22,11 @@
 //= require jquery.placeheld.js
 //= require jquery.scrollTo.js
 //= require records.js
+
+
+// require editable/bootstrap-editable
+// require editable/rails
+// require bootstrap-editable
 
 $(document).ready(function() {
 	$(".get-started").click(function () {

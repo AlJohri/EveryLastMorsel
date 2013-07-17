@@ -4,6 +4,9 @@ EveryLastMorsel::Application.routes.draw do
 
 
   ######## ROOT/STATIC ROUTES ########
+  authenticated :user do
+    root :to => "posts#index"
+  end  
   root :to => "static#home"
   scope :controller => "static" do
     get 'about'

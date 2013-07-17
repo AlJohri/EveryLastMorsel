@@ -65,8 +65,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
-    bootstrap-x-editable-rails (1.4.5.1)
-      railties (>= 3.0)
     builder (3.0.4)
     cancan (1.6.10)
     chunky_png (1.2.8)
@@ -101,6 +99,8 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     figaro (0.7.0)
@@ -281,12 +281,12 @@ DEPENDENCIES
   better_errors (~> 0.9.0)
   binding_of_caller
   bootstrap-sass (~> 2.3.2.0)
-  bootstrap-x-editable-rails
   cancan (>= 1.6.9)
   coffee-rails (~> 3.2.1)
   compass-rails
   dalli
   devise (>= 2.2.3)
+  faker
   figaro (~> 0.7.0)
   font-awesome-rails (~> 3.2.1.1)
   friendly_id (~> 4.0.9)

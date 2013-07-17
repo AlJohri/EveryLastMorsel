@@ -1,6 +1,8 @@
 @import "compass/css3";
 @import "compass/utilities";
 
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
 body {
   background: white;
   color: #58585A;

@@ -31,4 +31,8 @@ class ApplicationController < ActionController::Base
  #          session[:previous_url] || root_path
     # end
 
+    def xeditable?
+      true # Or something like current_user.xeditable?
+    end    
+
 end

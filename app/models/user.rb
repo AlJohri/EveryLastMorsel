@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :plots
-  after_create :update_mailchimp
+  # after_create :update_mailchimp
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -20,12 +20,13 @@ class User < ActiveRecord::Base
   attr_accessible :avatar
   attr_reader :avatar_remote_url
   
-  has_attached_file :avatar, :default_url => "/assets/placeholder.jpg", 
-  styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }
+  has_attached_file :avatar, 
+    :default_url => "/assets/placeholder_:style.jpg", 
+    styles: {
+      thumb: '100x100>',
+      square: '200x200#',
+      medium: '300x300>'
+    }
   
   def avatar_remote_url(url_value, file_name)
     self.avatar = URI.parse(url_value)
