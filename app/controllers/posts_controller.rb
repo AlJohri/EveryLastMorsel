@@ -10,13 +10,13 @@ class PostsController < ApplicationController
       @posts = @user.posts
 
       respond_to do |format|
-        format.html # index.html.erb
+        format.html { render "user-index" }
         format.json { render :json => @posts }
       end
     else
       @posts = Post.all
       respond_to do |format|
-        format.html { render :layout => 'application'}
+        format.html { render "index", :layout => 'application'}
         format.json { render :json => @posts }
       end
     end

@@ -14,50 +14,10 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
               img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
           .post-right
             .post-right-author-name
-              p = post.user.name
+              a href=user_url(post.user)
+                p = post.user.name
             .post-right-posted-date
               p Posted #{post.created_at.strftime("%d %b. %Y")}
             h1
-              - if params[:user_id]
-                = link_to "#{post.title}", user_post_path(@user, post.id)
-              - else
-                = link_to "#{post.title}", post_path(post.id)
-            p.post-content == simple_format(post.content)
-
-/ .post-author-right
-/ = post.user.name
-/ .post-author-left
-
-
-/ p.post-image
-/ #myCarousel.carousel.slide
-/   ol.carousel-indicators
-/     li data-target="#myCarousel" data-slide-to="0" class="active"
-/     li data-target="#myCarousel" data-slide-to="1"
-/     li data-target="#myCarousel" data-slide-to="2"
-/   .carousel-inner
-/     .item.active
-/         img src="http://www.philipnixondesign.com/assets/Portfolios/Urban/Notting-Hill-London/80theak16.jpg" alt=""
-/         .carousel-caption
-/           h4 First Thumbnail label
-/           p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-/     .item
-/     .item
-/   a.carousel-control.left href="#myCarousel" data-slide="prev" &lsaquo;
-/   a.carousel-control.right href="#myCarousel" data-slide="next" &rsaquo;
-
-
-
-
-
-
-/ - #if @posts.gallery_images != nil
-/ ul.post-gallery-images.clearfix
-/ - #@posts.gallery_images.each do |image|
-/ li.post-gallery-image
-/   img src="http://www.philipnixondesign.com/assets/Portfolios/Urban/Notting-Hill-London/80theak16.jpg"
-/ li.post-gallery-image
-/   img src="http://www.thisgardenisillegal.com/uploaded_images/urban-garden3.jpg"
-/ - if params[:user_id]
-/   button.button.btn-orange = link_to 'Create Post', new_user_post_path(params[:user_id])
-
+              = link_to "#{post.title}", post_url(post)
+            p.post-content == simple_format(post.short_body)

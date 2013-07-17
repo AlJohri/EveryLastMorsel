@@ -1,0 +1,9 @@
+article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" end)
+  .posts-feed-content
+    ul
+      - @posts.each do |post|
+        li.post
+          p Posted #{post.created_at.strftime("%d %b. %Y")}
+          h1
+            = link_to "#{post.title}", user_post_url(@user, post)
+          p.post-content == simple_format(post.short_body)

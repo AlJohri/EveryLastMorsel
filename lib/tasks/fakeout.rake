@@ -40,7 +40,7 @@ class Fakeout
     1.upto(paragraph_count) do; paragraphs << Faker::Lorem.paragraph(5); end
 
     { # "#{Faker::Lorem.sentence(8+rand(8)).chop}?",
-      :title            => Faker::Lorem.sentence(rand(2..10)).chomp('.'),
+      :title            => Faker::Lorem.sentence(rand(2..5)).chomp('.'),
       :content          => paragraphs.join("\n"),
       :created_at       => post_time,
       :updated_at       => post_time,

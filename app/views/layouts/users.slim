@@ -2,7 +2,7 @@
     .profile-layout
       .profile-top
         .pushed
-          a href=(!@user.slug.blank? ? "/" + @user.slug : "/" + @user.id)
+          a href=user_url(@user)
             h1
               = @user.name.presence || "Full Name"
           ul.list-inline
@@ -20,7 +20,7 @@
                   - if @user.avatar?
                     = image_tag @user.avatar(:medium)
                   - else
-                    img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
+                    img src="http://lorempixel.com/100/100/?#{@user.slug}" alt="random image"
               .back
                 h1 Back of card!
         ul.profile-navigation
