@@ -29,10 +29,12 @@ class User < ActiveRecord::Base
     }
   
   def avatar_remote_url(url_value, file_name)
-    self.avatar = URI.parse(url_value)
-    self.avatar_file_name = file_name
-    # self.avatar_content_type == "image/png"
-    @avatar_remote_url = url_value
+    if url_value != nil 
+      self.avatar = uri = URI.parse(URI.encode(url_value.strip))
+      self.avatar_file_name = file_name
+      # self.avatar_content_type == "image/png"
+      @avatar_remote_url = url_value
+    end
   end
 
   include Rails.application.routes.url_helpers
