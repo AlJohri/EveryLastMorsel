@@ -10,8 +10,8 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
           .post-left
             - if post.user.avatar?
               = image_tag post.user.avatar(:thumb)
-            - else
-              img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
+            / - else
+              / img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
           .post-right
             .post-right-author-name
               a href=user_url(post.user)

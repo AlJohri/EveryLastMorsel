@@ -17,10 +17,10 @@
             .flipper
               .front
                 a href=edit_user_registration_url
-                  - if @user.avatar?
-                    = image_tag @user.avatar(:medium)
-                  - else
-                    img src="http://lorempixel.com/100/100/?#{@user.slug}" alt="random image"
+                  / - if @user.avatar?
+                  = image_tag @user.avatar(:medium)
+                  / - else
+                    / img src="http://lorempixel.com/100/100/?#{@user.slug}" alt="random image"
               .back
                 h1 Back of card!
         ul.profile-navigation
