@@ -22,7 +22,12 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
               a href=like_post_url(post)
                   - if post.flaggings.count != 0
                       span.icon-heart
-                      |  #{post.flaggings.count} people dig it
+                      |  #{post.flaggings.count} 
+                      - if post.flaggings.count == 1
+                        | person digs it
+                      - else
+                        | people dig it
+
                   - else
                       span.icon-heart-empty
                       |  Dig it?
