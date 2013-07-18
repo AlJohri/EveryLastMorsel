@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/cavneb/make_flaggable.git
+  revision: 1b09b3bb8a778b5a8f7250c587d59a8e6c205be6
+  specs:
+    make_flaggable (0.1.0)
+      activerecord (>= 3.0.0)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: d0af3380182ed7b991a9a23eae3c114b88fe0a14
   branch: rails-3.x
@@ -296,6 +303,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   kaminari
+  make_flaggable!
   nested_scaffold
   newrelic_rpm
   omniauth

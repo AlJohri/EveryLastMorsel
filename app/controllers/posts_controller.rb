@@ -108,4 +108,12 @@ class PostsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def like
+    @post = Post.find(params[:id])
+    if user_signed_in?
+      current_user.flag(@post, :heart)
+      redirect_to post_path(@post), :notice => "You just liked this post!"
+    end
+  end
 end

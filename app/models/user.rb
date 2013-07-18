@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   attr_accessible :image, :url
   attr_accessible :avatar
   attr_reader :avatar_remote_url
+
+  make_flagger
   
   has_attached_file :avatar, 
     :default_url => "/assets/placeholder_:style.jpg", 

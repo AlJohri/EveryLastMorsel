@@ -18,6 +18,15 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
                 p = post.user.name
             .post-right-posted-date
               p Posted #{post.created_at.strftime("%d %b. %Y")}
+            .post-right-likes
+              a href=like_post_url(post)
+                p 
+                  - if post.flaggings.count != 0
+                      span.icon-heart
+                      |  #{post.flaggings.count} people digg it
+                  - else
+                      span.icon-heart-empty
+                      |  Digg it?
             h1
               = link_to "#{post.title}", post_url(post)
             p.post-content == simple_format(post.short_body)

@@ -34,7 +34,16 @@ EveryLastMorsel::Application.routes.draw do
   }
   
   ###### PLOTS/POSTS REGULAR ROUTES #######
-  resources :plots, :posts, only: [:index, :show]
+  resources :plots, only: [:index, :show] do
+    member do
+      get 'follow'
+    end
+  end
+  resources :posts, only: [:index, :show] do
+    member do
+      get 'like'
+    end
+  end
 
   ###### USER -> PLOTS/POSTS VANITY ROUTES #######
   # path /:user_id so that paths are viewable as 
@@ -43,12 +52,24 @@ EveryLastMorsel::Application.routes.draw do
   # etc.
   # user CRUD cannot be done from vanity URL
   # WRONG: /:user_id/new
-  # MAKE THIS ROUTE LOOK NICER LATER
-  resources :users, :path => '', except: [:index, :show, :new, :create, :edit, :destory, :update] do
-  # scope :users, :path => '/:user_id' do
-    resources :plots, :posts
+  # resources :users, :path => '', except: [:index, :show, :new, :create, :edit, :destory, :update] do
+
+  scope :users, :path => '/:user_id', :as => "user" do
+    get 'about' => 'users#show'
+
+    resources :plots do
+      member do
+        get 'follow'
+      end
+    end
+
+    resources :posts do
+      member do
+        get 'like'
+      end
+    end
+
   end
-  get '/:user_id/about' => 'users#show', :as => :user_about
 
   ####### USER -> PLOTS/POSTS REGULAR ROUTES #######
   # create regular routes under "/user" path for API
@@ -57,8 +78,20 @@ EveryLastMorsel::Application.routes.draw do
   # /user/:posts_id/posts/new
   # user CRUD can be done from this route
   # CORRECT: /users/:user_id/new
-  resources :users, except: [:show] do 
-    resources :plots, :posts
+  scope "/api/v0/" do
+    resources :users, except: [:show] do 
+      resources :plots do
+        member do
+          get 'follow'
+        end
+      end
+
+      resources :posts do
+        member do
+          get 'like'
+        end
+      end
+    end
   end
   
   ############# USER VANITY URL ################
