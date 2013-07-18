@@ -62,6 +62,7 @@ html
                   }
                   else {
                     $("#subscribe-form span.return").html("Subscribed!").removeClass("return-error").addClass("return-success");
+                    ga('send', 'event', 'newsletter', 'signup');
                   }
 
                   $("#subscribe-email").val("");
