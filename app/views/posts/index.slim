@@ -15,18 +15,22 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
           .post-right
             .post-right-author-name
               a href=user_url(post.user)
-                p = post.user.name
+                = post.user.name
             .post-right-posted-date
-              p Posted #{post.created_at.strftime("%d %b. %Y")}
+              | Posted #{post.created_at.strftime("%B %d, %Y")} at #{post.created_at.strftime("%I:%M %p")}
             .post-right-likes
               a href=like_post_url(post)
-                p 
                   - if post.flaggings.count != 0
                       span.icon-heart
-                      |  #{post.flaggings.count} people digg it
+                      |  #{post.flaggings.count} people dig it
                   - else
                       span.icon-heart-empty
-                      |  Digg it?
+                      |  Dig it?
             h1
-              = link_to "#{post.title}", post_url(post)
+              = link_to "#{post.title}", user_post_url(post.user, post)                      
+            - if post.picture?
+              .post-right-picture
+                img src=post.picture.url(:medium)
             p.post-content == simple_format(post.short_body)
+            a href=user_post_url(post.user, post)
+              | Read more...

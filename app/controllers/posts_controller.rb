@@ -112,8 +112,12 @@ class PostsController < ApplicationController
   def like
     @post = Post.find(params[:id])
     if user_signed_in?
-      current_user.flag(@post, :heart)
-      redirect_to post_path(@post), :notice => "You just liked this post!"
+      current_user.flag(@post, :dig)
+      redirect_to user_post_path(@post.user, @post), :notice => "You dig it!"
+    else
+      redirect_to posts_path, :alert => "Please create an account!"
     end
+
   end
+
 end

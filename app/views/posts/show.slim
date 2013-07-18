@@ -8,11 +8,11 @@ end
 
 hr
 h1 = @post.title
-/ ul.user-post-gallery-images.clearfix
-/ 	li.user-post-gallery-image
-/   		img src="http://www.philipnixondesign.com/assets/Portfolios/Urban/Notting-Hill-London/80theak16.jpg"
-/ 	li.user-post-gallery-image
-/   		img src="http://www.thisgardenisillegal.com/uploaded_images/urban-garden3.jpg"
+
+- if @post.picture?
+	ul.user-post-gallery-images
+		li.user-post-gallery-image
+  			img src=@post.picture.url(:medium)
 
 p.user-post-content = simple_format(@post.content)
 
