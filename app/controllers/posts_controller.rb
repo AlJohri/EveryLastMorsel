@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ::ActionView::Helpers::TextHelper
 
   # GET /posts
   # GET /posts.json
@@ -113,8 +114,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @ret = ""
     if user_signed_in?
-      if current_user.flag(@post, :dig) then; @ret = "You dig it!";
-      else; current_user.unflag(@post, :dig); @ret = "You undug it :("; end
+      if current_user.flag(@post, :dig) then; @ret = pluralize(@post.flaggings.count, 'person digs it', 'people dig it');
+      else; current_user.unflag(@post, :dig); @ret = pluralize(@post.flaggings.count, 'person digs it', 'people dig it'); end
     else
       redirect_to posts_path, :alert => "Please create an account!"
     end

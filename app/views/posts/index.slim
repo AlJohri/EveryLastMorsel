@@ -27,8 +27,8 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
                         span.dig-icon.icon-heart
                         span.dig-text #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
                     - else
-                        span.icon-heart-empty
-                        |  Dig it?
+                        span.dig-icon.icon-heart-empty
+                        span.dig-text Dig it?
             h1
               = link_to "#{post.title}", user_post_url(post.user, post)                      
             - if post.picture?
