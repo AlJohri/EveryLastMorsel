@@ -1,19 +1,21 @@
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+= form_for(resource, :as => resource_name, :html => {:autocomplete => "off"}, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
   fieldset
     div = f.text_field :first_name, :placeholder => "First"
     div = f.text_field :last_name, :placeholder => "Last"
     div = f.text_field :zip, :placeholder => "Zip"    
     div = f.email_field :email, :placeholder => "Email"
-    div = f.password_field :password, :placeholder => "Password"
-    ul.inline
-      li: button.button.btn-orange type="submit"
-        span.icon.secure
-        span Sign up
-      li: button.button.btn-orange
-        span.icon-facebook
-      li: button.button.btn-orange
-        span.icon-google-plus
+    div = f.password_field :password, :placeholder => "Password", :autocomplete => 'off'
+ul.inline
+  li: button.button.btn-orange type="submit"
+    span.icon.secure
+    span Sign up
+  li: a href=user_omniauth_authorize_path(:facebook)
+    button.button.btn-orange type="button"
+      span.icon-facebook
+  li: a href=user_omniauth_authorize_path(:google_oauth2)
+    button.button.btn-orange type="button"
+      span.icon-google-plus
 
 javascript:
   jQuery("#create-form-validate").validate({
