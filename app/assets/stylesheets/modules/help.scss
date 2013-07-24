@@ -23,23 +23,39 @@
 
 .how-it-works-list {
   list-style-type: none;
+  img {
+    opacity: .5;
+    color: rgba(255,255,255,0.0)
+  }
 }
 
 .how-it-works-feature {
-  height: 200px;
+  height: 175px;
   width: 100%;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  -moz-box-shadow:    0px -1px 0px 0px #ccc;
+  -webkit-box-shadow: 0px -1px 0px 0px #ccc;
+  box-shadow:         0px -1px 0px 0px #ccc;
 }
 
 .how-it-works-feature:nth-child(even) {
   background-color: #e1e6d0;
 }
 
+.how-it-works-feature:nth-child(odd) {
+
+}
+
 .how-it-works-signup {
   text-align: center;
   background-color: white;
-  height: 200px;
+  height: 150px;
   padding: 40px;
   padding-bottom: 20px;
+  button {
+    margin: 0 auto;
+  }
 }
 
 .feature-img {
