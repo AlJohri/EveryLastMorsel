@@ -23,7 +23,6 @@
 //= require jquery.scrollTo.js
 //= require records.js
 
-
 // require editable/bootstrap-editable
 // require editable/rails
 // require bootstrap-editable
