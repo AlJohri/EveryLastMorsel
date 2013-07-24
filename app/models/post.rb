@@ -33,7 +33,6 @@ class Post < ActiveRecord::Base
     }
 
   def short_body
-    # include ActionView::Helpers::TextHelper
     truncate(content, length: 400, separator: "\n")
   end
 

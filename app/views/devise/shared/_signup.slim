@@ -3,9 +3,8 @@
   fieldset
     div = f.text_field :first_name, :placeholder => "First"
     div = f.text_field :last_name, :placeholder => "Last"
+    div = f.text_field :zip, :placeholder => "Zip"    
     div = f.email_field :email, :placeholder => "Email"
-    div = f.text_field :city, :placeholder => "City"
-    div = f.text_field :state, :placeholder => "State"
     div = f.password_field :password, :placeholder => "Password"
     ul.inline
       li: button.button.btn-orange type="submit"
@@ -23,19 +22,18 @@ javascript:
           invite_code : {required : true},
           firstname : {required : true},
           lastname : {required : true},
-          city : {required : true},
-          state : {required : true},
+          zip : {required : true},
           email : {
               required : true,
               email : true
           },
           password : {
               required : true
-          },
+          } /*,
           passwordVerify : {
               required : true,
               equalTo : '#password'
-          }
+          }*/
       },
       messages: {
           firstname : "Please enter your first name",
@@ -43,11 +41,11 @@ javascript:
           city : "Please the city you live in",
           state : "Please enter the state of your city",
           email : "Incorrect email format",
-          password : "Please provide a password",
+          password : "Please provide a password" /*,
           passwordVerify : {
               required : "Please confirm your password",
               equalTo : "Please enter the same password as above"
-          }
+          }*/
       },
       submitHandler : function(form) {
           window.event.preventDefault();

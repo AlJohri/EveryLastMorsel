@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, :as => :admin
   attr_accessible :first_name, :last_name, :name, :email, :password, :password_confirmation, :remember_me
   attr_accessible :provider, :uid, :about
-  attr_accessible :city, :state
+  attr_accessible :city, :state, :zip
   attr_accessible :url
   attr_accessible :avatar
   attr_reader :avatar_remote_url

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718185039) do
+ActiveRecord::Schema.define(:version => 20130724083528) do
 
   create_table "flaggings", :force => true do |t|
     t.string   "flaggable_type"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20130718185039) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "zip"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
