@@ -28,9 +28,9 @@
 // require editable/rails
 // require bootstrap-editable
 
-$(document).ready(function() {
-	$(".get-started").click(function () {
-	   $('.section-signup').slideToggle('slow');
-	   $('.section-signup')[0].scrollIntoView(true);
-	});
-});
+// $(document).ready(function() {
+// 	$(".get-started").click(function () {
+// 	   $('.section-signup').slideToggle('slow');
+// 	   $('.section-signup')[0].scrollIntoView(true);
+// 	});
+// });

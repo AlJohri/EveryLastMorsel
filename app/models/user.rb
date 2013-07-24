@@ -134,7 +134,6 @@ class User < ActiveRecord::Base
   end
 
   def update_mailchimp
-    # Note: This will send a welcome email to the new subscriber
     gb = Gibbon.new
     ret = gb.list_subscribe({:id => '814352e0b3', :email_address => self.email, :merge_vars => {:FNAME => self.first_name, :LNAME => self.last_name, :MMERGE3 => self.city, :MMERGE4 => self.created_at }})
     
