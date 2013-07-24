@@ -111,15 +111,19 @@ class PostsController < ApplicationController
 
   def like
     @post = Post.find(params[:id])
+    @ret = ""
     if user_signed_in?
-      if current_user.flag(@post, :dig) then 
-        redirect_to user_post_path(@post.user, @post), :notice => "You dig it!"
-      else
-        current_user.unflag(@post, :dig)
-        redirect_to user_post_path(@post.user, @post), :notice => "You undug it :("
-      end
+      if current_user.flag(@post, :dig) then; @ret = "You dig it!";
+      else; current_user.unflag(@post, :dig); @ret = "You undug it :("; end
     else
       redirect_to posts_path, :alert => "Please create an account!"
+    end
+    
+    # format.html { redirect_to user_post_path(@post.user, @post), :notice => ret }
+
+    respond_to do |format|
+      format.json { render :json => @ret }
+      format.js { render :layout => ! request.xhr? }
     end
 
   end

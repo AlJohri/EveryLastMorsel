@@ -18,14 +18,8 @@
 //= require autocomplete-rails
 //= require lib/jquery/jquery.autoSuggest.js
 //= require lib/jquery/jquery.validate.js
-//= require elm.js
-//= require jquery.placeheld.js
-//= require jquery.scrollTo.js
-//= require records.js
-
-// require editable/bootstrap-editable
-// require editable/rails
-// require bootstrap-editable
+//= require lib/jquery/jquery.placeheld.js
+//= require lib/jquery/jquery.scrollTo.js
 
 // $(document).ready(function() {
 // 	$(".get-started").click(function () {
