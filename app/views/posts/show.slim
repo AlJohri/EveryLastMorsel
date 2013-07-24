@@ -14,7 +14,7 @@ h1 = @post.title
 		li.user-post-gallery-image
   			img src=@post.picture.url(:medium)
 
-p.user-post-content = simple_format(@post.content)
+p.user-post-content = simple_format2(@post.content)
 
 - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
 	button.button.btn-orange.post-btn 

@@ -34,6 +34,6 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
             - if post.picture?
               .post-right-picture
                 img src=post.picture.url(:medium)
-            p.post-content == simple_format(post.short_body)
+            p.post-content == simple_format2(post.short_body)
             a href=user_post_url(post.user, post)
               | Read more...

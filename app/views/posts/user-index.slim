@@ -6,4 +6,4 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
           p Posted #{post.created_at.strftime("%d %b. %Y")}
           h1
             = link_to "#{post.title}", user_post_url(@user, post)
-          p.post-content == simple_format(post.short_body)
+          p.post-content == simple_format2(post.short_body)
