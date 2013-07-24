@@ -24,14 +24,14 @@ class User < ActiveRecord::Base
   
   has_attached_file :avatar, 
     :default_url => "/assets/placeholder_:style.jpg", 
-    styles: {
-      thumb: '100x100>',
+    :styles => {
+      thumb: '100x100',
       square: '200x200#',
-      medium: '300x300>'
+      medium: '300x300'
     }
   
   def avatar_remote_url(url_value, file_name)
-    if url_value != nil 
+    if url_value != nil
       self.avatar = uri = URI.parse(URI.encode(url_value.strip))
       self.avatar_file_name = file_name
       # self.avatar_content_type == "image/png"
@@ -77,6 +77,7 @@ class User < ActiveRecord::Base
               first_name: auth.info.first_name,
               last_name: auth.info.last_name,
               city: auth.info.location,
+              zip: auth.info.image,
               url: auth.info['urls']['Facebook'],
               provider: auth.provider,
               uid: auth.uid,

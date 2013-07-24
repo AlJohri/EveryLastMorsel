@@ -227,9 +227,9 @@ Devise.setup do |config|
   # up on your models and hooks.
   # https://developers.facebook.com/docs/reference/login/public-profile-and-friend-list/
   if Rails.env.development?
-    config.omniauth :facebook, ENV['FACEBOOK_DEV_APPID'], ENV['FACEBOOK_DEV_APPSECRET'], {:scope => 'email, user_location, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+    config.omniauth :facebook, ENV['FACEBOOK_DEV_APPID'], ENV['FACEBOOK_DEV_APPSECRET'], {:scope => 'email, user_location, offline_access', :image_size => 'large', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   else
-    config.omniauth :facebook, ENV['FACEBOOK_APPID'], ENV['FACEBOOK_APPSECRET'], {:scope => 'email, user_location, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+    config.omniauth :facebook, ENV['FACEBOOK_APPID'], ENV['FACEBOOK_APPSECRET'], {:scope => 'email, user_location, offline_access', :image_size => 'large', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   end
   config.omniauth :google_oauth2, ENV['GOOGLE_APPID'], ENV['GOOGLE_APPSECRET'], { :scope => 'userinfo.email, userinfo.profile', :access_type => "offline", :approval_prompt => "" }
   config.omniauth :twitter, ENV['TWITTER_APPID'], ENV["TWITTER_APPSECRET"]
