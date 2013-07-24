@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
     }
 
   def short_body
-    truncate(content, length: 400) #separator: "\n"
+    truncate(content, length: 400, :omission => '') #separator: "\n"
   end
 
 end

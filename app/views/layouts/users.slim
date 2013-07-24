@@ -12,17 +12,8 @@
                 = @user.city.presence || "Add your city!"
           p
       .profile-left[role="aside"]
-        figure
-          .flip-container ontouchstart="this.classList.toggle('hover');"
-            .flipper
-              .front
-                a href=edit_user_registration_url
-                  / - if @user.avatar?
-                  = image_tag @user.avatar(:medium)
-                  / - else
-                    / img src="http://lorempixel.com/100/100/?#{@user.slug}" alt="random image"
-              .back
-                h1 Back of card!
+        a href=edit_user_registration_url
+          = image_tag @user.avatar(:medium)
         ul.profile-navigation
           li class=('active' if controller.controller_name != 'registrations')
             a href=user_url(@user) title="My Profile"
@@ -45,7 +36,7 @@
                   = link_to "About", user_about_path(@user), remote: false
                 li class=('active' if controller.controller_name == 'posts')
                   = link_to "Blog", user_posts_path(@user), remote: false
-                / li class=('active' if controller.controller_name == 'plots')
+                li class=('active' if controller.controller_name == 'plots')
                   # = link_to "Plot", user_plots_path(@user), remote: false
                 / li class=('active' if controller.controller_name == 'crops')
                   / # = link_to "Crop", user_posts_path(params[:id], remote: true)

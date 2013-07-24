@@ -15,7 +15,7 @@ class PostsController < ApplicationController
         format.json { render :json => @posts }
       end
     else
-      @posts = Post.all
+      @posts = Post.all(:order => "created_at DESC")
       respond_to do |format|
         format.html { render "index", :layout => 'application'}
         format.json { render :json => @posts }

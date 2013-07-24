@@ -9,11 +9,15 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
         li.post
           .post-left
             a href=user_url(post.user)
+              / If user has profile picture, show the picture. If not, check if in development mode. If in dev
+              / mode, show a random picture from online. If in production, show the generic thumnail image.
               - if post.user.avatar?
                 = image_tag post.user.avatar(:thumb)
               - else
                 - if Rails.env.development?
                     img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
+                - else
+                    = image_tag post.user.avatar(:thumb)
           .post-right
             .post-right-author-name
               a href=user_url(post.user)
@@ -24,10 +28,10 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
               div id="dig-#{post.id}"
                 = link_to like_post_url(post), :title => "Dig", :remote => true do    
                     - if post.flaggings.count != 0
-                        span.dig-icon.icon-heart
+                        span.dig-icon.icon-heart &nbsp;
                         span.dig-text #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
                     - else
-                        span.dig-icon.icon-heart-empty
+                        span.dig-icon.icon-heart-empty &nbsp;
                         span.dig-text Dig it?
             h1
               = link_to "#{post.title}", user_post_url(post.user, post)                      
