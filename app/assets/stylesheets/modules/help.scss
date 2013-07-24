@@ -1,0 +1,54 @@
+.how-it-works-hero {
+  width: 100%;
+  height: auto;
+}
+  
+.brown-bar {
+  height: 200px;
+  width: 100%;
+}
+
+.how-it-works-hero-content {
+  text-align: center;
+  background: white;
+  padding-bottom: 30px;
+  img {
+    margin-top: -100px;
+  }
+}
+
+.how-it-works-list {
+  list-style-type: none;
+}
+
+.how-it-works-feature {
+  height: 200px;
+  width: 100%;
+}
+
+.how-it-works-feature:nth-child(2n) {
+  background-color: #e1e6d0;
+}
+
+.how-it-works-signup {
+  text-align: center;
+  background-color: white;
+  height: 200px;
+  padding: 40px;
+  padding-bottom: 20px;
+}
+
+.feature-img {
+  width: 30%;
+  float: left;
+  img {
+    display: block;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+} 
+.feature-copy {
+  width: 70%;
+  float: left;
+  padding-top: 20px;
+}
