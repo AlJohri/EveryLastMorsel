@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
     :styles => {
       thumb: '100x100',
       square: '200x200#',
-      medium: '300x300'
+      medium: '300x300#'
     }
   
   def avatar_remote_url(url_value, file_name)

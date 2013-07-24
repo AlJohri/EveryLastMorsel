@@ -8,10 +8,12 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
       - @posts.each do |post|
         li.post
           .post-left
-            - if post.user.avatar?
-              = image_tag post.user.avatar(:thumb)
-            / - else
-              / img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
+            a href=user_url(post.user)
+              - if post.user.avatar?
+                = image_tag post.user.avatar(:thumb)
+              - else
+                - if Rails.env.development?
+                    img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
           .post-right
             .post-right-author-name
               a href=user_url(post.user)
@@ -22,12 +24,7 @@ article.posts class=(if params[:user_id] then "posts-user"; else "posts-feed" en
               a href=like_post_url(post)
                   - if post.flaggings.count != 0
                       span.icon-heart
-                      |  #{post.flaggings.count} 
-                      - if post.flaggings.count == 1
-                        | person digs it
-                      - else
-                        | people dig it
-
+                      |  #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
                   - else
                       span.icon-heart-empty
                       |  Dig it?
