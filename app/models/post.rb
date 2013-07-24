@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   # Associations
   belongs_to :user
-  has_many :comments
+  # has_many :comments
 
   # Third Party Addons (FriendlyID, Acts as Taggable, Make Flaggable, Acts as Follower)
   acts_as_taggable
@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
     }
 
   def short_body
-    truncate(content, length: 400, separator: "\n")
+    truncate(content, length: 400) #separator: "\n"
   end
 
 end
