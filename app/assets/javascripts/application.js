@@ -16,10 +16,11 @@
 //= require bootstrap
 //= require jquery-fileupload
 //= require autocomplete-rails
-//= require lib/jquery/jquery.autoSuggest.js
 //= require lib/jquery/jquery.validate.js
-//= require lib/jquery/jquery.placeheld.js
-//= require lib/jquery/jquery.scrollTo.js
+
+// require lib/jquery/jquery.autoSuggest.js
+// require lib/jquery/jquery.placeheld.js
+// require lib/jquery/jquery.scrollTo.js
 
 // $(document).ready(function() {
 // 	$(".get-started").click(function () {
