@@ -7,10 +7,11 @@
               = @user.name.presence || "Full Name"
           ul.list-inline
             li
-              a href=edit_user_registration_url
-                span.icon.location
-                = @user.city.presence || "Add your city!"
-          p
+              span.icon.location
+              - if @user.city.present?
+                  = @user.city
+              - else
+                  a href=edit_user_registration_url Add your city!
       .profile-left[role="aside"]
         a href=edit_user_registration_url
           = image_tag @user.avatar(:medium)
@@ -33,11 +34,11 @@
             nav#profile-navigation.styled
               ul.nav.nav-tabs.list-block
                 li class=('active' if controller.controller_name == "users" && controller.action_name == 'show' || controller.controller_name == "registrations" && controller.action_name == 'edit' )
-                  = link_to "About", user_about_path(@user), remote: false
+                  = link_to "ABOUT", user_about_path(@user), remote: false
                 li class=('active' if controller.controller_name == 'posts')
-                  = link_to "Blog", user_posts_path(@user), remote: false
-                li class=('active' if controller.controller_name == 'plots')
-                  # = link_to "Plot", user_plots_path(@user), remote: false
+                  = link_to "BLOG", user_posts_path(@user), remote: false
+                / li class=('active' if controller.controller_name == 'plots')
+                  / = link_to "Plot", user_plots_path(@user), remote: false
                 / li class=('active' if controller.controller_name == 'crops')
                   / # = link_to "Crop", user_posts_path(params[:id], remote: true)
             section.profile-content

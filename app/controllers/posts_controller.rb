@@ -114,8 +114,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @ret = ""
     if user_signed_in?
-      if current_user.flag(@post, :dig) then; @ret = pluralize(@post.flaggings.count, 'person digs it', 'people dig it');
-      else; current_user.unflag(@post, :dig); @ret = pluralize(@post.flaggings.count, 'person digs it', 'people dig it'); end
+      if current_user.flag(@post, :dig) then
+        @ret = pluralize(@post.flaggings.count, 'person digs', 'people dig') + ' it. Un-dig?';
+      else
+        current_user.unflag(@post, :dig)
+        @ret = 'Dig it? ' + pluralize(@post.flaggings.count, 'person digs it.', 'people dig it');
+      end
     else
       redirect_to posts_path, :alert => "Please create an account!"
     end

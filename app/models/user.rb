@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   attr_accessible :avatar
   attr_reader :avatar_remote_url
 
+  validates :zip, presence: true
+
   make_flagger
   
   has_attached_file :avatar, 
@@ -50,9 +52,6 @@ class User < ActiveRecord::Base
       "delete_type" => "DELETE" 
     }
   end
-
-  # has_many :plots
-  # has_many :crops, :through => :plots
 
   extend FriendlyId
   friendly_id :name, use: :slugged
