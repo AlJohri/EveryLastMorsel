@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :plots
+  before_create :concatenate_name
+  before_create :geocode_zip  
   # after_create :update_mailchimp
   rolify
   # Include default devise modules. Others available are:
@@ -75,8 +77,9 @@ class User < ActiveRecord::Base
               name: auth.extra.raw_info.name,
               first_name: auth.info.first_name,
               last_name: auth.info.last_name,
-              city: auth.info.location,
-              zip: auth.info.image,
+              city: auth.info.location[0],
+              state: auth.info.location[1],
+              zip: '99999',
               url: auth.info['urls']['Facebook'],
               provider: auth.provider,
               uid: auth.uid,
@@ -98,7 +101,9 @@ class User < ActiveRecord::Base
                   name: auth.info.name,  #extra.raw_info.screen_name
                   first_name: auth.info.name[0],
                   last_name: auth.info.name[1],
-                  city: auth.info.location,
+                  city: auth.info.location[0],
+                  state: auth.info.location[1],
+                  zip: '99999',
                   about: auth.info.description,
                   url: auth.info['urls']['Twitter'],
                   email: "#{auth.extra.raw_info.screen_name}@twitter.com", 
@@ -119,12 +124,14 @@ class User < ActiveRecord::Base
                 name: auth.info["name"],
                 first_name: auth.info["first_name"],
                 last_name: auth.info["last_name"],
-                # city: "",
+                city: '',
+                state: '',
+                zip: '99999',
                 url: auth.info['urls']['Google'],
                 provider: auth.provider,
                 email: auth.info["email"],
-                password: Devise.friendly_token[0,20]
-                # uid: auth.info["id"],
+                password: Devise.friendly_token[0,20],
+                uid: auth.uid
               )
         # user.skip_confirmation!
         user.save
@@ -143,6 +150,20 @@ class User < ActiveRecord::Base
       end
     end
 
+  end
+
+  def concatenate_name
+    self.name = "#{first_name} #{last_name}"
+  end
+
+  def geocode_zip
+    location = Geocoder.search(zip)
+    self.city = location[0].city
+    self.state = location[0].state
+
+    puts self.city
+    puts self.state
+    puts self.zip
   end
 
 end

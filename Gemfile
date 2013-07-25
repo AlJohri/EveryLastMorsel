@@ -23,6 +23,7 @@ gem 'omniauth-google-oauth2' # https://github.com/zquestz/omniauth-google-oauth2
 gem 'cancan', '>= 1.6.9' # https://github.com/ryanb/cancan
 gem 'rolify', '>= 3.2.0' # https://github.com/EppO/rolify
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
+gem "geocoder", "~> 1.1.8"
 
 # gem 'inherited_resources' # https://github.com/josevalim/inherited_resources
 # gem 'has_scope' # http://github.com/plataformatec/has_scope

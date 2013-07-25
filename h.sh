@@ -10,6 +10,8 @@ if [ -z "$1" ]; then
     echo "Uploading environment variables to each heroku app."
     echo "Changing FACEBOOK_APPID and FACEBOOK_APPSECRET for each app accordingly."
     
+    echo ""
+
     echo "rake figaro:heroku[$DEV]";    SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$DEV\]
 	echo "rake figaro:heroku[$STAGE]";  SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$STAGE\]
 	echo "rake figaro:heroku[$ALPHA]";  SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$ALPHA\]
@@ -38,7 +40,14 @@ if [ -z "$1" ]; then
 	heroku config:add FACEBOOK_APPSECRET=$FACEBOOK_BETA_APPSECRET --app $BETA
 
 	heroku config:add FACEBOOK_APPID=$FACEBOOK_DEV_APPID --app $MASTER
-	heroku config:add FACEBOOK_APPSECRET=$FACEBOOK_DEV_APPSECRET --app $MASTER	
+	heroku config:add FACEBOOK_APPSECRET=$FACEBOOK_DEV_APPSECRET --app $MASTER
+
+	heroku config:add APP_NAME=DEV --app $DEV
+	heroku config:add APP_NAME=STAGE --app $STAGE
+	heroku config:add APP_NAME=ALPHA --app $ALPHA
+	heroku config:add APP_NAME=BETA --app $BETA
+	heroku config:add APP_NAME=MASTER --app $MASTER
+
 
 	exit 0
 elif [[ "$1" == "migrate" ]]; then
@@ -62,11 +71,10 @@ elif [[ "$1" == "reset" ]]; then
 fi
 
 # http://api.cld.me/QFmr/download/mydb.dump
-# heroku pgbackups:restore DATABASE 'https://s3.amazonaws.com/f.cl.ly/items/3z2M0z1J023W252q0i33/mydb.dump?AWSAccessKeyId=AKIAJEFUZRCWSLB2QA5Q&Expires=1373849644&Signature=D90XJT0hagfoKfc%2F%2BqgS5jx7nlU%3D&response-content-disposition=attachment' --app elm
-# heroku pgbackups:restore DATABASE 'https://s3.amazonaws.com/f.cl.ly/items/3z2M0z1J023W252q0i33/mydb.dump?AWSAccessKeyId=AKIAJEFUZRCWSLB2QA5Q&Expires=1373849644&Signature=D90XJT0hagfoKfc%2F%2BqgS5jx7nlU%3D&response-content-disposition=attachment' --app dev-everylastmorsel
+# heroku pgbackups:restore DATABASE '' --app elm
 
-# heroku config:add APP_NAME=DEV --app $DEV
-# heroku config:add APP_NAME=STAGE --app $STAGE
-# heroku config:add APP_NAME=ALPHA --app $ALPHA
-# heroku config:add APP_NAME=BETA --app $BETA
-# heroku config:add APP_NAME=MASTER --app $MASTER
+# heroku run bundle exec gem pristine nokogiri --app $DEV
+# heroku run bundle exec gem pristine nokogiri --app $STAGE
+# heroku run bundle exec gem pristine nokogiri --app $ALPHA
+# heroku run bundle exec gem pristine nokogiri --app $BETA
+# heroku run bundle exec gem pristine nokogiri --app $MASTER
