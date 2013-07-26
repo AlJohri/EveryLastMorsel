@@ -1,23 +1,16 @@
-article.profile-about
-
-  / end
-  / .clearfix
-    / h4.profile-about-header.name #{@user.name}
-    / h4.profile-about-header.city #{@user.city}, #{@user.state}
-  
+article.profile-about  
   .profile-about-bioandimage
-    -if !@user.avatar?
-      p User doesn't have a profile image yet.
     -if @user.about
       p About #{@user.first_name}:
-      p @user.about
+      p #{@user.about}
     -else
       p About #{@user.first_name}:
       p They gotta uplaod a bio, sheesh!
     -if @user.url
       p User URL: #{@user.url} 
     -else
-      p User URL: You don't have on yet, enter one
+      p User URL: You don't have one. Click Edit Settings below!
   .profile-about-btn
     - if (user_signed_in? && current_user.id == @user.id)
-      button.button.btn-orange =link_to "Edit Settings", edit_user_registration_url(@user.id)
+        a href=edit_user_registration_url(@user.id)
+          button.button.btn-orange Edit Settings
