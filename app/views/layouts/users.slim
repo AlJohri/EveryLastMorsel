@@ -24,7 +24,7 @@
     a href=user_url(@user) title="My Profile"
       span.icon.person
       | My Profile
-  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
+  - if (user_signed_in? && @user && current_user.id == @user.id)
       / li
       /   a href=user_url(@user) title="Communication Hub"
       /     span.icon.drawer 
