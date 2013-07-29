@@ -1,7 +1,4 @@
 EveryLastMorsel::Application.routes.draw do
-  
-  resources :uploads
-
 
   ######## ROOT/STATIC ROUTES ########
   authenticated :user do
@@ -14,14 +11,7 @@ EveryLastMorsel::Application.routes.draw do
     get 'map'
     get 'marketplace'    
   end
-  
-  ############# UNSURE ###############
-  # Small Farm Book Keeping Tool?
-  # get '/records' => "records#index"
-  # match  '/:user_id/posts/tagged/:tag' => 'blogit/custom/posts#tagged', as: :tagged_blog_posts
-  # match  '/:user_id/posts/page/:page' => "blogit/custom/posts#index"  
-  ####################################
-  
+    
   ############# RAILS ADMIN ###############
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'  
 
@@ -35,14 +25,10 @@ EveryLastMorsel::Application.routes.draw do
   
   ###### PLOTS/POSTS REGULAR ROUTES #######
   resources :plots, only: [:index, :show] do
-    member do
-      get 'follow'
-    end
+    get 'follow', :on => :member
   end
   resources :posts, only: [:index, :show] do
-    member do
-      get 'like'
-    end
+    get 'like', :on => :member
   end
 
   ###### USER -> PLOTS/POSTS VANITY ROUTES #######
@@ -58,15 +44,11 @@ EveryLastMorsel::Application.routes.draw do
     get 'about' => 'users#show'
 
     resources :plots do
-      member do
-        get 'follow'
-      end
+      get 'follow', :on => :member
     end
 
     resources :posts do
-      member do
-        get 'like'
-      end
+      get 'like', :on => :member
     end
 
   end
@@ -79,18 +61,23 @@ EveryLastMorsel::Application.routes.draw do
   # user CRUD can be done from this route
   # CORRECT: /users/:user_id/new
   scope "/api/v0/" do
-    resources :users, except: [:show] do 
+
+    devise_for :users, :controllers => { 
+      :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
+      :registrations => "devise/custom/registrations" 
+    }
+
+    # resources :users, except: [:show] do 
+    scope :users, :path => '/:user_id', :as => "user" do
+
       resources :plots do
-        member do
-          get 'follow'
-        end
+        get 'follow', :on => :member
       end
 
       resources :posts do
-        member do
-          get 'like'
-        end
+        get 'like', :on => :member
       end
+
     end
   end
   
@@ -107,3 +94,13 @@ end
 # http://stackoverflow.com/questions/10353776/rails-routing-override-the-action-name-in-a-resource-member-block
 # https://github.com/rails/routing_concerns
 # http://stackoverflow.com/questions/14632471/rails-routing-one-controller-one-model-with-type-multiple-routes
+
+
+############# UNSURE ###############
+# Small Farm Book Keeping Tool?
+# get '/records' => "records#index"
+# match  '/:user_id/posts/tagged/:tag' => 'blogit/custom/posts#tagged', as: :tagged_blog_posts
+# match  '/:user_id/posts/page/:page' => "blogit/custom/posts#index"  
+####################################
+
+# resources :uploads

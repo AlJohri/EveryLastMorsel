@@ -1,0 +1,11 @@
+article.plots
+  .plots-content
+    ul
+      - @plots.each do |plot|
+        li.plot
+            = plot.name
+            = plot.city
+            = plot.state
+            = plot.zip
+            = plot.about
+            = link_to 'Show', [plot.user, plot]

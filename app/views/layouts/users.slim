@@ -1,47 +1,44 @@
-- content_for :content do
-    .profile-layout
-      .profile-top
-        .pushed
-          a href=user_url(@user)
-            h1
-              = @user.name.presence || "Full Name"
-          ul.list-inline
-            li
-              span.icon.location
-              - if @user.city.present?
-                  = @user.city
-              - else
-                  a href=edit_user_registration_url Add your city!
-      .profile-left[role="aside"]
-        a href=edit_user_registration_url
-          = image_tag @user.avatar(:medium)
-        ul.profile-navigation
-          li class=('active' if controller.controller_name != 'registrations')
-            a href=user_url(@user) title="My Profile"
-              span.icon.person
-              | My Profile
-          / li
-          /   a href=user_url(@user) title="Communication Hub"
-          /     span.icon.drawer 
-          /     | Communication Hub
-          li class=('active' if controller.action_name == 'edit')
-            a href=edit_user_registration_url title="Settings"
-              span.icon.cog 
-              | Settings
-      .profile-right role="contentinfo"
-        .inner-content-wrapper.profile
-            / http://stackoverflow.com/questions/7524026/getting-started-with-tabs-in-rails-app
-            nav#profile-navigation.styled
-              ul.nav.nav-tabs.list-block
-                li class=('active' if controller.controller_name == "users" && controller.action_name == 'show' || controller.controller_name == "registrations" && controller.action_name == 'edit' )
-                  = link_to "ABOUT", user_about_path(@user), remote: false
-                li class=('active' if controller.controller_name == 'posts')
-                  = link_to "BLOG", user_posts_path(@user), remote: false
-                / li class=('active' if controller.controller_name == 'plots')
-                  / = link_to "Plot", user_plots_path(@user), remote: false
-                / li class=('active' if controller.controller_name == 'crops')
-                  / # = link_to "Crop", user_posts_path(params[:id], remote: true)
-            section.profile-content
-                = content_for?(:profile_content) ? yield(:profile_content) : yield
+- content_for :profile_name do
+  a href=user_url(@user)
+    h1
+      = @user.name.presence || "Full Name"
 
-= render template: "layouts/application"
+- content_for :profile_location do
+  span.icon.location
+  - if @user.city.present? && @user.state.present?
+      = @user.city + ", " + @user.state
+  - elsif @user.city.present?
+      = @user.city
+  - else
+      a href=edit_user_registration_url Add your city!
+
+- content_for :profile_image do
+ 	a href=edit_user_registration_url
+		= image_tag @user.avatar(:medium)
+
+- content_for :profile_nav do
+  li class=('active' if controller.controller_name != 'registrations')
+    a href=user_url(@user) title="My Profile"
+      span.icon.person
+      | My Profile
+  li
+    a href=user_url(@user) title="Communication Hub"
+      span.icon.drawer 
+      | Communication Hub
+  li class=('active' if controller.action_name == 'edit')
+    a href=edit_user_registration_url title="Settings"
+      span.icon.cog 
+      | Settings
+
+- content_for :profile_tabs do
+  ul.nav.nav-tabs.list-block
+    li class=('active' if controller.controller_name == "users" && controller.action_name == 'show' || controller.controller_name == "registrations" && controller.action_name == 'edit' )
+      = link_to "ABOUT", user_about_path(@user), remote: false
+    li class=('active' if controller.controller_name == 'posts')
+      = link_to "BLOG", user_posts_path(@user), remote: false
+    li class=('active' if controller.controller_name == 'plots')
+      = link_to "Plot", user_plots_path(@user), remote: false
+    / li class=('active' if controller.controller_name == 'crops')
+      / # = link_to "Crop", user_posts_path(params[:id], remote: true)
+
+= render template: "layouts/profile"

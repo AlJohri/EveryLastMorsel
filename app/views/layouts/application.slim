@@ -11,11 +11,11 @@ html
     = csrf_meta_tags
     = yield(:head)
   body class="#{controller_name} #{action_name}"
-    = render 'layouts/header'
+    = render 'layouts/application/header'
     .wrapper
         = content_for?(:content) ? yield(:content) : yield
-    = render 'layouts/footer'
-    = render 'layouts/modals'
+    = render 'layouts/application/footer'
+    = render 'layouts/application/modals'
     #action-loader.loader style="display: none;"
-    = render 'layouts/scripts'
+    = render 'layouts/application/scripts'
     #fb-root

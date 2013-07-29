@@ -18,6 +18,14 @@
 //= require autocomplete-rails
 //= require lib/jquery/jquery.validate.js
 
+// require angular
+// require angular-bootstrap
+// require angular-resource
+
+// require app
+// require_tree ./angular
+
+
 // require lib/jquery/jquery.autoSuggest.js
 // require lib/jquery/jquery.placeheld.js
 // require lib/jquery/jquery.scrollTo.js

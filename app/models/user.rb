@@ -158,12 +158,14 @@ class User < ActiveRecord::Base
 
   def geocode_zip
     location = Geocoder.search(zip)
-    self.city = location[0].city
-    self.state = location[0].state
+    if location.present?
+      self.city = location[0].city
+      self.state = location[0].state
+    end
 
-    puts self.city
-    puts self.state
-    puts self.zip
+    #puts self.city
+    #puts self.state
+    #puts self.zip
   end
 
 end

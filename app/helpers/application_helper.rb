@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-  def resource_name
+  def devise_resource_name
     :user
   end
 
-  def resource
+  def devise_resource
     @resource ||= User.new
   end
 
