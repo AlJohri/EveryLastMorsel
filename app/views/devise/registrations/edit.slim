@@ -17,7 +17,7 @@ article.devise
     = f.label :City
     = f.text_field :city, :placeholder => "City"
     = f.label :State
-    = f.text_field :state, :placeholder => "State"
+    = f.select :state, options_for_select(us_states)
     = f.label :About
     = f.text_area :about
     = f.label :email

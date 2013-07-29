@@ -5,7 +5,7 @@ class PostsController < InheritedResources::Base
   respond_to :html, :xml, :json
   belongs_to :user, :optional => true
 
-  # include ::ActionView::Helpers::TextHelper
+  include ::ActionView::Helpers::TextHelper
 
   def index
     super do |format|
@@ -16,13 +16,18 @@ class PostsController < InheritedResources::Base
 
   def like
     @post = Post.find(params[:id])
-    @ret = ""
+    @ret = Hash.new
+    @ret['heart'] = ''
+    @ret['digs'] = ''
+
     if user_signed_in?
       if current_user.flag(@post, :dig) then
-        @ret = pluralize(@post.flaggings.count, 'person digs', 'people dig') + ' it. Un-dig?';
+        @ret['heart'] = 'icon-heart'
+        @ret['digs'] = @post.flaggings.count
       else
         current_user.unflag(@post, :dig)
-        @ret = 'Dig it? ' + pluralize(@post.flaggings.count, 'person digs it.', 'people dig it');
+        @ret['heart'] = 'icon-heart-empty'
+        @ret['digs'] = @post.flaggings.count
       end
     else
       redirect_to posts_path, :alert => "Please create an account!"

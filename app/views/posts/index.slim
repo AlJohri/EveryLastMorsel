@@ -7,5 +7,6 @@ article.posts.posts-user
           h1
             = link_to "#{post.title}", user_post_url(@user, post)
           p.post-content == simple_format2(post.short_body)
-		  a href=user_post_url(post.user, post)
-          	| Read more...
+          a href=user_post_url(post.user, post)
+            | Read more...
+        hr

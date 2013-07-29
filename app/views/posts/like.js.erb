@@ -1,1 +1,23 @@
-$('#dig-<%= escape_javascript(@post.id.to_s) %> .dig-text')[0].innerHTML = "<%= escape_javascript(@ret) %>"
+digtext = $('#dig-<%= escape_javascript(@post.id.to_s) %> .dig-text')[0];
+digicon = $('#dig-<%= escape_javascript(@post.id.to_s) %> .dig-icon')[0];
+heart = "<%= escape_javascript(@ret['heart']) %>";
+digs = "<%= @ret['digs'] %>";
+
+// console.log(heart);
+// console.log(digs);
+console.log(digtext);
+console.log(digicon);
+
+$(digicon).removeClass('icon-heart').removeClass('icon-heart-empty').addClass(heart);
+
+if (heart == "icon-heart")
+	digtext.innerHTML = "Un-dig it? ";
+else
+	digtext.innerHTML = "Dig it? ";
+
+if (digs != 0) {
+	if (digs == 1)
+		digtext.innerHTML += " " + digs + " person digs it.";
+	else
+		digtext.innerHTML += " " + digs + " people dig it.";
+}
