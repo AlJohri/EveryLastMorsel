@@ -10,7 +10,7 @@ class PostsController < InheritedResources::Base
   def index
     @posts = Post.all(:order => 'id DESC')
     super do |format|
-      format.html { render "feed-index.slim" if !params[:user_id] }
+      format.html { render "feed-index" if !params[:user_id] }
       format.json { render :json => @posts }
     end
   end
