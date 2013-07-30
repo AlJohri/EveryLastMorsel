@@ -3,12 +3,12 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   belongs_to :user
   attr_accessible :user, :content, :title, :created_at, :updated_at
-  has_many :comments
+  
+  # has_many :comments
+
   acts_as_taggable
   make_flaggable :dig
   friendly_id :title, use: :slugged
-  acts_as_followable
-  acts_as_follower
   
   validates :title, presence: true # length: { minimum: 2, maximum: 66 }
   validates :content, presence: true, length: { minimum: 10 }

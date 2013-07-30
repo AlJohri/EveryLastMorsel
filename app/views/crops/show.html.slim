@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @crop.name
+p
+  strong Description:
+  = @crop.description
+
+= link_to 'Edit', edit_crop_path(@crop)
+'|
+= link_to 'Back', crops_path

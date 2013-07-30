@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724091049) do
+ActiveRecord::Schema.define(:version => 20130730030831) do
+
+  create_table "crops", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "flaggings", :force => true do |t|
     t.string   "flaggable_type"
@@ -40,6 +47,17 @@ ActiveRecord::Schema.define(:version => 20130724091049) do
 
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
+
+  create_table "plot_crop_varieties", :force => true do |t|
+    t.datetime "plant_date"
+    t.decimal  "coverage"
+    t.string   "coverage_type"
+    t.integer  "plot_id"
+    t.integer  "crop_id"
+    t.integer  "variety_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "plots", :force => true do |t|
     t.integer  "user_id"
@@ -175,5 +193,13 @@ ActiveRecord::Schema.define(:version => 20130724091049) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "varieties", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "crop_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

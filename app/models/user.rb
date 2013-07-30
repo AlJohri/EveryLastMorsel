@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
   validates :zip, presence: true
 
   make_flagger
+  acts_as_tagger
+  acts_as_follower
+  acts_as_followable
   
   has_attached_file :avatar, 
     :default_url => "/assets/placeholder_:style.jpg", 

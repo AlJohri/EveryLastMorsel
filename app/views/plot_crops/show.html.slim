@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Plant date:
+  = @plot_crop.plant_date
+p
+  strong Coverage:
+  = @plot_crop.coverage
+p
+  strong Coverage type:
+  = @plot_crop.coverage_type
+
+= link_to 'Edit', edit_plot_crop_path(@plot_crop)
+'|
+= link_to 'Back', plot_crops_path

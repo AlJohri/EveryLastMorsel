@@ -1,5 +1,11 @@
 EveryLastMorsel::Application.routes.draw do
 
+  resources :plot_crops
+
+
+  resources :varieties
+  resources :crops
+
   ######## ROOT/STATIC ROUTES ########
   authenticated :user do
     root :to => "posts#index"
@@ -9,11 +15,11 @@ EveryLastMorsel::Application.routes.draw do
     get 'about'
     get 'help'
     get 'map'
-    get 'marketplace'    
+    get 'marketplace'
   end
-    
+
   ############# RAILS ADMIN ###############
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'  
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   ############# DEVISE ##################
   # Devise Routes for User Authentication
@@ -23,7 +29,8 @@ EveryLastMorsel::Application.routes.draw do
     :registrations => "devise/custom/registrations" 
   }
   
-  ###### PLOTS/POSTS REGULAR ROUTES #######
+  ###### REGULAR ROUTES #######
+  resources :users, only: [:index, :show]
   resources :plots, only: [:index, :show] do
     get 'follow', :on => :member
   end
@@ -62,10 +69,10 @@ EveryLastMorsel::Application.routes.draw do
   # CORRECT: /users/:user_id/new
   scope "/api/v0/" do
 
-    devise_for :users, :controllers => { 
-      :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
-      :registrations => "devise/custom/registrations" 
-    }
+    # devise_for :users, :controllers => { 
+    #   :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
+    #   :registrations => "devise/custom/registrations" 
+    # }
 
     # resources :users, except: [:show] do 
     scope :users, :path => '/:user_id', :as => "user" do

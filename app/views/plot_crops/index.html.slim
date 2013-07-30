@@ -1,0 +1,23 @@
+h1 Listing plot_crops
+
+table
+  tr
+    th Plant date
+    th Coverage
+    th Coverage type
+    th
+    th
+    th
+
+  - @plot_crops.each do |plot_crop|
+    tr
+      td = plot_crop.plant_date
+      td = plot_crop.coverage
+      td = plot_crop.coverage_type
+      td = link_to 'Show', plot_crop
+      td = link_to 'Edit', edit_plot_crop_path(plot_crop)
+      td = link_to 'Destroy', plot_crop, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Plot crop', new_plot_crop_path

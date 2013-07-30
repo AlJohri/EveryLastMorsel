@@ -58,13 +58,11 @@ gem 'faker'
 # gem "blogit"
 gem "kaminari"
 
-group :development do
-  gem "better_errors", "~> 0.9.0"
-  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
-  gem "quiet_assets", "~> 1.0.2"
-  gem 'nested_scaffold'
-end
-
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'rails-erd'
+  gem 'nested_scaffold'
+  gem "quiet_assets", "~> 1.0.2"
+  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
+  gem "better_errors", "~> 0.9.0"
 end

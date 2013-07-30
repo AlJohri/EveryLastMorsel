@@ -1,0 +1,18 @@
+= form_for @plot_crop do |f|
+  - if @plot_crop.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@plot_crop.errors.count, "error")} prohibited this plot_crop from being saved:"
+      ul
+        - @plot_crop.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :plant_date
+    = f.datetime_select :plant_date
+  .field
+    = f.label :coverage
+    = f.text_field :coverage
+  .field
+    = f.label :coverage_type
+    = f.text_field :coverage_type
+  .actions = f.submit 'Save'

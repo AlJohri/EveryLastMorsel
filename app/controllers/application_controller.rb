@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
     def not_found
       raise ActionController::RoutingError.new('Not Found')
-    end 
+    end
 
     # def not_found
     #   render file => "public/404.html", status => 404, layout => false
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     # end
 
     # def after_sign_out_path_for(resource)
- #          session[:previous_url] || root_path
+    #   session[:previous_url] || root_path
     # end
 
     def xeditable?
