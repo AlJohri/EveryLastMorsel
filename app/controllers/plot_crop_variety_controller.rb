@@ -1,0 +1,2 @@
+class PlotCropVarietyController < ApplicationController
+end

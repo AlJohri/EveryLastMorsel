@@ -1,8 +1,6 @@
 EveryLastMorsel::Application.routes.draw do
 
-  resources :plot_crops
-
-
+  resources :plot_crop_varieties
   resources :varieties
   resources :crops
 
