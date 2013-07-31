@@ -1,9 +1,9 @@
 class PostsController < InheritedResources::Base
 
-  layout lambda { |controller| params[:user_id] || params[:id] ? "profile/user-profile" : "application" }
+  layout lambda { |controller| params[:user_id] ? "profile/user-profile" : "application" }
 
   respond_to :html, :xml, :json
-  belongs_to :user, :optional => true
+  belongs_to :user, :optional => true 
 
   include ::ActionView::Helpers::TextHelper
 

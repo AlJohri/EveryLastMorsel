@@ -1,6 +1,5 @@
 EveryLastMorsel::Application.routes.draw do
 
-  # resources :plot_crop_varieties
   # resources :varieties
   # resources :crops
 
@@ -27,15 +26,6 @@ EveryLastMorsel::Application.routes.draw do
     :registrations => "devise/custom/registrations" 
   }
 
-  ###### REGULAR ROUTES #######
-  resources :users, only: [:index, :show]
-  resources :plots, only: [:index, :show] do
-    get 'follow', :on => :member
-  end
-  resources :posts, only: [:index, :show] do
-    get 'like', :on => :member
-  end
-
   ###### USER -> PLOTS/POSTS VANITY ROUTES #######
   # path /:user_id so that paths are viewable as 
   # /:user_id/plots/new
@@ -47,10 +37,12 @@ EveryLastMorsel::Application.routes.draw do
 
   # scope :users, :path => '/:user_id', :as => "user" do
   resources :users, :path => '', only: [] do
-    get 'about' => 'users#show'
+    get 'about' => 'users#show', :on => :member
+    get 'follow', :on => :member
 
     resources :plots do
       get 'follow', :on => :member
+      get 'about' => 'plots#show'
     end
 
     resources :posts do
@@ -59,6 +51,33 @@ EveryLastMorsel::Application.routes.draw do
 
   end
 
+  ###### REGULAR ROUTES #######
+  resources :users, only: [:index, :show] do
+    get 'about' => 'users#show'
+    get 'follow', :on => :member
+
+    resources :plots do
+      get 'follow', :on => :member
+      get 'about' => 'plots#show'
+    end
+
+    resources :posts do
+      get 'like', :on => :member
+    end    
+  end
+
+  resources :plots, only: [:index, :show] do
+    get 'follow', :on => :member
+    get 'about' => 'plots#show'
+    resources :plot_crop_varieties # resources :crops, :controller=>'plot_crop_varieties'
+  end
+  
+  resources :posts, only: [:index, :show] do
+    get 'like', :on => :member
+  end
+
+
+
   ####### USER -> PLOTS/POSTS REGULAR ROUTES #######
   # create regular routes under "/user" path for API
   # routes should appear as
@@ -66,7 +85,7 @@ EveryLastMorsel::Application.routes.draw do
   # /user/:posts_id/posts/new
   # user CRUD can be done from this route
   # CORRECT: /users/:user_id/new
-  scope "/api/v0/" do
+  # scope "/api/v0/" do
 
     # devise_for :users, :controllers => { 
     #   :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
@@ -74,21 +93,21 @@ EveryLastMorsel::Application.routes.draw do
     # }
 
     # resources :users, except: [:show] do 
-    scope :users, :path => '/:user_id', :as => "user" do
+    # scope :users, :path => '/:user_id', :as => "user" do
 
-      resources :plots do
-        get 'follow', :on => :member
-      end
+      # resources :plots do
+        # get 'follow', :on => :member
+      # end
 
-      resources :posts do
-        get 'like', :on => :member
-      end
+      # resources :posts do
+        # get 'like', :on => :member
+      # end
 
-    end
-  end
+    # end
+  # end
   
   ############# USER VANITY URL ################
-  get '/:user_id(.:format)' => 'users#show', :as => :user
+  get '/:id(.:format)' => 'users#show', :as => :user
 end
 
 # Notes

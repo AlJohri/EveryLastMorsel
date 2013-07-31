@@ -8,10 +8,10 @@ table
 
   - @plot_crop_varieties.each do |plot_crop_variety|
     tr
-      td = link_to 'Show', plot_crop_variety
-      td = link_to 'Edit', edit_plot_crop_variety_path(plot_crop_variety)
-      td = link_to 'Destroy', plot_crop_variety, :confirm => 'Are you sure?', :method => :delete
+      td = link_to 'Show', plot_plot_crop_variety_path(plot_crop_variety.plot, plot_crop_variety.id)
+      td = link_to 'Edit', edit_plot_plot_crop_variety_path(plot_crop_variety.plot, plot_crop_variety.id)
+      td = link_to 'Destroy', plot_plot_crop_variety_path(plot_crop_variety.plot, plot_crop_variety.id), :confirm => 'Are you sure?', :method => :delete
 
 br
 
-= link_to 'New Plot crop variety', new_plot_crop_variety_path
+= link_to 'New Plot crop variety', new_plot_plot_crop_variety_path
