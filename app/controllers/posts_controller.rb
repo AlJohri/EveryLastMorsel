@@ -1,6 +1,6 @@
 class PostsController < InheritedResources::Base
 
-  layout lambda { |placeholder| params[:user_id] ? "posts" : "application" }
+  layout lambda { |controller| params[:user_id] || params[:id] ? "profile/user-profile" : "application" }
 
   respond_to :html, :xml, :json
   belongs_to :user, :optional => true
@@ -8,8 +8,8 @@ class PostsController < InheritedResources::Base
   include ::ActionView::Helpers::TextHelper
 
   def index
-    @posts = Post.all(:order => 'id DESC')
     super do |format|
+      @posts = @posts.reorder('created_at DESC')
       format.html { render "feed-index" if !params[:user_id] }
       format.json { render :json => @posts }
     end

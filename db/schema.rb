@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730030831) do
+ActiveRecord::Schema.define(:version => 20130731142749) do
 
   create_table "crops", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(:version => 20130730030831) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "plot_crop_varieties", ["crop_id"], :name => "index_plot_crop_varieties_on_crop_id"
+  add_index "plot_crop_varieties", ["plot_id"], :name => "index_plot_crop_varieties_on_plot_id"
+  add_index "plot_crop_varieties", ["variety_id"], :name => "index_plot_crop_varieties_on_variety_id"
+
   create_table "plots", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -66,8 +70,12 @@ ActiveRecord::Schema.define(:version => 20130730030831) do
     t.string   "state"
     t.string   "zip"
     t.text     "about"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "plots", ["user_id"], :name => "index_plots_on_user_id"
@@ -201,5 +209,7 @@ ActiveRecord::Schema.define(:version => 20130730030831) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "varieties", ["crop_id"], :name => "index_varieties_on_crop_id"
 
 end

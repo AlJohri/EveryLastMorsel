@@ -7,7 +7,7 @@ EveryLastMorsel::Application.routes.draw do
   ######## ROOT/STATIC ROUTES ########
   authenticated :user do
     root :to => "posts#index"
-  end  
+  end
   root :to => "static#home"
   scope :controller => "static" do
     get 'about'
@@ -26,7 +26,7 @@ EveryLastMorsel::Application.routes.draw do
     :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
     :registrations => "devise/custom/registrations" 
   }
-  
+
   ###### REGULAR ROUTES #######
   resources :users, only: [:index, :show]
   resources :plots, only: [:index, :show] do
@@ -45,7 +45,8 @@ EveryLastMorsel::Application.routes.draw do
   # WRONG: /:user_id/new
   # resources :users, :path => '', except: [:index, :show, :new, :create, :edit, :destory, :update] do
 
-  scope :users, :path => '/:user_id', :as => "user" do
+  # scope :users, :path => '/:user_id', :as => "user" do
+  resources :users, :path => '', only: [] do
     get 'about' => 'users#show'
 
     resources :plots do

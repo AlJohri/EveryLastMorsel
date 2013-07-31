@@ -1,7 +1,7 @@
 class CreatePlots < ActiveRecord::Migration
   def change
     create_table :plots do |t|
-      t.references :user
+      t.belongs_to :user
       t.string :name
       t.string :city
       t.string :state

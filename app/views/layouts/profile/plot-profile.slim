@@ -1,0 +1,23 @@
+- content_for :profile_name do
+  a href=plot_url(@plot)
+    h1
+      = @plot.name.presence || "Plot Name"
+
+- content_for :profile_location do
+  span.icon.location
+  - if @plot.city.present? && @plot.state.present?
+      = @plot.city + ", " + @plot.state
+  - elsif @plot.city.present?
+      = @plot.city
+  / - else
+      / a href=edit_user_registration_url Add your city!
+
+- content_for :profile_image do
+  - if (user_signed_in? && @plot && current_user.id == @plot.id && params[:action] == 'show')
+   	/ a href=edit_user_registration_url
+  	= image_tag @plot.avatar(:medium)
+  - else
+      = image_tag @plot.avatar(:medium)
+
+
+= render template: "layouts/profile/profile"

@@ -2,7 +2,9 @@ class Post < ActiveRecord::Base
   include ::ActionView::Helpers::TextHelper
   extend FriendlyId
   belongs_to :user
-  attr_accessible :user, :content, :title, :created_at, :updated_at
+
+  attr_accessible :user_id
+  attr_accessible :content, :title, :created_at, :updated_at
   
   # has_many :comments
 

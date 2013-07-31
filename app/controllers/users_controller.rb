@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  layout lambda { |controller| params[:user_id] || params[:id] ? "profile/user-profile" : "application" }
+
   # before_filter :authenticate_user!
 
   def index

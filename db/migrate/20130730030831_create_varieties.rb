@@ -7,5 +7,6 @@ class CreateVarieties < ActiveRecord::Migration
 
       t.timestamps
     end
+	add_index :varieties, :crop_id
   end
 end

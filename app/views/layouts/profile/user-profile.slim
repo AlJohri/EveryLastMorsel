@@ -43,6 +43,6 @@
     li class=('active' if controller.controller_name == 'plots')
       = link_to "PLOT", user_plots_path(@user), remote: false
     / li class=('active' if controller.controller_name == 'crops')
-      / # = link_to "Crop", user_posts_path(params[:id], remote: true)
+      / = link_to "CROP", user_posts_path(params[:id], remote: true)
 
-= render template: "layouts/profile"
+= render template: "layouts/profile/profile"
