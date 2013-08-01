@@ -47,13 +47,14 @@ EveryLastMorsel::Application.routes.draw do
 
     resources :posts do
       get 'like', :on => :member
+      resources :comments
     end
 
   end
 
   ###### REGULAR ROUTES #######
   resources :users, only: [:index, :show] do
-    get 'about' => 'users#show'
+    get 'about' => 'users#show', :on => :member
     get 'follow', :on => :member
 
     resources :plots do
@@ -63,7 +64,8 @@ EveryLastMorsel::Application.routes.draw do
 
     resources :posts do
       get 'like', :on => :member
-    end    
+      resources :comments
+    end
   end
 
   resources :plots, only: [:index, :show] do
@@ -74,6 +76,7 @@ EveryLastMorsel::Application.routes.draw do
   
   resources :posts, only: [:index, :show] do
     get 'like', :on => :member
+    resources :comments
   end
 
 

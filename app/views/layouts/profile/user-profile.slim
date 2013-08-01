@@ -25,10 +25,10 @@
       span.icon.person
       | My Profile
   - if (user_signed_in? && @user && current_user.id == @user.id)
-      / li
-      /   a href=user_url(@user) title="Communication Hub"
-      /     span.icon.drawer 
-      /     | Communication Hub
+      li
+        a href=user_url(@user) title="Communication Hub"
+          span.icon.drawer 
+          | Communication Hub
       li class=('active' if controller.action_name == 'edit')
         a href=edit_user_registration_url title="Settings"
           span.icon.cog 
@@ -37,7 +37,7 @@
 - content_for :profile_tabs do
   ul.nav.nav-tabs.list-block
     li class=('active' if controller.controller_name == "users" && controller.action_name == 'show' || controller.controller_name == "registrations" && controller.action_name == 'edit' )
-      = link_to "ABOUT", user_about_path(@user), remote: false
+      = link_to "ABOUT", about_user_path(@user), remote: false
     li class=('active' if controller.controller_name == 'posts')
       = link_to "BLOG", user_posts_path(@user), remote: false
     li class=('active' if controller.controller_name == 'plots')

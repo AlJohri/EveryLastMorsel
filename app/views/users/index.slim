@@ -1,24 +1,25 @@
 h3
   | Users
-.span8
-  table.table.table-condensed
-    thead
-      tr
-        th Username
-        th Email
-        th Registered
-        / th Role
-        / th
-        / th
-    tbody
-      - @users.each do |user|
-        tr
-          td = link_to user.name, user
-          td = user.email
-          td = user.created_at.to_date
-          td = user.roles.first.name.titleize unless user.roles.first.nil?
-          / td
-            / a.btn.btn-mini[data-toggle="modal" href="#role-options-<%= user.id %>" type="button"]
-              / | Change role
-            / = render user
-          / # td = link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user
+  - @users.each do |user|
+      | <ul class="thumbnails">
+      | 
+      |   <li class="span5 clearfix">
+      |     <div class="thumbnail clearfix">
+      |       <img src="http://placehold.it/320x200" alt="#{user.name}" class="pull-left span2 clearfix" style='margin-right:10px'>
+      |       <div class="caption" class="pull-left">
+      |         <a href="http://bootsnipp.com/" class="btn btn-primary icon pull-right">Select</a>
+      |         <h4>
+      |         <a href="#">#{user.name}</a>
+      |         </h4>
+      |         <small><b>RG: </b>#{user.email}</small>
+      |       </div>
+      |     </div>
+      |   </li>
+      | 
+      | </ul>
+
+/ tr
+/ td = link_to user.name, user
+/ td = user.email
+/ td = user.created_at.to_date
+/ td = user.roles.first.name.titleize unless user.roles.first.nil?

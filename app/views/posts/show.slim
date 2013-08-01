@@ -16,6 +16,30 @@ h1 = @post.title
 
 p.user-post-content = simple_format2(@post.content)
 
+
+h2 Comments
+- @post.comments.each do |comment|
+  p
+    strong Commenter:
+    = comment.commenter
+  p
+    strong Comment:
+    = comment.body
+
+= form_for([@post, @post.comments.build]) do |f|
+	p
+		= f.label :commenter
+		br
+		= f.text_field :commenter
+	p
+		= f.label :body
+		br
+		= f.text_area :body
+	p
+		= f.submit
+
+
+
 - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
 	button.button.btn-orange.post-btn 
 		= link_to 'Edit', edit_user_post_path(@post.user, @post)
