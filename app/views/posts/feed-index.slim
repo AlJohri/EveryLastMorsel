@@ -1,52 +1,50 @@
-article.posts.posts-feed
-  .posts-feed-top
-    .posts-feed-top-headline
-      h1 News Feed
-      h2 What's growin' on?
-  .posts-content
-    ul
-      - @posts.each do |post|
-        li.post
-          .post-left
-            a href=user_url(post.user)
-              / If user has profile picture, show the picture. If not, check if in development mode. If in dev
-              / mode, show a random picture from online. If in production, show the generic thumnail image.
-              - if post.user.avatar?
+- content_for :generic_layout_top_headline do
+  h1 News Feed
+  h2 What's growin' on?
+
+ul.posts
+  - @posts.each do |post|
+    li.post
+      .post-left
+        a href=user_url(post.user)
+          / If user has profile picture, show the picture. If not, check if in development mode. If in dev
+          / mode, show a random picture from online. If in production, show the generic thumnail image.
+          - if post.user.avatar?
+            = image_tag post.user.avatar(:thumb)
+          - else
+            - if Rails.env.development?
+                img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
+            - else
                 = image_tag post.user.avatar(:thumb)
-              - else
-                - if Rails.env.development?
-                    img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
+      .post-right
+        .post-right-author-name
+          a href=user_url(post.user)
+            = post.user.name
+        .post-right-posted-date
+          | Posted #{post.created_at.strftime("%B %d, %Y")} at #{post.created_at.strftime("%I:%M %p")}
+        .post-right-likes
+          div id="dig-#{post.id}"
+            = link_to like_post_url(post), :title => "Dig", :remote => true do
+
+                - if user_signed_in? && current_user.flagged?(post)
+                    span.dig-icon.icon-heart &nbsp;
+                    span.dig-text 
+                      | Un-Dig it? 
+                      - if post.flaggings.count != 0
+                        | #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
                 - else
-                    = image_tag post.user.avatar(:thumb)
-          .post-right
-            .post-right-author-name
-              a href=user_url(post.user)
-                = post.user.name
-            .post-right-posted-date
-              | Posted #{post.created_at.strftime("%B %d, %Y")} at #{post.created_at.strftime("%I:%M %p")}
-            .post-right-likes
-              div id="dig-#{post.id}"
-                = link_to like_post_url(post), :title => "Dig", :remote => true do
+                    span.dig-icon.icon-heart-empty &nbsp;
+                    span.dig-text
+                      | Dig it? 
+                      - if post.flaggings.count != 0
+                        | #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
 
-                    - if user_signed_in? && current_user.flagged?(post)
-                        span.dig-icon.icon-heart &nbsp;
-                        span.dig-text 
-                          | Un-Dig it? 
-                          - if post.flaggings.count != 0
-                            | #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
-                    - else
-                        span.dig-icon.icon-heart-empty &nbsp;
-                        span.dig-text
-                          | Dig it? 
-                          - if post.flaggings.count != 0
-                            | #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
-
-            h1
-              = link_to "#{post.title}", user_post_url(post.user, post)                      
-            - if post.picture?
-              .post-right-picture
-                img src=post.picture.url(:medium)
-            p.post-content == simple_format2(post.short_body)
-            a href=user_post_url(post.user, post)
-              | Read more...
-            hr
+        h1
+          = link_to "#{post.title}", user_post_url(post.user, post)                      
+        - if post.picture?
+          .post-right-picture
+            img src=post.picture.url(:medium)
+        p.post-content == simple_format2(post.short_body)
+        a href=user_post_url(post.user, post)
+          | Read more...
+        hr

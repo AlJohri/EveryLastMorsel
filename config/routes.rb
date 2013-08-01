@@ -65,7 +65,7 @@ EveryLastMorsel::Application.routes.draw do
     resources :comments
   end
 
-  resources :crops
+  resources :crops, only: [:index, :show]
   
   ############# USER VANITY URL ################
   get '/:id(.:format)' => 'users#show', :as => :user

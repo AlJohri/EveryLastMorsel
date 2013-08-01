@@ -1,25 +1,19 @@
-h3
-  | Users
-  - @users.each do |user|
-      | <ul class="thumbnails">
-      | 
-      |   <li class="span5 clearfix">
-      |     <div class="thumbnail clearfix">
-      |       <img src="http://placehold.it/320x200" alt="#{user.name}" class="pull-left span2 clearfix" style='margin-right:10px'>
-      |       <div class="caption" class="pull-left">
-      |         <a href="http://bootsnipp.com/" class="btn btn-primary icon pull-right">Select</a>
-      |         <h4>
-      |         <a href="#">#{user.name}</a>
-      |         </h4>
-      |         <small><b>RG: </b>#{user.email}</small>
-      |       </div>
-      |     </div>
-      |   </li>
-      | 
-      | </ul>
+- content_for :generic_layout_top_headline do
+  h1 Users
+  h2 Who's hoeing on? Hah.
 
-/ tr
-/ td = link_to user.name, user
-/ td = user.email
-/ td = user.created_at.to_date
-/ td = user.roles.first.name.titleize unless user.roles.first.nil?
+ul class="thumbnails"
+  - @users.each do |user|  
+    li class="span5 clearfix"
+      div class="thumbnail clearfix"
+        img src="http://placehold.it/320x200" alt="#{user.name}" class="pull-left span2 clearfix" style='margin-right:10px'
+        div class="caption"
+          a href=user_url(user) class="btn btn-primary icon pull-right" Show
+          h4: a href=user_url(user) #{user.name}
+          small
+            b Email: 
+            | #{user.email}
+          br
+          small
+            b Created At: 
+            | #{user.created_at.to_date}

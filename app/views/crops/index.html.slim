@@ -1,21 +1,17 @@
-h1 Listing crops
+- content_for :generic_layout_top_headline do
+  h1 Crops
+  h2 Lalala
 
-table
-  tr
-    th Name
-    th Description
-    th
-    th
-    th
-
-  - @crops.each do |crop|
-    tr
-      td = crop.name
-      td = crop.description
-      td = link_to 'Show', crop
-      td = link_to 'Edit', edit_crop_path(crop)
-      td = link_to 'Destroy', crop, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Crop', new_crop_path
+div class="container"
+  div class="row"
+    div class="span12"
+        ul class="thumbnails"
+          - @crops.each do |crop|
+            li class="span4"
+              div class="thumbnail"
+                img src="http://placehold.it/320x200" alt="ALT NAME"
+                div class="caption"
+                  h3 #{crop.name}
+                  p #{crop.description}
+                  p align="center"
+                    a href=crop_url(crop) class="btn btn-primary btn-block" Show

@@ -1,0 +1,42 @@
+.generic-layout {
+    @include clearfix;
+    // background: white;
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 15px; padding-right: 15px;
+    ul { padding-left: 30px; padding-right: 30px; }    
+}
+
+.generic-layout .generic-layout-top {
+    background: #7dc6ca url("blue-noise.jpg") repeat;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-bottom: 1px solid #75bbbf;
+    @include box-shadow(inset 0 -1px 1px rgba(255,255,255,0.3));
+    // margin-bottom: 20px;
+    min-height: 90px;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    width: 100%;
+    color: white;
+    .generic-layout-top-headline {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        h1 {
+            font-weight: normal;
+            color: white; 
+            font-size: 30px; 
+            a { font-size: 14px; color: #58585A; text-decoration: underline; }
+        }
+        h2 { color: white; font-size: 18px; font-weight: normal; }        
+    }
+}
+
+.generic-layout .generic-layout-content {
+    background-color: white;
+    padding-top: 2%;
+}

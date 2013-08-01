@@ -1,5 +1,6 @@
 class Plot < ActiveRecord::Base
-  attr_accessible :user_id
+  attr_accessible :user, :user_id
+  
   attr_accessible :about, :city, :name, :state, :zip
   attr_accessible :plot_crop_variety_ids
   acts_as_followable

@@ -3,8 +3,9 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   belongs_to :user
   has_many :comments
-  attr_accessible :user_id
+  
   attr_accessible :content, :title, :created_at, :updated_at
+  attr_accessible :user, :user_id
   
   # has_many :comments
 
@@ -14,7 +15,7 @@ class Post < ActiveRecord::Base
   
   validates :title, presence: true # length: { minimum: 2, maximum: 66 }
   validates :content, presence: true, length: { minimum: 10 }
-  validates :user, presence: true
+  # validates :user_id, presence: true
 
   attr_accessible :picture
   

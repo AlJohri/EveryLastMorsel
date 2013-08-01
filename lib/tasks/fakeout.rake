@@ -13,20 +13,20 @@ class Fakeout
   # 1. first these are the model names we're going to fake out, note in this example, we don't create tags/taggings specifically
   # but they are defined here so they get wiped on the clean operation
   # e.g. this example fakes out, Users, Questions and Answers, and in doing so fakes some Tags/Taggings
-  MODELS = %w(User Post)
+  MODELS = %w(User Post Plot Crop Variety)
 
   # 2. now define a build method for each model, returning a list of attributes for Model.create! calls
   # check out the very excellent faker gem rdoc for faking out anything from emails, to full addresses; http://faker.rubyforge.org/rdoc
   # NOTE: a build_??? method MUST exist for each model you specify above
-  def build_user(first_name = Faker::Name.first_name, last_name = Faker::Name.last_name, email = Faker::Internet.email, password = 'password', city = Faker::Address.city, state = Faker::Address.state)
+  def build_user(first_name = Faker::Name.first_name, last_name = Faker::Name.last_name, email = Faker::Internet.email, password = 'password', city = Faker::Address.city, state = Faker::Address.state, zip = Faker::Address.zip)
     { :first_name            => first_name,
       :last_name             => last_name,
       :email                 => email,
-      :city                  => city,
-      :state                 => state,
+      :zip                   => zip,
+      # :city                => city,
+      # :state               => state,
       :password              => password,
       :password_confirmation => password
-      # :avatar                => 
     }
   end
   # File.open(Dir.glob(File.join(Rails.root, 'app/assets/images', '*')).sample)     
@@ -34,21 +34,40 @@ class Fakeout
   # in this example i'm faking out time - like Marty McFly!
   def build_post
     post_time = fake_time_from(1.year.ago)
-
     paragraphs = Array.new
     paragraph_count = rand(5..10)
     1.upto(paragraph_count) do; paragraphs << Faker::Lorem.paragraph(5); end
-
-    { # "#{Faker::Lorem.sentence(8+rand(8)).chop}?",
+    {
       :title            => Faker::Lorem.sentence(rand(2..5)).chomp('.'),
       :content          => paragraphs.join("\n"),
       :created_at       => post_time,
       :updated_at       => post_time,
       :user             => pick_random(User, false)
     }
-
     # :tag_list         => random_tag_list(all_tags),
     # :notify_user      => false,    
+  end
+
+  def build_plot
+    {
+      # :name => Faker::Lorem.words(1),
+      # :description =>  Faker::Lorem.words(rand(10..15))
+    }
+  end  
+
+  def build_crop
+    {
+      :name => Faker::Lorem.words(1),
+      :description =>  Faker::Lorem.words(rand(10..15))
+    }
+  end
+
+  def build_variety
+    {
+      :name        => Faker::Lorem.words(1),
+      :description =>  Faker::Lorem.words(rand(10..15)),
+      :crop        => pick_random(Crop, false)
+    }    
   end
 
   # return nil, or an empty hash for models you don't want to be faked out on create, but DO want to be clearer away

@@ -1,4 +1,7 @@
 article.plots
+  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
+     a href=new_user_plot_url
+       button.button.btn-orange Create Plot
   .plots-content
     ul
       - @plots.each do |plot|
