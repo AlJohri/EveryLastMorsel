@@ -15,7 +15,6 @@
 //= require jquery.ui.all
 //= require bootstrap
 //= require jquery-fileupload
-//= require lib/autocomplete-rails
 //= require lib/jquery/jquery.validate.js
 
 // require angular

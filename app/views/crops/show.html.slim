@@ -1,10 +1,23 @@
 p#notice = notice
 
+h2 Crop
+
 p
-  strong Name:
-  = @crop.name
+  strong Crop Name: 
+  | #{@crop.name}
 p
-  strong Description:
-  = @crop.description
+  strong Crop Description: 
+  | #{@crop.description}
+
+h2 List of Crop's Varieties
+
+- @crop.varieties.each do |variety|
+	p 
+		strong Variety: 
+		| #{variety.name}
+	p 
+		strong Variety Description:
+		| #{variety.description}
+	hr
 
 = link_to 'Back', crops_path
