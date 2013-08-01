@@ -29,7 +29,7 @@
     li class=('active' if controller.controller_name == '')
       = link_to "PEOPLE", "#"
     li class=('active' if controller.controller_name == 'plot_crop_varieties')
-      = link_to "CROP", plot_plot_crop_varieties_path(@plot.id)
+      = link_to "CROP", plot_crops_path(@plot.id)
 
 
 = render template: "layouts/profile/profile"

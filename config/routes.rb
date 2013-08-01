@@ -1,7 +1,7 @@
 EveryLastMorsel::Application.routes.draw do
 
-  # resources :varieties
-  # resources :crops
+  resources :varieties
+  resources :crops
 
   ######## ROOT/STATIC ROUTES ########
   authenticated :user do
@@ -71,7 +71,7 @@ EveryLastMorsel::Application.routes.draw do
   resources :plots, only: [:index, :show] do
     get 'follow', :on => :member
     get 'about' => 'plots#show'
-    resources :plot_crop_varieties # resources :crops, :controller=>'plot_crop_varieties'
+    resources :crops, :controller=>'plot_crop_varieties'
   end
   
   resources :posts, only: [:index, :show] do
