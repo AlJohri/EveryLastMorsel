@@ -134,22 +134,35 @@ ul.tools {
 }
 
 .section-learn {
+    min-height: 550px;
+    background: url('home-learn-bg-image.png');
+    background-size: cover;
   .section-learn-content {
     text-align: center;
-    h1 { color: #6d6d6d; font-size: 36px; padding-bottom: 10px; }
-    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
-    a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
+    h1 { color: #6d6d6d; font-size: 36px; padding-bottom: 10px; color: white; margin-top: 15%; }
+    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; color: white;}
+    a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; color: white;}
     padding: 3% 10%;
   }
 }
 
 .section-share {
   background-color: white;
+  max-height: 400px;
+  padding-top: 0 10%;
+  @include clearfix;
   .section-share-content {
-    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
+    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; padding-top: 0; }
     a {font-size: 18px;}
-    text-align: center;
-    padding: 3% 10%;
+    padding: 10% 10%;
+    width: 50%;
+    float: left;
+  }
+  .section-share-image {
+    width: 50%;
+    padding: 10% 5%;
+    padding-right: 10%;
+    float: right;
   }
 }
 
