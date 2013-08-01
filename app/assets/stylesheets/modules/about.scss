@@ -34,7 +34,7 @@
 }
 
 .the-people {
-    margin: 60px auto;
+    // margin: 60px auto;
     width: 100%
 }
 
@@ -48,28 +48,30 @@ h2.the-people-header {
 h2.the-people-header span { background:#fff; padding:0 10px; margin-bottom: 20px; }
 
 .team-bio {
-    width: 100%;
-    margin: 20px 0;
+    @include clearfix;
+    max-width: 70%;
+    margin: 0 auto;
 }
 
 .team-bio-copy {
     float: left;
-    width: 75%;
+    max-width: 79%;
     padding: 0 5%;
     font-style: italic;
+    display: block
 }
 
 .team-bio-image {
     float: left;
     border-radius: 50%;
-    width: 15%;
-    max-height: 168px;
+    min-width: 10%;
     overflow: hidden;
+    display: block;
 }
 
 .right-justify {
     text-align: right;
-    width: 65%;
+    width: 70%;
     padding-left: 15%;
 }
 
