@@ -2,15 +2,30 @@ h1 Listing Crops
 
 table
   tr
+    th Crop
+    th
+    th Variety
+    th
+    th Plant Date
+    th
+    th
     th
     th
     th
 
   - @plot_crop_varieties.each do |plot_crop_variety|
     tr
-      td = link_to 'Show', plot_plot_crop_variety_path(plot_crop_variety.plot, plot_crop_variety.id)
-      td = link_to 'Edit', edit_plot_plot_crop_variety_path(plot_crop_variety.plot, plot_crop_variety.id)
-      td = link_to 'Destroy', plot_plot_crop_variety_path(plot_crop_variety.plot, plot_crop_variety.id), :confirm => 'Are you sure?', :method => :delete
+      td = plot_crop_variety.crop.name
+      td &nbsp;
+      td = plot_crop_variety.variety.name
+      td &nbsp;
+      td = plot_crop_variety.plant_date
+      td &nbsp;
+      td = link_to 'Show', plot_crop_path(plot_crop_variety.plot, plot_crop_variety.id)
+      td &nbsp;
+      td = link_to 'Edit', edit_plot_crop_path(plot_crop_variety.plot, plot_crop_variety.id)
+      td &nbsp;
+      td = link_to 'Destroy', plot_crop_path(plot_crop_variety.plot, plot_crop_variety.id), :confirm => 'Are you sure?', :method => :delete
 
 br
 

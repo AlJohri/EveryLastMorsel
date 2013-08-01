@@ -1,9 +1,15 @@
-= form_for link_to([@plot_crop_variety.plot, @plot_crop_variety]) do |f|
+= form_for @plot_crop_variety, :url => plot_crops_path(@plot_crop_variety.plot) do |f|
   - if @plot_crop_variety.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@plot_crop_variety.errors.count, "error")} prohibited this plot_crop_variety from being saved:"
-      ul
-        - @plot_crop_variety.errors.full_messages.each do |message|
-          li = message
+	    #error_explanation
+	      h2 = "#{pluralize(@plot_crop_variety.errors.count, "error")} prohibited this plot_crop_variety from being saved:"
+	      ul
+	        - @plot_crop_variety.errors.full_messages.each do |message|
+	          li = message
+
+  = f.text_field :crop_id, :placeholder => "Crop"
+  br
+  = f.text_field :variety_id, :placeholder => "Variety"
+  br
+  = f.date_select :plant_date
 
   .actions = f.submit 'Save'

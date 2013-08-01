@@ -57,15 +57,15 @@ class Fakeout
 
   def build_crop
     {
-      :name => Faker::Lorem.words(1),
-      :description =>  Faker::Lorem.words(rand(10..15))
+      :name => Faker::Lorem.words(1).join,
+      :description => Faker::Lorem.words(rand(10..15)).join(' ')
     }
   end
 
   def build_variety
     {
-      :name        => Faker::Lorem.words(1),
-      :description =>  Faker::Lorem.words(rand(10..15)),
+      :name        => Faker::Lorem.words(1).join,
+      :description =>  Faker::Lorem.words(rand(10..15)).join(' '),
       :crop        => pick_random(Crop, false)
     }    
   end

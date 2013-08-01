@@ -2,9 +2,14 @@
   h1 Users
   h2 Who's hoeing on? Hah.
 
+scss:
+  .user {
+    height: 120px;
+  }
+
 ul class="thumbnails"
   - @users.each do |user|  
-    li class="span5 clearfix"
+    li.user class="span5 clearfix"
       div class="thumbnail clearfix"
         img src="http://placehold.it/320x200" alt="#{user.name}" class="pull-left span2 clearfix" style='margin-right:10px'
         div class="caption"
