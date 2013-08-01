@@ -8,7 +8,7 @@ class Plot < ActiveRecord::Base
   has_many :plot_crop_varieties
   has_many :crops, :through => :plot_crop_varieties
   has_many :varieties, :through => :plot_crop_varieties
-
+  
   attr_accessible :avatar
   attr_reader :avatar_remote_url
 

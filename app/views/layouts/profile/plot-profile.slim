@@ -23,7 +23,7 @@
 - content_for :profile_tabs do
   ul.nav.nav-tabs.list-block
     li class=('active' if controller.controller_name == "plots" && controller.action_name == 'show' || controller.controller_name == "plots" && controller.action_name == 'edit' )
-      = link_to "ABOUT", plot_about_url(@plot), remote: false
+      = link_to "ABOUT", about_plot_path(@plot), remote: false
     li class=('active' if controller.controller_name == 'posts')
       = link_to "NEWS", "#", remote: false
     li class=('active' if controller.controller_name == '')

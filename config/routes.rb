@@ -1,8 +1,5 @@
 EveryLastMorsel::Application.routes.draw do
 
-  resources :varieties
-  resources :crops
-
   ######## ROOT/STATIC ROUTES ########
   authenticated :user do
     root :to => "posts#index"
@@ -26,23 +23,13 @@ EveryLastMorsel::Application.routes.draw do
     :registrations => "devise/custom/registrations" 
   }
 
-  ###### USER -> PLOTS/POSTS VANITY ROUTES #######
-  # path /:user_id so that paths are viewable as 
-  # /:user_id/plots/new
-  # /:user_id/posts/edit
-  # etc.
-  # user CRUD cannot be done from vanity URL
-  # WRONG: /:user_id/new
-  # resources :users, :path => '', except: [:index, :show, :new, :create, :edit, :destory, :update] do
-
-  # scope :users, :path => '/:user_id', :as => "user" do
   resources :users, :path => '', only: [] do
     get 'about' => 'users#show', :on => :member
     get 'follow', :on => :member
 
     resources :plots do
       get 'follow', :on => :member
-      get 'about' => 'plots#show'
+      get 'about' => 'plots#show', :on => :member
     end
 
     resources :posts do
@@ -52,14 +39,13 @@ EveryLastMorsel::Application.routes.draw do
 
   end
 
-  ###### REGULAR ROUTES #######
   resources :users, only: [:index, :show] do
     get 'about' => 'users#show', :on => :member
     get 'follow', :on => :member
 
     resources :plots do
       get 'follow', :on => :member
-      get 'about' => 'plots#show'
+      get 'about' => 'plots#show', :on => :member
     end
 
     resources :posts do
@@ -70,8 +56,8 @@ EveryLastMorsel::Application.routes.draw do
 
   resources :plots, only: [:index, :show] do
     get 'follow', :on => :member
-    get 'about' => 'plots#show'
-    resources :crops, :controller=>'plot_crop_varieties'
+    get 'about' => 'plots#show', :on => :member
+    resources :crops, :controller => 'plot_crop_varieties'
   end
   
   resources :posts, only: [:index, :show] do
@@ -79,6 +65,25 @@ EveryLastMorsel::Application.routes.draw do
     resources :comments
   end
 
+  resources :crops
+  
+  ############# USER VANITY URL ################
+  get '/:id(.:format)' => 'users#show', :as => :user
+end
+
+  ###### REGULAR ROUTES #######
+
+
+  ###### USER -> PLOTS/POSTS VANITY ROUTES #######
+  # path /:user_id so that paths are viewable as 
+  # /:user_id/plots/new
+  # /:user_id/posts/edit
+  # etc.
+  # user CRUD cannot be done from vanity URL
+  # WRONG: /:user_id/new
+  # resources :users, :path => '', except: [:index, :show, :new, :create, :edit, :destory, :update] do
+
+  # scope :users, :path => '/:user_id', :as => "user" do
 
 
   ####### USER -> PLOTS/POSTS REGULAR ROUTES #######
@@ -108,10 +113,6 @@ EveryLastMorsel::Application.routes.draw do
 
     # end
   # end
-  
-  ############# USER VANITY URL ################
-  get '/:id(.:format)' => 'users#show', :as => :user
-end
 
 # Notes
 # http://ofps.oreilly.com/titles/9780596521424/routing.html
