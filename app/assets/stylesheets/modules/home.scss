@@ -167,11 +167,18 @@ ul.tools {
 }
 
 .section-grow {
+    padding-top: 5%;
+  .section-grow-image {
+    float: left;
+    width: 50%;
+    padding-left: 15%;
+  }
   .section-grow-content {
     h2 { color: #6d6d6d; }
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
-    text-align: center;
-    padding: 3% 10%;
+    padding: 3% 6%;
+    float: right;
+    width: 50%;
   }
 }
 
