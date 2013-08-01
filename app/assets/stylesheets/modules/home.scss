@@ -188,6 +188,7 @@ ul.tools {
   background-color: red;
 }
 
+.button.btn-orange.home-sign-up-btn { margin: 0 auto;}
 
 @media only screen and (max-width: 1100px) {
   .section-claims img { max-width: 620px; bottom: -30px; left: 10% }
@@ -270,12 +271,15 @@ ul.tools {
 }
 
 @media only screen and (max-width: 675px) {
-  .section-claims img { max-width: 320px; bottom: -20px; left: 5% }
+  .section-learn {min-height: 230px; padding: 2%;}
+  .section-claims img { max-width: 320px; bottom: -20px; left: 5%; }
   .section-claims .section-claims-content { left: 45%; padding: 40px 0px; }
+  .section-grow-image, .section-share-image { display: none;}
+  .section-grow .section-grow-content, .section-share .section-share-content { width: 100%; padding: 10% 10%; text-align: center;}
 }
 
 @media only screen and (max-width: 480px) {
-  .section-claims img { display: none; }
+  .section-claims, .section img { display: none; }
   .section-track { background-image: none; }
   .section-claims .section-claims-content {
     width: 250px;
