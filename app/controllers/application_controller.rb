@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     # after_filter :store_location
 
     rescue_from CanCan::AccessDenied do |exception|
-        redirect_to root_path, :alert => exception.message
+        redirect_to main_app.root_url, :alert => exception.message
     end
 
     def store_location
@@ -20,15 +20,15 @@ class ApplicationController < ActionController::Base
     # end
 
     # def after_sign_in_path_for(resource)
-    #   session[:previous_url] || root_path
+    #   session[:previous_url] || main_app.root_url
     # end
 
     # def after_update_path_for(resource)
-    #   session[:previous_url] || root_path
+    #   session[:previous_url] || main_app.root_url
     # end
 
     # def after_sign_out_path_for(resource)
-    #   session[:previous_url] || root_path
+    #   session[:previous_url] || main_app.root_url
     # end
 
     def xeditable?

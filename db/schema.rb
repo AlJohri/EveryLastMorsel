@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801012314) do
+ActiveRecord::Schema.define(:version => 20130802064314) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -74,11 +74,14 @@ ActiveRecord::Schema.define(:version => 20130801012314) do
   add_index "plot_crop_varieties", ["variety_id"], :name => "index_plot_crop_varieties_on_variety_id"
 
   create_table "plots", :force => true do |t|
-    t.integer  "user_id"
     t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
+    t.float    "latitude"
+    t.float    "longitude"
     t.text     "about"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
@@ -88,7 +91,10 @@ ActiveRecord::Schema.define(:version => 20130801012314) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "plots", ["user_id"], :name => "index_plots_on_user_id"
+  create_table "plots_users", :force => true do |t|
+    t.integer "user_id"
+    t.integer "plot_id"
+  end
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -221,5 +227,15 @@ ActiveRecord::Schema.define(:version => 20130801012314) do
   end
 
   add_index "varieties", ["crop_id"], :name => "index_varieties_on_crop_id"
+
+  create_table "yields", :force => true do |t|
+    t.datetime "pick_date"
+    t.decimal  "quantity"
+    t.string   "quantity_unit"
+    t.decimal  "quantity_for_sale"
+    t.integer  "plot_crop_variety_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
 end

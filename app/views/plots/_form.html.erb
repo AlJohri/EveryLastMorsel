@@ -1,4 +1,4 @@
-<%= form_for([@plot.user, @plot]) do |f| %>
+<%= form_for([@user, @plot]) do |f| %>
   <% if @plot.errors.any? %>
     <div id="error_explanation">
       <h5><%= pluralize(@plot.errors.count, "error") %> prohibited this plot from being saved:</h5>
@@ -15,6 +15,14 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :address1 %><br />
+    <%= f.text_field :address1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address2 %><br />
+    <%= f.text_field :address2 %>
+  </div>    
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>

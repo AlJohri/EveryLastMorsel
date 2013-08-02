@@ -22,3 +22,5 @@ ul class="thumbnails"
           small
             b Created At: 
             | #{user.created_at.to_date}
+
+  = paginate @users

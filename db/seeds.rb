@@ -17,9 +17,11 @@ YAML.load(ENV['ROLES']).each do |role|
 end
 puts 'DEFAULT USERS'
 
-# admin = User.find_or_create_by_email :name =>, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
-# puts 'user: ' << admin.name
-# admin.add_role :admin
+admin = User.create :first_name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup, :zip => '99999'
+puts 'user: ' << admin.name
+admin.add_role :admin
 
 # Crop.create(name: "Tomato2", description: "desc")
 # Variety.create(name:"blah", description: "desc", crop_id: 1)
+
+# User.find_or_create_by_email :name => 'Al Johri', :email => 'al.johri@gmail.com', :password => 'admin123', :password_confirmation => 'admin123', :zip => '07013'

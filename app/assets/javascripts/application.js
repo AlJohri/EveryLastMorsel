@@ -16,22 +16,36 @@
 //= require bootstrap
 //= require jquery-fileupload
 //= require lib/jquery/jquery.validate.js
+//= require bootstrap-wysihtml5
+//= require editable/bootstrap-editable
+//= require editable/rails
 
+// Angular Dependencies (not enabled)
 // require angular
 // require angular-bootstrap
 // require angular-resource
-
 // require app
 // require_tree ./angular
 
-
+// Potentially Not Needed jQuery Libraries
 // require lib/jquery/jquery.autoSuggest.js
 // require lib/jquery/jquery.placeheld.js
 // require lib/jquery/jquery.scrollTo.js
 
-// $(document).ready(function() {
+$(document).ready(function() {
+
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+
+  $.fn.editable.defaults.mode = 'inline';
+  $('.editable').editable();
+
 // 	$(".get-started").click(function () {
 // 	   $('.section-signup').slideToggle('slow');
 // 	   $('.section-signup')[0].scrollIntoView(true);
 // 	});
-// });
+
+});
+
+

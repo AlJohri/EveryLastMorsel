@@ -12,9 +12,6 @@ EveryLastMorsel::Application.routes.draw do
     get 'marketplace'
   end
 
-  ############# RAILS ADMIN ###############
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
   ############# DEVISE ##################
   # Devise Routes for User Authentication
   # Must come before any User routes
@@ -22,6 +19,17 @@ EveryLastMorsel::Application.routes.draw do
     :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
     :registrations => "devise/custom/registrations" 
   }
+  # devise_for :users, :path => "auth", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
+  # devise_scope :user do
+  #   get "sign_in", :to => "devise/sessions#new"
+  # end
+
+  ############# RAILS ADMIN ###############
+  # devise_for :admins, :controllers => { 
+  #   :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
+  #   :registrations => "devise/custom/registrations" 
+  # }  
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :users, :path => '', only: [] do
     get 'about' => 'users#show', :on => :member
@@ -70,6 +78,11 @@ EveryLastMorsel::Application.routes.draw do
   ############# USER VANITY URL ################
   get '/:id(.:format)' => 'users#show', :as => :user
 end
+
+  # ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
+  # Make sure this routeset is defined last
+  # ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
+
 
   ###### REGULAR ROUTES #######
 

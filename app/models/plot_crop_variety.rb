@@ -4,4 +4,6 @@ class PlotCropVariety < ActiveRecord::Base
   belongs_to :plot
   belongs_to :crop
   belongs_to :variety
+
+  has_many :yields
 end

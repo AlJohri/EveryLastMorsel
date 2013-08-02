@@ -1,6 +1,15 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :posts
-  has_many :plots
+  # has_many :plots
+  has_and_belongs_to_many :plots
   before_create :concatenate_name
   before_create :geocode_zip  
   # after_create :update_mailchimp
@@ -32,7 +41,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, 
     :default_url => "/assets/placeholder_:style.jpg", 
     :styles => {
-      thumb: '100x100',
+      thumb: '100x100#',
       square: '200x200#',
       medium: '300x300#'
     }

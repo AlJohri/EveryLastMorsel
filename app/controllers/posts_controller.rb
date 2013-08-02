@@ -5,6 +5,8 @@ class PostsController < InheritedResources::Base
   respond_to :html, :xml, :json
   belongs_to :user, :optional => true 
 
+  has_scope :page, :default => 1
+
   include ::ActionView::Helpers::TextHelper
 
   def index

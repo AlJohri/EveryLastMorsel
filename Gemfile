@@ -24,21 +24,23 @@ gem 'cancan', '>= 1.6.9' # https://github.com/ryanb/cancan
 gem 'rolify', '>= 3.2.0' # https://github.com/EppO/rolify
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 gem "geocoder", "~> 1.1.8"
+gem 'simple_form'
+# gem 'georuby'
+# gem 'rgeo'
+# gem 'activerecord-postgis-adapter'
+
 
 gem 'inherited_resources' # https://github.com/josevalim/inherited_resources
-# gem 'has_scope' # http://github.com/plataformatec/has_scope
+gem 'has_scope' # http://github.com/plataformatec/has_scope
 
-gem 'angularjs-rails'
-
-# http://railscasts.com/episodes/230-inherited-resources
-# https://github.com/plataformatec/responders
+# gem 'angularjs-rails'
 
 gem 'newrelic_rpm' # https://github.com/newrelic/rpm
 gem 'paperclip' # https://github.com/thoughtbot/paperclip
 gem 'aws-sdk', '~> 1.0' # https://github.com/aws/aws-sdk-ruby
 gem 'acts-as-taggable-on' # https://github.com/mbleigh/acts-as-taggable-on
 gem "acts_as_follower" # https://github.com/tcocca/acts_as_follower/
-gem 'rails3-jquery-autocomplete' # https://github.com/crowdint/rails3-jquery-autocomplete
+gem 'bootstrap-wysihtml5-rails'
 gem "routing_concerns", "~> 0.1.0" # https://github.com/rails/routing_concerns
 gem 'rails_admin', github: 'sferik/rails_admin', branch: 'rails-3.x'
 
@@ -52,8 +54,7 @@ gem "slim-rails" # gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 gem 'dalli'
 gem 'faker'
-# gem 'bootstrap-x-editable-rails'
-# gem 'x-editable-rails'
+gem 'x-editable-rails'
 
 # gem "blogit"
 gem "kaminari"

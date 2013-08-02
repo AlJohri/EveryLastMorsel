@@ -5,6 +5,8 @@ class UsersController < InheritedResources::Base # ApplicationController
   # Otherwise, the id parameter should go to the application layout, like in the posts controller.
   layout lambda { |controller| params[:user_id] || params[:id] ? "profile/user-profile" : "generic" }
 
+  has_scope :page, :default => 1
+
   # https://github.com/ryanb/cancan/wiki/Inherited-Resources
   # before_filter :authenticate_user!
   #   authorize! :index, @user, :message => 'Not authorized as an administrator.'

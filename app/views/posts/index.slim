@@ -44,7 +44,7 @@ article.posts.posts-user
           |   </div>
           | </div>
           | <hr>
-
+    = paginate @posts
 /   p Posted #{post.created_at.strftime("%d %b. %Y")}
 /   h1
 /     = link_to "#{post.title}", user_post_url(@user, post)

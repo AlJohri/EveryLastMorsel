@@ -26,5 +26,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_user_plot_path(@plot.user, @plot) %> |
-<%= link_to 'Back', user_plots_path(@plot.user) %>
+<%= link_to 'Edit', edit_user_plot_path(current_user, @plot) %> |
+<%= link_to 'Back', user_plots_path(@plot.users(1)) %>
