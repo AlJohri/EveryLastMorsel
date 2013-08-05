@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
       else
         context = 'self'
       end
-      if (controller_name != "static" && controller_name != "registrations")
+
+      # FIX THIS UGLY IF STATEMENT
+
+      if (controller_name != "static" && controller_name != "registrations" && (!params[:controller].include? "rails_admin"))
         @context = "#{controller_name}/context/#{context}/#{action_name}"
       end
     end
