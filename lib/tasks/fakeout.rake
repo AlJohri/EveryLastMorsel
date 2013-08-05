@@ -13,7 +13,7 @@ class Fakeout
   # 1. first these are the model names we're going to fake out, note in this example, we don't create tags/taggings specifically
   # but they are defined here so they get wiped on the clean operation
   # e.g. this example fakes out, Users, Questions and Answers, and in doing so fakes some Tags/Taggings
-  MODELS = %w(User Post Plot Crop Variety)
+  MODELS = %w(User Post Plot)
 
   # 2. now define a build method for each model, returning a list of attributes for Model.create! calls
   # check out the very excellent faker gem rdoc for faking out anything from emails, to full addresses; http://faker.rubyforge.org/rdoc
@@ -53,22 +53,22 @@ class Fakeout
       # :name => Faker::Lorem.words(1),
       # :description =>  Faker::Lorem.words(rand(10..15))
     }
-  end  
-
-  def build_crop
-    {
-      :name => Faker::Lorem.words(1).join,
-      :description => Faker::Lorem.words(rand(10..15)).join(' ')
-    }
   end
 
-  def build_variety
-    {
-      :name        => Faker::Lorem.words(1).join,
-      :description =>  Faker::Lorem.words(rand(10..15)).join(' '),
-      :crop        => pick_random(Crop, false)
-    }    
-  end
+  # def build_crop
+  #   {
+  #     :name => Faker::Lorem.words(1).join,
+  #     :description => Faker::Lorem.words(rand(10..15)).join(' ')
+  #   }
+  # end
+
+  # def build_variety
+  #   {
+  #     :name        => Faker::Lorem.words(1).join,
+  #     :description =>  Faker::Lorem.words(rand(10..15)).join(' '),
+  #     :crop        => pick_random(Crop, false)
+  #   }    
+  # end
 
   # return nil, or an empty hash for models you don't want to be faked out on create, but DO want to be clearer away
 
