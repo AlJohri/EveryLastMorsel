@@ -34,48 +34,48 @@ EveryLastMorsel::Application.routes.draw do
   # }  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :users, :path => '', only: [] do
-    get 'about' => 'users#show', :on => :member
+  concern :followable do
     get 'follow', :on => :member
+  end
 
-    resources :plots do
-      get 'follow', :on => :member
+  concern :likeable do
+    get 'like', :on => :member
+  end
+
+  concern :commentable do
+    resources :comments
+  end
+
+  resources :users, :path => '', only: [], concerns: [:followable] do
+    get 'about' => 'users#show', :on => :member
+
+    resources :plots, concerns: [:followable] do
       get 'about' => 'plots#show', :on => :member
     end
 
-    resources :posts do
-      get 'like', :on => :member
-      resources :comments
-    end
+    resources :posts, concerns: [:likeable, :commentable]
+    resources :crops, :controller => 'plot_crop_varieties'
 
   end
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index, :show], concerns: [:followable] do
     get 'about' => 'users#show', :on => :member
-    get 'follow', :on => :member
 
-    resources :plots do
-      get 'follow', :on => :member
+    resources :plots, concerns: [:followable] do
       get 'about' => 'plots#show', :on => :member
     end
 
-    resources :posts do
-      get 'like', :on => :member
-      resources :comments
-    end
+    resources :posts, concerns: [:likeable, :commentable]
+    resources :crops, :controller => 'plot_crop_varieties'
+
   end
 
-  resources :plots, only: [:index, :show] do
-    get 'follow', :on => :member
+  resources :plots, only: [:index, :show], concerns: [:followable] do
     get 'about' => 'plots#show', :on => :member
     resources :crops, :controller => 'plot_crop_varieties'
   end
   
-  resources :posts, only: [:index, :show] do
-    get 'like', :on => :member
-    resources :comments
-  end
-
+  resources :posts, only: [:index, :show], concerns: [:likeable, :commentable]
   resources :crops, only: [:index, :show]
   
   ############# USER VANITY URL ################
@@ -143,7 +143,6 @@ end
 
 ############# UNSURE ###############
 # Small Farm Book Keeping Tool?
-# get '/records' => "records#index"
 # match  '/:user_id/posts/tagged/:tag' => 'blogit/custom/posts#tagged', as: :tagged_blog_posts
 # match  '/:user_id/posts/page/:page' => "blogit/custom/posts#index"  
 ####################################

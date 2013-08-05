@@ -1,0 +1,9 @@
+p#notice = notice
+
+p = @plot_crop_variety.crop.try(:name)
+p = @plot_crop_variety.variety.try(:name)
+p = @plot_crop_variety.plant_date
+
+= link_to 'Edit', edit_plot_crop_path(@plot_crop_variety.plot, @plot_crop_variety.id)
+| &nbsp;
+= link_to 'Back', plot_crops_path

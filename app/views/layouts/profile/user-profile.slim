@@ -19,20 +19,23 @@
   - else
       = image_tag @user.avatar(:medium)
 
-- content_for :profile_nav do
-  li class=('active' if controller.controller_name != 'registrations')
-    a href=user_url(@user) title="My Profile"
-      span.icon.person
-      | My Profile
-  - if (user_signed_in? && @user && current_user.id == @user.id)
-      li
-        a href=user_url(@user) title="Communication Hub"
-          span.icon.drawer 
-          | Communication Hub
-      li class=('active' if controller.action_name == 'edit')
-        a href=edit_user_registration_url title="Settings"
-          span.icon.cog 
-          | Settings
+- content_for :profile_sidebar do
+
+  ul.profile-navigation.styled
+    li class=('active' if controller.controller_name != 'registrations')
+      a href=user_url(@user) title="My Profile"
+        span.icon.person
+        | My Profile
+        
+    - if (user_signed_in? && @user && current_user.id == @user.id)
+        li
+          a href=user_url(@user) title="Communication Hub"
+            span.icon.drawer 
+            | Communication Hub
+        li class=('active' if controller.action_name == 'edit')
+          a href=edit_user_registration_url title="Settings"
+            span.icon.cog 
+            | Settings
 
 - content_for :profile_tabs do
   ul.nav.nav-tabs.list-block
@@ -42,7 +45,7 @@
       = link_to "BLOG", user_posts_path(@user), remote: false
     li class=('active' if controller.controller_name == 'plots')
       = link_to "PLOT", user_plots_path(@user), remote: false
-    / li class=('active' if controller.controller_name == 'crops')
-      / = link_to "CROP", user_posts_path(params[:id], remote: true)
+    li class=('active' if controller.controller_name == 'plot_crop_varieties')
+      = link_to "CROP", user_crops_path(@user), remote: false
 
 = render template: "layouts/profile/profile"

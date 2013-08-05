@@ -1,5 +1,5 @@
 #tab-content
   - if controller.action_name == 'show'
-    = render partial: "users/about"
+    = render partial: "users/context/self/about"
   - else
     = render partial: "users/#{controller.action_name}"

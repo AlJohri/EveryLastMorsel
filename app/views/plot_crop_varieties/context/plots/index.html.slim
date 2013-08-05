@@ -15,11 +15,11 @@ table
 
   - @plot_crop_varieties.each do |plot_crop_variety|
     tr
-      td = plot_crop_variety.crop.name
+      td = plot_crop_variety.crop.try(:name)
       td &nbsp;
-      td = plot_crop_variety.variety.name
+      td = plot_crop_variety.variety.try(:name)
       td &nbsp;
-      td = plot_crop_variety.plant_date
+      td = plot_crop_variety.plant_date.presence
       td &nbsp;
       td = link_to 'Show', plot_crop_path(plot_crop_variety.plot, plot_crop_variety.id)
       td &nbsp;

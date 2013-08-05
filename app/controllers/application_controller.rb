@@ -1,4 +1,19 @@
 class ApplicationController < ActionController::Base
+    before_filter :contextualize
+
+    def contextualize
+      if params[:plot_id]
+        context = 'plots'
+      elsif params[:user_id]
+        context = 'users'
+      else
+        context = 'self'
+      end
+      if (controller_name != "static" && controller_name != "registrations")
+        @context = "#{controller_name}/context/#{context}/#{action_name}"
+      end
+    end
+
     protect_from_forgery
     # after_filter :store_location
 
@@ -34,5 +49,13 @@ class ApplicationController < ActionController::Base
     def xeditable?
       true # Or something like current_user.xeditable?
     end    
+
+  private
+
+  def render(*args)
+    options = args.extract_options!
+    options[:template] = @context if @context != nil
+    super(*(args << options))
+  end
 
 end

@@ -40,7 +40,6 @@ gem 'paperclip' # https://github.com/thoughtbot/paperclip
 gem 'aws-sdk', '~> 1.0' # https://github.com/aws/aws-sdk-ruby
 gem 'acts-as-taggable-on' # https://github.com/mbleigh/acts-as-taggable-on
 gem "acts_as_follower" # https://github.com/tcocca/acts_as_follower/
-gem 'bootstrap-wysihtml5-rails'
 gem "routing_concerns", "~> 0.1.0" # https://github.com/rails/routing_concerns
 gem 'rails_admin', github: 'sferik/rails_admin', branch: 'rails-3.x'
 
@@ -54,6 +53,7 @@ gem "slim-rails" # gem 'slim', '~> 2.0.0'
 gem "gibbon", "~> 0.4.6"
 gem 'dalli'
 gem 'faker'
+gem 'bootstrap-wysihtml5-rails'
 gem 'x-editable-rails'
 
 # gem "blogit"

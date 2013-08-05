@@ -12,8 +12,8 @@ class PostsController < InheritedResources::Base
   def index
     super do |format|
       @posts = @posts.reorder('created_at DESC')
-      format.html { render "feed-index" if !params[:user_id] }
       format.json { render :json => @posts }
+      format.xml { render :xml => @posts }
     end
   end
 
