@@ -1,0 +1,181 @@
+<div class="map-container">
+<div id="map-canvas"></div>
+</div>
+<div id="current-location">
+<div class="centered">
+<p class="current">Chicago, IL</p>
+<p class="update">
+<label for="update-zip">Not your area?</label>
+<input type="text" name="update-zip" id="update-zip" placeholder="Update your zip" />
+<a href="#update-zip" class="button">Update</a>
+</p>
+</div>
+</div>
+<!--
+<section class="map-copy">
+<h2>Claim Your Space.</h2>
+<p>
+Search the map for a fresh spot to plant or drop your pin where your garden is located.<br />
+Once plotted, you can start tracking, sharing and even selling your garden.
+</p>
+<p>
+Don't work for Rand McNally? No problem, <a href="#sign-up-url" title="Sign up">sign up here.</a>
+</p>
+</section>
+key AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI
+-->
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
+<script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
+
+<script>
+
+	var map,
+		initialLocation = new google.maps.LatLng(41.880031, -87.638724),
+		initialMarker,
+		zoomLevel = 12;
+
+	var infoPaneOptions = {
+		boxStyle: { },
+		closeBoxMargin: "10px 2px 2px 2px; border: 0",
+		closeBoxURL: "/assets/close.png",
+		pane: "floatPane",
+		enableEventPropagation: false,
+		//disableAutoPan: false,
+		maxWidth: 370,
+		pixelOffset: new google.maps.Size(-65, -220),
+		infoBoxClearance: new google.maps.Size(25, 25),
+		zIndex: 50
+	};
+
+	var infoWindow = new InfoBox(infoPaneOptions),
+		infoWindowOpen = '<div class="content map-marker small plot-info"><div>',
+		infoWindowClose = '</div></div>';
+
+	!function($) {
+
+		// Init map height
+		var resizeMap = null;
+		(resizeMap = function() {
+			$('#map-canvas').height($(window).height() - $('.header').outerHeight(true));
+		})();
+
+		// Bind resize event to window
+		window.onresize = function(e) {
+			resizeMap();
+		};
+
+		// Map options
+		var options = {
+			center: initialLocation,
+			zoom: zoomLevel,
+			mapTypeId: google.maps.MapTypeId.TERRAIN,
+			panControl: true,
+			zoomControl: true,
+			zoomControlOptions: {
+				style: google.maps.ZoomControlStyle.SMALL
+			},
+			streetViewControl: true,
+			mapTypeControl: false,
+			scaleControl: false,
+			overviewMapControl: false
+		};
+
+		// Create map
+		map = new google.maps.Map(document.getElementById("map-canvas"), options);
+
+
+		/**
+		 * Initial marker
+		 */
+
+		initialMarker = new google.maps.Marker({
+			map: map,
+			position: initialLocation,
+			icon: '/assets/marker-orange.png',
+			draggable: false,
+			animation: google.maps.Animation.DROP
+		});
+
+		// Init infobox display - Trigger infowindow when map is loaded
+		//var infoWindow = new InfoBox(options);
+		google.maps.event.addDomListener(window, 'load', function() {
+			//infoWindow.open(map, initialMarker);
+		});
+
+
+		/**
+		 * Places a marker at the provided latLng
+		 *
+		 * @param latLng
+		 */
+		function movePositionMarker(latLng) {
+			initialMarker.setPosition(latLng);
+			if (initialMarker.getAnimation() != null) {
+				initialMarker.setAnimation(null);
+			} else {
+				initialMarker.setAnimation(google.maps.Animation.BOUNCE);
+			}
+		}
+
+		function buildPlotMarker(plot) {
+			return new google.maps.Marker({
+				map: map,
+				position: new google.maps.LatLng(plot.latitude, plot.longitude),
+				icon: '/assets/marker-blue.png',
+				title: plot.name,
+				content: plot.infoWindowHtml,
+				draggable: false,
+				clickable: true,
+				animation: google.maps.Animation.DROP
+			});
+		}
+
+		/**
+		 * On Window load bind click to the authenticate button
+		 * Also check user location and re-position map
+		 */
+		$(function() {
+
+			// Init location
+			_initLocationRecurse();
+
+			var locationTimeout,
+				attempts = 0;
+			function _initLocationRecurse() {
+				if (typeof(Elm.myPosition) == 'undefined') {
+					initLocation();
+					if (attempts++ < 3) {
+						locationTimeout = window.setTimeout(function() {
+							_initLocationRecurse()
+						}, 300);
+					}
+				} else {
+					movePositionMarker(new google.maps.LatLng(Elm.myPosition.lat, Elm.myPosition.long));
+				}
+			}
+
+			$.ajax({
+				url: '/plots.json',
+				//data: $.serializeJSON(Elm.myPosition),
+				dataType: 'json',
+				success: function(response) {
+					var markers = new Array();
+					var infoWindow = new google.maps.InfoWindow({maxWidth : '200px'});
+					for (var i = 0; i < response.length; i++) {
+						var plot = response[i];
+						var time = Math.floor(Math.random() * i * 200);
+						window.setTimeout(function() {
+							var marker = buildPlotMarker(plot);
+							markers.push(marker);
+							google.maps.event.addListener(marker, 'click', function() {
+								infoWindow.setContent(infoWindowOpen + marker.content + infoWindowClose);
+								infoWindow.open(map, marker);
+							});
+						}, (100) + time);
+					}
+				},
+				error: function() { }
+			});
+		});
+	}(window.jQuery);
+</script>

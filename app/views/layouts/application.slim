@@ -14,7 +14,7 @@ html
     = render 'layouts/application/header'
     .wrapper
         = content_for?(:content) ? yield(:content) : yield
-    = render 'layouts/application/footer'
+    = render 'layouts/application/footer' unless @skip_footer
     = render 'layouts/application/modals'
     #action-loader.loader style="display: none;"
     = render 'layouts/application/scripts'

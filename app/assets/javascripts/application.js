@@ -19,6 +19,8 @@
 //= require bootstrap-wysihtml5
 //= require editable/bootstrap-editable
 //= require editable/rails
+//= require elm
+//= require map
 
 // Angular Dependencies (not enabled)
 // require angular

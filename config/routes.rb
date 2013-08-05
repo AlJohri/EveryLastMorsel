@@ -1,5 +1,7 @@
 EveryLastMorsel::Application.routes.draw do
 
+  resources :uploads
+
   ######## ROOT/STATIC ROUTES ########
   authenticated :user do
     root :to => "posts#index"
@@ -10,6 +12,7 @@ EveryLastMorsel::Application.routes.draw do
     get 'help'
     get 'map'
     get 'marketplace'
+    get 'pricing'
   end
 
   ############# DEVISE ##################
@@ -144,5 +147,3 @@ end
 # match  '/:user_id/posts/tagged/:tag' => 'blogit/custom/posts#tagged', as: :tagged_blog_posts
 # match  '/:user_id/posts/page/:page' => "blogit/custom/posts#index"  
 ####################################
-
-# resources :uploads
