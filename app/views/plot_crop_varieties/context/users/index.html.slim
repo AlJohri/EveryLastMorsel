@@ -25,7 +25,7 @@ table
       td &nbsp;
       td = link_to 'Edit', user_crop_path(@user, plot_crop_variety.id)
       td &nbsp;
-      td = link_to 'Destroy', user_crop_path(plot_crop_variety.plot, plot_crop_variety.id), :confirm => 'Are you sure?', :method => :delete
+      td = link_to 'Destroy', user_crop_path(@user, plot_crop_variety.id), :confirm => 'Are you sure?', :method => :delete
 
 br
 
