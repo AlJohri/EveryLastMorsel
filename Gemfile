@@ -30,8 +30,6 @@ gem 'has_scope', '= 0.5.1'                      # http://github.com/plataformate
 gem 'newrelic_rpm', '= 3.6.5.130'               # https://github.com/newrelic/rpm
 gem 'paperclip', '= 3.4.2'                      # https://github.com/thoughtbot/paperclip
 gem 'aws-sdk', '= 1.11.1'                       # https://github.com/aws/aws-sdk-ruby
-gem 'acts-as-taggable-on', '= 2.4.1'            # https://github.com/mbleigh/acts-as-taggable-on
-gem 'acts_as_follower', '= 0.1.1'               # https://github.com/tcocca/acts_as_follower/
 gem 'routing_concerns', '= 0.1.0'               # https://github.com/rails/routing_concerns
 gem 'rails_admin', '= 0.4.9'                    # https://github.com/sferik/rails_admin
 gem 'friendly_id', '= 4.0.9'                    # https://github.com/norman/friendly_id
@@ -44,7 +42,23 @@ gem 'gibbon', '= 0.4.6'                         # https://github.com/amro/gibbon
 gem 'dalli', '= 2.6.4'                          # https://github.com/mperham/dalli
 gem 'faker', '= 1.1.2'                          # https://github.com/btelles/faker
 gem 'kaminari', '= 0.14.1'                      # https://github.com/amatsuda/kaminari
+gem 'acts-as-taggable-on', '= 2.4.1'            # https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts_as_follower', '= 0.1.1'               # https://github.com/tcocca/acts_as_follower/
+gem 'acts_as_commentable', '= 3.0.1' # https://github.com/jackdempsey/acts_as_commentable
+gem 'mailboxer' # https://github.com/ging/mailboxer
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git' # https://github.com/cavneb/make_flaggable
+
+# https://www.ruby-toolbox.com/categories/Web_Analytics
+# https://www.ruby-toolbox.com/categories/xml_mapping
+
+# http://somerandomdude.com/work/iconic/
+# https://github.com/nt/iconic
+
+# Give users a reputation based on how they interact with ELM.
+# https://www.ruby-toolbox.com/categories/Reputation_Engines
+
+# Allow users to rate things
+# https://github.com/muratguzel/letsrate
 
 group :development, :test do
   gem 'rspec-rails', '= 2.14.0'                 # https://github.com/rspec/rspec-rails
