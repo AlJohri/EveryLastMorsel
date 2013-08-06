@@ -53,15 +53,22 @@ html
 
                   console.log(data);
                   if (data['code'] != null ) {
-                    if (data['code'] == 214) 
+                    if (data['code'] == 214) {
                       $("#subscribe-form span.return").html("You've already subscribed!").addClass("return-error");
-                    else if (data['code'] == 502)
+                      _gaq.push(['_trackEvent', 'MailingList', 'SignUp', 'SubscribeDuplicate']);
+                    }
+                    else if (data['code'] == 502) {
                       $("#subscribe-form span.return").html("Invalid email address.").addClass("return-error");
-                    else 
+                      _gaq.push(['_trackEvent', 'MailingList', 'SignUp', 'InvalidEmail']);
+                    }
+                    else {
                       $("#subscribe-form span.return").html(data['error']).removeClass("return-success").addClass("return-error");
+                      _gaq.push(['_trackEvent', 'MailingList', 'SignUp', 'UnknownError']);
+                    }
                   }
                   else {
                     $("#subscribe-form span.return").html("Subscribed!").removeClass("return-error").addClass("return-success");
+                    _gaq.push(['_trackEvent', 'MailingList', 'SignUp', 'Success']);
                     ga('send', 'event', 'newsletter', 'signup');
                   }
 
