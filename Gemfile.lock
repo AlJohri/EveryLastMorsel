@@ -233,7 +233,7 @@ GEM
       rack-pjax (~> 0.6)
       rails (~> 3.1)
       remotipart (~> 1.0)
-      safe_yaml (~> 0.6)
+      safe_yaml (~> 0.9)
       sass-rails (~> 3.1)
     railties (3.2.14)
       actionpack (= 3.2.14)
