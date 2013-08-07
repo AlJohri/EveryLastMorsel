@@ -2,8 +2,8 @@ class Post < ActiveRecord::Base
   include ::ActionView::Helpers::TextHelper
   extend FriendlyId
   belongs_to :user
-  has_many :comments
   
+
   attr_accessible :content, :title, :created_at, :updated_at
   attr_accessible :user, :user_id
   
@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
   make_flaggable :dig
+  acts_as_commentable
   friendly_id :title, use: :slugged
   
   validates :title, presence: true # length: { minimum: 2, maximum: 66 }

@@ -11,23 +11,36 @@ h1
 p.user-post-content = simple_format2(@post.content)
 
 h2 Comments
-- @post.comments.each do |comment|
+- @post.comments.each do |c|
   p
     strong Commenter:
-    = comment.commenter
+    = c.user || "Anonymous"
+  p
+    strong Title:
+    = c.title    
   p
     strong Comment:
-    = comment.body
+    = c.comment
 
 = form_for([@post, @post.comments.build]) do |f|
+	= hidden_field_tag "commentable_id", @post.id
+	= hidden_field_tag "commentable_id", @post.class
+	= hidden_field_tag "user_id", @user.id
+
+	- if !user_signed_in?
+		p
+			= f.label :commenter
+			br
+			= f.text_field :commenter
+	/ p
+		/ = f.label :title
+		/ br
+		/ = f.text_field :title
+
 	p
-		= f.label :commenter
+		= f.label :comment
 		br
-		= f.text_field :commenter
-	p
-		= f.label :body
-		br
-		= f.text_area :body
+		= f.text_area :comment
 	p
 		= f.submit
 

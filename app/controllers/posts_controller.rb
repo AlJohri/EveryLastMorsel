@@ -7,8 +7,6 @@ class PostsController < InheritedResources::Base
 
   has_scope :page, :default => 1
 
-  include ::ActionView::Helpers::TextHelper
-
   def index
     super do |format|
       @posts = @posts.reorder('created_at DESC')

@@ -1,63 +1,69 @@
 class ApplicationController < ActionController::Base
-    before_filter :contextualize
+  after_filter :store_location
+  include ActionView::Helpers::TextHelper
 
-    def contextualize
-      if params[:plot_id]
-        context = 'plots'
-      elsif params[:user_id]
-        context = 'users'
-      else
-        context = 'self'
-      end
+  protect_from_forgery
 
-      # FIX THIS UGLY IF STATEMENT
+  rescue_from CanCan::AccessDenied do |exception|
+      redirect_to main_app.root_url, :alert => exception.message
+  end
 
-      if (controller_name != "static" && controller_name != "registrations" && (!params[:controller].include? "rails_admin"))
-        @context = "#{controller_name}/context/#{context}/#{action_name}"
-      end
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+    # render file => "public/404.html", status => 404, layout => false
+  end
+
+  def store_location
+    if (request.fullpath != "/users/sign_in" && request.fullpath != "/users/sign_up" && !request.xhr?)
+      session[:previous_url] = request.fullpath 
     end
+  end
 
-    protect_from_forgery
-    # after_filter :store_location
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || main_app.root_url #root_path
+  end
 
-    rescue_from CanCan::AccessDenied do |exception|
-        redirect_to main_app.root_url, :alert => exception.message
-    end
+  def after_update_path_for(resource)
+    session[:previous_url] || main_app.root_url
+  end
 
-    def store_location
-      # store last url as long as it isn't a /users path
-      session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
-    end
+  def after_sign_out_path_for(resource)
+    session[:previous_url] || main_app.root_url
+  end
 
-    def not_found
-      raise ActionController::RoutingError.new('Not Found')
-    end
-
-    # def not_found
-    #   render file => "public/404.html", status => 404, layout => false
-    # end
-
-    # def after_sign_in_path_for(resource)
-    #   session[:previous_url] || main_app.root_url
-    # end
-
-    # def after_update_path_for(resource)
-    #   session[:previous_url] || main_app.root_url
-    # end
-
-    # def after_sign_out_path_for(resource)
-    #   session[:previous_url] || main_app.root_url
-    # end
-
-    def xeditable?
-      true # Or something like current_user.xeditable?
-    end    
+  def xeditable?
+    true # Or something like current_user.xeditable?
+  end
 
   private
 
+  def namespaced_controller_name
+    return controller_path.gsub(/\//, '::').gsub(/\b\w/){ $&.upcase }
+  end
+
   def render(*args)
+
+    begin
+      
+      controller = (namespaced_controller_name + "Controller").constantize
+
+      # Check if controller inherits from InheritedResources::Base
+      if controller.respond_to?('parent')
+        if parent?
+          context = parent_class.to_s.pluralize
+        else
+          context = "self"
+        end
+
+        path = "#{controller_name}/context/#{context}/#{action_name}"
+      end
+
+    rescue => e
+       puts e.message
+    end
+
     options = args.extract_options!
-    options[:template] = @context if @context != nil
+    options[:template] = path if context != nil
     super(*(args << options))
   end
 
