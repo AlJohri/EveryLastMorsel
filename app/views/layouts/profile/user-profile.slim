@@ -20,27 +20,43 @@
       = image_tag @user.avatar(:medium)
 
 - content_for :profile_sidebar do
+  
+  br
+  br
 
   ul.profile-navigation.styled
     li class=('active' if controller.controller_name != 'registrations')
       a href=user_url(@user) title="My Profile"
-        span.icon.person
+        span.icon.icon-male
         | My Profile
         
     - if (user_signed_in? && @user && current_user.id == @user.id)
         li
           a href=user_url(@user) title="Communication Hub"
-            span.icon.drawer 
+            span.icon.icon-envelope.icon-6
             | Communication Hub
         li class=('active' if controller.action_name == 'edit')
           a href=edit_user_registration_url title="Settings"
-            span.icon.cog 
+            span.icon.icon-cog
             | Settings
+
+  -if @user.about
+    h5 About #{@user.first_name}:
+    p #{@user.about}
+  -else
+    h5 About #{@user.first_name}:
+    p #{@user.first_name} has no bio.
+
+  / -if @user.url
+    / p User URL: #{@user.url} 
+  / -else
+    / p User URL: You don't have one. Click Edit Settings below!
+
 
 - content_for :profile_tabs do
   ul.nav.nav-tabs.list-block
-    li class=('active' if controller.controller_name == "users" && controller.action_name == 'show' || controller.controller_name == "registrations" && controller.action_name == 'edit' )
-      = link_to "ABOUT", about_user_path(@user), remote: false
+    / li class=('active' if controller.controller_name == "users" && controller.action_name == 'show' || controller.controller_name == "registrations" && controller.action_name == 'edit' )
+      / = link_to "ABOUT", about_user_path(@user), remote: false
     li class=('active' if controller.controller_name == 'posts')
       = link_to "BLOG", user_posts_path(@user), remote: false
     li class=('active' if controller.controller_name == 'plots')

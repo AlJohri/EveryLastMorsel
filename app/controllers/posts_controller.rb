@@ -1,5 +1,4 @@
 class PostsController < InheritedResources::Base
-
   layout lambda { |controller| params[:user_id] ? "profile/user-profile" : "generic" }
 
   respond_to :html, :xml, :json
@@ -12,6 +11,13 @@ class PostsController < InheritedResources::Base
       @posts = @posts.reorder('created_at DESC')
       format.json { render :json => @posts }
       format.xml { render :xml => @posts }
+    end
+  end
+
+  def show
+    super do |format|
+      format.json { render :json => @post }
+      format.xml { render :xml => @post }
     end
   end
 

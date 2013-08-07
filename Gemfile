@@ -48,7 +48,14 @@ gem 'acts_as_commentable', '= 3.0.1' # https://github.com/jackdempsey/acts_as_co
 gem 'mailboxer' # https://github.com/ging/mailboxer
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git' # https://github.com/cavneb/make_flaggable
 
+# Web Analytics
 # https://www.ruby-toolbox.com/categories/Web_Analytics
+# gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
+# gem 'rack-piwik', '0.1.3', :require => 'rack/piwik', :require => false
+
+# SSL
+# gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
+
 # https://www.ruby-toolbox.com/categories/xml_mapping
 
 # http://somerandomdude.com/work/iconic/
@@ -60,6 +67,9 @@ gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git' # htt
 # Allow users to rate things
 # https://github.com/muratguzel/letsrate
 
+# API
+# https://github.com/fabrik42/acts_as_api
+
 group :development, :test do
   gem 'rspec-rails', '= 2.14.0'                 # https://github.com/rspec/rspec-rails
   gem 'rails-erd', '= 1.1.0'                    # https://github.com/voormedia/rails-erd
@@ -68,6 +78,8 @@ group :development, :test do
   gem 'better_errors', '= 0.9.0'                # https://github.com/charliesome/better_errors
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx] # https://github.com/banister/binding_of_caller
 end
+
+gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 
 # gem 'angularjs-rails'
 # gem 'blogit'

@@ -1,6 +1,6 @@
 class CommentsController < InheritedResources::Base #ApplicationController
   belongs_to :post
-  actions :create, :update, :destroy
+  actions :index, :create, :update, :destroy
   respond_to :html, :xml, :json
 
   def create

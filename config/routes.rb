@@ -28,10 +28,6 @@ EveryLastMorsel::Application.routes.draw do
   # end
 
   ############# RAILS ADMIN ###############
-  # devise_for :admins, :controllers => { 
-  #   :omniauth_callbacks => "devise/custom/omniauth_callbacks",  
-  #   :registrations => "devise/custom/registrations" 
-  # }  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   concern :followable do
@@ -43,7 +39,7 @@ EveryLastMorsel::Application.routes.draw do
   end
 
   concern :commentable do
-    resources :comments
+    resources :comments, only: [:index, :create, :update, :destroy]
   end
 
   resources :users, :path => '', only: [], concerns: [:followable] do
@@ -79,7 +75,7 @@ EveryLastMorsel::Application.routes.draw do
   resources :crops, only: [:index, :show]
   
   ############# USER VANITY URL ################
-  get '/:id(.:format)' => 'users#show', :as => :user
+  get '/:id(.:format)' => redirect('/%{id}/posts'), :as => :user
 end
 
   # ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')

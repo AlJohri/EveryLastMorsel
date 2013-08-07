@@ -37,29 +37,15 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def namespaced_controller_name
-    return controller_path.gsub(/\//, '::').gsub(/\b\w/){ $&.upcase }
-  end
-
   def render(*args)
 
-    begin
-      
-      controller = (namespaced_controller_name + "Controller").constantize
+    # Check if controller inherits from InheritedResources::Base
+    # If so, change view route to prepend "context/#{context}"
+    # to serve the correct view.
 
-      # Check if controller inherits from InheritedResources::Base
-      if controller.respond_to?('parent')
-        if parent?
-          context = parent_class.to_s.pluralize
-        else
-          context = "self"
-        end
-
-        path = "#{controller_name}/context/#{context}/#{action_name}"
-      end
-
-    rescue => e
-       puts e.message
+    if self.class.ancestors.include? InheritedResources::Base
+      context = parent? ? parent_class.to_s.pluralize : "self"
+      path = "#{controller_name}/context/#{context}/#{action_name}"
     end
 
     options = args.extract_options!
