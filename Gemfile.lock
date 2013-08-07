@@ -355,6 +355,7 @@ DEPENDENCIES
   rolify (= 3.2.0)
   routing_concerns (= 0.1.0)
   rspec-rails (= 2.14.0)
+  safe_yaml (= 0.9.4)
   sass-rails (= 3.2.6)
   simple_form (= 2.0.1)
   slim-rails (= 2.0.1)
