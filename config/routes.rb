@@ -45,7 +45,6 @@ EveryLastMorsel::Application.routes.draw do
   end
 
   resources :users, :path => '', only: [], concerns: [:followable] do
-    get 'about' => 'users#show', :on => :member
 
     resources :plots, concerns: [:followable] do
       get 'about' => 'plots#show', :on => :member
@@ -57,7 +56,6 @@ EveryLastMorsel::Application.routes.draw do
   end
 
   resources :users, only: [:index, :show], concerns: [:followable] do
-    get 'about' => 'users#show', :on => :member
 
     resources :plots, concerns: [:followable] do
       get 'about' => 'plots#show', :on => :member

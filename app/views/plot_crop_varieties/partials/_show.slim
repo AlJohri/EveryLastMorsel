@@ -64,10 +64,15 @@ p#notice = notice
               = @plot_crop_variety.coverage
               |/
               = @plot_crop_variety.coverage_type
-          tr
-            td Yield
-            td= @plot_crop_variety.yields.last.try(:quantity)
-
+        
+        h5 YIELDS
+        table.table.table-striped
+          -@plot_crop_variety.yields.each_with_index do |crop_yield, index|
+            tr
+              td Yield #{index + 1}
+              td #{crop_yield.quantity} #{crop_yield.quantity_unit}
+              td #{crop_yield.pick_date.strftime("%B %d, %Y")}
+        = link_to "Add new Yield", "#"
 / p = @plot_crop_variety.crop.try(:name)
 / p = @plot_crop_variety.variety.try(:name)
 / p = @plot_crop_variety.plant_date
