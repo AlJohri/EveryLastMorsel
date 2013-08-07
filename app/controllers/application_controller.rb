@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   after_filter :store_location
   include ActionView::Helpers::TextHelper
+  include PublicActivity::StoreController
 
   protect_from_forgery
 
@@ -44,7 +45,7 @@ class ApplicationController < ActionController::Base
     # to serve the correct view.
 
     if self.class.ancestors.include? InheritedResources::Base
-      context = parent? ? parent_class.to_s.pluralize : "self"
+      context = parent? ? parent_class.to_s.pluralize : "self" # parent_type.to_s.capitalize.pluralize
       path = "#{controller_name}/context/#{context}/#{action_name}"
     end
 

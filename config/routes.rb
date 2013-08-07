@@ -1,5 +1,7 @@
 EveryLastMorsel::Application.routes.draw do
 
+  get "activities/index"
+
   resources :uploads
 
   ######## ROOT/STATIC ROUTES ########
@@ -70,10 +72,13 @@ EveryLastMorsel::Application.routes.draw do
     get 'about' => 'plots#show', :on => :member
     resources :crops, :controller => 'plot_crop_varieties'
   end
-  
+
+  get '/blog' => "posts#index", :as => 'blog'
   resources :posts, only: [:index, :show], concerns: [:likeable, :commentable]
   resources :crops, only: [:index, :show]
   
+  get "/feed" => "activities#index", as: :feed
+
   ############# USER VANITY URL ################
   get '/:id(.:format)' => redirect('/%{id}/posts'), :as => :user
 end

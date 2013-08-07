@@ -1,0 +1,7 @@
+h1 Activities#index
+p Find me in app/views/activities/index.html.slim
+
+- @activities.each do |activity|
+	= render_activity(activity)
+
+/ = render_activities(@activities)

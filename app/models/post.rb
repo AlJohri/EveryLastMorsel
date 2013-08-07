@@ -32,4 +32,6 @@ class Post < ActiveRecord::Base
     truncate(content, length: 400, :omission => '') #separator: "\n"
   end
 
+  include PublicActivity::Model
+  tracked
 end

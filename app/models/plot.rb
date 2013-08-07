@@ -43,4 +43,7 @@ class Plot < ActiveRecord::Base
     [address1, address2, city, state].compact.join(', ')
   end
 
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
+  
 end

@@ -3,4 +3,7 @@ class Yield < ActiveRecord::Base
   attr_accessible :plot_crop_variety, :plot_crop_variety_id
   
   belongs_to :plot_crop_variety
+
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }  
 end

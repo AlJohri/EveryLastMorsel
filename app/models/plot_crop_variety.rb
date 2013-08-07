@@ -6,4 +6,8 @@ class PlotCropVariety < ActiveRecord::Base
   belongs_to :variety
 
   has_many :yields
+
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
+  
 end

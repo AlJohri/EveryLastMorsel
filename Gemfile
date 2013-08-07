@@ -44,8 +44,9 @@ gem 'faker', '= 1.1.2'                          # https://github.com/btelles/fak
 gem 'kaminari', '= 0.14.1'                      # https://github.com/amatsuda/kaminari
 gem 'acts-as-taggable-on', '= 2.4.1'            # https://github.com/mbleigh/acts-as-taggable-on
 gem 'acts_as_follower', '= 0.1.1'               # https://github.com/tcocca/acts_as_follower/
-gem 'acts_as_commentable', '= 3.0.1' # https://github.com/jackdempsey/acts_as_commentable
-gem 'mailboxer' # https://github.com/ging/mailboxer
+gem 'acts_as_commentable', '= 3.0.1'            # https://github.com/jackdempsey/acts_as_commentable
+gem 'mailboxer'                                 # https://github.com/ging/mailboxer
+gem 'public_activity'                           # https://github.com/pokonski/public_activity
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git' # https://github.com/cavneb/make_flaggable
 
 # Web Analytics

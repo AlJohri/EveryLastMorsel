@@ -184,4 +184,6 @@ class User < ActiveRecord::Base
     #puts self.zip
   end
 
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
 end

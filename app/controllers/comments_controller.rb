@@ -1,5 +1,5 @@
 class CommentsController < InheritedResources::Base #ApplicationController
-  belongs_to :post
+  belongs_to :post, :polymorphic => true
   actions :index, :create, :update, :destroy
   respond_to :html, :xml, :json
 

@@ -15,4 +15,8 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }  
 end
