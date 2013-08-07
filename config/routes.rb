@@ -47,20 +47,25 @@ EveryLastMorsel::Application.routes.draw do
   concern :user_routes do
     resources :plots, concerns: [:followable]
     resources :posts, concerns: [:likeable, :commentable]
-    resources :crops, :controller => 'plot_crop_varieties'
+    resources :crops, :controller => 'plot_crop_varieties' do
+      resources :yields
+    end
   end
 
   resources :users, :path => '', only: [], concerns: [:followable, :user_routes]
   resources :users, only: [:index, :show], concerns: [:followable, :user_routes]
 
   resources :plots, only: [:index, :show], concerns: [:followable] do
-    resources :crops, :controller => 'plot_crop_varieties'
+    resources :crops, :controller => 'plot_crop_varieties' do
+      resources :yields
+    end
   end
 
   get '/blog' => "posts#index", :as => 'blog'
   resources :posts, only: [:index, :show], concerns: [:likeable, :commentable]
   resources :crops, only: [:index, :show]
   
+
   get "/feed" => "activities#index", as: :feed
 
   ############# USER VANITY URL ################

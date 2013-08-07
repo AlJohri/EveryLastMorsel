@@ -72,7 +72,7 @@ p#notice = notice
               td Yield #{index + 1}
               td #{crop_yield.quantity} #{crop_yield.quantity_unit}
               td #{crop_yield.pick_date.strftime("%B %d, %Y")}
-        = link_to "Add new Yield", "#"
+        = link_to "Add new Yield", polymorphic_url([context, :crop, :yield], :action => 'new')
 / p = @plot_crop_variety.crop.try(:name)
 / p = @plot_crop_variety.variety.try(:name)
 / p = @plot_crop_variety.plant_date
