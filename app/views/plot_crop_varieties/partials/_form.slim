@@ -13,11 +13,15 @@
 
   = f.collection_select :plot_id, current_user.plots, :id, :name, :prompt => 'Choose Plot'
   br
+  = f.label :crop_name
+  = f.text_field :crop_name, data: {autocomplete_source: "/crops.json"}
   / = f.text_field :crop_id, :placeholder => "Crop"
-  = f.collection_select :crop_id, Crop.order(:name), :id, :name, :prompt => 'Choose Crop Type'
+  / # = f.collection_select :crop_id, Crop.order(:name), :id, :name, :prompt => 'Choose Crop Type'
+  
   br
   / = f.text_field :variety_id, :placeholder => "Variety"
-  = f.collection_select :variety_id, Variety.order(:name), :id, :name, :prompt => 'Choose Crop Variety'
+  / # = f.collection_select :variety_id, Variety.order(:name), :id, :name, :prompt => 'Choose Crop Variety'
+
   br
   = f.date_select :plant_date
 

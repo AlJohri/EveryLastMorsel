@@ -43,6 +43,11 @@ $(document).ready(function() {
   $.fn.editable.defaults.mode = 'inline';
   $('.editable').editable();
 
+  $('#plot_crop_variety_crop_name').autocomplete({
+    source: $('#plot_crop_variety_crop_name').data('autocomplete-source')
+  });
+
+
 // 	$(".get-started").click(function () {
 // 	   $('.section-signup').slideToggle('slow');
 // 	   $('.section-signup')[0].scrollIntoView(true);
