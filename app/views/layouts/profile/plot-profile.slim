@@ -19,11 +19,41 @@
   - else
       = image_tag @plot.avatar(:medium)
 
+- content_for :profile_sidebar do
+  
+  br
+  br
+
+  ul.profile-navigation.styled
+    li class=('active' if controller.controller_name != 'plots')
+      a href=plot_url(@plot) title="Plot Profile"
+        span.icon.icon-male
+        | Plot Profile
+
+  -if @plot.about
+    h5 About #{@plot.name}:
+    p #{@plot.about}
+  -else
+    h5 About #{@plot.name}:
+    p #{@plot.name} has no description.
+  h5 Name:  
+  p= @plot.name
+  h5 City:  
+  p= @plot.city
+  h5 State
+  p= @plot.state
+  h5 Zip: 
+  p= @plot.zip
+  h5 About
+  p= @plot.about
+
+
+
 
 - content_for :profile_tabs do
   ul.nav.nav-tabs.list-block
     li class=('active' if controller.controller_name == "plots" && controller.action_name == 'show' || controller.controller_name == "plots" && controller.action_name == 'edit' )
-      = link_to "ABOUT", about_plot_path(@plot), remote: false
+      = link_to "ABOUT", plot_path(@plot), remote: false
     li class=('active' if controller.controller_name == 'posts')
       = link_to "NEWS", "#", remote: false
     li class=('active' if controller.controller_name == '')

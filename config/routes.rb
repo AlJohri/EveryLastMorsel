@@ -44,30 +44,16 @@ EveryLastMorsel::Application.routes.draw do
     resources :comments, only: [:index, :create, :update, :destroy]
   end
 
-  resources :users, :path => '', only: [], concerns: [:followable] do
-
-    resources :plots, concerns: [:followable] do
-      get 'about' => 'plots#show', :on => :member
-    end
-
+  concern :user_routes do
+    resources :plots, concerns: [:followable]
     resources :posts, concerns: [:likeable, :commentable]
     resources :crops, :controller => 'plot_crop_varieties'
-
   end
 
-  resources :users, only: [:index, :show], concerns: [:followable] do
-
-    resources :plots, concerns: [:followable] do
-      get 'about' => 'plots#show', :on => :member
-    end
-
-    resources :posts, concerns: [:likeable, :commentable]
-    resources :crops, :controller => 'plot_crop_varieties'
-
-  end
+  resources :users, :path => '', only: [], concerns: [:followable, :user_routes]
+  resources :users, only: [:index, :show], concerns: [:followable, :user_routes]
 
   resources :plots, only: [:index, :show], concerns: [:followable] do
-    get 'about' => 'plots#show', :on => :member
     resources :crops, :controller => 'plot_crop_varieties'
   end
 
