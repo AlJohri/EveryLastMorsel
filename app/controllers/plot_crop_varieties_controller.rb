@@ -6,16 +6,4 @@ class PlotCropVarietiesController < InheritedResources::Base
   respond_to :html, :xml, :json
   belongs_to :plot, :user, :optional => true
 
-  #Roneesh
-  def create
-
-    @plot_crop_variety.crop_id = Crop.find_by_name(:crop_name)    
-    super
-
-    if params[:user_id]
-      user = User.find(params[:user_id])
-      @plot.users << user
-    end
-  end
-
 end

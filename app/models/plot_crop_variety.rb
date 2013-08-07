@@ -11,11 +11,11 @@ class PlotCropVariety < ActiveRecord::Base
   tracked owner: ->(controller, model) { controller && controller.current_user }
 
   def crop_name
-
+    self.crop.try(:name)
   end
 
-  def crop_name=(crop_name)
-    self.crop_name = Crop.find_by_name(name) if name.present?
+  def crop_name=(name)
+    self.crop = Crop.find_by_name(name) if name.present?
   end
 
 
