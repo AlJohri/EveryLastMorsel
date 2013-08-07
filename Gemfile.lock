@@ -1,9 +1,9 @@
 GIT
-  remote: git://github.com/cavneb/make_flaggable.git
-  revision: 1b09b3bb8a778b5a8f7250c587d59a8e6c205be6
+  remote: git://github.com/Mab879/make_flaggable.git
+  revision: b32721dcd84d4972017df963304f5fc9a935666e
   specs:
-    make_flaggable (0.1.0)
-      activerecord (>= 3.0.0)
+    make_flaggable (0.0.3)
+      activerecord (~> 3.2.11)
 
 GEM
   remote: https://rubygems.org/

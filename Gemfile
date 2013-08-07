@@ -48,7 +48,10 @@ gem 'acts_as_commentable', '= 3.0.1'            # https://github.com/jackdempsey
 gem 'mailboxer'                                 # https://github.com/ging/mailboxer
 gem 'public_activity'                           # https://github.com/pokonski/public_activity
 gem 'safe_yaml', '= 0.9.4'
-gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git' # https://github.com/cavneb/make_flaggable
+gem 'make_flaggable', :git => 'git://github.com/Mab879/make_flaggable.git'
+
+# gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git' # https://github.com/cavneb/make_flaggable
+# https://github.com/Mab879/make_flaggable
 
 # Web Analytics
 # https://www.ruby-toolbox.com/categories/Web_Analytics
