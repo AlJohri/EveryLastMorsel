@@ -80,7 +80,7 @@ group :development, :test do
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx] # https://github.com/banister/binding_of_caller
 end
 
-gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
+#gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 
 # gem 'angularjs-rails'
 # gem 'blogit'
