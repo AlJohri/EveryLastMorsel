@@ -49,7 +49,8 @@ gem 'mailboxer'                                 # https://github.com/ging/mailbo
 gem 'public_activity'                           # https://github.com/pokonski/public_activity
 gem 'ransack'
 gem 'safe_yaml', '= 0.9.5'
-gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"
+#gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 
 
 # Web Analytics
