@@ -1,9 +1,10 @@
 GIT
   remote: git://github.com/Mab879/make_flaggable.git
-  revision: b32721dcd84d4972017df963304f5fc9a935666e
+  revision: 3f6d631ad5ea9f5a9964d6c054414568f450bf12
+  branch: patch-2
   specs:
     make_flaggable (0.0.3)
-      activerecord (~> 3.2.11)
+      activerecord (>= 3.0, <= 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -95,8 +96,8 @@ GEM
       multi_json (~> 1.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    faraday (0.8.7)
-      multipart-post (~> 1.1)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
@@ -149,7 +150,7 @@ GEM
     mime-types (1.23)
     mini_portile (0.5.1)
     multi_json (1.7.8)
-    multi_xml (0.5.4)
+    multi_xml (0.5.5)
     multipart-post (1.2.0)
     nested_form (0.3.2)
     nested_scaffold (0.2.1)
@@ -190,7 +191,7 @@ GEM
       mime-types
     pg (0.15.1)
     polyglot (0.3.3)
-    public_activity (1.0.0)
+    public_activity (1.1.0)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       i18n (>= 0.5.0)
@@ -233,7 +234,7 @@ GEM
       rack-pjax (~> 0.6)
       rails (~> 3.1)
       remotipart (~> 1.0)
-      safe_yaml (~> 0.9)
+      safe_yaml (~> 0.6)
       sass-rails (~> 3.1)
     railties (3.2.14)
       actionpack (= 3.2.14)
@@ -253,10 +254,10 @@ GEM
       actionpack (>= 3.2.0)
       activemodel (>= 3.2.0)
       railties (>= 3.2.0)
-    rspec-core (2.14.2)
+    rspec-core (2.14.4)
     rspec-expectations (2.14.0)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.14.1)
+    rspec-mocks (2.14.2)
     rspec-rails (2.14.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -266,7 +267,7 @@ GEM
       rspec-mocks (~> 2.14.0)
     ruby-graphviz (1.0.9)
     safe_yaml (0.9.4)
-    sass (3.2.9)
+    sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -274,9 +275,9 @@ GEM
     simple_form (2.0.1)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    slim (2.0.0)
-      temple (~> 0.6.5)
-      tilt (~> 1.3, >= 1.3.3)
+    slim (2.0.1)
+      temple (~> 0.6.6)
+      tilt (>= 1.3.3, < 2.1)
     slim-rails (2.0.1)
       actionpack (>= 3.0, < 4.1)
       activesupport (>= 3.0, < 4.1)
@@ -287,7 +288,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    temple (0.6.5)
+    temple (0.6.6)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -302,7 +303,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     uuidtools (2.1.4)
-    warden (1.2.1)
+    warden (1.2.3)
       rack (>= 1.0)
     x-editable-rails (1.0.0)
       railties
