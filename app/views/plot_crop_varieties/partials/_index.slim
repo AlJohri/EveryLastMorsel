@@ -1,0 +1,30 @@
+- context = @user.present? ? @user : @plot
+
+h1 Listing Crops
+
+
+.row-fluid
+  .span12
+    - @plot_crop_varieties.each do |plot_crop_variety|
+      .row-fluid
+        .span3
+          <img src="http://placehold.it/200x200" alt="placeholder+image">
+        .span9
+          - context_id = (defined? context.friendly_id) ? context.friendly_id : context.id
+          h2= link_to "#{plot_crop_variety.variety.try(:name)} #{plot_crop_variety.crop.try(:name)}", self.send(context.class.to_s.downcase + "_crop_url", context_id, plot_crop_variety.id)
+          p
+            | Planted: 
+            = plot_crop_variety.plant_date.presence.strftime("%B %d, %Y")
+          p
+            | Yield: 
+            = plot_crop_variety.yields.last.try(:quantity)
+            |/ 
+            | bundles
+          p 
+            | Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+      hr
+
+
+br
+
+= link_to 'New Crop', polymorphic_url([context, :crop], :action => 'new') 
