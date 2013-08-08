@@ -43,7 +43,7 @@ class PostsController < InheritedResources::Base
     # format.html { redirect_to user_post_path(@post.user, @post), :notice => ret }
 
     respond_to do |format|
-      format.json { render :json => @ret }
+      # format.json { render :json => @ret }
       format.js { render :layout => ! request.xhr? }
     end
 

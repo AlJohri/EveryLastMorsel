@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
     # If so, change view route to prepend "context/#{context}"
     # to serve the correct view.
 
-    if self.class.ancestors.include? InheritedResources::Base
+    if (self.class.ancestors.include? InheritedResources::Base) #&& (request.format == "text/html") # && (!request.xhr?)
       context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.capitalize.pluralize
       path = "#{controller_name}/context/#{context}/#{action_name}"
     end

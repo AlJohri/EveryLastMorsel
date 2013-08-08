@@ -29,7 +29,7 @@ ul.posts
                 - if user_signed_in? && current_user.flagged?(post)
                     span.dig-icon.icon-heart &nbsp;
                     span.dig-text 
-                      | Un-Dig it? 
+                      / | Un-Dig it? 
                       - if post.flaggings.count != 0
                         | #{pluralize(post.flaggings.count, 'person digs', 'people dig')} it
                 - else
