@@ -10,41 +10,37 @@ h1
 
 p.user-post-content = simple_format2(@post.content)
 
-h2 Comments
-- @post.comments.each do |c|
-  p
-    strong Commenter:
-    = c.user || "Anonymous"
-  p
-    strong Title:
-    = c.title    
-  p
-    strong Comment:
-    = c.comment
+.post-comments
+  h1 Comments
+  - @post.comments.each do |c|
+    p
+      strong Commenter:
+      = c.user || "Anonymous"    
+    p
+      strong Comment:
+      = simple_format(c.comment)
+    hr
 
-= form_for([@post, @post.comments.build]) do |f|
-	= hidden_field_tag "commentable_id", @post.id
-	= hidden_field_tag "commentable_id", @post.class
-	= hidden_field_tag "user_id", @user.id
+.add-comment-form
+  h1 Add A Comment
+  = form_for([@post, @post.comments.build]) do |f|
+    = hidden_field_tag "commentable_id", @post.id
+  	= hidden_field_tag "commentable_id", @post.class
+  	= hidden_field_tag "user_id", @user.id
 
-	- if !user_signed_in?
-		p
-			= f.label :commenter
-			br
-			= f.text_field :commenter
-	/ p
-		/ = f.label :title
-		/ br
-		/ = f.text_field :title
-	p
-		= f.label :comment
-		br
-		= f.text_area :comment
-	p
-		= f.submit
+  	- if !user_signed_in?
+      .field
+  			= f.label :commenter
+  			= f.text_field :commenter, class: "post-comment-input"
+  	.field
+  		= f.label :comment
+  		= f.text_area :comment, class: "post-comment-input"
+  	.text_field
+      button.button.btn-orange[type="submit"] Add Comment
 
-- if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
-	button.button.btn-orange.post-btn 
-		= link_to 'Edit', edit_user_post_path(@post.user, @post)
-	button.button.btn-orange.post-btn
-		= link_to 'Back', user_posts_path(@post.user)
+
+  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
+  	button.button.btn-orange.post-btn 
+  		= link_to 'Edit', edit_user_post_path(@post.user, @post)
+  	button.button.btn-orange.post-btn
+  		= link_to 'Back', user_posts_path(@post.user)
