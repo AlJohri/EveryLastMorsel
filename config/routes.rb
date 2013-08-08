@@ -84,7 +84,7 @@ EveryLastMorsel::Application.routes.draw do
     resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
     resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
     resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
-    resources :crops, only: [:index, :show]
+    # resources :crops, only: [:index, :show] #temporarily disabled
     resources :activites, only: [:index]    
   end
 

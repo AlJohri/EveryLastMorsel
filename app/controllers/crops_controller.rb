@@ -4,12 +4,19 @@ class CropsController < InheritedResources::Base
   respond_to :html, :xml, :json
 
   def index
-    # @crops = Crop.order(:name).where("name ILIKE ?", "%#{params[:term]}%").map(&:name)
     @crops = Crop.search(:name_start => params[:term]).result.map(&:name)
     super do |format|
       format.json { render :json => @crops }
       format.xml { render :xml => @crops}
     end
   end
+
+  # def list
+  #   @crops = Crop.search(:name_start => params[:term]).result.map(&:name)
+  #   respond_to do |format|
+  #     format.json { render :json => @crops }
+  #     format.xml { render :xml => @crops}      
+  #   end
+  # end
 
 end

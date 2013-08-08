@@ -336,7 +336,6 @@ DEPENDENCIES
   friendly_id (= 4.0.9)
   geocoder (= 1.1.8)
   gibbon (= 0.4.6)
-  haml (= 4.0.3)
   has_scope (= 0.5.1)
   inherited_resources (= 1.4.0)
   jquery-fileupload-rails (= 0.4.1)

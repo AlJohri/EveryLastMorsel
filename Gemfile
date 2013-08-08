@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 
 group :assets do
+  gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
   gem 'sass-rails', '= 3.2.6'                   # https://github.com/rails/sass-rails
   gem 'bootstrap-sass', '= 2.3.2.0'             # https://github.com/thomas-mcdonald/bootstrap-sass
   gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21' # https://github.com/Nerian/bootstrap-wysihtml5-rails
@@ -36,8 +37,6 @@ gem 'friendly_id', '= 4.0.9'                    # https://github.com/norman/frie
 gem 'figaro', '= 0.7.0'                         # https://github.com/laserlemon/figaro
 gem 'pg', '= 0.15.1'                            # https://github.com/ged/ruby-pg
 gem 'thin', '= 1.5.1'                           # https://github.com/macournoyer/thin/
-gem 'haml', '= 4.0.3'                           # https://github.com/haml/haml
-gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
 gem 'gibbon', '= 0.4.6'                         # https://github.com/amro/gibbon
 gem 'dalli', '= 2.6.4'                          # https://github.com/mperham/dalli
 gem 'faker', '= 1.1.2'                          # https://github.com/btelles/faker
@@ -47,7 +46,7 @@ gem 'acts_as_follower', '= 0.1.1'               # https://github.com/tcocca/acts
 gem 'acts_as_commentable', '= 3.0.1'            # https://github.com/jackdempsey/acts_as_commentable
 gem 'mailboxer'                                 # https://github.com/ging/mailboxer
 gem 'public_activity'                           # https://github.com/pokonski/public_activity
-gem 'ransack'
+gem 'ransack'                                   # https://github.com/ernie/ransack
 gem 'safe_yaml', '= 0.9.5'
 #gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
@@ -88,3 +87,4 @@ end
 
 # gem 'angularjs-rails'
 # gem 'blogit'
+# gem 'haml', '= 4.0.3'                           # https://github.com/haml/haml
