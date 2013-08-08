@@ -5,7 +5,7 @@ Set Up
 ---------------
 	$ git clone git@github.com:AlJohri/EveryLastMorsel.git
 	$ cd EveryLastMorsel
-	$ cp ~/Downloads/application.yml ./config/
+	$ cp ~/Downloads/application.yml ./config/ `# download application.yml first'
 	$ bundle install
 	$ rake db:create
 	$ vim config/application.yml `# modify ADMIN_NAME_FIRST, ADMIN_LAST_NAME, ADMIN_EMAIL`
@@ -102,7 +102,7 @@ The Innards
 * UML Diagrams: [Rails ERD](https://github.com/voormedia/rails-erd)
 
 ### Building Blocks
-* Authentication: Devise + Omniauth
+* Authentication: [Devise](https://github.com/plataformatec/devise) + [Omniauth](https://github.com/intridea/omniauth)
 * Authorization: [CanCan](https://github.com/ryanb/cancan) with [Rollify](https://github.com/EppO/rolify)
 * Pagination: [Kaminari](https://github.com/amatsuda/kaminari)
 * Vanity URLS: [Friendly ID](https://github.com/norman/friendly_id)
