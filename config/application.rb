@@ -22,7 +22,7 @@ module EveryLastMorsel
     end
 
     config.to_prepare do
-      Devise::RegistrationsController.layout proc { |controller| action_name == 'edit' || action_name == 'update' ? "profile/user-profile" : "application" }
+      Devise::RegistrationsController.layout proc { |controller| action_name == 'edit' || action_name == 'update' ? "profile/user" : "application" }
       Devise::SessionsController.layout "application"
       Devise::ConfirmationsController.layout "application"
       Devise::UnlocksController.layout "application"
