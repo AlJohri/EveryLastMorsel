@@ -85,6 +85,26 @@ To accomplish this change I made a small override to the render function within 
 Check out the [Entity-Relationship Diagram](https://github.com/AlJohri/EveryLastMorsel/blob/develop/erd.pdf) for a better idea of the model relationships.
 ________________________
 
+Servers
+---------------
+Development: dev.everylastmorsel.com -> dev-everylastmorsel.herokuapp.com
+Alpha: alpha.everylastmorsel.com -> alpha-everylastmorsel.herokuapp.com ** currently disabled
+Beta: beta.everylastmorsel.com -> beta-everylastmorsel.herokuapp.com
+Main: everylastmorsel.com -> everylastmorsel.herokuapp.com
+
+Staging: elm.herokuapp.com
+
+Currently using simple shell script (h.sh) to push environment variables to all servers (via figaro).
+
+    echo "rake figaro:heroku[$DEV]";    SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$DEV\]
+    echo "rake figaro:heroku[$STAGE]";  SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$STAGE\]
+    echo "rake figaro:heroku[$ALPHA]";  SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$ALPHA\]
+    echo "rake figaro:heroku[$BETA]";   SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$BETA\]
+    echo "rake figaro:heroku[$MASTER]"; SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$MASTER\]
+
+Because facebook only allows a single server to link to an application, the h.sh script also reconfigures the FACEBOOK_APPID and FACEBOOK_APPSECRET for each server to allow fb login within all* environments. (* just Dev and Beta for now)
+________________________
+
 The Innards
 ---------------
 
@@ -99,6 +119,7 @@ The Innards
 * Admin: [Rails Admin](https://github.com/sferik/rails_admin)
 * Search: [Ransack](https://github.com/ernie/ransack)
 * Controllers: [Inherited Resources](https://github.com/josevalim/inherited_resources) with [Has Scope](http://github.com/plataformatec/has_scope)
+* Configuration: [Figaro](https://github.com/laserlemon/figaro)
 * UML Diagrams: [Rails ERD](https://github.com/voormedia/rails-erd)
 
 ### Building Blocks
