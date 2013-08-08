@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
     # to serve the correct view.
 
     if self.class.ancestors.include? InheritedResources::Base
-      context = parent? ? parent_class.to_s.pluralize : "self" # parent_type.to_s.capitalize.pluralize
+      context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.capitalize.pluralize
       path = "#{controller_name}/context/#{context}/#{action_name}"
     end
 
