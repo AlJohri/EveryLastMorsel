@@ -34,7 +34,7 @@ To elaborate, this is the folder structure for a particular resource (PlotCropVa
             * users
                 * index, new, show, edit, _form
 
-Instead of routing to app/views/plot\_crop\_varieties/action.slim, I'm routing to app/views/plot\_crop\_varieties/context/#{context}/action.slim.
+Instead of routing to app/views/plot\_crop\_varieties/#{action}.slim, I'm routing to app/views/plot\_crop\_varieties/context/#{context}/#{action}.slim.
 
 To accomplish this change I made a small override to the render function within ApplicationController like so:
 
@@ -87,12 +87,12 @@ ________________________
 
 Servers
 ---------------
-Development: dev.everylastmorsel.com -> dev-everylastmorsel.herokuapp.com
-Alpha: alpha.everylastmorsel.com -> alpha-everylastmorsel.herokuapp.com ** currently disabled
-Beta: beta.everylastmorsel.com -> beta-everylastmorsel.herokuapp.com
-Main: everylastmorsel.com -> everylastmorsel.herokuapp.com
+    Development: dev.everylastmorsel.com -> dev-everylastmorsel.herokuapp.com
+    Alpha: alpha.everylastmorsel.com -> alpha-everylastmorsel.herokuapp.com ** currently disabled
+    Beta: beta.everylastmorsel.com -> beta-everylastmorsel.herokuapp.com
+    Main: everylastmorsel.com -> everylastmorsel.herokuapp.com
 
-Staging: elm.herokuapp.com
+    Staging: elm.herokuapp.com
 
 Currently using simple shell script (h.sh) to push environment variables to all servers (via figaro).
 
@@ -102,7 +102,7 @@ Currently using simple shell script (h.sh) to push environment variables to all 
     echo "rake figaro:heroku[$BETA]";   SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$BETA\]
     echo "rake figaro:heroku[$MASTER]"; SKIP_RAILS_ADMIN_INITIALIZER=true rake figaro:heroku\[$MASTER\]
 
-Because facebook only allows a single server to link to an application, the h.sh script also reconfigures the FACEBOOK_APPID and FACEBOOK_APPSECRET for each server to allow fb login within all* environments. (* just Dev and Beta for now)
+Because facebook only allows a single server to link to an application, the h.sh script also reconfigures the _FACEBOOK\_APPID_ and _FACEBOOK\_APPSECRET_ for each server to allow fb login within all* environments. (* just Dev and Beta for now)
 ________________________
 
 The Innards
