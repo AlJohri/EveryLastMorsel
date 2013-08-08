@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 
 group :assets do
-  gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
+  gem 'slim-rails', '= 2.0.1'                   # https://github.com/slim-template/slim-rails
   gem 'sass-rails', '= 3.2.6'                   # https://github.com/rails/sass-rails
   gem 'bootstrap-sass', '= 2.3.2.0'             # https://github.com/thomas-mcdonald/bootstrap-sass
   gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21' # https://github.com/Nerian/bootstrap-wysihtml5-rails
