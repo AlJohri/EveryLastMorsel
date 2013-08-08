@@ -1,9 +1,4 @@
-- context = @user.present? ? @user : @plot
-- context_id = (defined? context.friendly_id) ? context.friendly_id : context.id
-- method_name = "new_" + context.class.to_s.downcase + "_crop_url"
-/self.send(method_name, context_id)
-/ - raise
-= form_for @plot_crop_variety, :url => polymorphic_url([context, :crops]) do |f|
+= form_for @plot_crop_variety, :url => polymorphic_url([parent, :crops]) do |f|
   - if @plot_crop_variety.errors.any?
       #error_explanation
         h2 = "#{pluralize(@plot_crop_variety.errors.count, "error")} prohibited this plot_crop_variety from being saved:"
@@ -14,12 +9,12 @@
   = f.collection_select :plot_id, current_user.plots, :id, :name, :prompt => 'Choose Plot'
   br
   = f.label :crop_name
-  = f.text_field :crop_name, data: {autocomplete_source: "/crops.json"}
+  = f.text_field :crop_name, data: {autocomplete_source: "/crops.json"}, :placeholder => "Crop Type"
   / = f.text_field :crop_id, :placeholder => "Crop"
   / # = f.collection_select :crop_id, Crop.order(:name), :id, :name, :prompt => 'Choose Crop Type'
   
   br
-  / = f.text_field :variety_id, :placeholder => "Variety"
+  = f.text_field :variety_id, :placeholder => "Variety"
   / # = f.collection_select :variety_id, Variety.order(:name), :id, :name, :prompt => 'Choose Crop Variety'
 
   br

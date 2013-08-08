@@ -1,29 +1,29 @@
-- context = @user.present? ? @user : @plot
-
 p#notice = notice
 
 .row-fluid
   .span10
     .row-fluid
       .span4
-        <img src="http://placehold.it/200x200" alt="placeholder+image">
+        <img src="http://placehold.it/210x210" alt="placeholder+image">
+        br
+        br
         <ul class="thumbnails">
-          <li class="span2">
+          <li class="span3">
             <span class="thumbnail">
               <img src="http://placehold.it/100x100" alt="">
             </span>
           </li>
-          <li class="span2">
+          <li class="span3">
             <span class="thumbnail">
               <img src="http://placehold.it/100x100" alt="">
             </span>
           </li>
-          <li class="span2">
+          <li class="span3">
             <span class="thumbnail">
               <img src="http://placehold.it/100x100" alt="">
             </span>
           </li>
-          <li class="span2">
+          <li class="span3">
             <span class="thumbnail">
               <img src="http://placehold.it/100x100" alt="">
             </span>
@@ -72,12 +72,8 @@ p#notice = notice
               td Yield #{index + 1}
               td #{crop_yield.quantity} #{crop_yield.quantity_unit}
               td #{crop_yield.pick_date.strftime("%B %d, %Y")}
-        = link_to "Add new Yield", polymorphic_url([context, :crop, :yield], :action => 'new')
-/ p = @plot_crop_variety.crop.try(:name)
-/ p = @plot_crop_variety.variety.try(:name)
-/ p = @plot_crop_variety.plant_date
+        = link_to "Add new Yield", polymorphic_yield_url("new", parent, @plot_crop_variety)
 
-
-= link_to 'Edit', polymorphic_url([context, :crop], :action => 'edit') 
+= link_to 'Edit', polymorphic_url([parent, :crop], :action => 'edit') 
 | &nbsp;
-= link_to 'Back', polymorphic_url([context, :crops])
+= link_to 'Back', polymorphic_url([parent, :crops])

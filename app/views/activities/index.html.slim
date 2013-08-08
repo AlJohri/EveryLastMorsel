@@ -1,7 +1,9 @@
-h1 Activities#index
-p Find me in app/views/activities/index.html.slim
+- content_for :generic_layout_top_headline do
+  h1 Activity Feed
+  h2 What's growin' on?
 
 - @activities.each do |activity|
-	= render_activity(activity)
+	= render_activity(activity, :layout => "layouts/activity_wrapper")
+
 
 / = render_activities(@activities)

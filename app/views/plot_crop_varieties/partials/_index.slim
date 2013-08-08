@@ -1,7 +1,4 @@
-- context = @user.present? ? @user : @plot
-
 h1 Listing Crops
-
 
 .row-fluid
   .span12
@@ -10,8 +7,8 @@ h1 Listing Crops
         .span3
           <img src="http://placehold.it/200x200" alt="placeholder+image">
         .span9
-          - context_id = (defined? context.friendly_id) ? context.friendly_id : context.id
-          h2= link_to "#{plot_crop_variety.variety.try(:name)} #{plot_crop_variety.crop.try(:name)}", self.send(context.class.to_s.downcase + "_crop_url", context_id, plot_crop_variety.id)
+          - context_id = (defined? parent.friendly_id) ? parent.friendly_id : parent.id
+          h2= link_to "#{plot_crop_variety.variety.try(:name)} #{plot_crop_variety.crop.try(:name)}", polymorphic_crop_url("show", parent, plot_crop_variety)
           p
             | Planted: 
             = plot_crop_variety.plant_date.presence.strftime("%B %d, %Y")
@@ -27,4 +24,4 @@ h1 Listing Crops
 
 br
 
-= link_to 'New Crop', polymorphic_url([context, :crop], :action => 'new') 
+= link_to 'New Crop', polymorphic_url([parent, :crop], :action => 'new') 

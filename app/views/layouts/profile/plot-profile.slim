@@ -30,25 +30,28 @@
         span.icon.icon-male
         | Plot Profile
 
-  -if @plot.about
+  -if @plot.about.present?
     h5 About #{@plot.name}:
     p #{@plot.about}
   -else
     h5 About #{@plot.name}:
     p #{@plot.name} has no description.
-  h5 Name:  
-  p= @plot.name
-  h5 City:  
-  p= @plot.city
-  h5 State
-  p= @plot.state
-  h5 Zip: 
-  p= @plot.zip
-  h5 About
-  p= @plot.about
-
-
-
+  
+  br
+  br
+  
+  p 
+    | Name: 
+    span = @plot.name
+  p 
+    | City: 
+    span = @plot.city
+  p 
+    | State: 
+    span = @plot.state
+  p 
+    | Zip: 
+    span = @plot.zip
 
 - content_for :profile_tabs do
   ul.nav.nav-tabs.list-block

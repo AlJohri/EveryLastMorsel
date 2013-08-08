@@ -73,4 +73,44 @@ module ApplicationHelper
     true # Or something like current_user.xeditable?
   end
 
+  def timeago(time, options = {})
+    options[:class] ||= "timeago"
+    content_tag(:abbr, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
+  end  
+
+  def link_to_trackable(object, object_type)
+    if object
+      link_to object_type.downcase, object
+    else
+      "a #{object_type.downcase} which does not exist anymore"
+    end
+  end  
+  
+  def polymorphic_crop_url(action, parent, crop = nil)
+    parent_class = parent.class.to_s.downcase
+    if action == "new"
+      self.send(action + "_" + parent_class + "_crop_url", parent.id)
+    elsif action == "index"
+      self.send(action + "_" + parent_class + "_crops_url", parent.id)
+    elsif action == "show"
+      self.send(parent_class + "_crop_url", parent.id, crop.id)
+    else
+      self.send(action + "_" + parent_class + "_crop_url", parent.id, crop.id)
+    end
+  end
+  
+  def polymorphic_yield_url(action, parent, crop, crop_yield = nil)
+    parent_class = parent.class.to_s.downcase
+    
+    if action == "new"
+      self.send(action + "_" + parent_class + "_crop_yield_url", parent.id, crop.id)
+    elsif action == "index"
+      self.send(action + "_" + parent_class + "_crop_yields_url", parent.id, crop.id)
+    elsif action == "show"
+      self.send(parent_class + "_crop_yield_url", parent.id, crop.id, crop_yield.id)
+    else
+      self.send(action + "_" + parent_class + "_crop_yield_url", parent.id, crop.id, crop_yield.id)
+    end
+  end
+
 end

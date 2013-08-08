@@ -1,0 +1,213 @@
+[RailsAdmin] RailsAdmin initialization disabled by default. Pass SKIP_RAILS_ADMIN_INITIALIZER=false if you need it.
+                    root          /                                                               posts#index
+                    root          /                                                               static#home
+                   about GET      /about(.:format)                                                static#about
+                    help GET      /help(.:format)                                                 static#help
+                     map GET      /map(.:format)                                                  static#map
+             marketplace GET      /marketplace(.:format)                                          static#marketplace
+                 pricing GET      /pricing(.:format)                                              static#pricing
+        new_user_session GET      /users/sign_in(.:format)                                        devise/sessions#new
+            user_session POST     /users/sign_in(.:format)                                        devise/sessions#create
+    destroy_user_session DELETE   /users/sign_out(.:format)                                       devise/sessions#destroy
+           user_password POST     /users/password(.:format)                                       devise/passwords#create
+       new_user_password GET      /users/password/new(.:format)                                   devise/passwords#new
+      edit_user_password GET      /users/password/edit(.:format)                                  devise/passwords#edit
+                         PUT      /users/password(.:format)                                       devise/passwords#update
+cancel_user_registration GET      /users/cancel(.:format)                                         devise/custom/registrations#cancel
+       user_registration POST     /users(.:format)                                                devise/custom/registrations#create
+   new_user_registration GET      /users/sign_up(.:format)                                        devise/custom/registrations#new
+  edit_user_registration GET      /users/edit(.:format)                                           devise/custom/registrations#edit
+                         PUT      /users(.:format)                                                devise/custom/registrations#update
+                         DELETE   /users(.:format)                                                devise/custom/registrations#destroy
+ user_omniauth_authorize GET|POST /users/auth/:provider(.:format)                                 devise/custom/omniauth_callbacks#passthru {:provider=>/facebook|google_oauth2|twitter/}
+  user_omniauth_callback GET|POST /users/auth/:action/callback(.:format)                          devise/custom/omniauth_callbacks#(?-mix:facebook|google_oauth2|twitter)
+             rails_admin          /admin                                                          RailsAdmin::Engine
+             follow_user GET      /:id/follow(.:format)                                           users#follow {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+          like_user_post GET      /:user_id/posts/:id/like(.:format)                              posts#like {:concerns=>[:is_likeable, :is_commentable]}
+      user_post_comments GET      /:user_id/posts/:post_id/comments(.:format)                     comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /:user_id/posts/:post_id/comments(.:format)                     comments#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /:user_id/posts/:id/like(.:format)                              posts#like {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /:user_id/posts/:post_id/comments(.:format)                     comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /:user_id/posts/:post_id/comments(.:format)                     comments#create {:concerns=>[:is_likeable, :is_commentable]}
+              user_posts GET      /:user_id/posts(.:format)                                       posts#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /:user_id/posts(.:format)                                       posts#create {:concerns=>[:is_likeable, :is_commentable]}
+           new_user_post GET      /:user_id/posts/new(.:format)                                   posts#new {:concerns=>[:is_likeable, :is_commentable]}
+          edit_user_post GET      /:user_id/posts/:id/edit(.:format)                              posts#edit {:concerns=>[:is_likeable, :is_commentable]}
+               user_post GET      /:user_id/posts/:id(.:format)                                   posts#show {:concerns=>[:is_likeable, :is_commentable]}
+                         PUT      /:user_id/posts/:id(.:format)                                   posts#update {:concerns=>[:is_likeable, :is_commentable]}
+                         DELETE   /:user_id/posts/:id(.:format)                                   posts#destroy {:concerns=>[:is_likeable, :is_commentable]}
+        user_crop_yields GET      /:user_id/crops/:crop_id/yields(.:format)                       yields#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         POST     /:user_id/crops/:crop_id/yields(.:format)                       yields#create {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+     new_user_crop_yield GET      /:user_id/crops/:crop_id/yields/new(.:format)                   yields#new {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+    edit_user_crop_yield GET      /:user_id/crops/:crop_id/yields/:id/edit(.:format)              yields#edit {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+         user_crop_yield GET      /:user_id/crops/:crop_id/yields/:id(.:format)                   yields#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         PUT      /:user_id/crops/:crop_id/yields/:id(.:format)                   yields#update {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         DELETE   /:user_id/crops/:crop_id/yields/:id(.:format)                   yields#destroy {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+              user_crops GET      /:user_id/crops(.:format)                                       plot_crop_varieties#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         POST     /:user_id/crops(.:format)                                       plot_crop_varieties#create {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+           new_user_crop GET      /:user_id/crops/new(.:format)                                   plot_crop_varieties#new {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+          edit_user_crop GET      /:user_id/crops/:id/edit(.:format)                              plot_crop_varieties#edit {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+               user_crop GET      /:user_id/crops/:id(.:format)                                   plot_crop_varieties#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         PUT      /:user_id/crops/:id(.:format)                                   plot_crop_varieties#update {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         DELETE   /:user_id/crops/:id(.:format)                                   plot_crop_varieties#destroy {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+        follow_user_plot GET      /:user_id/plots/:id/follow(.:format)                            plots#follow {:concerns=>[:is_followable]}
+                         GET      /:user_id/plots/:id/follow(.:format)                            plots#follow {:concerns=>[:is_followable]}
+              user_plots GET      /:user_id/plots(.:format)                                       plots#index {:concerns=>[:is_followable]}
+                         POST     /:user_id/plots(.:format)                                       plots#create {:concerns=>[:is_followable]}
+           new_user_plot GET      /:user_id/plots/new(.:format)                                   plots#new {:concerns=>[:is_followable]}
+          edit_user_plot GET      /:user_id/plots/:id/edit(.:format)                              plots#edit {:concerns=>[:is_followable]}
+               user_plot GET      /:user_id/plots/:id(.:format)                                   plots#show {:concerns=>[:is_followable]}
+                         PUT      /:user_id/plots/:id(.:format)                                   plots#update {:concerns=>[:is_followable]}
+                         DELETE   /:user_id/plots/:id(.:format)                                   plots#destroy {:concerns=>[:is_followable]}
+                         GET      /users/:id/follow(.:format)                                     users#follow {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/posts/:id/like(.:format)                        posts#like {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/posts/:post_id/comments(.:format)               comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /users/:user_id/posts/:post_id/comments(.:format)               comments#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/posts/:id/like(.:format)                        posts#like {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/posts/:post_id/comments(.:format)               comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /users/:user_id/posts/:post_id/comments(.:format)               comments#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/posts(.:format)                                 posts#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /users/:user_id/posts(.:format)                                 posts#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/posts/new(.:format)                             posts#new {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/posts/:id/edit(.:format)                        posts#edit {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/posts/:id(.:format)                             posts#show {:concerns=>[:is_likeable, :is_commentable]}
+                         PUT      /users/:user_id/posts/:id(.:format)                             posts#update {:concerns=>[:is_likeable, :is_commentable]}
+                         DELETE   /users/:user_id/posts/:id(.:format)                             posts#destroy {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /users/:user_id/crops/:crop_id/yields(.:format)                 yields#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         POST     /users/:user_id/crops/:crop_id/yields(.:format)                 yields#create {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/crops/:crop_id/yields/new(.:format)             yields#new {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/crops/:crop_id/yields/:id/edit(.:format)        yields#edit {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/crops/:crop_id/yields/:id(.:format)             yields#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         PUT      /users/:user_id/crops/:crop_id/yields/:id(.:format)             yields#update {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         DELETE   /users/:user_id/crops/:crop_id/yields/:id(.:format)             yields#destroy {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/crops(.:format)                                 plot_crop_varieties#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         POST     /users/:user_id/crops(.:format)                                 plot_crop_varieties#create {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/crops/new(.:format)                             plot_crop_varieties#new {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/crops/:id/edit(.:format)                        plot_crop_varieties#edit {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/crops/:id(.:format)                             plot_crop_varieties#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         PUT      /users/:user_id/crops/:id(.:format)                             plot_crop_varieties#update {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         DELETE   /users/:user_id/crops/:id(.:format)                             plot_crop_varieties#destroy {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /users/:user_id/plots/:id/follow(.:format)                      plots#follow {:concerns=>[:is_followable]}
+                         GET      /users/:user_id/plots/:id/follow(.:format)                      plots#follow {:concerns=>[:is_followable]}
+                         GET      /users/:user_id/plots(.:format)                                 plots#index {:concerns=>[:is_followable]}
+                         POST     /users/:user_id/plots(.:format)                                 plots#create {:concerns=>[:is_followable]}
+                         GET      /users/:user_id/plots/new(.:format)                             plots#new {:concerns=>[:is_followable]}
+                         GET      /users/:user_id/plots/:id/edit(.:format)                        plots#edit {:concerns=>[:is_followable]}
+                         GET      /users/:user_id/plots/:id(.:format)                             plots#show {:concerns=>[:is_followable]}
+                         PUT      /users/:user_id/plots/:id(.:format)                             plots#update {:concerns=>[:is_followable]}
+                         DELETE   /users/:user_id/plots/:id(.:format)                             plots#destroy {:concerns=>[:is_followable]}
+                   users GET      /users(.:format)                                                users#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                    user GET      /users/:id(.:format)                                            users#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+             follow_plot GET      /plots/:id/follow(.:format)                                     plots#follow {:concerns=>[:is_followable, :has_crops]}
+        plot_crop_yields GET      /plots/:plot_id/crops/:crop_id/yields(.:format)                 yields#index {:concerns=>[:is_followable, :has_crops]}
+                         POST     /plots/:plot_id/crops/:crop_id/yields(.:format)                 yields#create {:concerns=>[:is_followable, :has_crops]}
+     new_plot_crop_yield GET      /plots/:plot_id/crops/:crop_id/yields/new(.:format)             yields#new {:concerns=>[:is_followable, :has_crops]}
+    edit_plot_crop_yield GET      /plots/:plot_id/crops/:crop_id/yields/:id/edit(.:format)        yields#edit {:concerns=>[:is_followable, :has_crops]}
+         plot_crop_yield GET      /plots/:plot_id/crops/:crop_id/yields/:id(.:format)             yields#show {:concerns=>[:is_followable, :has_crops]}
+                         PUT      /plots/:plot_id/crops/:crop_id/yields/:id(.:format)             yields#update {:concerns=>[:is_followable, :has_crops]}
+                         DELETE   /plots/:plot_id/crops/:crop_id/yields/:id(.:format)             yields#destroy {:concerns=>[:is_followable, :has_crops]}
+              plot_crops GET      /plots/:plot_id/crops(.:format)                                 plot_crop_varieties#index {:concerns=>[:is_followable, :has_crops]}
+                         POST     /plots/:plot_id/crops(.:format)                                 plot_crop_varieties#create {:concerns=>[:is_followable, :has_crops]}
+           new_plot_crop GET      /plots/:plot_id/crops/new(.:format)                             plot_crop_varieties#new {:concerns=>[:is_followable, :has_crops]}
+          edit_plot_crop GET      /plots/:plot_id/crops/:id/edit(.:format)                        plot_crop_varieties#edit {:concerns=>[:is_followable, :has_crops]}
+               plot_crop GET      /plots/:plot_id/crops/:id(.:format)                             plot_crop_varieties#show {:concerns=>[:is_followable, :has_crops]}
+                         PUT      /plots/:plot_id/crops/:id(.:format)                             plot_crop_varieties#update {:concerns=>[:is_followable, :has_crops]}
+                         DELETE   /plots/:plot_id/crops/:id(.:format)                             plot_crop_varieties#destroy {:concerns=>[:is_followable, :has_crops]}
+                   plots GET      /plots(.:format)                                                plots#index {:concerns=>[:is_followable, :has_crops]}
+                    plot GET      /plots/:id(.:format)                                            plots#show {:concerns=>[:is_followable, :has_crops]}
+               like_post GET      /posts/:id/like(.:format)                                       posts#like {:concerns=>[:is_likeable, :is_commentable]}
+           post_comments GET      /posts/:post_id/comments(.:format)                              comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /posts/:post_id/comments(.:format)                              comments#create {:concerns=>[:is_likeable, :is_commentable]}
+                   posts GET      /posts(.:format)                                                posts#index {:concerns=>[:is_likeable, :is_commentable]}
+                    post GET      /posts/:id(.:format)                                            posts#show {:concerns=>[:is_likeable, :is_commentable]}
+                   crops GET      /crops(.:format)                                                crops#index
+                    crop GET      /crops/:id(.:format)                                            crops#show
+               activites GET      /activites(.:format)                                            activites#index
+                 uploads GET      /uploads(.:format)                                              uploads#index
+                         POST     /uploads(.:format)                                              uploads#create
+              new_upload GET      /uploads/new(.:format)                                          uploads#new
+             edit_upload GET      /uploads/:id/edit(.:format)                                     uploads#edit
+                  upload GET      /uploads/:id(.:format)                                          uploads#show
+                         PUT      /uploads/:id(.:format)                                          uploads#update
+                         DELETE   /uploads/:id(.:format)                                          uploads#destroy
+                    blog GET      /blog(.:format)                                                 posts#index
+                    feed GET      /feed(.:format)                                                 activities#index
+                         GET      /api/v0/users/:id/follow(.:format)                              users#follow {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/posts/:id/like(.:format)                 posts#like {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/posts/:post_id/comments(.:format)        comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /api/v0/users/:user_id/posts/:post_id/comments(.:format)        comments#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/posts/:id/like(.:format)                 posts#like {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/posts/:post_id/comments(.:format)        comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /api/v0/users/:user_id/posts/:post_id/comments(.:format)        comments#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/posts(.:format)                          posts#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /api/v0/users/:user_id/posts(.:format)                          posts#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/posts/new(.:format)                      posts#new {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/posts/:id/edit(.:format)                 posts#edit {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/posts/:id(.:format)                      posts#show {:concerns=>[:is_likeable, :is_commentable]}
+                         PUT      /api/v0/users/:user_id/posts/:id(.:format)                      posts#update {:concerns=>[:is_likeable, :is_commentable]}
+                         DELETE   /api/v0/users/:user_id/posts/:id(.:format)                      posts#destroy {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/users/:user_id/crops/:crop_id/yields(.:format)          yields#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         POST     /api/v0/users/:user_id/crops/:crop_id/yields(.:format)          yields#create {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/crops/:crop_id/yields/new(.:format)      yields#new {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/crops/:crop_id/yields/:id/edit(.:format) yields#edit {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/crops/:crop_id/yields/:id(.:format)      yields#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         PUT      /api/v0/users/:user_id/crops/:crop_id/yields/:id(.:format)      yields#update {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         DELETE   /api/v0/users/:user_id/crops/:crop_id/yields/:id(.:format)      yields#destroy {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/crops(.:format)                          plot_crop_varieties#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         POST     /api/v0/users/:user_id/crops(.:format)                          plot_crop_varieties#create {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/crops/new(.:format)                      plot_crop_varieties#new {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/crops/:id/edit(.:format)                 plot_crop_varieties#edit {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/crops/:id(.:format)                      plot_crop_varieties#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         PUT      /api/v0/users/:user_id/crops/:id(.:format)                      plot_crop_varieties#update {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         DELETE   /api/v0/users/:user_id/crops/:id(.:format)                      plot_crop_varieties#destroy {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:user_id/plots/:id/follow(.:format)               plots#follow {:concerns=>[:is_followable]}
+                         GET      /api/v0/users/:user_id/plots/:id/follow(.:format)               plots#follow {:concerns=>[:is_followable]}
+                         GET      /api/v0/users/:user_id/plots(.:format)                          plots#index {:concerns=>[:is_followable]}
+                         POST     /api/v0/users/:user_id/plots(.:format)                          plots#create {:concerns=>[:is_followable]}
+                         GET      /api/v0/users/:user_id/plots/new(.:format)                      plots#new {:concerns=>[:is_followable]}
+                         GET      /api/v0/users/:user_id/plots/:id/edit(.:format)                 plots#edit {:concerns=>[:is_followable]}
+                         GET      /api/v0/users/:user_id/plots/:id(.:format)                      plots#show {:concerns=>[:is_followable]}
+                         PUT      /api/v0/users/:user_id/plots/:id(.:format)                      plots#update {:concerns=>[:is_followable]}
+                         DELETE   /api/v0/users/:user_id/plots/:id(.:format)                      plots#destroy {:concerns=>[:is_followable]}
+                         GET      /api/v0/users(.:format)                                         users#index {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/users/:id(.:format)                                     users#show {:concerns=>[:is_followable, :has_posts, :has_crops, :has_plots]}
+                         GET      /api/v0/plots/:id/follow(.:format)                              plots#follow {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops/:crop_id/yields(.:format)          yields#index {:concerns=>[:is_followable, :has_crops]}
+                         POST     /api/v0/plots/:plot_id/crops/:crop_id/yields(.:format)          yields#create {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops/:crop_id/yields/new(.:format)      yields#new {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops/:crop_id/yields/:id/edit(.:format) yields#edit {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops/:crop_id/yields/:id(.:format)      yields#show {:concerns=>[:is_followable, :has_crops]}
+                         PUT      /api/v0/plots/:plot_id/crops/:crop_id/yields/:id(.:format)      yields#update {:concerns=>[:is_followable, :has_crops]}
+                         DELETE   /api/v0/plots/:plot_id/crops/:crop_id/yields/:id(.:format)      yields#destroy {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops(.:format)                          plot_crop_varieties#index {:concerns=>[:is_followable, :has_crops]}
+                         POST     /api/v0/plots/:plot_id/crops(.:format)                          plot_crop_varieties#create {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops/new(.:format)                      plot_crop_varieties#new {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops/:id/edit(.:format)                 plot_crop_varieties#edit {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:plot_id/crops/:id(.:format)                      plot_crop_varieties#show {:concerns=>[:is_followable, :has_crops]}
+                         PUT      /api/v0/plots/:plot_id/crops/:id(.:format)                      plot_crop_varieties#update {:concerns=>[:is_followable, :has_crops]}
+                         DELETE   /api/v0/plots/:plot_id/crops/:id(.:format)                      plot_crop_varieties#destroy {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots(.:format)                                         plots#index {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/plots/:id(.:format)                                     plots#show {:concerns=>[:is_followable, :has_crops]}
+                         GET      /api/v0/posts/:id/like(.:format)                                posts#like {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/posts/:post_id/comments(.:format)                       comments#index {:concerns=>[:is_likeable, :is_commentable]}
+                         POST     /api/v0/posts/:post_id/comments(.:format)                       comments#create {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/posts(.:format)                                         posts#index {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/posts/:id(.:format)                                     posts#show {:concerns=>[:is_likeable, :is_commentable]}
+                         GET      /api/v0/crops(.:format)                                         crops#index
+                         GET      /api/v0/crops/:id(.:format)                                     crops#show
+                         GET      /api/v0/activites(.:format)                                     activites#index
+                    user GET      /:id(.:format)                                                  :controller#:action
+
+Routes for RailsAdmin::Engine:
+    dashboard GET         /                                      rails_admin/main#dashboard
+        index GET|POST    /:model_name(.:format)                 rails_admin/main#index
+          new GET|POST    /:model_name/new(.:format)             rails_admin/main#new
+       export GET|POST    /:model_name/export(.:format)          rails_admin/main#export
+  bulk_delete POST|DELETE /:model_name/bulk_delete(.:format)     rails_admin/main#bulk_delete
+history_index GET         /:model_name/history(.:format)         rails_admin/main#history_index
+  bulk_action POST        /:model_name/bulk_action(.:format)     rails_admin/main#bulk_action
+         show GET         /:model_name/:id(.:format)             rails_admin/main#show
+         edit GET|PUT     /:model_name/:id/edit(.:format)        rails_admin/main#edit
+       delete GET|DELETE  /:model_name/:id/delete(.:format)      rails_admin/main#delete
+ history_show GET         /:model_name/:id/history(.:format)     rails_admin/main#history_show
+  show_in_app GET         /:model_name/:id/show_in_app(.:format) rails_admin/main#show_in_app
