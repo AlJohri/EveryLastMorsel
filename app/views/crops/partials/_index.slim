@@ -1,0 +1,26 @@
+h1 Listing Crops
+
+.row-fluid
+  .span12
+    - @crops.each do |crop|
+      .row-fluid
+        .span3
+          <img src="http://placehold.it/200x200" alt="placeholder+image">
+        .span9
+          h2= link_to "#{crop.try(:crop_variety).try(:name)} #{crop.try(:crop_type).try(:name)}", polymorphic_url([parent, crop])
+          p
+            | Planted: 
+            = crop.plant_date.presence.strftime("%B %d, %Y")
+          p
+            | Yield: 
+            = crop.crop_yields.last.try(:quantity)
+            |/ 
+            | bundles
+          p 
+            | Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+      hr
+
+
+br
+
+= link_to 'New Crop', polymorphic_url([parent, :crop], :action => 'new') 

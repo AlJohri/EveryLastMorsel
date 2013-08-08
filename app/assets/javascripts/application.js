@@ -43,8 +43,8 @@ $(document).ready(function() {
   $.fn.editable.defaults.mode = 'inline';
   $('.editable').editable();
 
-  $('#plot_crop_variety_crop_name').autocomplete({
-    source: $('#plot_crop_variety_crop_name').data('autocomplete-source')
+  $('#crop_crop_name').autocomplete({
+    source: $('#crop_crop_name').data('autocomplete-source')
   });
 
 

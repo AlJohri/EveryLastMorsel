@@ -164,8 +164,8 @@ class User < ActiveRecord::Base
 
   end
   
-  def plot_crop_varieties
-    PlotCropVariety.where(:plot_id => self.plots.pluck(:id))
+  def crops
+    Crop.where(:plot_id => self.plots.pluck(:id))
   end
 
   def concatenate_name

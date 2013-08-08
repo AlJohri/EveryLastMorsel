@@ -36,8 +36,6 @@ class ApplicationController < ActionController::Base
     true # Or something like current_user.xeditable?
   end
 
-  private
-
   def render(*args)
 
     # Check if controller inherits from InheritedResources::Base

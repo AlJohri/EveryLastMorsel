@@ -1,5 +1,7 @@
 EveryLastMorsel::Application.routes.draw do
 
+  get "yields/index"
+
   ####################################################################################
   # STATIC ROUTES
   ####################################################################################
@@ -43,8 +45,8 @@ EveryLastMorsel::Application.routes.draw do
   concern :has_posts do; resources :posts, concerns: [:is_likeable, :is_commentable]; end
   concern :has_plots do; resources :plots, concerns: [:is_followable]; end
   concern :has_crops do
-    resources :crops, :controller => 'plot_crop_varieties' do
-      resources :yields
+    resources :crops do
+      resources :crop_yields
     end
   end
 
@@ -57,7 +59,7 @@ EveryLastMorsel::Application.routes.draw do
   resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
   resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
-  resources :crops, only: [:index, :show]
+  resources :crops, only: [:index, :show], :controller => 'crop_types'
   resources :activites, only: [:index]
   resources :uploads # TEMPORARY
   
@@ -84,7 +86,7 @@ EveryLastMorsel::Application.routes.draw do
     resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
     resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
     resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
-    # resources :crops, only: [:index, :show] #temporarily disabled
+    resources :crops, only: [:index, :show], :controller => 'crop_types'
     resources :activites, only: [:index]    
   end
 

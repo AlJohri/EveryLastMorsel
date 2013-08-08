@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807094654) do
+ActiveRecord::Schema.define(:version => 20130808151003) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -51,12 +51,49 @@ ActiveRecord::Schema.define(:version => 20130807094654) do
     t.datetime "updated_at",                 :null => false
   end
 
-  create_table "crops", :force => true do |t|
+  create_table "crop_types", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "crop_varieties", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "crop_type_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "crop_varieties", ["crop_type_id"], :name => "index_crop_varieties_on_crop_type_id"
+
+  create_table "crop_yields", :force => true do |t|
+    t.decimal  "quantity"
+    t.string   "quantity_unit"
+    t.decimal  "quantity_for_sale"
+    t.datetime "pick_date"
+    t.integer  "crop_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "crop_yields", ["crop_id"], :name => "index_crop_yields_on_crop_id"
+
+  create_table "crops", :force => true do |t|
+    t.decimal  "coverage"
+    t.string   "coverage_unit"
+    t.datetime "plant_date"
+    t.integer  "plot_id"
+    t.integer  "crop_type_id"
+    t.integer  "crop_variety_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "crops", ["crop_type_id"], :name => "index_crops_on_crop_type_id"
+  add_index "crops", ["crop_variety_id"], :name => "index_crops_on_crop_variety_id"
+  add_index "crops", ["plot_id"], :name => "index_crops_on_plot_id"
 
   create_table "flaggings", :force => true do |t|
     t.string   "flaggable_type"
@@ -106,21 +143,6 @@ ActiveRecord::Schema.define(:version => 20130807094654) do
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
 
-  create_table "plot_crop_varieties", :force => true do |t|
-    t.datetime "plant_date"
-    t.decimal  "coverage"
-    t.string   "coverage_type"
-    t.integer  "plot_id"
-    t.integer  "crop_id"
-    t.integer  "variety_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "plot_crop_varieties", ["crop_id"], :name => "index_plot_crop_varieties_on_crop_id"
-  add_index "plot_crop_varieties", ["plot_id"], :name => "index_plot_crop_varieties_on_plot_id"
-  add_index "plot_crop_varieties", ["variety_id"], :name => "index_plot_crop_varieties_on_variety_id"
-
   create_table "plots", :force => true do |t|
     t.string   "name"
     t.string   "address1"
@@ -140,8 +162,8 @@ ActiveRecord::Schema.define(:version => 20130807094654) do
   end
 
   create_table "plots_users", :force => true do |t|
-    t.integer "user_id"
-    t.integer "plot_id"
+    t.integer "User_id"
+    t.integer "Plot_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -279,26 +301,6 @@ ActiveRecord::Schema.define(:version => 20130807094654) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
-
-  create_table "varieties", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "crop_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "varieties", ["crop_id"], :name => "index_varieties_on_crop_id"
-
-  create_table "yields", :force => true do |t|
-    t.datetime "pick_date"
-    t.decimal  "quantity"
-    t.string   "quantity_unit"
-    t.decimal  "quantity_for_sale"
-    t.integer  "plot_crop_variety_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
 
   add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"
 

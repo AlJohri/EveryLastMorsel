@@ -27,4 +27,4 @@
 
 
 <%= link_to 'Edit', edit_user_plot_path(current_user, @plot) %> |
-<%= link_to 'Back', user_plots_path(@plot.users(1)) %>
+<%= link_to 'Back', user_plots_path(@plot.users.first) %>

@@ -1,0 +1,11 @@
+rails d model CropType 
+rails d model CropVariety 
+rails d model Crop 
+rails d model CropYield
+
+rails g model CropType name description
+rails g model CropVariety name description crop_type:references
+rails g model Crop coverage:decimal coverage_unit plant_date:datetime plot:references crop_type:references crop_variety:references
+rails g model CropYield quantity:decimal quantity_unit quantity_for_sale:decimal pick_date:datetime crop:references
+
+rake db:drop && rake db:create && rake db:migrate && rake db:seed && rails s
