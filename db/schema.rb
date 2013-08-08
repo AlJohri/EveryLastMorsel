@@ -162,8 +162,8 @@ ActiveRecord::Schema.define(:version => 20130808151003) do
   end
 
   create_table "plots_users", :force => true do |t|
-    t.integer "User_id"
-    t.integer "Plot_id"
+    t.integer "user_id"
+    t.integer "plot_id"
   end
 
   create_table "posts", :force => true do |t|
