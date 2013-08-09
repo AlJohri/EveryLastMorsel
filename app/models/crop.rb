@@ -6,12 +6,13 @@ class Crop < ActiveRecord::Base
   attr_accessible :coverage, :coverage_unit, :plant_date
 
   attr_accessible :crop_name
+  attr_accessible :variety_name
 
   has_many :crop_yields
 
-  validates :plot_id, presence: true
-  validates :crop_type_id, presence: true
-  validates :crop_variety_id, presence: true
+  # validates :plot_id, presence: true
+  # validates :crop_type_id, presence: true
+  # validates :crop_variety_id, presence: true
 
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
@@ -24,4 +25,12 @@ class Crop < ActiveRecord::Base
     self.crop_type = CropType.find_by_name(name) if name.present?
   end
   
+  def variety_name
+    self.crop_variety.try(:name)
+  end
+
+  def variety_name=(name)
+    self.crop_variety = CropVariety.find_or_create_by_name(name) if name.present?
+  end
+
 end

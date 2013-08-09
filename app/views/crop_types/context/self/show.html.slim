@@ -4,14 +4,14 @@ h2 Crop
 
 p
   strong Crop Name: 
-  | #{@crop.name}
+  | #{@crop_type.name}
 p
   strong Crop Description: 
-  | #{@crop.description}
+  | #{@crop_type.description}
 
 h2 List of Crop's Varieties
 
-- @crop.varieties.each do |variety|
+- @crop_type.crop_varieties.each do |variety|
 	p 
 		strong Variety: 
 		| #{variety.name}
