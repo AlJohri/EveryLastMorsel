@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
 
   def name
     "#{first_name} #{last_name}"
-  end  
+  end
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -84,13 +84,20 @@ class User < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
+
+    location = Geocoder.search(auth.info.location)
+    if location.present?
+      city = location[0].city
+      state = location[0].state
+    end
+
     unless user
       user = User.new(
               name: auth.extra.raw_info.name,
               first_name: auth.info.first_name,
               last_name: auth.info.last_name,
-              city: auth.info.location[0],
-              state: auth.info.location[1],
+              city: city,
+              state: state,
               zip: '99999',
               url: auth.info['urls']['Facebook'],
               provider: auth.provider,
@@ -106,50 +113,52 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_twitter_oauth(auth, signed_in_resource = nil)
-      user = User.where(:name => auth.extra.raw_info.screen_name).first
-      unless user
-          #Hack to resolve the required email issue with Twitter and Devise
-          user = User.new(
-                  name: auth.info.name,  #extra.raw_info.screen_name
-                  first_name: auth.info.name[0],
-                  last_name: auth.info.name[1],
-                  city: auth.info.location[0],
-                  state: auth.info.location[1],
-                  zip: '99999',
-                  about: auth.info.description,
-                  url: auth.info['urls']['Twitter'],
-                  email: "#{auth.extra.raw_info.screen_name}@twitter.com", 
-                  password: Devise.friendly_token[0,20]
-                )
-          # user.skip_confirmation!
-          user.save
-          user.avatar_remote_url(auth.info.image, user.slug)
-      end
-      user
-  end
+    user = User.where(:name => auth.extra.raw_info.screen_name).first
 
-  def self.find_for_google_oauth2(auth, signed_in_resource=nil)
-      user = User.where(:email => auth.info["email"]).first
-      unless user
-        puts auth
+    unless user
+        #Hack to resolve the required email issue with Twitter and Devise
         user = User.new(
-                name: auth.info["name"],
-                first_name: auth.info["first_name"],
-                last_name: auth.info["last_name"],
-                city: '',
-                state: '',
+                name: auth.info.name,  #extra.raw_info.screen_name
+                first_name: auth.info.name[0],
+                last_name: auth.info.name[1],
+                city: city,
+                state: state,
                 zip: '99999',
-                url: auth.info['urls']['Google'],
-                provider: auth.provider,
-                email: auth.info["email"],
-                password: Devise.friendly_token[0,20],
-                uid: auth.uid
+                about: auth.info.description,
+                url: auth.info['urls']['Twitter'],
+                email: "#{auth.extra.raw_info.screen_name}@twitter.com", 
+                password: Devise.friendly_token[0,20]
               )
         # user.skip_confirmation!
         user.save
         user.avatar_remote_url(auth.info.image, user.slug)
-      end
-      user
+    end
+    user
+  end
+
+  def self.find_for_google_oauth2(auth, signed_in_resource=nil)
+    user = User.where(:email => auth.info["email"]).first
+
+    unless user
+      puts auth
+      user = User.new(
+              name: auth.info["name"],
+              first_name: auth.info["first_name"],
+              last_name: auth.info["last_name"],
+              city: '',
+              state: '',
+              zip: '99999',
+              url: auth.info['urls']['Google'],
+              provider: auth.provider,
+              email: auth.info["email"],
+              password: Devise.friendly_token[0,20],
+              uid: auth.uid
+            )
+      # user.skip_confirmation!
+      user.save
+      user.avatar_remote_url(auth.info.image, user.slug)
+    end
+    user
   end
 
   def update_mailchimp

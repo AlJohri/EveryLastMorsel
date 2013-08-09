@@ -47,6 +47,9 @@ $(document).ready(function() {
     source: $('#crop_crop_name').data('autocomplete-source')
   });
 
+  $('#crop_variety_name').autocomplete({
+    source: $('#crop_variety_name').data('autocomplete-source')
+  });
 
 // 	$(".get-started").click(function () {
 // 	   $('.section-signup').slideToggle('slow');

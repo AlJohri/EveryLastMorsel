@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:previous_url] || main_app.root_url #root_path
+    user_url(resource)
+    # session[:previous_url] || main_app.root_url
   end
 
   def after_update_path_for(resource)
@@ -43,7 +44,8 @@ class ApplicationController < ActionController::Base
     # to serve the correct view.
 
     if (self.class.ancestors.include? InheritedResources::Base) #&& (request.format == "text/html") # && (!request.xhr?)
-      context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.capitalize.pluralize
+      #context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.downcase.pluralize
+      context = parent? ? parent_type.to_s.downcase.pluralize : "self"
       path = "#{controller_name}/context/#{context}/#{action_name}"
     end
 

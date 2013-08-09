@@ -60,6 +60,7 @@ EveryLastMorsel::Application.routes.draw do
   resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
   resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
   resources :crops, only: [:index, :show], :controller => 'crop_types'
+  resources :varieties, only: [:index, :show], :controller => 'crop_varieties'
   resources :activites, only: [:index]
   resources :uploads # TEMPORARY
   

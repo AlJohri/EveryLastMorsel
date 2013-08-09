@@ -39,7 +39,7 @@ p#notice = notice
           <div class="bar" style="width: 60%;"></div>
         </div>
       .span6
-        h1= @crop.crop_type.try(:name)
+        h1 #{@crop.crop_variety.try(:name)} #{@crop.crop_type.try(:name)}
         p
           | Planted: 
           = @crop.plant_date.strftime("%B %d, %Y")
@@ -76,20 +76,11 @@ p#notice = notice
         - if user_signed_in?
           = form_for([parent, @crop, @crop.crop_yields.build]) do |f|
             = hidden_field_tag "crop_yield[crop_id]", @crop.id
-            p
-              = f.label :pick_date
-              br
-              = f.text_field :pick_date, :placeholder => "Pick Date"
-            p
-              = f.label :quantity
-              br
-              = f.text_field :quantity, :placeholder => "Quantity"
-            p
-              = f.label :quantity_unit
-              br
-              = f.text_field :quantity_unit, :placeholder => "Quantity Unit"
-            p
-              = f.submit
+            p = f.text_field :pick_date, :placeholder => "Pick Date"
+            p = f.text_field :quantity, :placeholder => "Quantity"
+            p = f.text_field :quantity_unit, :placeholder => "Quantity Unit"
+            p 
+              button.button.btn-orange type="submit" Create Yield
 
 
           / = form_for(@crop, :url => polymorphic_url([parent, @crop, :crop_yields])) do |f|
