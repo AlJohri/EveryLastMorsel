@@ -4,7 +4,7 @@ gem 'rails', '3.2.14'
 
 group :assets do
   gem 'sass-rails', '= 3.2.6'                   # https://github.com/rails/sass-rails
-  gem 'bootstrap-sass', '= 2.3.2.0'             # https://github.com/thomas-mcdonald/bootstrap-sass
+  gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
   gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21' # https://github.com/Nerian/bootstrap-wysihtml5-rails
   gem 'x-editable-rails', '= 1.0.0'             # https://github.com/werein/x-editable-rails
   gem 'coffee-rails', '= 3.2.2'                 # https://github.com/rails/coffee-rails
@@ -32,7 +32,6 @@ gem 'newrelic_rpm', '= 3.6.5.130'               # https://github.com/newrelic/rp
 gem 'paperclip', '= 3.4.2'                      # https://github.com/thoughtbot/paperclip
 gem 'aws-sdk', '= 1.11.1'                       # https://github.com/aws/aws-sdk-ruby
 gem 'routing_concerns', '= 0.1.0'               # https://github.com/rails/routing_concerns
-gem 'rails_admin', '= 0.4.9'                    # https://github.com/sferik/rails_admin
 gem 'friendly_id', '= 4.0.9'                    # https://github.com/norman/friendly_id
 gem 'figaro', '= 0.7.0'                         # https://github.com/laserlemon/figaro
 gem 'pg', '= 0.15.1'                            # https://github.com/ged/ruby-pg
@@ -48,9 +47,11 @@ gem 'mailboxer'                                 # https://github.com/ging/mailbo
 gem 'public_activity'                           # https://github.com/pokonski/public_activity
 gem 'ransack'                                   # https://github.com/ernie/ransack
 gem 'safe_yaml', '= 0.9.5'
-#gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
+#gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"
 
+# Conflict, requires bootstrap-sass 3.0.0.0
+# gem 'rails_admin', '= 0.4.9'                    # https://github.com/sferik/rails_admin
 
 # Web Analytics
 # https://www.ruby-toolbox.com/categories/Web_Analytics

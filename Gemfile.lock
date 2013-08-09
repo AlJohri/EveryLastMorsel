@@ -5,6 +5,14 @@ GIT
     make_flaggable (0.1.0)
       activerecord (>= 3.0.0)
 
+GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: 466d5a3293bb02cda9e99d2afc616d7624ac5556
+  branch: 3
+  specs:
+    bootstrap-sass (3.0.0.0)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -50,8 +58,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (2.3.2.0)
-      sass (~> 3.2)
     bootstrap-wysihtml5-rails (0.3.1.21)
       railties (>= 3.0)
     builder (3.0.4)
@@ -110,8 +116,6 @@ GEM
     gibbon (0.4.6)
       httparty
       multi_json (>= 1.3.4)
-    haml (4.0.3)
-      tilt
     has_scope (0.5.1)
     hashie (2.0.5)
     hike (1.2.3)
@@ -151,7 +155,6 @@ GEM
     multi_json (1.7.8)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
-    nested_form (0.3.2)
     nested_scaffold (0.2.1)
       rails (~> 3.2.2)
     newrelic_rpm (3.6.5.130)
@@ -202,9 +205,6 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-pjax (0.7.0)
-      nokogiri (~> 1.5)
-      rack (~> 1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -222,21 +222,6 @@ GEM
       activesupport (>= 3.0)
       choice (~> 0.1.6)
       ruby-graphviz (~> 1.0.4)
-    rails_admin (0.4.9)
-      bootstrap-sass (~> 2.2)
-      builder (~> 3.0)
-      coffee-rails (>= 3.1, < 5)
-      font-awesome-rails (~> 3.0)
-      haml (~> 4.0)
-      jquery-rails (>= 2.1, < 4)
-      jquery-ui-rails (~> 3.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (~> 0.6)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      safe_yaml (~> 0.6)
-      sass-rails (~> 3.1)
     railties (3.2.14)
       actionpack (= 3.2.14)
       activesupport (= 3.2.14)
@@ -251,7 +236,6 @@ GEM
       polyamorous (~> 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    remotipart (1.2.1)
     responders (0.9.3)
       railties (~> 3.1)
     rolify (3.2.0)
@@ -323,7 +307,7 @@ DEPENDENCIES
   aws-sdk (= 1.11.1)
   better_errors (= 0.9.0)
   binding_of_caller
-  bootstrap-sass (= 2.3.2.0)
+  bootstrap-sass!
   bootstrap-wysihtml5-rails (= 0.3.1.21)
   cancan (= 1.6.10)
   coffee-rails (= 3.2.2)
@@ -356,7 +340,6 @@ DEPENDENCIES
   quiet_assets (= 1.0.2)
   rails (= 3.2.14)
   rails-erd (= 1.1.0)
-  rails_admin (= 0.4.9)
   ransack
   rolify (= 3.2.0)
   routing_concerns (= 0.1.0)
