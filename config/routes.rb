@@ -8,7 +8,7 @@ EveryLastMorsel::Application.routes.draw do
 
   ######## Home (no Auth), Home (with Auth), About, Help, Map, Marketplace ########
   authenticated :user do
-    root :to => "posts#index"
+    root :to => "activities#index"
   end
   root :to => "static#home"
   scope :controller => "static" do

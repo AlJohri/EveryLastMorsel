@@ -3,7 +3,6 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   belongs_to :user
   
-
   attr_accessible :content, :title, :created_at, :updated_at
   attr_accessible :user, :user_id
   
@@ -33,5 +32,5 @@ class Post < ActiveRecord::Base
   end
 
   include PublicActivity::Model
-  tracked
+  tracked owner: ->(controller, model) { controller && controller.current_user }
 end

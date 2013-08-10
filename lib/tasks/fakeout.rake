@@ -13,7 +13,7 @@ class Fakeout
   # 1. first these are the model names we're going to fake out, note in this example, we don't create tags/taggings specifically
   # but they are defined here so they get wiped on the clean operation
   # e.g. this example fakes out, Users, Questions and Answers, and in doing so fakes some Tags/Taggings
-  MODELS = %w(User Post Plot)
+  MODELS = %w(User Post Plot PublicActivity::Activity)
 
   # 2. now define a build method for each model, returning a list of attributes for Model.create! calls
   # check out the very excellent faker gem rdoc for faking out anything from emails, to full addresses; http://faker.rubyforge.org/rdoc
@@ -55,6 +55,13 @@ class Fakeout
     }
   end
 
+  def build_activity
+    {
+      # :name => Faker::Lorem.words(1),
+      # :description =>  Faker::Lorem.words(rand(10..15))
+    }
+  end
+
   # def build_crop
   #   {
   #     :name => Faker::Lorem.words(1).join,
@@ -76,6 +83,12 @@ class Fakeout
   def post_fake
     # User.create!(build_user('matt', 'matt@hiddenloop.com', 'password'))
     # User.update_all('email_confirmed = true')
+
+    Post.all.each do |post|
+      activity = PublicActivity::Activity.find_by_trackable_id(post.id)
+      activity.owner_id = post.user_id
+      activity.save
+    end
   end
 
   # 3. optionally you can change these numbers, basically they are used to determine the number of models to create

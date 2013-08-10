@@ -1,6 +1,6 @@
 class CropTypesController < InheritedResources::Base
-	layout "generic"
 	has_scope :page, :default => 1
+  
   respond_to :html, :xml, :json
 
   def index

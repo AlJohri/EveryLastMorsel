@@ -1,54 +1,38 @@
 article.posts.posts-user
-  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
-     a href=new_user_post_url
-       button.button.btn-orange Create Post
   .posts-content
     ul
       - @posts.each do |post|
         li.post
-          | <div class="row">
-          |   <div class="span8">
-          |     <div class="row">
-          |       <div class="span8">
-          |         <h4><strong><a href="#{user_post_url(post.user, post)}">#{post.title}</a></strong></h4>
-          |       </div>
-          |     </div>
-          |     <div class="row">
-          |       <div class="span2">
-          |         <a href="#" class="thumbnail">
-          |             <img src="http://placehold.it/260x180" alt="">
-          |         </a>
-          |       </div>
-          |       <div class="span6">      
-          |         <p>
-          == simple_format2(post.short_body)
-          |         </p>
-          |         <p><a class="btn" href="#{user_post_url(post.user, post)}">Read more</a></p>
-          |       </div>
-          |     </div>
-          |     <div class="row">
-          |       <div class="span8">
-          |         <p></p>
-          |         <p>
-          |           <i class="icon-user"></i> by <a href="#">John</a> 
-          |           | <i class="icon-calendar"></i> Sept 16th, 2012
-          |           | <i class="icon-comment"></i> <a href="#">3 Comments</a>
-          |           | <i class="icon-share"></i> <a href="#">39 Shares</a>
-          |           | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a> 
-          |           <a href="#"><span class="label label-info">Bootstrap</span></a> 
-          |           <a href="#"><span class="label label-info">UI</span></a> 
-          |           <a href="#"><span class="label label-info">growth</span></a>
-          |         </p>
-          |       </div>
-          |     </div>
-          |   </div>
-          | </div>
-          | <hr>
-    = paginate @posts
-/   p Posted #{post.created_at.strftime("%d %b. %Y")}
-/   h1
-/     = link_to "#{post.title}", user_post_url(@user, post)
-/   p.post-content == simple_format2(post.short_body)
-/   a href=user_post_url(post.user, post)
-/     | Read more...
-/ hr          
+          .row
+            .col-lg-12
+              h4
+                strong: a href=user_post_url(post.user, post) #{post.title}
+          .row
+            .col-lg-3
+              img.img-responsive src="http://placehold.it/260x180" alt=""
+            .col-lg-9
+              = post.short_body
+              p: a class="" href=user_post_url(post.user, post) Read more...
+          .row
+            .col-lg-12
+              i class="icon-user"
+              | &nbsp;by&nbsp;
+              a href="#" 
+              | #{post.user.name}&nbsp;|&nbsp;
+              i class="icon-calendar"
+              | &nbsp;#{post.created_at.strftime("%B %d, %Y")}&nbsp;|&nbsp;
+              i class="icon-comment"
+              a href="#"
+              | &nbsp;3 Comments&nbsp;|&nbsp;
+              i class="icon-share"
+              a href="#"
+              | &nbsp;39 Shares&nbsp;
+              / i class="icon-tags"
+          hr
+
+  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
+     a href=new_user_post_url
+       button.btn.btn-default Create Post
+
+
+  = paginate @posts

@@ -1,16 +1,23 @@
-.profile-top {
-	// background-color: blue;
+.profile {
+	background: white;
+	@include clearfix;
+	// padding: 10px auto;
 }
 
-.profile-bottom {
-	// background-color: yellow;
+.profile-top, .profile-bottom {
+	padding: 20px;
+	// padding-left: 20px;
+	// padding-right: 20px;
+}
+
+.profile-top {
+	background: #7dc6ca;
 }
 
 .profile-sidebar {
-	// margin-top: -40px;
-	// background-color: red;
+	margin-top: -40px;
 }
 
 .profile-content {
-	// background-color: green;
+	// margin: 2px;
 }

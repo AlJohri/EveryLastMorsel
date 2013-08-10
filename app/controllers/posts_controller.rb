@@ -1,5 +1,5 @@
 class PostsController < InheritedResources::Base
-  layout lambda { |controller| params[:user_id] ? "profile/user" : "generic" }
+  layout lambda { |controller| params[:user_id] ? "profile/user" : "application" }
 
   respond_to :html, :xml, :json
   belongs_to :user, :optional => true 
