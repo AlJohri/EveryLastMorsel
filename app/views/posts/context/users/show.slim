@@ -1,7 +1,7 @@
 / h1 = editable Post, @post, 'title', e: @post.title
 h1
-	a href='#' class= 'editable' data-type= 'text' data-model='post' data-name='title' data-url=post_path(@post) data-original-title='Your info here'
-		= @post.title
+	/ a href='#' class= 'editable' data-type= 'text' data-model='post' data-name='title' data-url=post_path(@post) data-original-title='Your info here'
+	= @post.title
 
 - if @post.picture?
 	ul.user-post-gallery-images
