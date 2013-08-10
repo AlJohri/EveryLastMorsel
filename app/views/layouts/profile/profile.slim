@@ -1,7 +1,21 @@
-- content_for :content do
-    .profile-layout
-      = render 'layouts/profile/top'
-      = render 'layouts/profile/left'
-      = render 'layouts/profile/right'
+= parent.inspect
+/ = resource.inspect
+
+- @profile = @user
+
+-content_for :content do
+  .container
+    .profile-top.row
+      .col-lg-9.col-lg-offset-3
+        h1: a = @profile.name.presence
+        = @profile.city + ", " + @user.state
+    .profile-bottom.row
+      .profile-sidebar.col-lg-3
+        = image_tag @profile.avatar(:medium), class: "img-responsive"
+        = yield(:profile_sidebar)
+      .profile-content.col-lg-9
+        ul.nav.nav-tabs.nav-justified
+          = yield(:profile_tabs)
+        = content_for?(:profile_content) ? yield(:profile_content) : yield
 
 = render template: "layouts/application"

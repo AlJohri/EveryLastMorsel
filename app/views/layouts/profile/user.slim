@@ -3,21 +3,21 @@
     h1
       = @user.name.presence || "Full Name"
 
-- content_for :profile_location do
-  span.icon.location
-  - if @user.city.present? && @user.state.present?
-      = @user.city + ", " + @user.state
-  - elsif @user.city.present?
-      = @user.city
-  - else
-      a href=edit_user_registration_url Add your city!
+/ - content_for :profile_location do
+/   span.icon.location
+/   - if @user.city.present? && @user.state.present?
+/       = @user.city + ", " + @user.state
+/   - elsif @user.city.present?
+/       = @user.city
+/   - else
+/       a href=edit_user_registration_url Add your city!
 
-- content_for :profile_image do
-  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
-   	a href=edit_user_registration_url
-  		= image_tag @user.avatar(:medium)
-  - else
-      = image_tag @user.avatar(:medium)
+/ - content_for :profile_image do
+/   - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
+/    	a href=edit_user_registration_url
+/   		= image_tag @user.avatar(:medium)
+/   - else
+/       = image_tag @user.avatar(:medium)
 
 - content_for :profile_sidebar do
   
@@ -54,9 +54,6 @@
 
 
 - content_for :profile_tabs do
-  ul.nav.nav-tabs.list-block
-    / li class=('active' if controller.controller_name == "users" && controller.action_name == 'show' || controller.controller_name == "registrations" && controller.action_name == 'edit' )
-      / = link_to "ABOUT", about_user_path(@user), remote: false
     li class=('active' if controller.controller_name == 'posts')
       = link_to "BLOG", user_posts_path(@user), remote: false
     li class=('active' if controller.controller_name == 'plots')

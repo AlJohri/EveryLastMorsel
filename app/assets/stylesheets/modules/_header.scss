@@ -46,7 +46,7 @@ $bottombar-fontsize: 14px;
 
 .header-topbar {
   @include clearfix;
-  background: #7dc6ca url("/assets/utility-blue-noise.jpg") repeat;
+  background: #7dc6ca; // url("/assets/utility-blue-noise.jpg") repeat
   border-bottom: 1px solid #75bbbf;
   // @include box-shadow(inset 0 -1px 1px rgba(255,255,255,1));
   padding: 8px 0;
