@@ -7,8 +7,10 @@
   .profile.container
     .profile-top.row
       .col-lg-9.col-lg-offset-3
-        h1: a = @profile.name.presence
-        p = @profile.city
+        h1 = @profile.name.presence
+        p 
+          i.icon.icon-large.icon-map-marker
+          span = @profile.city + ", " + @profile.state
     .profile-bottom.row
       .profile-sidebar.col-lg-3.visible-lg
         .row
@@ -21,18 +23,18 @@
               li class=('active' if controller.controller_name != 'registrations')
                 a href=user_url(@user) title="My Profile"
                   span
-                    i.icon-male
-                    | &nbsp;My Profile              
+                  i.icon.icon-large.icon-male
+                  | My Profile              
               li
                 a href=user_url(@user) title="Communication Hub"
                   span
-                    i.icon-envelope.icon-6
-                    | &nbsp;Communication Hub
+                    i.icon.icon-large.icon-envelope
+                    | Communication Hub
               li class=('active' if controller.action_name == 'edit')
                 a href=edit_user_registration_url title="Settings"
                   span
-                    i.icon-cog
-                    | &nbsp;Settings
+                    i.icon.icon-large.icon-cog
+                    | Settings
         .row
           .col-lg-12
             - if @user.about.present?

@@ -17,8 +17,8 @@
           p 
             | Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
       hr
-
-
 br
 
-= link_to 'New Crop', polymorphic_url([parent, :crop], :action => 'new') 
+  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
+     a href=polymorphic_url([parent, :crop], :action => 'new') 
+       button.btn.btn-default New Crop

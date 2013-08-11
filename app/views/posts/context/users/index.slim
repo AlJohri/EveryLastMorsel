@@ -1,6 +1,6 @@
 article.posts.posts-user
   .posts-content
-    ul
+    ul.list-unstyled
       - @posts.each do |post|
         li.post
           .row
@@ -15,18 +15,18 @@ article.posts.posts-user
               p: a class="" href=user_post_url(post.user, post) Read more...
           .row
             .col-lg-12
-              i class="icon-user"
-              | &nbsp;by&nbsp;
+              i class="icon icon-user"
+              | by&nbsp;
               a href="#" 
               | #{post.user.name}&nbsp;|&nbsp;
-              i class="icon-calendar"
-              | &nbsp;#{post.created_at.strftime("%B %d, %Y")}&nbsp;|&nbsp;
-              i class="icon-comment"
+              i class="icon icon-calendar"
+              | #{post.created_at.strftime("%B %d, %Y")}&nbsp;|&nbsp;
+              i class="icon icon-comment"
               a href="#"
-              | &nbsp;3 Comments&nbsp;|&nbsp;
-              i class="icon-share"
+              | 3 Comments&nbsp;|&nbsp;
+              i class="icon icon-share"
               a href="#"
-              | &nbsp;39 Shares&nbsp;
+              | 39 Shares&nbsp;
               / i class="icon-tags"
           hr
 

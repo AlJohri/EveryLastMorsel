@@ -1,44 +1,20 @@
 p#notice = notice
 
 .row-fluid
-  .span10
+  .col-lg-12
     .row-fluid
-      .span4
-        <img src="http://placehold.it/210x210" alt="placeholder+image">
-        br
-        br
-        <ul class="thumbnails">
-          <li class="span3">
-            <span class="thumbnail">
-              <img src="http://placehold.it/100x100" alt="">
-            </span>
-          </li>
-          <li class="span3">
-            <span class="thumbnail">
-              <img src="http://placehold.it/100x100" alt="">
-            </span>
-          </li>
-          <li class="span3">
-            <span class="thumbnail">
-              <img src="http://placehold.it/100x100" alt="">
-            </span>
-          </li>
-          <li class="span3">
-            <span class="thumbnail">
-              <img src="http://placehold.it/100x100" alt="">
-            </span>
-          </li>        
-        </ul>
+      .col-lg-4
+        img.img-responsive-full src="http://placehold.it/210x210" alt="placeholder+image"
         h4.produced-quantity 100 lbs. produced
         p Bundles sold:
         <div class="progress">
-          <div class="bar" style="width: 60%;"></div>
+          <div class="progress-bar" style="width: 60%;"></div>
         </div>
         p Bundles For Sale:
         <div class="progress">
-          <div class="bar" style="width: 60%;"></div>
+          <div class="progress-bar" style="width: 60%;"></div>
         </div>
-      .span6
+      .col-lg-8
         h1 #{@crop.crop_variety.try(:name)} #{@crop.crop_type.try(:name)}
         p
           | Planted: 
@@ -49,7 +25,7 @@ p#notice = notice
           |/ 
           | bundles
         a href='#' 
-          button.button.btn-orange type="button" Purchase
+          button.btn.btn-default type="button" Purchase
         p $3.50/bundle
         p 
           | Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet

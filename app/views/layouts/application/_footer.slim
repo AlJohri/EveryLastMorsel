@@ -1,30 +1,47 @@
 footer.footer
-  .footer-container
-    .column
-      h3
-        | Resources
-      ul.list
-        li: a[href="/about"] About Us
-        li: a[href="/marketplace"] Marketplace
-        li: a[href="/help"] How it Works
-        li: a[href="/help"] Help
-    .column
-      h3 Help Us Grow
-      ul.social
-        li: a.icon.twitter[href="http://twitter.com/@EveryLastMorsel" target="_blank" rel="twitter" title="Tweet With Us"]
-        li: a.icon.facebook[href="https://www.facebook.com/everylastmorsel" target="_blank" rel="facebook" title="Facebook Us"]
-    .column.newsletter
-      h3 Sign Up For News & Updates
-      form.email-signup[action="" method="post"]
-        div
-          input#newsletter-email[type="email" name="email" placeholder="Email"]
-        button.button.btn-blue[type="submit" name="submit"]
-          span Submit
-    .copyright.f-left
-      p Copyright © Every Last Morsel 2013
-      ul
-        li
-          a href="terms_of_service" Terms of Service
-          span.separator
-        li
-          a href="privacy_policy" Privacy Policy
+  .container
+    .row
+      .footer-left.col-4
+        h3 Resources
+        ul.list-unstyled
+            li: a[href="/about"] About Us
+            li: a[href="/marketplace"] Marketplace
+            li: a[href="/help"] How it Works
+            li: a[href="/help"] Help
+      .footer-center.col-4
+        h3 Help Us Grow
+        ul.list-unstyled.list-inline
+          li: a.icon-2x.icon-twitter[href="http://twitter.com/@EveryLastMorsel" target="_blank" rel="twitter" title="Tweet Us"]
+          li: a.icon-2x.icon-facebook[href="https://www.facebook.com/everylastmorsel" target="_blank" rel="facebook" title="Facebook Us"]
+          li: a.icon-2x.icon-instagram[href="#" target="_blank" rel="facebook" title="Instagram Us"]
+          li: a.icon-2x.icon-pinterest[href="#" target="_blank" rel="facebook" title="Pin Us"]
+      .footer-right.col-4
+        h3 Stuff
+    .row
+      .col-12
+        | Copyright © Every Last Morsel 2013 
+        a href="terms_of_service"  &nbsp; | &nbsp; Terms of Service
+        a href="privacy_policy"  &nbsp; |  &nbsp; Privacy Policy
+  /   .column
+  /     h3
+  /       | Resources
+  /   .column
+  /     h3 Help Us Grow
+  /     ul.social
+  /       li: 
+  /       
+  /   .column.newsletter
+  /     h3 Sign Up For News & Updates
+  /     form.email-signup[action="" method="post"]
+  /       div
+  /         input#newsletter-email[type="email" name="email" placeholder="Email"]
+  /       button.button.btn-blue[type="submit" name="submit"]
+  /         span Submit
+  /   .copyright.f-left
+  /     p 
+  /     ul
+  /       li
+  /         a href="terms_of_service" Terms of Service
+  /         span.separator
+  /       li
+  /         a href="privacy_policy" Privacy Policy

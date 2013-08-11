@@ -3,6 +3,26 @@
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-.wrapper {
-	background-color: #ecf0de;
+// .wrapper {
+//    min-height: 100%;
+//    height: auto !important;
+//    height: 100%;
+//    /* Negative indent footer by it's height */
+//    margin: 0 auto -150px;
+// }
+
+.container {
+	background: #fff;
+}
+
+.icon {
+	// margin-right: 2%;
+	display: inline-block !important;
+	width:1.5em;
+	text-align:center;
+}
+
+.img-responsive-full {
+	@extend .img-responsive;
+	width: 100%;
 }

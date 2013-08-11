@@ -2,7 +2,7 @@ header.header
   .header-topbar
     .header-topbar-content
       nav role="sitenav" 
-        ul
+        ul.list-unstyled
           - if user_signed_in?
               li: a href=user_url(current_user) title="Profile" Welcome #{current_user.name}
               li: span.separator
@@ -26,7 +26,7 @@ header.header
           img.logo-desktop alt=("Every Last Morsel") src="/assets/beta_logo.svg" title=("Every Last Morsel") /
           img.logo-mobile alt=("Every Last Morsel") src="/assets/beta_logo_small.svg" title=("Every Last Morsel") /
       nav role="sitenav" 
-        ul
+        ul.list-unstyled
           li: a href="/map" title="Map"  Map
           li: a href="/about" title=("About Us")  About Us
           li: a href="/help" title="Help"  Help

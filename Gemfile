@@ -13,7 +13,7 @@ group :assets do
   gem 'jquery-ui-rails', '= 3.0.1'              # https://github.com/joliss/jquery-ui-rails
   gem 'jquery-fileupload-rails', '= 0.4.1'      # https://github.com/tors/jquery-fileupload-rails
   gem 'uglifier', '= 2.1.1'                     # https://github.com/lautis/uglifier
-  gem 'font-awesome-rails', '= 3.2.1.2'         # https://github.com/bokmann/font-awesome-rails
+  gem 'font-awesome-rails'                      # https://github.com/bokmann/font-awesome-rails
 end
 
 gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
