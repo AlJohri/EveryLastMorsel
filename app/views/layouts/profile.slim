@@ -1,4 +1,6 @@
-- if parent == nil && resource.class.to_s == "Plot" || parent.class.to_s == "Plot"
+- if controller_name == "registrations"
+  - @profile = @user
+- elsif parent == nil && resource.class.to_s == "Plot" || parent.class.to_s == "Plot"
   - @profile = @plot
 - elsif parent == nil && resource.class.to_s == "User" || parent.class.to_s == "User"
   - @profile = @user
