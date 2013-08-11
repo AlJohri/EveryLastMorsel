@@ -1,15 +1,21 @@
 #sign-in.modal.fade
-    a class="close" data-dismiss="modal" X
-    h3.turquiose Sign In
-    div.modal-body
-        p.note It's as easy as watching grass grow!</p>
-        = render "devise/shared/signin"
-        = render "devise/shared/links"
+    .modal-dialog
+        .modal-content
+            .modal-header
+                button type="button" class="close" data-dismiss="modal" aria-hidden="true"&times;
+                h3.turquiose Sign In
+            .modal-body
+                p.note It's as easy as watching grass grow!</p>
+                = render "devise/shared/signin"
+                = render "devise/shared/links"
 
 #sign-up.modal.fade
-    a class="close" data-dismiss="modal" X
-    h3.turquiose Sign Up!
-    div.modal-body
-        p.note It's as easy as watching grass grow!
-        = render "devise/shared/signup"
-        = render "devise/shared/links"
+    .modal-dialog
+        .modal-content
+            .modal-header
+                button type="button" class="close" data-dismiss="modal" aria-hidden="true"&times;
+                h3.turquiose Sign Up!
+            .modal-body
+                p.note It's as easy as watching grass grow!
+                = render "devise/shared/signup"
+                = render "devise/shared/links"

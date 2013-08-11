@@ -1,0 +1,18 @@
+.crop_types-container
+  .crop_types-top
+    .crop_types-top-content
+      h1 Crops
+  .crop_types-bottom
+      .crop_types-bottom-content
+        .row
+          .col-lg-12
+            ul.thumbnails.list-unstyled.clearfix
+              - @crop_types.each do |crop_type|
+                li.crop.col-lg-3
+                  div class="thumbnail" align="center"
+                    img.img-responsive-full src="http://placehold.it/320x200" alt=crop_type.name
+                    div class="caption"
+                      h3: a href=crop_url(crop_type) #{crop_type.name} 
+        .row
+          .col-lg-12
+            = paginate @crop_types

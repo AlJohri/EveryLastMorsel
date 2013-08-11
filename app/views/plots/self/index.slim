@@ -1,0 +1,13 @@
+article.plots
+  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
+     a href=new_user_plot_url
+       button.button.btn-orange Create Plot
+  .plots-content
+    ul.list-unstyled
+      - @plots.each do |plot|
+        li.plot
+          = plot_url(plot)
+          = plot.name
+          = plot.about
+          = plot_url(plot)
+        hr

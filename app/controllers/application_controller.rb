@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     if (self.class.ancestors.include? InheritedResources::Base) #&& (request.format == "text/html") # && (!request.xhr?)
       #context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.downcase.pluralize
       context = parent? ? parent_type.to_s.downcase.pluralize : "self"
-      path = "#{controller_name}/context/#{context}/#{action_name}"
+      path = "#{controller_name}/#{context}/#{action_name}"
     end
 
     options = args.extract_options!

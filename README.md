@@ -23,30 +23,29 @@ The heavy use of polymorphic controllers is necessitated by the highly contextua
 
 In an effort to maintain relatively logicless views and keep thin controllers, instead of adding conditionals to change the view within the controller OR conditionals within the view to change the content, I added a "context" to each view.
 
-To elaborate, this is the folder structure for a particular resource (PlotCropVariety).
+To elaborate, this is the folder structure for a particular resource (Crops).
 
-    * app/views/plot_crop_varieties
+    * app/views/crops
         * partials
             * _index, _new, _show, _edit, _form
-        * context
-            * plots
-                * index, new, show, edit, _form
-            * users
-                * index, new, show, edit, _form
+        * plots
+            * index, new, show, edit, _form
+        * users
+            * index, new, show, edit, _form
 
-Instead of routing to app/views/plot\_crop\_varieties/#{action}.slim, I'm routing to app/views/plot\_crop\_varieties/context/#{context}/#{action}.slim.
+Instead of routing to app/views/plot\_crop\_varieties/#{action}.slim, I'm routing to app/views/crops/#{context}/#{action}.slim.
 
 To accomplish this change I made a small override to the render function within ApplicationController like so:
 
     def render(*args)
 
     # Check if controller inherits from InheritedResources::Base
-    # If so, change view route to prepend "context/#{context}"
+    # If so, change view route to prepend "#{context}"
     # to serve the correct view.
 
     if self.class.ancestors.include? InheritedResources::Base
       context = parent? ? parent_class.to_s.pluralize : "self" # parent_type.to_s.capitalize.pluralize
-      path = "#{controller_name}/context/#{context}/#{action_name}"
+      path = "#{controller_name}/#{context}/#{action_name}"
     end
 
     options = args.extract_options!
@@ -60,27 +59,27 @@ To accomplish this change I made a small override to the render function within 
 * ActivitiesController
 * ApplicationController
 * CommentsController
-* CropsControllers
-* PlotCropVarietiesController
+* CropsController
+* CropTypesControllers
+* CropVarietiesControllers
+* CropYieldsController
 * PlotsController
 * PostsController
 * StaticController
 * UsersController
-* VarietiesController
-* YieldsController
 
 ### Models
 * Ability
 * Comment
 * Follow
-* Crops (has_many Varieties)
-* Plot (has_many PlotCropVarieties, has_many Crops through PlotCropVarieties, has_many Varieties through PlotCropVarieties)
-* PlotCropVariety (belongs_to Plot, belongs_to Crop, belongs_to Variety, has_many Yields)
-* Post (belongs_to User)
-* Role (belongs_to User)
-* User (has_many Posts, has_and_belongs_to_many Plots, has_many Roles)
-* Variety (belongs_to Crop, belongs_to PlotCropVarietiy)
-* Yield (belongs_to PlotCropVariety)
+* Crop
+* CropType
+* CropVariety
+* CropYield
+* Plot
+* Post
+* Role
+* User
 
 Check out the [Entity-Relationship Diagram](https://github.com/AlJohri/EveryLastMorsel/blob/develop/erd.pdf) for a better idea of the model relationships.
 ________________________

@@ -1,0 +1,42 @@
+.row
+  .col-lg-12
+    - @posts.each do |post|
+      .post-top.row
+        .col-lg-12
+          h3
+            strong: a href=user_post_url(post.user, post) #{post.title}
+      .post-middle.row
+        .col-lg-3
+          img.img-responsive src="http://placehold.it/260x180" alt=""
+        .col-lg-9
+          = post.short_body
+          p: a class="" href=user_post_url(post.user, post) Read more...
+      .post-bottom.row
+        .col-lg-12
+          i class="icon icon-user"
+          | by&nbsp;
+          a href="#" 
+          | #{post.user.name}&nbsp;|&nbsp;
+          i class="icon icon-calendar"
+          | #{post.created_at.strftime("%B %d, %Y")}&nbsp;|&nbsp;
+          i class="icon icon-comment"
+          a href="#"
+          | #{post.comments.count} Comments&nbsp;|&nbsp;
+          i class="icon icon-share"
+          a href="#"
+          | #{post.flaggings.count} Digs&nbsp;
+          / i class="icon-tags"
+      hr
+
+  .col-lg-12
+    - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
+       a href=new_user_post_url
+         button.btn.btn-default Create Post
+
+
+  = paginate @posts
+
+scss:
+  .post-bottom {
+    margin-top: 5px;
+  }

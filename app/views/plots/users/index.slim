@@ -1,26 +1,35 @@
 .row
   .col-lg-12
-    - @crops.each do |crop|
+    - @plots.each do |plot|
       .row
         .col-lg-3
           h3
             img.img-responsive src="http://placehold.it/200x200" alt="placeholder+image"
         .col-lg-9
-          h3
-            = link_to "#{crop.try(:crop_variety).try(:name)} #{crop.try(:crop_type).try(:name)}", polymorphic_url([parent, crop])
+          h3= link_to "#{plot.try(:name)}", polymorphic_url([plot])
           p
             | Planted: 
-            = crop.plant_date.presence.strftime("%B %d, %Y")
           p
             | Yield: 
-            = crop.crop_yields.last.try(:quantity)
-            |/ 
-            | bundles
           p 
             | Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-      hr
+      hr        
 
   .col-lg-12
     - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
-       a href=polymorphic_url([parent, :crop], :action => 'new') 
-         button.btn.btn-default New Crop
+       a href=new_user_plot_url
+         button.btn.btn-default Create Plot
+
+
+/ article.plots
+/   .plots-content
+/     ul.list-unstyled
+/       - @plots.each do |plot|
+/         li.plot
+/           = plot_url(plot)
+/           = plot.name
+/           = plot.city
+/           = plot.state
+/           = plot.zip
+/           = plot.about
+/           / # = link_to 'Show', [plot.user, plot]

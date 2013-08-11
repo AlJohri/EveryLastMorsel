@@ -1,0 +1,28 @@
+.activities-container
+	.activities-top
+	 	.activities-top-content
+			h1 Activity Feed
+			h2 What's growin' on?
+	.activities-bottom
+		.activities-bottom-content
+			- @activities.each do |activity|
+				.col-lg-12
+					- if activity.trackable_type == "User"
+						- user = User.find(activity.trackable_id)
+						| #{user.name} just made an account. 
+						a href=user_url(activity.trackable_id)
+							| Follow #{user.name}  now!
+					- elsif activity.trackable_type == "Post"
+						- user = User.find(activity.owner_id)
+						| #{user.name} just made a post. 
+						a href=user_post_url(user, activity.trackable_id)
+							| Dig it?
+					- elsif activity.trackable_type == "Plot"
+						| #{User.find(activity.owner_id).name} just made a plot. 
+						| Follow it now!
+					- elsif activity.trackable_type == "Crop"
+						| #{User.find(activity.owner_id).name} just planted a crop. 
+						| Buy it now!							
+					- else
+						= activity.trackable_type.constantize.find(activity.trackable_id)
+			= paginate @activities

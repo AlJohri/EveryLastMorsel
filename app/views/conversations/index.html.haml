@@ -1,0 +1,92 @@
+- content_for :content do
+  .row-fluid
+    %h2 Conversations
+    .well
+      %ul.nav.nav-tabs#my_tabs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#inbox"} Inbox
+        %li
+          %a{"data-toggle" => "tab", :href => "#sent"} Sent
+        %li
+          %a{"data-toggle" => "tab", :href => "#trash"} Trash
+      #myTabContent.tab-content
+        #inbox.tab-pane.active.in
+          %table.table.table-condensed.table-hover
+            %thead
+              %tr
+                %th.span1 
+                %th.span2 Participants
+                %th.span5 Subject
+                %th.span2 Time
+                %th.span1
+            %tbody
+              -if @conversations.count > 0
+                =render @conversations
+              -else
+                %tr
+                  %td
+                  %td
+                  %td
+                    Nothing to show here!
+
+          -if params[:sent_page] || params[:trash_page]
+            =paginate @conversations, param_name: "inbox_page", params: { tab: "inbox", sent_page: "", trash_page: ""}
+          -else
+            =paginate @conversations, param_name: "inbox_page", params: { tab: "inbox"}
+        #sent.tab-pane.fade
+          %table.table.table-condensed.table-hover
+            %thead
+              %tr
+                %th.span1 
+                %th.span2 Participants
+                %th.span5 Subject
+                %th.span2 Time
+                %th.span1
+            %tbody
+              -if @conversations_sent.count > 0
+                =render partial: 'conversation', collection: @conversations_sent
+              -else
+                %tr
+                  %td
+                  %td
+                  %td
+                    Nothing to show here!
+          =paginate @conversations_sent, param_name: "sent_page", params: { tab: "sent"}
+        #trash.tab-pane.fade
+          %table.table.table-condensed.table-hover
+            %thead
+              %tr
+                %th.span1 
+                %th.span2 Participants
+                %th.span5 Subject
+                %th.span2 Time
+                %th.span1
+            %tbody
+              -if @conversations_trash.count > 0
+                =render partial: 'conversation', collection: @conversations_trash
+              -else
+                %tr
+                  %td
+                  %td
+                  %td
+                    Nothing to show here!
+          =paginate @conversations_trash,param_name: "trash_page",  params: { tab: "trash"}
+
+  - @tab_id = params[:tab] ? "#my_tabs a[href=" + %Q(##{params[:tab]}) + "]" : "#my_tabs a:first"
+
+  :javascript    
+    $(function () {
+        $('#{@tab_id}').tab('show');
+      });
+  / %br
+  / %br
+  / %br
+  / %h1 Conversations
+  / %h2 Inbox
+  / %ul= render mailbox.inbox
+  / %h2 Sentbox
+  / %ul= render mailbox.sentbox
+  / %h2 Trash
+  / %ul= render mailbox.trash
+
+  / = link_to 'Start Conversation', :new_conversation

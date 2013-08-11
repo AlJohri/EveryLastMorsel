@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   
   attr_accessible :content, :title, :created_at, :updated_at
   attr_accessible :user, :user_id
+  attr_accessible :tag_list
   
   # has_many :comments
 

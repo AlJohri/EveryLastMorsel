@@ -1,23 +1,5 @@
-= form_for @crop, :url => polymorphic_url([parent, :crops]) do |f|
-  - if @crop.errors.any?
-      #error_explanation
-        h2 = "#{pluralize(@crop.errors.count, "error")} prohibited this plot_crop_variety from being saved:"
-        ul
-          - @crop.errors.full_messages.each do |message|
-            li = message
-
-  = f.collection_select :plot_id, current_user.plots, :id, :name, :prompt => 'Choose Plot'
-  br
-  = f.label :crop_name
-  = f.text_field :crop_name, data: {autocomplete_source: "/crops.json"}, :placeholder => "Crop Type"  
-  br
-  = f.text_field :variety_name, data: {autocomplete_source: "/varieties.json"}, :placeholder => "Variety"
-
-
-  / # = f.collection_select :crop_id, Crop.order(:name), :id, :name, :prompt => 'Choose Crop Type'
-  / # = f.collection_select :variety_id, Variety.order(:name), :id, :name, :prompt => 'Choose Crop Variety'
-
-  br
-  = f.date_select :plant_date
-
-  .actions = f.submit 'Save'
+= simple_form_for @crop, :url => polymorphic_url([parent, :crops])  do |f|
+  = f.input :plot_id, collection: current_user.plots, prompt: "Choose your plot"
+  = f.input :crop_name, :placeholder => "Crop Type", input_html: { data: {autocomplete_source: "/crops.json"} }
+  = f.input :variety_name, :placeholder => "Variety", input_html: { data: {autocomplete_source: "/varieties.json"} }
+  = f.button :submit

@@ -1,3 +1,79 @@
-article.devise
-  = render "devise/shared/signup"
-  = render "devise/shared/links"
+/ article.devise
+/   = render "devise/shared/signup"
+/   = render "devise/shared/links"
+
+.container
+  .row
+    .col-lg-12
+      .col-lg-6
+        .area
+          form.form-horizontal
+            .heading
+              h4.form-heading Sign In
+            .control-group
+              label.control-label for="inputCompanyName"
+              .controls
+                input#inputCompanyName placeholder="E.g. Some Software Pvt. Ltd." type="text"
+            .control-group
+              label.control-label for="inputUsername"
+              .controls
+                input#inputUsername placeholder="E.g. ashwinhegde" type="text"
+            .control-group
+              label.control-label for="inputPassword"
+              .controls
+                input#inputPassword placeholder="Min. 8 Characters" type="password"
+            .control-group
+              .controls
+                label.checkbox
+                  input type="checkbox"
+                    | Keep me signed in   ¦
+                    a.btn.btn-link href="#"
+                button.btn.btn-success type="submit" Sign In
+                button.btn.btn-default type="button" Help
+            .alert.alert-error
+              button.close data-dismiss="alert" type="button"
+              strong Access Denied!
+              | Please provide valid authorization.
+      .col-lg-6
+        .area
+          form.form-horizontal
+            .heading
+              h4.form-heading Sign Up
+            .control-group
+              label.control-label for="inputCompanyName"
+              .controls
+                input#inputCompanyName placeholder="E.g. Some Software Pvt. Ltd." type="text"
+            .control-group
+              label.control-label for="inputFirst"
+              .controls
+                input#inputFirst placeholder="E.g. Ashwin" type="text"
+            .control-group
+              label.control-label for="inputLast"
+              .controls
+                input#inputLast placeholder="E.g. Hegde" type="text"
+            .control-group
+              label.control-label for="inputEmail"
+              .controls
+                input#inputEmail placeholder="E.g. ashwinh@cybage.com" type="text"
+            .control-group
+              label.control-label for="inputUser"
+              .controls
+                input#inputUser placeholder="E.g. ashwinhegde" type="text"
+            .control-group
+              label.control-label for="inputPassword"
+              .controls
+                input#inputPassword placeholder="Min. 8 Characters" type="password"
+            .control-group
+              .controls
+                label.checkbox
+                  input type="checkbox"
+                    | I agree all your
+                    a href="#"
+                button.btn.btn-success type="submit" Sign Up
+                button.btn.btn-default type="button" Help
+            .alert.alert-info
+              button.close data-dismiss="alert" type="button"
+              strong Confirmation:
+              | A confirmation email has been sent to your email.
+              br
+                | Thank you for your registration.

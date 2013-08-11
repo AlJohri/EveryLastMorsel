@@ -1,5 +1,11 @@
 @import "compass/css3";
 
+.article-home {
+  h1 { font-size: 36px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 15px; }
+}
+
 .section-hero {
   width: 100%;
   background-image: url(/assets/hero.jpg);
@@ -42,7 +48,7 @@
     background: rgba(255,255,255,0.9);
     padding: 11px 13px;
     text-align: center;
-    .get-started { margin: 10px auto 0px auto; }
+    .get-started { margin: 0px auto; }
   }
 
 }
@@ -106,8 +112,8 @@ ul.tools {
     left: 55%;
     width: 310px;
     padding: 130px 0px 130px 0px;
-    h1 { color: #4b4b4b; font-size: 36px; padding-bottom: 10px; }
-    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; }
+    h1 { color: #4b4b4b; padding-bottom: 10px; }
+    h2 { color: #6d6d6d; padding-bottom: 10px; }
     a { color: #f07519; font-size: 18px; text-transform: uppercase; }
   }
 
@@ -127,8 +133,8 @@ ul.tools {
     padding-top: 130px;
     padding-bottom: 130px;
     // padding: 3% 10%;
-    h1 { color: white; font-size: 36px; padding-bottom: 10px; }
-    h2 { color: white; font-size: 20px; padding-bottom: 10px; }
+    h1 { color: white; padding-bottom: 10px; }
+    h2 { color: white; padding-bottom: 10px; }
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; }
   }  
 }
@@ -139,8 +145,8 @@ ul.tools {
     background-size: cover;
   .section-learn-content {
     text-align: center;
-    h1 { color: #6d6d6d; font-size: 36px; padding-bottom: 10px; color: white; margin-top: 15%; }
-    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; color: white;}
+    h1 { color: #6d6d6d; padding-bottom: 10px; color: white; margin-top: 15%; }
+    h2 { color: #6d6d6d; padding-bottom: 10px; color: white;}
     a { color: #4b4b4b; font-size: 18px; text-transform: uppercase; color: white;}
     padding: 3% 10%;
   }
@@ -152,8 +158,8 @@ ul.tools {
   padding-top: 0 10%;
   @include clearfix;
   .section-share-content {
-    h2 { color: #6d6d6d; font-size: 20px; padding-bottom: 10px; padding-top: 0; }
-    a {font-size: 18px;}
+    h2 { color: #6d6d6d; padding-bottom: 10px; padding-top: 0; }
+    a { font-size: 18px; text-transform: uppercase; }
     padding: 10% 10%;
     width: 50%;
     float: left;
@@ -188,7 +194,7 @@ ul.tools {
   background-color: red;
 }
 
-.button.btn-orange.home-sign-up-btn { margin: 0 auto;}
+.home-sign-up-btn { margin: 0 auto; }
 
 @media only screen and (max-width: 1100px) {
   .section-claims img { max-width: 620px; bottom: -30px; left: 10% }
@@ -214,15 +220,11 @@ ul.tools {
     width: 266px;
     padding-top: 50px;
     padding-bottom: 50px;    
-    h1 { font-size: 20px; }
-    h2 { font-size: 15px;  }
     a { font-size: 12px; }    
   }
 
   .section-learn .section-learn-content, .section-share .section-share-content, .section-grow .section-grow-content {
     margin: 0 auto;
-    h1 { font-size: 20px; }
-    h2 { font-size: 15px;  }
     a { font-size: 12px; }     
   }
 
@@ -233,16 +235,12 @@ ul.tools {
     padding-bottom: 70px;
     left: 50%;
     width: 230px;
-    h1 { font-size: 20px; }
-    h2 { font-size: 15px;  }
     a { font-size: 12px; }
   }
 
   .hero-headline { font-size: 30px; }
 
   .section-tool {
-    h1 { font-size: 20px; }
-    h2 { font-size: 15px; }
     padding-bottom: 15px;
   }
 

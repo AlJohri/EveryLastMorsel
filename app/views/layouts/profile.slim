@@ -1,0 +1,68 @@
+- if parent == nil && resource.class.to_s == "Plot" || parent.class.to_s == "Plot"
+  - @profile = @plot
+- elsif parent == nil && resource.class.to_s == "User" || parent.class.to_s == "User"
+  - @profile = @user
+- else
+  - raise
+
+-content_for :content do
+  .profile.container
+    .profile-top.row
+      .col-lg-9.col-lg-offset-3
+        h1 = @profile.name.presence
+        p 
+          i.icon.icon-large.icon-map-marker
+          span = @profile.city + ", " + @profile.state
+    .profile-bottom.row
+      .profile-sidebar.col-lg-3.visible-lg
+        .row
+          .col-lg-12
+            = image_tag @profile.avatar(:medium), class: "img-responsive"
+        br
+        .row
+          .col-lg-12
+            ul class="nav nav-pills nav-stacked"
+              li class=('active' if controller.controller_name != 'registrations')
+                a href=polymorphic_url(@profile) title="#{@profile.class.to_s} Profile"
+                  span
+                  i.icon.icon-large.icon-male
+                  | #{@profile.class.to_s} Profile              
+              li
+                a href=polymorphic_url(@profile) title="Communication Hub"
+                  span
+                    i.icon.icon-large.icon-envelope
+                    | Communication Hub
+              li class=('active' if controller.action_name == 'edit')
+                a href=edit_user_registration_url title="Settings"
+                  span
+                    i.icon.icon-large.icon-cog
+                    | Settings
+        .row
+          .col-lg-12
+            - if @profile.about.present?
+                h5 About #{@profile.name}:
+                p #{@profile.about}
+      .profile-content.col-lg-9
+        .row
+          .col-lg-12
+            ul.nav.nav-tabs
+              - if @profile.class.to_s == "User"
+                li class=('active' if controller.controller_name == 'posts')
+                  = link_to "BLOG", polymorphic_url([@profile, :posts]), remote: false
+                li class=('active' if controller.controller_name == 'plots')
+                  = link_to "PLOT", polymorphic_url([@profile, :plots]), remote: false
+                li class=('active' if controller.controller_name == 'crops')
+                  = link_to "CROP", polymorphic_url([@profile, :crops]), remote: false
+              - elsif @profile.class.to_s == "Plot"
+                li class=('active' if controller.controller_name == 'crops')
+                  = link_to "CROP", polymorphic_url([@profile, :crops]), remote: false
+                li class=('active' if controller.controller_name == '')
+                  = link_to "PEOPLE", "#", remote: false
+        = content_for?(:profile_content) ? yield(:profile_content) : yield
+
+= render template: "layouts/application"
+
+/ scss:
+/   .tabs-row {
+/     margin-bottom: 10px;
+/   }

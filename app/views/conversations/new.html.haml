@@ -1,0 +1,5 @@
+%h3
+  =image_tag("#{@to_user.avatar}", width: "30px", class: "rounded-corners-profile-pic")
+  %span{style: "vertical-align:middle;"} &nbsp; Contact #{@to_user.name.split(" ")[0]}
+= render 'form'
+=link_to "Back to Profile", user_page_url(@to_user.slug)

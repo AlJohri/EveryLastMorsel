@@ -1,0 +1,7 @@
+= simple_form_for :conversation, url: :conversations do |f|
+  = f.input :recipients, as: :hidden, input_html: { value: @to_user.slug}
+  = f.input :subject
+  = f.input :body, as: :text, label: "Your Message", input_html: { style: "width: 75%; height: 100px"}
+  .form-actions
+    = f.button :submit
+    = # submit_tag 'Cancel', type: :reset, class: 'btn btn-danger'

@@ -1,0 +1,11 @@
+.icon {
+	// margin-right: 2%;
+	display: inline-block !important;
+	width:1.5em;
+	text-align:center;
+}
+
+.img-responsive-full {
+	@extend .img-responsive;
+	width: 100%;
+}

@@ -16,6 +16,7 @@ group :assets do
   gem 'font-awesome-rails'                      # https://github.com/bokmann/font-awesome-rails
 end
 
+gem 'haml'
 gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
 gem 'devise', '= 2.2.4'                         # https://github.com/plataformatec/devise
 gem 'omniauth', '= 1.1.4'                       # https://github.com/intridea/omniauth
@@ -46,6 +47,7 @@ gem 'acts_as_commentable', '= 3.0.1'            # https://github.com/jackdempsey
 gem 'mailboxer'                                 # https://github.com/ging/mailboxer
 gem 'public_activity'                           # https://github.com/pokonski/public_activity
 gem 'ransack'                                   # https://github.com/ernie/ransack
+gem 'sitemap_generator'                         # https://github.com/kjvarga/sitemap_generator
 gem 'safe_yaml', '= 0.9.5'
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 #gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"

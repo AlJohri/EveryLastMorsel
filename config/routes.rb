@@ -1,6 +1,12 @@
 EveryLastMorsel::Application.routes.draw do
 
-  get "yields/index"
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
   ####################################################################################
   # STATIC ROUTES

@@ -3,10 +3,6 @@
 .footer { 
     background: $gray-dark;
     @include clearfix;
-    // // border-top: 1px solid #747a2f;
-    // @include box-shadow(inset 0 1px 1px rgba(255,255,255,0.3));
-    // clear: both;
-    // position: relative;    
     height: 170px; 
     padding: 5px 0; 
     color: #fff;

@@ -1,0 +1,42 @@
+%tr{id: "#{conversation.id}", "data-link" => url_for(:action => 'show', :id => conversation.id)}
+  -if conversation.is_unread?(current_user)
+    %td.strong
+      %i.icon-envelope
+    %td.strong
+      =conversation.participants.map(&:first_name).join(', ')
+      ="(" + conversation.count_messages.to_s + ")"
+    %td.strong= truncate(conversation.subject, length: 55)
+    %td.strong
+      -if conversation.last_message.created_at.today?
+        =conversation.last_message.created_at.strftime("%l:%M %p")
+      -else
+        =conversation.last_message.created_at.strftime("%-m/%-d %l:%M %p")
+    %td.strong
+      =link_to trash_conversation_url(conversation), method: :post do
+        %i.icon-trash
+  -else
+    %td
+      / %span.label
+      / %i.icon-envelope.icon-white
+    %td
+      =conversation.participants.map(&:first_name).join(', ')
+      ="(" + conversation.count_messages.to_s + ")"
+    %td= truncate(conversation.subject, length: 55, separate: " ")
+    %td
+      -if conversation.last_message.created_at.today?
+        =conversation.last_message.created_at.strftime("%l:%M %p")
+      -else
+        =conversation.last_message.created_at.strftime("%-m/%-d %l:%M %p")
+    %td
+      =link_to trash_conversation_url(conversation), method: :post do
+        %i.icon-trash
+:javascript
+  $('##{conversation.id}').click(function() {
+    window.location = this.getAttribute("data-link")
+  })
+:css
+  tbody tr {
+    cursor: pointer;
+    }
+
+

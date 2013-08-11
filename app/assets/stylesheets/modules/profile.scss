@@ -1,24 +1,5 @@
-.profile {
-	background: white;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	@include clearfix;
-	// padding: 10px auto;
-}
-
-.profile-top, .profile-bottom {
-	padding: 10px 20px;
-}
-
-.profile-top {
-	background: #7dc6ca;
-	color: #fff
-}
-
-.profile-sidebar {
-	margin-top: -95px;
-}
-
-.profile-content {
-	// margin: 2px;
-}
+.profile { background: white; margin-top: 20px; margin-bottom: 20px; @include clearfix; }
+.profile-top, .profile-bottom { padding: 10px 20px; }
+.profile-top { background: #7dc6ca; color: #fff }
+.profile-sidebar { margin-top: -95px; }
+.profile-content { }
