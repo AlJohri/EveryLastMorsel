@@ -1,5 +1,12 @@
 = simple_form_for @crop, :url => polymorphic_url([parent, :crops])  do |f|
-  = f.input :plot_id, collection: current_user.plots, prompt: "Choose your plot"
-  = f.input :crop_name, :placeholder => "Crop Type", input_html: { data: {autocomplete_source: "/crops.json"} }
-  = f.input :variety_name, :placeholder => "Variety", input_html: { data: {autocomplete_source: "/varieties.json"} }
+  = f.input :plot_id, collection: current_user.plots, prompt: "Choose your plot", label: false, required: true, input_html: { :class => '' }
+  = f.input :crop_name, :placeholder => "Crop Type", label: false, input_html: { :class => '', required: true, data: {autocomplete_source: "/crops.json"} }
+  = f.input :variety_name, :placeholder => "Variety", label: false, input_html: { :class => '', required: true, data: {autocomplete_source: "/varieties.json"} }
+  = f.input :plant_date, :as => :string, :placeholder => "Plant Date", label: false, required: true, :input_html => { :class => 'date_picker' }
+
   = f.button :submit
+
+javascript:
+	$(function() {
+	  $('input.date_picker').datepicker();
+	});

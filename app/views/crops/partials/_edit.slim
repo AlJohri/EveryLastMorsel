@@ -1,0 +1,7 @@
+h3 Edit Crop
+
+== render 'crops/partials/form'
+
+= link_to 'Show', polymorphic_url([parent, @crop])
+'|
+= link_to 'Back', polymorphic_url([parent, :crops])

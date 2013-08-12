@@ -24,8 +24,12 @@
           | #{post.comments.count} Comments&nbsp;|&nbsp;
           i class="icon icon-share"
           a href="#"
-          | #{post.flaggings.count} Digs&nbsp;
-          / i class="icon-tags"
+          | #{post.flaggings.count} Digs&nbsp;|&nbsp;
+          i class="icon icon-tags"
+          | Tags: 
+          - post.tags.each do |tag|
+            | &nbsp;
+            span class="label label-default" #{tag.name}
       hr
 
   .col-lg-12

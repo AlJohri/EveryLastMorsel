@@ -19,6 +19,7 @@
 //= require bootstrap-wysihtml5
 //= require editable/bootstrap-editable
 //= require editable/rails
+//= require bootstrap-datepicker
 //= require elm
 //= require map
 

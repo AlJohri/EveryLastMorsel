@@ -6,6 +6,7 @@ group :assets do
   gem 'sass-rails', '= 3.2.6'                   # https://github.com/rails/sass-rails
   gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
   gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21' # https://github.com/Nerian/bootstrap-wysihtml5-rails
+  gem 'bootstrap-datepicker-rails'              # https://github.com/Nerian/bootstrap-datepicker-rails
   gem 'x-editable-rails', '= 1.0.0'             # https://github.com/werein/x-editable-rails
   gem 'coffee-rails', '= 3.2.2'                 # https://github.com/rails/coffee-rails
   gem 'compass-rails', '= 1.0.3'                # https://github.com/Compass/compass-rails

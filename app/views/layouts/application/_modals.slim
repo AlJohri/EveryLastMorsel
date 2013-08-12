@@ -2,7 +2,7 @@
     .modal-dialog
         .modal-content
             .modal-header
-                button type="button" class="close" data-dismiss="modal" aria-hidden="true"&times;
+                button.close type="button" data-dismiss="modal" aria-hidden="true"&times;
                 h3.turquiose Sign In
             .modal-body
                 p.note It's as easy as watching grass grow!</p>
@@ -12,10 +12,52 @@
 #sign-up.modal.fade
     .modal-dialog
         .modal-content
-            .modal-header
-                button type="button" class="close" data-dismiss="modal" aria-hidden="true"&times;
-                h3.turquiose Sign Up!
+            / .modal-header
+                / button.close type="button" data-dismiss="modal" aria-hidden="true"&times;
+                / h3 Have an Account?
             .modal-body
-                p.note It's as easy as watching grass grow!
-                = render "devise/shared/signup"
-                = render "devise/shared/links"
+                button.close type="button" data-dismiss="modal" aria-hidden="true"&times;
+                / .well
+                ul.nav.nav-tabs
+                  li.active
+                    a data-toggle="tab" href="#login" Login
+                  li
+                    a data-toggle="tab" href="#create" Create Account
+                #myTabContent.tab-content
+                  #login.tab-pane.active.in
+                    form.form-horizontal action="" method="POST"
+                      fieldset
+                        / #legend
+                          / legend Login
+                        .control-group
+                          /! Username
+                          label.control-label for="username"
+                          .controls
+                            input#username.input-xlarge name="username" placeholder="" type="text"
+                        .control-group
+                          /! Password
+                          label.control-label for="password"
+                          .controls
+                            input#password.input-xlarge name="password" placeholder="" type="password"
+                        .control-group
+                          /! Button
+                          .controls
+                            button.btn.btn-success Login
+                  #create.tab-pane.fade
+                    form#tab
+                      label Username
+                      input.input-xlarge type="text" value=""
+                      label First Name
+                      input.input-xlarge type="text" value=""
+                      label Last Name
+                      input.input-xlarge type="text" value=""
+                      label Email
+                      input.input-xlarge type="text" value=""
+                      label Address
+                      textarea.input-xlarge rows="3" value="Smith"
+                      div
+                          button.btn.btn-primary Create Account
+
+/ p.note It's as easy as watching grass grow!
+/ = render "devise/shared/signup"
+/ = render "devise/shared/links"
