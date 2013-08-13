@@ -164,6 +164,14 @@ class User < ActiveRecord::Base
     user
   end
 
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+    #if true
+    return email
+    #if false
+    #return nil
+  end  
+
   def update_mailchimp
     gb = Gibbon.new
     ret = gb.list_subscribe({:id => '814352e0b3', :email_address => self.email, :merge_vars => {:FNAME => self.first_name, :LNAME => self.last_name, :MMERGE3 => self.city, :MMERGE4 => self.created_at }})

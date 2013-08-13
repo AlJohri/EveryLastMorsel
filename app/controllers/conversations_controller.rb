@@ -4,9 +4,9 @@ class ConversationsController < ApplicationController
 
   def index
     # @tab_id = params[:tab]
-    @conversations = current_user.mailbox.inbox.page(params[:inbox_page]).per(15)
-    @conversations_sent = current_user.mailbox.sentbox.page(params[:sent_page]).per(15)
-    @conversations_trash = current_user.mailbox.trash.page(params[:trash_page]).per(15)
+    @conversations = current_user.mailbox.inbox.page(params[:inbox_page]).per(1)
+    @conversations_sent = current_user.mailbox.sentbox.page(params[:sent_page]).per(1)
+    @conversations_trash = current_user.mailbox.trash.page(params[:trash_page]).per(1)
   end
 
   def message
@@ -18,10 +18,10 @@ class ConversationsController < ApplicationController
 
   def show
     conversation.mark_as_read(current_user)
-    if !Appointment.find_by_conversation_id(conversation.id).nil?
-      appointment = Appointment.find_by_conversation_id(conversation.id)
-      redirect_to appointment_path(user_id:current_user.slug, id: appointment.id)
-    end
+    # if !Appointment.find_by_conversation_id(conversation.id).nil?
+      # appointment = Appointment.find_by_conversation_id(conversation.id)
+      # redirect_to appointment_path(user_id:current_user.slug, id: appointment.id)
+    # end
   end
 
   def create

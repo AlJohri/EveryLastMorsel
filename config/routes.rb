@@ -102,6 +102,7 @@ EveryLastMorsel::Application.routes.draw do
   ####################################################################################
 
   ############## User ##############
+  get '/:id/message' => "conversations#message", as: "message_user"
   get '/:id(.:format)' => redirect('/%{id}/posts'), :as => :user
 end
 
