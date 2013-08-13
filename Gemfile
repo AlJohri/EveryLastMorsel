@@ -27,7 +27,9 @@ gem 'omniauth-google-oauth2', '= 0.2.0'         # https://github.com/zquestz/omn
 gem 'cancan', '= 1.6.10'                        # https://github.com/ryanb/cancan
 gem 'rolify', '= 3.2.0'                         # https://github.com/EppO/rolify
 gem 'geocoder', '= 1.1.8'                       # https://github.com/alexreisner/geocoder
-gem 'simple_form', '= 2.0.1'                    # https://github.com/plataformatec/simple_form
+gem 'simple_form', '= 2.0.3'                    # https://github.com/plataformatec/simple_form
+gem 'client_side_validations'                   # https://github.com/bcardarella/client_side_validations
+gem 'client_side_validations-simple_form', github: 'dockyard/client_side_validations-simple_form', branch: "2-0-stable"
 gem 'inherited_resources', '= 1.4.0'            # https://github.com/josevalim/inherited_resources
 gem 'has_scope', '= 0.5.1'                      # http://github.com/plataformatec/has_scope
 gem 'newrelic_rpm', '= 3.6.5.130'               # https://github.com/newrelic/rpm
