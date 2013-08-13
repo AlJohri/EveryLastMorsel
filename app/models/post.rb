@@ -14,8 +14,8 @@ class Post < ActiveRecord::Base
   acts_as_commentable
   friendly_id :title, use: :slugged
   
-  validates :title, presence: true # length: { minimum: 2, maximum: 66 }
-  validates :content, presence: true, length: { minimum: 10 }
+  validates :title, presence: true    # length: { minimum: 2, maximum: 66 }
+  validates :content, presence: true  # length: { minimum: 10 }
 
   attr_accessible :picture
   

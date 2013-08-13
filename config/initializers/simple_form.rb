@@ -1,20 +1,14 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-  # Wrappers are used by the form builder to generate a
-  # complete input. You can remove any component from the
-  # wrapper, change the order or even add your own to the
-  # stack. The options given below are used to wrap the
+  # Wrappers are used by the form builder to generate a complete input. You can remove any component from the
+  # wrapper, change the order or even add your own to the stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, :class => :input,
-    :hint_class => :field_with_hint, :error_class => :field_with_errors do |b|
+  config.wrappers :default, :label => false, :class => "input form-group", :hint_class => :field_with_hint, :error_class => :field_with_errors do |b|
     ## Extensions enabled by default
-    # Any of these extensions can be disabled for a
-    # given input by passing: `f.input EXTENSION_NAME => false`.
-    # You can make any of these extensions optional by
-    # renaming `b.use` to `b.optional`.
+    # Any of these extensions can be disabled for a given input by passing: `f.input EXTENSION_NAME => false`.
+    # You can make any of these extensions optional by renaming `b.use` to `b.optional`.
 
-    # Determines whether to use HTML5 (:email, :url, ...)
-    # and required attributes
+    # Determines whether to use HTML5 (:email, :url, ...) and required attributes
     b.use :html5
 
     # Calculates placeholders automatically from I18n
@@ -22,9 +16,8 @@ SimpleForm.setup do |config|
     b.use :placeholder
 
     ## Optional extensions
-    # They are disabled unless you pass `f.input EXTENSION_NAME => :lookup`
-    # to the input. If so, they will retrieve the values from the model
-    # if any exists. If you want to enable the lookup for any of those
+    # They are disabled unless you pass `f.input EXTENSION_NAME => :lookup`to the input. If so, they will 
+    # retrieve the values from the model if any exists. If you want to enable the lookup for any of those
     # extensions by default, you can change `b.optional` to `b.use`.
 
     # Calculates maxlength from length validations for string inputs

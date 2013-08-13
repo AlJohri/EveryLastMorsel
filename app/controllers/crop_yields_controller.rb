@@ -12,7 +12,7 @@ class CropYieldsController < InheritedResources::Base
   end
 
   def create
-	create! { polymorphic_url([parent, @crop]) }
+	 create! { polymorphic_url([parent, @crop]) }
   end
 
 end

@@ -39,17 +39,22 @@ class ApplicationController < ActionController::Base
 
   def render(*args)
 
+
     # Check if controller inherits from InheritedResources::Base
     # If so, change view route to prepend "context/#{context}"
     # to serve the correct view.
-
-    if (self.class.ancestors.include? InheritedResources::Base) #&& (request.format == "text/html") # && (!request.xhr?)
-      #context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.downcase.pluralize
-      context = parent? ? parent_type.to_s.downcase.pluralize : "self"
-      path = "#{controller_name}/#{context}/#{action_name}"
-    end
+    
+    #&& (request.format == "text/html") # && (!request.xhr?)
+    #context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.downcase.pluralize    
 
     options = args.extract_options!
+    
+    if (self.class.ancestors.include? InheritedResources::Base)
+      action = options[:action] || action_name
+      context = parent? ? parent_type.to_s.downcase.pluralize : "self"
+      path = "#{controller_name}/#{context}/#{action}"
+    end
+
     options[:template] = path if context != nil
     super(*(args << options))
   end
