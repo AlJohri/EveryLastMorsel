@@ -16,7 +16,6 @@
 //= require bootstrap
 //= require jquery-fileupload
 //= require lib/jquery/jquery.validate.js
-//= require bootstrap-wysihtml5
 //= require editable/bootstrap-editable
 //= require editable/rails
 //= require bootstrap-datepicker
@@ -24,6 +23,8 @@
 //= require rails.validations.simple_form
 //= require elm
 //= require map
+//= require bootstrap-wysihtml5
+
 
 // Angular Dependencies (not enabled)
 // require angular
@@ -39,7 +40,16 @@
 
 $(document).ready(function() {
 
-  $('[data-behaviour~=wysihtml5]').wysihtml5();
+  $('[data-behaviour~=wysihtml5]').wysihtml5({
+    "font-styles": true,
+    "emphasis": true,
+    "lists": true,
+    "html": false,
+    "link": false,
+    "image": false,
+    "color": false
+  });
+
   $('[data-behaviour~=datepicker]').datepicker();  
   $('[data-behaviour~=autocomplete]').each(function(i, elem) {
     $(elem).autocomplete({ source: $(elem).data('autocomplete-source') });

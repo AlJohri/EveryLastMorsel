@@ -5,7 +5,13 @@ gem 'rails', '3.2.14'
 group :assets do
   gem 'sass-rails', '= 3.2.6'                   # https://github.com/rails/sass-rails
   gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
-  gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21' # https://github.com/Nerian/bootstrap-wysihtml5-rails
+
+  # https://github.com/jhollingworth/bootstrap-wysihtml5
+  # https://github.com/Nerian/bootstrap-wysihtml5-rails
+  # https://github.com/artillery/bootstrap-wysihtml5 -> Pull Request for Rails 3 Support in this repository
+  # gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21'
+  gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+
   gem 'bootstrap-datepicker-rails'              # https://github.com/Nerian/bootstrap-datepicker-rails
   gem 'x-editable-rails', '= 1.0.0'             # https://github.com/werein/x-editable-rails
   gem 'coffee-rails', '= 3.2.2'                 # https://github.com/rails/coffee-rails
@@ -16,6 +22,10 @@ group :assets do
   gem 'uglifier', '= 2.1.1'                     # https://github.com/lautis/uglifier
   gem 'font-awesome-rails'                      # https://github.com/bokmann/font-awesome-rails
 end
+
+gem 'carrierwave'
+gem 'bootsy', github: 'volmer/bootsy', branch: 'rails-3.2'
+# gem 'bootsy-simple_form'
 
 gem 'haml'
 gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
@@ -56,7 +66,9 @@ gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 #gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"
 
 # Conflict, requires bootstrap-sass 3.0.0.0
-# gem 'rails_admin', '= 0.4.9'                    # https://github.com/sferik/rails_admin
+# gem 'rails_admin'
+# This branch is only for Rails 4
+# gem 'rails_admin', :github => 'davebrace/rails_admin', :branch => 'use-static-bootstrap-2'
 
 # Web Analytics
 # https://www.ruby-toolbox.com/categories/Web_Analytics
@@ -93,4 +105,3 @@ end
 
 # gem 'angularjs-rails'
 # gem 'blogit'
-# gem 'haml', '= 4.0.3'                           # https://github.com/haml/haml

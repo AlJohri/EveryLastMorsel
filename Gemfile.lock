@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Nerian/bootstrap-wysihtml5-rails.git
+  revision: 081b8ba0576dbfba2df1d21a46bc83a1e04404c9
+  specs:
+    bootstrap-wysihtml5-rails (0.3.1.21)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/cavneb/make_flaggable.git
   revision: 1b09b3bb8a778b5a8f7250c587d59a8e6c205be6
   specs:
@@ -21,6 +28,16 @@ GIT
   specs:
     bootstrap-sass (3.0.0.0)
       sass (~> 3.2)
+
+GIT
+  remote: git://github.com/volmer/bootsy.git
+  revision: e90c32f5dd2d0fa584f54985dd1fd671e86347af
+  branch: rails-3.2
+  specs:
+    bootsy (1.0.0)
+      carrierwave (~> 0.9.0)
+      mini_magick (~> 3.6.0)
+      remotipart (~> 1.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -68,8 +85,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.1.1.6)
-      railties (>= 3.0)
-    bootstrap-wysihtml5-rails (0.3.1.21)
       railties (>= 3.0)
     builder (3.0.4)
     cancan (1.6.10)
@@ -165,6 +180,8 @@ GEM
       foreigner (>= 0.9.1)
       rails (> 3.0.0)
     mime-types (1.23)
+    mini_magick (3.6.0)
+      subexec (~> 0.2.1)
     mini_portile (0.5.1)
     multi_json (1.7.8)
     multi_xml (0.5.5)
@@ -250,6 +267,7 @@ GEM
       polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (0.9.3)
       railties (~> 3.1)
     rolify (3.2.0)
@@ -293,6 +311,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    subexec (0.2.3)
     temple (0.6.6)
     thin (1.5.1)
       daemons (>= 1.0.9)
@@ -325,8 +344,10 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-datepicker-rails
   bootstrap-sass!
-  bootstrap-wysihtml5-rails (= 0.3.1.21)
+  bootstrap-wysihtml5-rails!
+  bootsy!
   cancan (= 1.6.10)
+  carrierwave
   client_side_validations
   client_side_validations-simple_form!
   coffee-rails (= 3.2.2)
