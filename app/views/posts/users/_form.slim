@@ -18,7 +18,7 @@
 / <% end %>
 
 = simple_form_for @post, :defaults => { :wrapper_html => {:class => 'form-group'}, required: true, label: false},  :url => polymorphic_url([parent, :posts])  do |f|
-  = f.input :picture
+  = f.input :picture, label: "Main Picture"
   = f.input :title, placeholder: "Enter Title"
   = f.input :content, placeholder: "Write something wonderful...", input_html: { class: "wysihtml5" }
   = f.input :tag_list, placeholder: "Add tags here separated by commas (i.e. American food, farm to table, recipe)"
