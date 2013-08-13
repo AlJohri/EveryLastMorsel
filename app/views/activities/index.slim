@@ -9,20 +9,106 @@
 				.col-lg-12
 					- if activity.trackable_type == "User"
 						- user = User.find(activity.trackable_id)
-						| #{user.name} just made an account. 
-						a href=user_url(activity.trackable_id)
-							| Follow #{user.name}  now!
+						.row.activity-row
+							.col-lg-1.col-lg-offset-1
+								= image_tag user.avatar(:medium), class: "img-responsive"
+							.col-lg-9 
+								p 
+									a class='feed-link' href=user_url(activity.trackable_id) #{user.name}
+								|  Just joined! Welcome to the garden!
+								hr
+
 					- elsif activity.trackable_type == "Post"
 						- user = User.find(activity.owner_id)
-						| #{user.name} just made a post. 
-						a href=user_post_url(user, activity.trackable_id)
-							| Dig it?
+						- post = user.posts.find(activity.trackable_id)
+						.row.activity-row
+							.col-lg-1.col-lg-offset-1
+								= image_tag user.avatar(:medium), class: "img-responsive"
+							.col-lg-9
+								.row
+									.col-lg-12.col-padding
+										p
+											|#{user.name} 
+											= link_to "just posted, check it out!", user_post_url(post.user, post)
+						    	.post-top.row
+						        .col-lg-12
+									.post-middle.row
+										.col-lg-3
+											img.img-responsive src="http://placehold.it/260x180"
+										.col-lg-9
+											h3
+												strong: a href=user_post_url(post.user, post) #{post.title}
+											= truncate(post.short_body, length: 150)
+											p: a class="" href=user_post_url(post.user, post) Read more...
+									.post-bottom.row
+										.col-lg-12.col-padding-top
+											/ i class="icon icon-user"
+											/ | by&nbsp;
+											/ a href="#" 
+											/ | #{post.user.name}&nbsp;|&nbsp;
+											i class="icon icon-calendar"
+											| #{post.created_at.strftime("%B %d, %Y")}&nbsp;|&nbsp;
+											i class="icon icon-comment"
+											a href="#"
+											| #{post.comments.count} Comments&nbsp;|&nbsp;
+											i class="icon icon-share"
+											a href="#"
+											| #{post.flaggings.count} Digs&nbsp;|&nbsp;
+											i class="icon icon-tags"
+											| Tags: 
+											- post.tags.each do |tag|
+												| &nbsp;
+												span class="label label-default" #{tag.name}
+									hr
 					- elsif activity.trackable_type == "Plot"
-						| #{User.find(activity.owner_id).name} just made a plot. 
-						| Follow it now!
+						- user = User.find(activity.owner_id)
+						- plot = user.plots.find(activity.trackable_id)
+						.row.activity-row
+							.col-lg-1.col-lg-offset-1
+								= image_tag user.avatar(:medium), class: "img-responsive"
+							.col-lg-9
+								.row
+									.col-lg-12.col-padding
+										p
+											|#{user.name} 
+											= link_to "just made a plot!", user_plot_url(user.id, plot.id), :class => 'feed-link'
+									.post-top.row
+						        .col-lg-12
+									.post-middle.row
+										.col-lg-3
+											img.img-responsive src="http://placehold.it/260x180"
+										.col-lg-9
+											h3
+												= link_to plot.name, user_plot_url(user.id, plot.id) 
+											= plot.about
+								.row
+									.col-lg-12.col-padding
+								hr
+
+
 					- elsif activity.trackable_type == "Crop"
-						| #{User.find(activity.owner_id).name} just planted a crop. 
-						| Buy it now!							
+						- user = User.find(activity.owner_id)
+						- crop = user.crops.find(activity.trackable_id)
+						.row.activity-row
+							.col-lg-1.col-lg-offset-1
+								= image_tag user.avatar(:medium), class: "img-responsive"
+							.col-lg-9
+								.row
+									.col-lg-12.col-padding
+										p
+											|#{user.name} 
+											= link_to "just planted a crop!", user_crop_url(user.id, crop.id), :class => 'feed-link'
+									.post-top.row
+						        .col-lg-12
+									.post-middle.row
+										.col-lg-3
+											img.img-responsive src="http://placehold.it/260x180"
+										.col-lg-9
+											h3
+												= link_to crop.crop_name.pluralize, user_crop_url(user.id, crop.id)
+								.row
+									.col-lg-12.col-padding
+								hr
 					- else
 						= activity.trackable_type.constantize.find(activity.trackable_id)
 			= paginate @activities
