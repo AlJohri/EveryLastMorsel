@@ -251,7 +251,7 @@ function initLocation() {
 }
 
 // Initialize location
-initLocation();
+// initLocation();
 
 /**
  * Saves a location
