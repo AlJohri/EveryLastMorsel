@@ -16,14 +16,15 @@
 //= require bootstrap
 //= require jquery-fileupload
 //= require lib/jquery/jquery.validate.js
-//= require editable/bootstrap-editable
-//= require editable/rails
 //= require bootstrap-datepicker
+//= require bootstrap-wysihtml5
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require elm
 //= require map
-//= require bootstrap-wysihtml5
+
+// require editable/bootstrap-editable
+// require editable/rails
 
 
 // Angular Dependencies (not enabled)

@@ -10,37 +10,34 @@ h1
 
 p.user-post-content = simple_format2(@post.content)
 
-.post-comments
-  h1 Comments
-  - @post.comments.each do |c|
-    p
-      strong Commenter:
-      = c.user || "Anonymous"    
-    p
-      strong Comment:
-      = simple_format(c.comment)
-    hr
+- if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
+  button.btn.btn-default 
+    = link_to 'Edit', edit_user_post_path(@post.user, @post)
+
+hr
+- if @post.comments.count !=0
+  .post-comments
+    h3 Comments
+    - @post.comments.each do |c|
+      p
+        strong Commenter:
+        = c.user || "Anonymous"    
+      p
+        strong Comment:
+        = simple_format(c.comment)
+      hr
 
 .add-comment-form
-  h1 Add A Comment
-  = form_for([@post, @post.comments.build]) do |f|
-    = hidden_field_tag "commentable_id", @post.id
-  	= hidden_field_tag "commentable_id", @post.class
-  	= hidden_field_tag "user_id", @user.id
-
+  h3 Add A Comment
+  = simple_form_for @post.comments.build, url: polymorphic_url([@post, :comments]) do |f|
+    = f.hidden_field :commentable_id, value: @post.id
+    = f.hidden_field :commentable_type, value: @post.class
+    = f.hidden_field :user_id, value: @user.id
   	- if !user_signed_in?
-      .field
-  			= f.label :commenter
-  			= f.text_field :commenter, class: "post-comment-input"
-  	.field
-  		= f.label :comment
-  		= f.text_area :comment, class: "post-comment-input"
-  	.text_field
-      button.button.btn-orange[type="submit"] Add Comment
+  			= f.input :commenter
+  	= f.input :comment, input_html: { rows: 5 }
+    = f.button :submit, 'Add Comment'
+hr
 
-
-  - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
-  	button.button.btn-orange.post-btn 
-  		= link_to 'Edit', edit_user_post_path(@post.user, @post)
-  	button.button.btn-orange.post-btn
-  		= link_to 'Back', user_posts_path(@post.user)
+button.btn.btn-default
+	= link_to 'Back', user_posts_path(@post.user)

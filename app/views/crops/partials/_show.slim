@@ -50,6 +50,7 @@
         - if user_signed_in?
           h4 ADD YIELD
           = simple_form_for @crop.crop_yields.build, :validate => true, url: polymorphic_url([parent, @crop, :crop_yields]) do |f|
+            = f.hidden_field :crop_id, value: @crop.id
             .row: .col-lg-12
               = f.input :pick_date, :as => :string, :input_html => { data: { behaviour: "datepicker" } }
             .row
