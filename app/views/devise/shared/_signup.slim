@@ -1,57 +1,16 @@
-= form_for(devise_resource, :as => devise_resource_name, :html => {:autocomplete => "off"}, :url => registration_path(devise_resource_name)) do |f|
-  = devise_error_messages!
-  fieldset
-    div = f.text_field :first_name, :placeholder => "First"
-    div = f.text_field :last_name, :placeholder => "Last"
-    div = f.text_field :zip, :placeholder => "Zip"    
-    div = f.email_field :email, :placeholder => "Email"
-    div = f.password_field :password, :placeholder => "Password"
-    ul.inline
-      li: button.button.btn-orange type="submit"
-        span.icon.secure
-        span Sign up
+= simple_form_for devise_resource, :as => devise_resource_name, :validate => true, :url => registration_path(devise_resource_name), :html => {:autocomplete => "off"} do |f|
+  .row
+    .col-lg-6 = f.input :first_name
+    .col-lg-6 = f.input :last_name
+  .row: .col-lg-12 = f.input :zip
+  .row: .col-lg-12 = f.input :email
+  .row: .col-lg-12 = f.input :password
+  .row: .col-lg-12
+    ul.list-unstyled.list-inline
+      = f.button :submit, 'Sign Up'
       li: a href=user_omniauth_authorize_path(:facebook)
-        button.button.btn-orange type="button"
+        button.btn.btn-default type="button"
           span.icon-facebook
       li: a href=user_omniauth_authorize_path(:google_oauth2)
-        button.button.btn-orange type="button"
+        button.btn.btn-default type="button"
           span.icon-google-plus
-
-javascript:
-  jQuery("#create-form-validate").validate({
-      onkeyup: false,
-      rules: {
-          invite_code : {required : true},
-          firstname : {required : true},
-          lastname : {required : true},
-          zip : {required : true},
-          email : {
-              required : true,
-              email : true
-          },
-          password : {
-              required : true
-          } /*,
-          passwordVerify : {
-              required : true,
-              equalTo : '#password'
-          }*/
-      },
-      messages: {
-          firstname : "Please enter your first name",
-          lastname : "Please enter your last name",
-          city : "Please the city you live in",
-          state : "Please enter the state of your city",
-          email : "Incorrect email format",
-          password : "Please provide a password" /*,
-          passwordVerify : {
-              required : "Please confirm your password",
-              equalTo : "Please enter the same password as above"
-          }*/
-      },
-      submitHandler : function(form) {
-          window.event.preventDefault();
-          Elm.Auth.Create(jQuery(form));
-          return false;
-      }
-  });

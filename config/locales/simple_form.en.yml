@@ -5,20 +5,46 @@ en:
     required:
       text: 'required'
       mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Some errors were found, please take a look:"
-    # Labels and hints examples
     # labels:
     #   password: 'Password'
     #   user:
     #     new:
-    #       email: 'E-mail para efetuar o sign in.'
+    #       email: 'Email.'
     #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   username: 'User name to sign in.'
-    #   password: 'No special characters, please.'
-
+    #       email: 'Email.'
+    #   post:
+    #     picture: "Main Picture"
+    hints:
+      username: 'User name to sign in.'
+      password: 'No special characters, please.'
+    placeholders:
+      user:
+        first_name: 'Enter first name'
+        last_name: 'Enter last name'
+        zip: 'Enter your zip'
+        email: 'Email'
+        password: 'Password'
+      crop:
+        crop_name: 'What crop did you plant? (e.g. Tomato, Potato)'
+        variety_name: 'What variety is this crop? (e.g. Brandywine)'
+        plant_date: 'Enter date planted'
+        coverage: 'Enter coverage'
+        coverage_unit: 'What is the coverage unit?'
+      post:
+        title: 'Enter title'
+        content: 'Write something wonderful'
+        tag_list: "Add tags here separated by commas (i.e. American food, farm to table, recipe)"
+      plot:
+        name: 'Plot Name'
+        address1: 'Street address, P.O. box, company name, c/o'
+        address2: 'Apartment, suite , unit, building, floor, etc.'
+        city: 'City / Town'
+        state: 'State / Province / Region'
+        about: 'Tell your story and describe your plot so others can learn how you grow.'
+      crop_yield:
+        pick_date: 'Enter date picked'
+        quantity: 'Enter quantity'
+        quantity_unit: 'Enter quantity unit'

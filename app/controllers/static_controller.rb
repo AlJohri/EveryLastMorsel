@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
-  def index
-    @users = User.all
+  def home
+    @skip_footer = true
   end
 
   def map

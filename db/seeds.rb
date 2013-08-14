@@ -83,6 +83,6 @@ CropType.create(name: "Gourd sechium", description: "description")
 CropType.create(name: "Mustard", description: "description")
 CropType.create(name: "Squash", description: "description")
 
-# CropVariety.create(name:"blah", description: "desc", crop_id: 1)
+# CropVariety.create(name:"variety", description: "desc", crop_id: 1)
 
 # User.find_or_create_by_email :name => 'Al Johri', :email => 'al.johri@gmail.com', :password => 'admin123', :password_confirmation => 'admin123', :zip => '07013'

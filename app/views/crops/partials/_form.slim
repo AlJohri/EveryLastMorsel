@@ -1,12 +1,9 @@
-= simple_form_for @crop, :defaults => { :wrapper_html => {:class => 'form-group'}, required: true, label: false}, :url => polymorphic_url([parent, :crops])  do |f|
-  = f.input :plot_id, collection: current_user.plots, prompt: "Choose your plot"
-  = f.input :crop_name, placeholder: "Crop Type", input_html: { data: {autocomplete_source: "/crops.json"} }
-  = f.input :variety_name, placeholder: "Variety", input_html: { data: {autocomplete_source: "/varieties.json"} }
-  = f.input :plant_date, :as => :string, placeholder: "Plant Date", :input_html => { :class => 'date_picker' }
-
-  = f.button :submit
-
-javascript:
-	$(function() {
-	  $('input.date_picker').datepicker();
-	});
+= simple_form_for @crop, :validate => true, :url => polymorphic_url([parent, :crops])  do |f|
+  .row: .col-lg-12 = f.input :plot_id, collection: current_user.plots, prompt: "Choose your plot"
+  .row
+    .col-lg-6 = f.input :coverage
+    .col-lg-6 = f.input :coverage_unit
+  .row: .col-lg-12 = f.input :crop_name, input_html: { data: { behaviour: "autocomplete", autocomplete_source: "/crops.json" } }
+  .row: .col-lg-12 = f.input :variety_name, input_html: { data: { behaviour: "autocomplete", autocomplete_source: "/varieties.json" } }
+  .row: .col-lg-12 = f.input :plant_date, :as => :string, :input_html => { data: { behaviour: "datepicker" } }
+  .row: .col-lg-12 = f.button :submit

@@ -71,7 +71,7 @@
 									.col-lg-12.col-padding
 										p
 											|#{user.name} 
-											= link_to "just made a plot!", user_plot_url(user.id, plot.id), :class => 'feed-link'
+											= link_to "just made a plot!", plot_url(plot.id), :class => 'feed-link'
 									.post-top.row
 						        .col-lg-12
 									.post-middle.row
@@ -109,6 +109,31 @@
 								.row
 									.col-lg-12.col-padding
 								hr
+					- elsif activity.trackable_type == "CropYield"
+						- user = User.find(activity.owner_id)
+						- crop_yield = CropYield.find(activity.trackable_id)
+						- crop = Crop.find(crop_yield.crop.id)
+						.row.activity-row
+							.col-lg-1.col-lg-offset-1
+								= image_tag user.avatar(:medium), class: "img-responsive"
+							.col-lg-9
+								.row
+									.col-lg-12.col-padding
+										p
+											|#{user.name} 
+											= link_to "just harvested a crop!", user_crop_url(user.id, crop_yield.crop.id), :class => 'feed-link'
+									.post-top.row
+						        .col-lg-12
+									.post-middle.row
+										.col-lg-3
+											img.img-responsive src="http://placehold.it/260x180"
+										.col-lg-9
+											h3
+												= link_to crop.crop_name.pluralize, user_crop_url(user.id, crop.id)
+								.row
+									.col-lg-12.col-padding
+								hr
+
 					- else
 						= activity.trackable_type.constantize.find(activity.trackable_id)
 			= paginate @activities

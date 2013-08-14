@@ -1,33 +1,7 @@
-/ <%= form_for([@post.user, @post]) do |f| %>
-
-/   <div class="field">
-/     <%= f.label :picture %>
-/     <%= f.file_field :picture %>
-/   <div>
-/   <div class="field">
-/     <%= f.label :title %><br />
-/     <%= f.text_field :title %>
-/   </div>
-/   <div class="field">
-/     <%= f.label :content %>
-/     <%= f.text_area :content, :class => "wysihtml5" %>
-/   </div>
-/   <div class="actions">
-/     <%= f.submit "Submit", :class => 'btn btn-default' %>
-/   </div>
-/ <% end %>
-
-= simple_form_for @post, :defaults => { :wrapper_html => {:class => 'form-group'}, required: true, label: false},  :url => polymorphic_url([parent, :posts])  do |f|
-  = f.input :picture, label: "Main Picture"
-  = f.input :title, placeholder: "Enter Title"
-  = f.input :content, placeholder: "Write something wonderful...", input_html: { class: "wysihtml5" }
-  = f.input :tag_list, placeholder: "Add tags here separated by commas (i.e. American food, farm to table, recipe)"
-  = f.button :submit
-
-/ <script type="text/javascript">
-
-/   $(window).ready( function () {
-/     $('.editable').editable()
-/   });
-
-/ </script>
+= simple_form_for @post, :validate => true, :url => polymorphic_url([parent, :posts])  do |f|
+	.row: .col-lg-12 = f.input :title
+	.row: .col-lg-12 = f.input :content, input_html: { data: { behaviour: "wysihtml5" }, class: "wysihtml5" }
+	.row
+		.col-lg-6 = f.input :tag_list
+		.col-lg-6 = f.input :picture
+	.row: .col-lg-12 = f.button :submit

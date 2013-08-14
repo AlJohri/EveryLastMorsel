@@ -16,12 +16,16 @@
 //= require bootstrap
 //= require jquery-fileupload
 //= require lib/jquery/jquery.validate.js
-//= require bootstrap-wysihtml5
-//= require editable/bootstrap-editable
-//= require editable/rails
 //= require bootstrap-datepicker
+//= require bootstrap-wysihtml5
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require elm
 //= require map
+
+// require editable/bootstrap-editable
+// require editable/rails
+
 
 // Angular Dependencies (not enabled)
 // require angular
@@ -37,25 +41,27 @@
 
 $(document).ready(function() {
 
-  $('.wysihtml5').each(function(i, elem) {
-    $(elem).wysihtml5();
+  $('[data-behaviour~=wysihtml5]').wysihtml5({
+    "font-styles": true,
+    "emphasis": true,
+    "lists": true,
+    "html": false,
+    "link": false,
+    "image": false,
+    "color": false
   });
 
-  $.fn.editable.defaults.mode = 'inline';
-  $('.editable').editable();
-
-  $('#crop_crop_name').autocomplete({
-    source: $('#crop_crop_name').data('autocomplete-source')
+  $('[data-behaviour~=datepicker]').datepicker();  
+  $('[data-behaviour~=autocomplete]').each(function(i, elem) {
+    $(elem).autocomplete({ source: $(elem).data('autocomplete-source') });
   });
+  // $.fn.editable.defaults.mode = 'inline';
+  // $('.editable').editable();
 
-  $('#crop_variety_name').autocomplete({
-    source: $('#crop_variety_name').data('autocomplete-source')
-  });
-
-// 	$(".get-started").click(function () {
-// 	   $('.section-signup').slideToggle('slow');
-// 	   $('.section-signup')[0].scrollIntoView(true);
-// 	});
+  // 	$(".get-started").click(function () {
+  // 	   $('.section-signup').slideToggle('slow');
+  // 	   $('.section-signup')[0].scrollIntoView(true);
+  // 	});
 
 });
 

@@ -5,14 +5,14 @@
         h1
           img.img-responsive-full src="http://placehold.it/210x210" alt="placeholder+image"
         h4.produced-quantity 100 lbs. produced
-        p Bundles sold:
-        <div class="progress">
-          <div class="progress-bar" style="width: 60%;"></div>
-        </div>
-        p Bundles For Sale:
-        <div class="progress">
-          <div class="progress-bar" style="width: 60%;"></div>
-        </div>
+        / p Bundles sold:
+        / <div class="progress">
+        /   <div class="progress-bar" style="width: 60%;"></div>
+        / </div>
+        / p Bundles For Sale:
+        / <div class="progress">
+        /   <div class="progress-bar" style="width: 60%;"></div>
+        / </div>
       .col-lg-8
         h1 #{@crop.crop_variety.try(:name)} #{@crop.crop_type.try(:name)}
         p
@@ -22,12 +22,10 @@
           | Yield: 
           = @crop.crop_yields.last.try(:quantity)
           |/ 
-          | bundles
-        a href='#' 
-          button.btn.btn-default type="button" Purchase
-        p $3.50/bundle
-        p 
-          | Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+          = @crop.crop_yields.last.try(:quantity_unit)
+        / a href='#' 
+          / button.btn.btn-default type="button" Purchase
+        / p $3.50/bundle
         table.table.table-striped
 
           tr
@@ -39,37 +37,30 @@
               = @crop.coverage
               |/
               = @crop.coverage_unit
-        
-        h5 YIELDS
-        table.table.table-striped
-          -@crop.crop_yields.each_with_index do |crop_yield, index|
-            tr
-              td Yield #{index + 1}
-              td #{crop_yield.quantity} #{crop_yield.quantity_unit}
-              td #{crop_yield.try(:pick_date).try(:strftime, "%B %d, %Y")}
+
+        - if @crop.crop_yields.count != 0
+          h4 YIELDS
+          table.table.table-striped
+            -@crop.crop_yields.each_with_index do |crop_yield, index|
+              tr
+                td Yield #{index + 1}
+                td #{crop_yield.quantity} #{crop_yield.quantity_unit}
+                td #{crop_yield.try(:pick_date).try(:strftime, "%B %d, %Y")}
 
         - if user_signed_in?
-          = form_for([parent, @crop, @crop.crop_yields.build]) do |f|
-            = hidden_field_tag "crop_yield[crop_id]", @crop.id
-            p = f.text_field :pick_date, :placeholder => "Pick Date"
-            p = f.text_field :quantity, :placeholder => "Quantity"
-            p = f.text_field :quantity_unit, :placeholder => "Quantity Unit"
-            p 
-              button.button.btn-orange type="submit" Create Yield
+          h4 ADD YIELD
+          = simple_form_for @crop.crop_yields.build, :validate => true, url: polymorphic_url([parent, @crop, :crop_yields]) do |f|
+            = f.hidden_field :crop_id, value: @crop.id
+            .row: .col-lg-12
+              = f.input :pick_date, :as => :string, :input_html => { data: { behaviour: "datepicker" } }
+            .row
+              .col-lg-6
+                = f.input :quantity
+              .col-lg-6
+                = f.input :quantity_unit
+            .row: .col-lg-12 = f.button :submit
 
-
-          / = form_for(@crop, :url => polymorphic_url([parent, @crop, :crop_yields])) do |f|
-          /   = hidden_field_tag "crop_id", @crop.id
-          /     p
-          /       = f.label :quantity
-          /       br
-          /       = f.text_field :quantity
-          /   p
-          /     = f.submit
-
-        / = link_to "Add new Yield", new_polymorphic_url([parent, @crop, :crop_yield])
-
-
+        / = hidden_field_tag "crop_yield[crop_id]", @crop.id
 
 = link_to 'Edit', polymorphic_url([parent, :crop], :action => 'edit') 
 | &nbsp;

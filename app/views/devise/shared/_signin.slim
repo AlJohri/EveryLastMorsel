@@ -1,39 +1,14 @@
-= form_for(devise_resource, :as => devise_resource_name, :url => session_path(devise_resource_name)) do |f|
-  fieldset
-    div = f.email_field :email, :autofocus => true, :placeholder => "Email"
-    div = f.password_field :password, :placeholder => "Password"
-    - if devise_mapping.rememberable?
-      label.checkbox
-        = f.check_box :remember_me
-        | Remember Me
-    ul.inline
-      li: button.button.btn-orange type="submit"
-        span.icon.secure
-        span Sign in
+= simple_form_for devise_resource, :as => devise_resource_name, :url => session_path(devise_resource_name), :html => {:autocomplete => "off"} do |f|
+  .row: .col-lg-12 = f.input :email
+  .row: .col-lg-12 = f.input :password
+  .row: .col-lg-12
+    ul.list-unstyled.list-inline
+      = f.button :submit, 'Sign In'
       li: a href=user_omniauth_authorize_path(:facebook)
-        button.button.btn-orange type="button"
+        button.btn.btn-default type="button"
           span.icon-facebook
       li: a href=user_omniauth_authorize_path(:google_oauth2)
-        button.button.btn-orange type="button"
+        button.btn.btn-default type="button"
           span.icon-google-plus
-
-javascript:
-  jQuery("#login-form-validate").validate({
-      onkeyup: false,
-      rules: {
-          email: {
-              required: true,
-              email: true
-          },
-          password: {required : true}
-      },
-      messages: {
-          email : "Incorrect email format",
-          password : "Please provide a password"
-      },
-      submitHandler : function(form) {
-          window.event.preventDefault();
-          Elm.Auth.Login(jQuery(form));
-          return false;
-      }
-  });
+  .row: .col-lg-12
+      = f.input :remember_me, :as => :boolean, label: "Remember me?" if devise_mapping.rememberable?
