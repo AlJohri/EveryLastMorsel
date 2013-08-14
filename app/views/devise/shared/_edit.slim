@@ -1,0 +1,12 @@
+= simple_form_for devise_resource, :as => devise_resource_name, :validate => true, :url => registration_path(devise_resource_name), :html => {:autocomplete => "off"} do |f|
+  .row
+    .col-lg-6 = f.input :first_name
+    .col-lg-6 = f.input :last_name
+  .row: .col-lg-12 = f.input :city
+  .row: .col-lg-12 = f.input :state
+  .row: .col-lg-12 = f.input :zip  
+  .row: .col-lg-12 = f.input :about, input_html: { rows: 7 }
+  .row: .col-lg-12 = f.input :avatar, label: 'Change your user profile picture'  
+  .row: .col-lg-12 = f.input :email  
+  .row: .col-lg-12 = f.input :password  
+  .row: .col-lg-12 = f.button :submit, 'Update'

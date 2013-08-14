@@ -24,9 +24,12 @@ en:
       user:
         first_name: 'Enter first name'
         last_name: 'Enter last name'
+        city: 'Enter your city'
+        state: 'Enter your state'
         zip: 'Enter your zip'
         email: 'Email'
         password: 'Password'
+        about: 'Tell us your story'
       crop:
         crop_name: 'What crop did you plant? (e.g. Tomato, Potato)'
         variety_name: 'What variety is this crop? (e.g. Brandywine)'

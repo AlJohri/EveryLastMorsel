@@ -3,7 +3,7 @@ article.devise
     | Edit 
     = resource_name.to_s.humanize
 
-  = render "devise/shared/signup"
+  = render "devise/shared/edit"
   
   / - raise
   / = form_for(devise_resource, :as => devise_resource_name, :html => {:autocomplete => "off"}, :url => registration_path(devise_resource_name), :html => { :method => :put })  do |f|
