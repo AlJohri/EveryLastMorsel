@@ -5,6 +5,7 @@ module ApplicationHelper
   end
 
   def devise_resource
+    @resource = instance_variable_get(:"@#{devise_resource_name}")
     @resource ||= User.new
   end
 

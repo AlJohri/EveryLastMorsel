@@ -7,7 +7,7 @@
 		.activities-bottom-content
 			- @activities.each do |activity|
 				.col-lg-12
-					- if activity.trackable_type == "User"
+					- if activity.trackable_type == "User" && activity.key == "user.create"
 						- user = User.find(activity.trackable_id)
 						.row.activity-row
 							.col-lg-1.col-lg-offset-1
@@ -18,7 +18,7 @@
 								|  Just joined! Welcome to the garden!
 								hr
 
-					- elsif activity.trackable_type == "Post"
+					- elsif activity.trackable_type == "Post" && activity.key == "post.create"
 						- user = User.find(activity.owner_id)
 						- post = user.posts.find(activity.trackable_id)
 						.row.activity-row
@@ -60,7 +60,7 @@
 												| &nbsp;
 												span class="label label-default" #{tag.name}
 									hr
-					- elsif activity.trackable_type == "Plot"
+					- elsif activity.trackable_type == "Plot" && activity.key == "plot.create"
 						- user = User.find(activity.owner_id)
 						- plot = user.plots.find(activity.trackable_id)
 						.row.activity-row
@@ -86,7 +86,7 @@
 								hr
 
 
-					- elsif activity.trackable_type == "Crop"
+					- elsif activity.trackable_type == "Crop" && activity.key == "crop.create"
 						- user = User.find(activity.owner_id)
 						- crop = user.crops.find(activity.trackable_id)
 						.row.activity-row
@@ -109,7 +109,7 @@
 								.row
 									.col-lg-12.col-padding
 								hr
-					- elsif activity.trackable_type == "CropYield"
+					- elsif activity.trackable_type == "CropYield" && activity.key == "crop_yield.create"
 						- user = User.find(activity.owner_id)
 						- crop_yield = CropYield.find(activity.trackable_id)
 						- crop = Crop.find(crop_yield.crop.id)
@@ -133,7 +133,6 @@
 								.row
 									.col-lg-12.col-padding
 								hr
-
-					- else
-						= activity.trackable_type.constantize.find(activity.trackable_id)
+					/ - else
+						/ = activity.trackable_type.constantize.find(activity.trackable_id)
 			= paginate @activities
