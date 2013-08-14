@@ -10,13 +10,13 @@
 -content_for :content do
   .profile.container
     .profile-top.row
-      .col-lg-9.col-lg-offset-3
+      .col-sm-9.col-sm-offset-3
         h1 = @profile.name.presence
         p 
           i.icon.icon-large.icon-map-marker
           span #{@profile.try(:city)} #{@profile.try(:state)} #{@profile.try(:zip)}
     .profile-bottom.row
-      .profile-sidebar.col-lg-3.visible-lg
+      .profile-sidebar.col-sm-3.hidden-xs
         .row
           .col-lg-12
             = image_tag @profile.avatar(:medium), class: "img-responsive"
@@ -44,7 +44,7 @@
             - if @profile.about.present?
                 h5 About #{@profile.name}:
                 p #{@profile.about}
-      .profile-content.col-lg-9
+      .profile-content.col-sm-9
         .row
           .col-lg-12
             ul.nav.nav-tabs

@@ -123,9 +123,9 @@ key AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI
 			return new google.maps.Marker({
 				map: map,
 				position: new google.maps.LatLng(plot.latitude, plot.longitude),
-				icon: '/assets/marker-blue.png',
+				icon: '/file-bin/images/marker-blue.png',
 				title: plot.name,
-				content: plot.infoWindowHtml,
+				content: '<h2>' + plot.name + '</h2><p>' + plot.about + '</p>',
 				draggable: false,
 				clickable: true,
 				animation: google.maps.Animation.DROP
@@ -160,21 +160,23 @@ key AIzaSyDchuLLyzMjV7ixYFhOt_KLCBB9H1xl1DI
 				url: '/plots.json',
 				//data: $.serializeJSON(Elm.myPosition),
 				dataType: 'json',
-				success: function(response) {
+				success: function(plots) {
 					var markers = new Array();
 					var infoWindow = new google.maps.InfoWindow({maxWidth : '200px'});
-					for (var i = 0; i < response.length; i++) {
-						var plot = response[i];
+
+					for (var i = 0; i < plots.length; i++) {
+						var plot = plots[i];
 						var time = Math.floor(Math.random() * i * 200);
-						window.setTimeout(function() {
+						window.setTimeout(function(plot) {
 							var marker = buildPlotMarker(plot);
 							markers.push(marker);
 							google.maps.event.addListener(marker, 'click', function() {
 								infoWindow.setContent(infoWindowOpen + marker.content + infoWindowClose);
 								infoWindow.open(map, marker);
 							});
-						}, (100) + time);
+						}, (100) + time, plot);
 					}
+
 				},
 				error: function() { }
 			});

@@ -2,17 +2,17 @@
   .col-lg-12
     - @posts.each do |post|
       .post-top.row
-        .col-lg-12
+        .col-sm-12
           h3
             strong: a href=user_post_url(post.user, post) #{post.title}
       .post-middle.row
-        .col-lg-3
+        .col-sm-3
           img.img-responsive src="http://placehold.it/260x180" alt=""
-        .col-lg-9
+        .col-sm-9
           = post.short_body
           p: a class="" href=user_post_url(post.user, post) Read more...
       .post-bottom.row
-        .col-lg-12
+        .col-sm-12
           i class="icon icon-user"
           | by&nbsp;
           a href="#" 

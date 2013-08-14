@@ -15,29 +15,31 @@ div#map-canvas {
 	right: 0;
 	width: 100%;
 }
-div.map-marker > div {
-	background: #818940;
-	background: rgba(129,137,64,.87);
-	/*border: 1px solid #595d3b;*/
-	color: #414710;
-	line-height: 1.2;
-	padding: 25px;
-	/*height: 225px;*/
-	width: 470px;
-}
-div.map-marker.small > div { width: 320px; }
-div.map-marker > div:after {
-	background: url('../images/infobox-arrow.png') no-repeat;
-	/*background: #818940;
-	background: rgba(129,137,64,.8);*/
-	content: '\0020';
-	display: block;
-	height: 45px;
-	position: absolute;
-	bottom: -45px;
-	left: 40px;
-	width: 50px;
-}
+div.map-marker.small > div { min-height: 80px; width: 320px; }
+
+// div.map-marker > div {
+// 	background: #818940;
+// 	background: rgba(129,137,64,.87);
+// 	/*border: 1px solid #595d3b;*/
+// 	color: #414710;
+// 	line-height: 1.2;
+// 	padding: 25px;
+// 	/*height: 225px;*/
+// 	width: 470px;
+// }
+// div.map-marker > div:after {
+// 	background: url('../images/infobox-arrow.png') no-repeat;
+// 	/*background: #818940;
+// 	background: rgba(129,137,64,.8);*/
+// 	content: '\0020';
+// 	display: block;
+// 	height: 45px;
+// 	position: absolute;
+// 	bottom: -45px;
+// 	left: 40px;
+// 	width: 50px;
+// }
+
 div.map-marker > div h3 {
 	color: #fff;
 	font-size: 32px;
