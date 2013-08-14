@@ -11,7 +11,7 @@ class Crop < ActiveRecord::Base
   has_many :crop_yields
 
   validates :plot_id, presence: true
-  validates :plant_date, presence: true
+  # validates :plant_date, presence: true
 
   # validates :plot_id, presence: true
   # validates :crop_type_id, presence: true

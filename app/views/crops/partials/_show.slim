@@ -17,7 +17,7 @@
         h1 #{@crop.crop_variety.try(:name)} #{@crop.crop_type.try(:name)}
         p
           | Planted: 
-          = @crop.plant_date.strftime("%B %d, %Y")
+          = @crop.try(:plant_date).try(:strftime, "%B %d, %Y")
         p
           | Yield: 
           = @crop.crop_yields.last.try(:quantity)
