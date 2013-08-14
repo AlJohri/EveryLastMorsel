@@ -7,10 +7,14 @@ class PlotsController < InheritedResources::Base
 
   # CHANGE REDIRECT
   def create
-    super
-    if params[:user_id]
-      user = User.find(params[:user_id])
-      @plot.users << user
+    create! do |success, failure|
+      success.html {
+        if params[:user_id]
+          user = User.find(params[:user_id])
+          @plot.users << user
+        end
+        redirect_to polymorphic_url(@plot)
+      }
     end
   end
 
