@@ -1,0 +1,85 @@
+.elm-container
+	.row style="padding: 15px;"
+		.col-sm-12
+			h1 Checkout
+	.row style="padding: 15px;"
+		.col-md-3
+			img.img-responsive-full src="http://placehold.it/200x200"
+		.col-md-3
+			h3 
+				i.icon-money
+				| &nbsp;Your Purchase
+			h4 Brandywine Tomato
+			p I like big tomatoes and I cannot lie.
+			/ hr
+		.col-md-3
+			h3 
+				i.icon-map-marker
+				| &nbsp;Address
+			p
+				| 115 Dumont Avenue
+				br
+				| Clifton, NJ 07013
+				br
+				| United States of America
+			/ hr
+		.col-md-3
+			h3 
+				i.icon-male
+				| &nbsp;Contact
+			p
+				| Jimmy Jones
+				br
+				| jimmyjones@jimmyjohns.com
+	.row style="padding: 15px;"
+		.col-md-6
+			form
+			  fieldset
+			    .form-group
+			      label Card Holder's Name
+			      .controls
+			        input.input-block-level pattern="\\w+ \\w+.*" required="" title="Fill your first and last name" type="text"
+			    .form-group
+			      label Card Number
+			      .controls
+			        .row
+			          .col-sm-3
+						input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits"
+			          .col-sm-3
+			            input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Second four digits"
+			          .col-sm-3
+			            input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Third four digits"
+			          .col-sm-3
+			            input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Fourth four digits"
+			    .form-group
+			      label Card Expiry Date
+			      .controls
+			        .row
+			          .col-sm-9
+			            select.input-block-level
+			              option January
+			              option ...
+			              option December
+			          .col-sm-3
+			            select.input-block-level
+			              option 2013
+			              option ...
+			              option 2015
+			    .form-group
+			      label Card CVV
+			      .controls
+			        .row
+			          .col-sm-3
+						input type="text" class="input-block-level" autocomplete="off" maxlength="3" pattern="\\d 3}" title="Three digits at back of your card" required			          
+			          .col-sm-8
+			            /! screenshot may be here
+			    .form-actions
+			      button.btn.btn-default type="submit" Submit
+			      button.btn.btn-default type="button" Cancel
+
+
+
+
+			/ i.icon-male
+			/ i.icon-money
+			/ i.icon-credit-card

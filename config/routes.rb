@@ -22,6 +22,8 @@ EveryLastMorsel::Application.routes.draw do
     get 'help'
     get 'map'
     get 'marketplace'
+    get 'checkout'
+    get 'confirm'
     get 'pricing' # TEMPORARY
   end
 
