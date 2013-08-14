@@ -71,7 +71,7 @@
 									.col-lg-12.col-padding
 										p
 											|#{user.name} 
-											= link_to "just made a plot!", user_plot_url(user.id, plot.id), :class => 'feed-link'
+											= link_to "just made a plot!", plot_url(plot.id), :class => 'feed-link'
 									.post-top.row
 						        .col-lg-12
 									.post-middle.row
