@@ -19,6 +19,7 @@
       hr
 
   .col-lg-12
-    - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
-       a href=polymorphic_url([parent, :crop], :action => 'new') 
-         button.btn.btn-default New Crop
+    - if (user_signed_in? && params[:action] == 'index')
+      - if (@user && current_user.id == @user.id) || (@plot && (@plot.users.map { |user| user.id == current_user.id }[0]))
+        a href=polymorphic_url([parent, :crop], :action => 'new') 
+          button.btn.btn-default New Crop

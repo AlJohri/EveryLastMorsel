@@ -5,6 +5,7 @@ class PlotsController < InheritedResources::Base
   respond_to :html, :xml, :json
   belongs_to :user, :optional => true
 
+  # CHANGE REDIRECT
   def create
     super
     if params[:user_id]
