@@ -5,14 +5,14 @@
         h1
           img.img-responsive-full src="http://placehold.it/210x210" alt="placeholder+image"
         h4.produced-quantity 100 lbs. produced
-        p Bundles sold:
-        <div class="progress">
-          <div class="progress-bar" style="width: 60%;"></div>
-        </div>
-        p Bundles For Sale:
-        <div class="progress">
-          <div class="progress-bar" style="width: 60%;"></div>
-        </div>
+        / p Bundles sold:
+        / <div class="progress">
+        /   <div class="progress-bar" style="width: 60%;"></div>
+        / </div>
+        / p Bundles For Sale:
+        / <div class="progress">
+        /   <div class="progress-bar" style="width: 60%;"></div>
+        / </div>
       .col-lg-8
         h1 #{@crop.crop_variety.try(:name)} #{@crop.crop_type.try(:name)}
         p
@@ -22,10 +22,10 @@
           | Yield: 
           = @crop.crop_yields.last.try(:quantity)
           |/ 
-          | bundles
+          = @crop.crop_yields.last.try(:quantity_unit)
         / a href='#' 
           / button.btn.btn-default type="button" Purchase
-        p $3.50/bundle
+        / p $3.50/bundle
         table.table.table-striped
 
           tr

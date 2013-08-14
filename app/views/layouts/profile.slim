@@ -29,11 +29,11 @@
                   span
                   i.icon.icon-large.icon-male
                   | #{@profile.class.to_s} Profile              
-              li
-                a href=polymorphic_url(@profile) title="Communication Hub"
-                  span
-                    i.icon.icon-large.icon-envelope
-                    | Communication Hub
+              / li
+              /   a href=polymorphic_url(@profile) title="Communication Hub"
+              /     span
+              /       i.icon.icon-large.icon-envelope
+              /       | Communication Hub
               li class=('active' if controller.action_name == 'edit')
                 a href=edit_user_registration_url title="Settings"
                   span
@@ -58,8 +58,8 @@
               - elsif @profile.class.to_s == "Plot"
                 li class=('active' if controller.controller_name == 'crops')
                   = link_to "CROP", polymorphic_url([@profile, :crops]), remote: false
-                li class=('active' if controller.controller_name == '')
-                  = link_to "PEOPLE", "#", remote: false
+                / li class=('active' if controller.controller_name == '')
+                  / = link_to "PEOPLE", "#", remote: false
         = content_for?(:profile_content) ? yield(:profile_content) : yield
 
 = render template: "layouts/application"

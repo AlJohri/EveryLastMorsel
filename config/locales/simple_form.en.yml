@@ -31,6 +31,8 @@ en:
         crop_name: 'What crop did you plant? (e.g. Tomato, Potato)'
         variety_name: 'What variety is this crop? (e.g. Brandywine)'
         plant_date: 'Enter date planted'
+        coverage: 'Enter coverage'
+        coverage_unit: 'What is the coverage unit?'
       post:
         title: 'Enter title'
         content: 'Write something wonderful'

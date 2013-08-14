@@ -5,7 +5,7 @@ h1
 
 - if @post.picture?
 	ul.user-post-gallery-images
-		li.user-post-gallery-image
+		li.list-unstyled.user-post-gallery-image
   			img src=@post.picture.url(:medium)
 
 p.user-post-content = simple_format2(@post.content)
