@@ -1,10 +1,10 @@
-.row-fluid
+.row
   .col-lg-12
-    .row-fluid
+    .row
       .col-lg-4
         h1
           img.img-responsive-full src="http://placehold.it/210x210" alt="placeholder+image"
-        h4.produced-quantity 100 lbs. produced
+        / h4.produced-quantity 100 lbs. produced
         / p Bundles sold:
         / <div class="progress">
         /   <div class="progress-bar" style="width: 60%;"></div>
@@ -16,10 +16,13 @@
       .col-lg-8
         h1 #{@crop.crop_variety.try(:name)} #{@crop.crop_type.try(:name)}
         p
-          | Planted: 
+          | Date Planted: 
           = @crop.try(:plant_date).try(:strftime, "%B %d, %Y")
         p
-          | Yield: 
+          | Last Yield Harvest Date:           
+          = @crop.crop_yields.last.try(:pick_date)
+        p
+          | Last Yield Quanity: 
           = @crop.crop_yields.last.try(:quantity)
           |/ 
           = @crop.crop_yields.last.try(:quantity_unit)
@@ -62,6 +65,7 @@
 
         / = hidden_field_tag "crop_yield[crop_id]", @crop.id
 
-= link_to 'Edit', polymorphic_url([parent, :crop], :action => 'edit') 
-| &nbsp;
-= link_to 'Back', polymorphic_url([parent, :crops])
+      .col-lg-12
+        = link_to 'Edit', polymorphic_url([parent, :crop], :action => 'edit') 
+        | &nbsp;
+        = link_to 'Back', polymorphic_url([parent, :crops])
