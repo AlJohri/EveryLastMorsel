@@ -42,18 +42,11 @@
 											p: a class="" href=user_post_url(post.user, post) Read more...
 									.post-bottom.row
 										.col-lg-12.col-padding-top
-											/ i class="icon icon-user"
-											/ | by&nbsp;
-											/ a href="#" 
-											/ | #{post.user.name}&nbsp;|&nbsp;
 											i class="icon icon-calendar"
 											| #{post.created_at.strftime("%B %d, %Y")}&nbsp;|&nbsp;
 											i class="icon icon-comment"
 											a href="#"
 											| #{post.comments.count} Comments&nbsp;|&nbsp;
-											i class="icon icon-share"
-											a href="#"
-											| #{post.flaggings.count} Digs&nbsp;|&nbsp;
 											i class="icon icon-tags"
 											| Tags: 
 											- post.tags.each do |tag|

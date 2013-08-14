@@ -22,9 +22,22 @@
           i class="icon icon-comment"
           a href="#"
           | #{post.comments.count} Comments&nbsp;|&nbsp;
-          i class="icon icon-share"
-          a href="#"
-          | #{post.flaggings.count} Digs&nbsp;|&nbsp;
+          div id="dig-#{post.id}" style="display: inline;"
+            = link_to like_post_url(post), :title => "Dig", :remote => true do
+
+                - if user_signed_in? && current_user.flagged?(post)
+                    span.dig-icon.icon-heart &nbsp;
+                    span.dig-text 
+                      / | Un-Dig it? 
+                      - if post.flaggings.count != 0
+                        | #{pluralize(post.flaggings.count, ' person digs', ' people dig')} it
+                - else
+                    span.dig-icon.icon-heart-empty &nbsp;
+                    span.dig-text
+                      | Dig it?
+                      - if post.flaggings.count != 0
+                        | #{pluralize(post.flaggings.count, ' person digs', ' people dig')} it
+          | &nbsp;|&nbsp;
           i class="icon icon-tags"
           | Tags: 
           - post.tags.each do |tag|
