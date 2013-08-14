@@ -4,14 +4,14 @@
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 // STICKY FOOTER (CAUSES ERRORS IN RESPONSIVE)
-.wrapper {
-   min-height: 100%;
-   position: relative;
+// .wrapper {
+   // min-height: 100%;
+   // position: relative;
    // height: auto !important;
    // height: 100%;
    /* Negative indent footer by it's height */
    // margin: 0 auto -150px;
-}
+// }
 
 .user {  margin-bottom: 15px; h3 { overflow: hidden; height: 1em; } }
 .crop {  margin-bottom: 15px; h3 { overflow: hidden; height: 1em; } }

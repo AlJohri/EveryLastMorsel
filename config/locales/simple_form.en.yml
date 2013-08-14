@@ -23,7 +23,10 @@ en:
     placeholders:
       user:
         first_name: 'Enter first name'
-        last_name: 'Enter first name'
+        last_name: 'Enter last name'
+        zip: 'Enter your zip'
+        email: 'Email'
+        password: 'Password'
       crop:
         crop_name: 'What crop did you plant? (e.g. Tomato, Potato)'
         variety_name: 'What variety is this crop? (e.g. Brandywine)'
@@ -32,3 +35,14 @@ en:
         title: 'Enter title'
         content: 'Write something wonderful'
         tag_list: "Add tags here separated by commas (i.e. American food, farm to table, recipe)"
+      plot:
+        name: 'Plot Name'
+        address1: 'Street address, P.O. box, company name, c/o'
+        address2: 'Apartment, suite , unit, building, floor, etc.'
+        city: 'City / Town'
+        state: 'State / Province / Region'
+        about: 'Tell your story and describe your plot so others can learn how you grow.'
+      crop_yield:
+        pick_date: 'Enter date picked'
+        quantity: 'Enter quantity'
+        quantity_unit: 'Enter quantity unit'

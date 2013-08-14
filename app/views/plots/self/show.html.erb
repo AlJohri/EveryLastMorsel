@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @plot.name %>
@@ -25,6 +23,8 @@
   <%= @plot.about %>
 </p>
 
+<% if user_signed_in? %> 
+  <%= link_to 'Edit', edit_user_plot_path(current_user, @plot) %>
+<% end %>
 
-<%= link_to 'Edit', edit_user_plot_path(current_user, @plot) %> |
 <%= link_to 'Back', user_plots_path(@plot.users.first) %>

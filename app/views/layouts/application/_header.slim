@@ -9,14 +9,14 @@ header.header
               li: a href='/users/sign_out' data-method='delete' title='Sign Out' Sign Out
               li: span.separator
           - else
-              li: a href="#sign-in" data-toggle="modal" title="Sign In" Sign In
+              li: a href="#devise" data-toggle="modal" title="Sign In" Sign In
               li: span.separator
           / end
 
           - if user_signed_in?
               li: a href="/users/edit" title="Edit Account" Edit Account
           - else
-              li: a href="#sign-up" data-toggle="modal" title="Sign Up" Sign Up
+              li: a href="#devise" data-toggle="modal" title="Sign Up" Sign Up
           / end
 
   .header-bottombar

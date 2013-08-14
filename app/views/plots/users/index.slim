@@ -6,30 +6,12 @@
           h3
             img.img-responsive src="http://placehold.it/200x200" alt="placeholder+image"
         .col-lg-9
-          h3= link_to "#{plot.try(:name)}", polymorphic_url([plot])
-          p
-            | Planted: 
-          p
-            | Yield: 
-          p 
-            | Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+          h3 = link_to "#{plot.try(:name)}", polymorphic_url([plot])
+          p #{plot.try(:city)} #{plot.try(:state)} #{plot.try(:zip)}
+          p = plot.try(:about)
       hr        
 
   .col-lg-12
     - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'index')
        a href=new_user_plot_url
          button.btn.btn-default Create Plot
-
-
-/ article.plots
-/   .plots-content
-/     ul.list-unstyled
-/       - @plots.each do |plot|
-/         li.plot
-/           = plot_url(plot)
-/           = plot.name
-/           = plot.city
-/           = plot.state
-/           = plot.zip
-/           = plot.about
-/           / # = link_to 'Show', [plot.user, plot]

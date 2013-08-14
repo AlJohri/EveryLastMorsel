@@ -1,0 +1,8 @@
+= simple_form_for @plot, :validate => true, :url => polymorphic_url([parent, :plots])  do |f|
+  = f.input :name
+  = f.input :address1
+  = f.input :address2
+  = f.input :city
+  = f.input :state, collection: us_states, prompt: 'Select state'
+  = f.input :about
+  = f.button :submit

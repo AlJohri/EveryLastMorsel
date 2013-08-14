@@ -14,7 +14,7 @@
         h1 = @profile.name.presence
         p 
           i.icon.icon-large.icon-map-marker
-          span = @profile.city + ", " + @profile.state
+          span #{@profile.try(:city)} #{@profile.try(:state)} #{@profile.try(:zip)}
     .profile-bottom.row
       .profile-sidebar.col-lg-3.visible-lg
         .row
