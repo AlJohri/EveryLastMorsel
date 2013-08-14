@@ -34,11 +34,19 @@
               /     span
               /       i.icon.icon-large.icon-envelope
               /       | Communication Hub
-              li class=('active' if controller.action_name == 'edit')
-                a href=edit_user_registration_url title="Settings"
-                  span
-                    i.icon.icon-large.icon-cog
-                    | Settings
+              - if can? :manage, @profile
+                - if @profile.class.to_s == "User"
+                    li class=('active' if controller.action_name == 'edit')
+                      a href=edit_user_registration_url title="User Settings"
+                        span
+                          i.icon.icon-large.icon-cog
+                          | Settings
+                - elsif @profile.class.to_s == "Plot"
+                    li class=('active' if controller.action_name == 'edit')
+                      a href=edit_user_plot_path(current_user, @plot) title="Plot Settings"
+                        span
+                          i.icon.icon-large.icon-cog
+                          | Settings
         .row
           .col-lg-12
             - if @profile.about.present?
