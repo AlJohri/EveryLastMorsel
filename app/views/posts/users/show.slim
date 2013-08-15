@@ -21,7 +21,7 @@ hr
     - @post.comments.each do |c|
       p
         strong Commenter:
-        = c.user || "Anonymous"    
+        = c.user.try(:name) || "Anonymous"    
       p
         strong Comment:
         = simple_format(c.comment)
