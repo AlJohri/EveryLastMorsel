@@ -33,12 +33,11 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || main_app.root_url
   end
 
-  def xeditable?
+  # def xeditable?
     true # Or something like current_user.xeditable?
-  end
+  # end
 
   def render(*args)
-
 
     # Check if controller inherits from InheritedResources::Base
     # If so, change view route to prepend "context/#{context}"
@@ -49,7 +48,7 @@ class ApplicationController < ActionController::Base
 
     options = args.extract_options!
     
-    if (self.class.ancestors.include? InheritedResources::Base)
+    if (!options[:location]) && (self.class.ancestors.include? InheritedResources::Base)
       action = options[:action] || action_name
       context = parent? ? parent_type.to_s.downcase.pluralize : "self"
       path = "#{controller_name}/#{context}/#{action}"

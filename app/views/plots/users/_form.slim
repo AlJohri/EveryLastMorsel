@@ -1,9 +1,28 @@
-= simple_form_for @plot, :validate => true, :url => polymorphic_url([parent, :plots])  do |f|
-  .row: .col-lg-12 = f.input :name
-  .row: .col-lg-12 = f.input :address1
-  .row: .col-lg-12 = f.input :address2
-  .row: .col-lg-12 = f.input :city
-  .row: .col-lg-12 = f.input :state, collection: us_states, prompt: 'Select state'
-  .row: .col-lg-12 = f.input :about
-  .row: .col-lg-12 = f.input :avatar, label: 'Change your plot profile picture'
-  .row: .col-lg-12 = f.button :submit
+= simple_form_for @plot, :validate => true, :url => polymorphic_url([parent, :plots]), :method => :post  do |f|
+  .row
+  	.col-lg-12
+  		= f.input :name
+  .row
+  	.col-lg-12
+  		= f.input :address1
+  .row
+  	.col-lg-12
+  		= f.input :address2
+  .row
+  	.col-lg-12
+  		= f.input :city
+  .row
+  	.col-lg-12
+  		= f.input :state, collection: us_states, prompt: 'Select state'
+  .row
+  	.col-lg-12
+  		= f.input :about
+  .row
+  	.col-lg-12
+  		= f.input :avatar, :label => 'Change your plot profile picture'
+  .row
+  	.col-lg-12
+  		= f.hidden_field :user_ids, value: current_user.id
+  .row
+  	.col-lg-12
+  		= f.button :submit

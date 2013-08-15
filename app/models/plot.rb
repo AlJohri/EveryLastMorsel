@@ -6,6 +6,8 @@ class Plot < ActiveRecord::Base
   attr_accessible :address1, :address2
   attr_accessible :latitude, :longitude
 
+  attr_accessible :user_ids
+
   acts_as_followable
 
   has_and_belongs_to_many :users
