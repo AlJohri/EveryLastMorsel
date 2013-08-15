@@ -17,4 +17,4 @@ deploy:
   on:
     repo: AlJohri/EveryLastMorsel
 notifications:
-  hipchat: [689797ef6572a118e0ec856abdafd4]@[260032]
+  hipchat: 689797ef6572a118e0ec856abdafd4@260032
