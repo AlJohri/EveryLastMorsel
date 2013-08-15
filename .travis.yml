@@ -1,10 +1,18 @@
 language: ruby
 rvm:
-  - 1.9.3
-script: 
-  - cp config/database.yml.sample config/database.yml
-  - bundle exec rake db:drop db:create db:migrate spec
-  # - RAILS_ENV=test bundle exec rake db:migrate --trace
+- 1.9.3
+script:
+- cp config/database.yml.sample config/database.yml
+- bundle exec rake db:drop db:create db:migrate spec
 bundler_args: --without development
 before_script:
-  - psql -c 'create database EveryLastMorsel_test' -U postgres
+- psql -c 'create database EveryLastMorsel_test' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: LJMNYDH1lWnbboPUt2PCGJnyH7hTW1T6AwA5rwSE8JuRCs4HNhFyJW6t8Cs7OQcljYieTGU0Bt6DVB+gJ6OCK3PuHfFfEPYxM0dToJZ2tFU2VbEoQavYy3g64Mrc4cfq+S3BiE7PNZdjUr4CNipbqmV1s1mtmNSu3CHIaHCn6XQ=      
+  app: 
+    master: beta-everylastmorsel
+    develop: dev-everylastmorsel
+  on:
+    repo: AlJohri/EveryLastMorsel
