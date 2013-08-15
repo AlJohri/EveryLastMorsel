@@ -18,6 +18,14 @@ class PlotsController < InheritedResources::Base
     end
   end
 
+  def update
+    update! do |success, failure|
+      success.html {
+        redirect_to polymorphic_url(@plot)
+      }
+    end
+  end
+
   def index
     super do |format|
       format.json { render :json => @plots }

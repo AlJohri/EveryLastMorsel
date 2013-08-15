@@ -63,12 +63,12 @@ EveryLastMorsel::Application.routes.draw do
   ####################################################################################
 
   ############## Users, Plots, Posts, Crops, Activies ##############
-  resources :users, :path => '', only: [], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
+  resources :users, only: [], :path => '', concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
   resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
-  resources :crops, only: [:index, :show], :controller => 'crop_types'
-  resources :varieties, only: [:index, :show], :controller => 'crop_varieties'
+  resources :crops, only: [:index, :show], controller: 'crop_types'
+  resources :varieties, only: [:index, :show], controller: 'crop_varieties'
   resources :activites, only: [:index]
   resources :uploads # TEMPORARY
   
@@ -80,7 +80,6 @@ EveryLastMorsel::Application.routes.draw do
   get '/blog' => "posts#index", :as => :blog
   get "/feed" => "activities#index", as: :feed
 
-  
   ####################################################################################
   # API (V0)
   ####################################################################################
