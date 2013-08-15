@@ -46,6 +46,7 @@ en:
         address2: 'Apartment, suite , unit, building, floor, etc.'
         city: 'City / Town'
         state: 'State / Province / Region'
+        zip: 'Zip'
         about: 'Tell your story and describe your plot so others can learn how you grow.'
       crop_yield:
         pick_date: 'Enter date picked'
