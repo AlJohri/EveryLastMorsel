@@ -18,7 +18,7 @@ deploy:
     repo: AlJohri/EveryLastMorsel
 notifications:
   hipchat: 
-  	rooms: 
-  		- 689797ef6572a118e0ec856abdafd4@260032
-  	template:
+    rooms: 
+      - 689797ef6572a118e0ec856abdafd4@260032
+    template:
       - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
