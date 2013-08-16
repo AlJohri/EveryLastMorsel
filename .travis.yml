@@ -21,6 +21,5 @@ notifications:
     rooms: 
       - 689797ef6572a118e0ec856abdafd4@260032
     template:
-      - '<a href="https://github.com/%{author}">%{author}</a> tested branch <a href="https://github.com/aljohri/EveryLastMorsel/tree/%{branch}">%{branch}</a> of <a href="https://github.com/%{repository}">%{repository}</a> - build <a href="%{build_url}">%{build_number}</a> - <a href="%{compare_url}">Comparison</a><br></br>- %{commit_message} (<a href="https://github.com/%{author}/%{repository}/commit/%{commit}">%{commit}</a>)'
+      - '<a href="https://github.com/AlJohri">%{author}</a> tested branch <a href="https://github.com/%{repository}/tree/%{branch}">%{branch}</a> of <a href="https://github.com/%{repository}">%{repository}</a> - build <a href="%{build_url}">%{build_number}</a> - <a href="%{compare_url}">Comparison</a><br></br>- %{commit_message} (<a href="https://github.com/%{author}/%{repository}/commit/%{commit}">%{commit}</a>)'
     format: html
-
