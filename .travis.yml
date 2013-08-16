@@ -21,5 +21,5 @@ notifications:
     rooms: 
       - 689797ef6572a118e0ec856abdafd4@260032
     template:
-      - '%{author} tested branch %{branch} of %{author}/%{repository} with build number <a href="%{build_url}">%{build_number}</a></br>- %{commit_message} (<a href="https://github.com/%{author}/%{repository}/commit/%{commit}">%{commit}</a>)'
+      - '%{author} tested branch %{branch} of %{repository} with build number <a href="%{build_url}">%{build_number}</a><br></br>\n- %{commit_message} (<a href="https://github.com/%{author}/%{repository}/commit/%{commit}">%{commit}</a>)'
     format: html
