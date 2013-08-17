@@ -8,4 +8,5 @@ Travis (see .travis.yml file)
 
 Heroku (see app dashboard on heroku)
 
-heroku addons:add deployhooks:hipchat --auth_token=auth_key --room=room_number --message_format="html" --message="<a href="mailto:{{user}}">{{user}}</a> deployed <a href="https://dashboard.heroku.com/apps/{{app}}">{{app}}</a> on <a href={{url}}>{{url}}</a><br></br>Last Commit Deployed: <a href="https://github.com/AlJohri/EveryLastMorsel/commit/{{head}}">{{head}}</a><br></br>Git Log (commits between this deploy and the last): {{git_log}}"
+heroku addons:remove deployhooks:hipchat
+heroku addons:add deployhooks:hipchat --auth_token=ENV['HIPCHAT_AUTH_TOKEN'] --room=ENV['HIPCHAT_ROOM'] --message_format="html" --message="<a href="mailto:{{user}}">{{user}}</a> deployed <a href="https://dashboard.heroku.com/apps/{{app}}">{{app}}</a> on <a href={{url}}>{{url}}</a><br></br>Last Commit Deployed: <a href="https://github.com/AlJohri/EveryLastMorsel/commit/{{head}}">{{head}}</a>"

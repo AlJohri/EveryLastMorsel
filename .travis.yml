@@ -16,7 +16,6 @@ deploy:
     develop: dev-everylastmorsel
   on:
     repo: AlJohri/EveryLastMorsel
-  strategy: git
 notifications:
   hipchat: 
     rooms: 
@@ -24,3 +23,6 @@ notifications:
     template:
       - '<a href="https://github.com/AlJohri">%{author}</a> tested branch <a href="https://github.com/%{repository}/tree/%{branch}">%{branch}</a> of <a href="https://github.com/%{repository}">%{repository}</a> - build <a href="%{build_url}">%{build_number}</a> - <a href="%{compare_url}">Comparison</a><br></br>- %{commit_message} (<a href="https://github.com/%{repository}/commit/%{commit}">%{commit}</a>)'
     format: html
+    on_start: true
+    on_success: true
+    on_failure: true
