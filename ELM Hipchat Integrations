@@ -1,5 +1,11 @@
 Github - default
-Travis - default
 Trello - https://github.com/GoBoundless/trello-hipchat-bot
-	     - 'elm-trello-hipchat-bot'
-Heroku - default
+	   - Heroku App Name: 'elm-trello-hipchat-bot'
+
+Travis (see .travis.yml file)
+
+'<a href="https://github.com/AlJohri">%{author}</a> tested branch <a href="https://github.com/%{repository}/tree/%{branch}">%{branch}</a> of <a href="https://github.com/%{repository}">%{repository}</a> - build <a href="%{build_url}">%{build_number}</a> - <a href="%{compare_url}">Comparison</a><br></br>- %{commit_message} (<a href="https://github.com/%{repository}/commit/%{commit}">%{commit}</a>)'
+
+Heroku (see app dashboard on heroku)
+
+heroku addons:add deployhooks:hipchat --auth_token=auth_key --room=room_number --message_format="html" --message="<a href="mailto:{{user}}">{{user}}</a> deployed <a href="https://dashboard.heroku.com/apps/{{app}}">{{app}}</a> on <a href={{url}}>{{url}}</a><br></br>Last Commit Deployed: <a href="https://github.com/AlJohri/EveryLastMorsel/commit/{{head}}">{{head}}</a><br></br>Git Log (commits between this deploy and the last): {{git_log}}"
