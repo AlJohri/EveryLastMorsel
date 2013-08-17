@@ -16,6 +16,7 @@ deploy:
     develop: dev-everylastmorsel
   on:
     repo: AlJohri/EveryLastMorsel
+  strategy: git
 notifications:
   hipchat: 
     rooms: 
