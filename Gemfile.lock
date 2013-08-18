@@ -86,6 +86,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.1.1.6)
       railties (>= 3.0)
+    braintree (2.23.0)
+      builder (>= 2.0.0)
     builder (3.0.4)
     cancan (1.6.10)
     carrierwave (0.9.0)
@@ -346,6 +348,7 @@ DEPENDENCIES
   bootstrap-sass!
   bootstrap-wysihtml5-rails!
   bootsy!
+  braintree
   cancan (= 1.6.10)
   carrierwave
   client_side_validations

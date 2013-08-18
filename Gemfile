@@ -25,7 +25,8 @@ end
 
 gem 'carrierwave'
 gem 'bootsy', github: 'volmer/bootsy', branch: 'rails-3.2'
-# gem 'bootsy-simple_form'
+
+gem 'braintree'
 
 gem 'haml'
 gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
