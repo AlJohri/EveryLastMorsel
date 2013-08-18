@@ -98,7 +98,7 @@
 											img.img-responsive src="http://placehold.it/260x180"
 										.col-lg-9
 											h3
-												= link_to crop.crop_name.pluralize, user_crop_url(user.id, crop.id)
+												= link_to crop.try(:crop_name).try(:pluralize), user_crop_url(user.id, crop.id)
 								.row
 									.col-lg-12.col-padding
 								hr
@@ -122,7 +122,7 @@
 											img.img-responsive src="http://placehold.it/260x180"
 										.col-lg-9
 											h3
-												= link_to crop.crop_name.pluralize, user_crop_url(user.id, crop.id)
+												= link_to crop.try(:crop_name).try(:pluralize), user_crop_url(user.id, crop.id)
 								.row
 									.col-lg-12.col-padding
 								hr
