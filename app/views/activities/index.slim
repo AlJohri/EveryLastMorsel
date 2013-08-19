@@ -43,7 +43,7 @@
 									.post-bottom.row
 										.col-lg-12.col-padding-top
 											i class="icon icon-calendar"
-											| #{post.created_at.strftime("%B %d, %Y")}&nbsp;|&nbsp;
+											| #{post.try(:created_at).try(:strftime, "%B %d, %Y")}&nbsp;|&nbsp;
 											i class="icon icon-comment"
 											a href="#"
 											| #{post.comments.count} Comments&nbsp;|&nbsp;
