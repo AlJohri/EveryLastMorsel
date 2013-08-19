@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
 
   paginates_per 8
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :posts
   # has_many :plots
   has_and_belongs_to_many :plots
@@ -25,12 +23,13 @@ class User < ActiveRecord::Base
          # :confirmable
 
   # Setup accessible (or protected) attributes for your model
+  FIELDS = [:first_name, :last_name, :name, :email, :city, :state, :zip, :url]
+  attr_accessor *FIELDS
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :first_name, :last_name, :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :provider, :uid, :about
-  attr_accessible :city, :state, :zip
-  attr_accessible :url
   attr_accessible :avatar
+  attr_accessible :braintree_customer_id
   attr_reader :avatar_remote_url
 
   validates :zip, presence: true
@@ -203,6 +202,27 @@ class User < ActiveRecord::Base
     #puts self.state
     #puts self.zip
   end
+
+  def has_payment_info?
+    !!braintree_customer_id
+  end
+
+  def with_braintree_data!
+    return self unless has_payment_info?
+    braintree_data = Braintree::Customer.find(braintree_customer_id)
+
+    FIELDS.each do |field|
+      send(:"#{field}=", braintree_data.send(field))
+    end
+    self
+  end
+
+  def default_credit_card
+    return unless has_payment_info?
+
+    credit_cards.find { |cc| cc.default? }
+  end
+
 
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
