@@ -92,13 +92,17 @@ gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 # API
 # https://github.com/fabrik42/acts_as_api
 
-group :development, :test do
-  gem 'rspec-rails', '= 2.14.0'                 # https://github.com/rspec/rspec-rails
-  gem 'rails-erd', '= 1.1.0'                    # https://github.com/voormedia/rails-erd
+group :development do
   gem 'nested_scaffold', '= 0.2.1'              # https://github.com/amatsuda/nested_scaffold
   gem 'quiet_assets', '= 1.0.2'                 # https://github.com/evrone/quiet_assets
   gem 'better_errors', '= 0.9.0'                # https://github.com/charliesome/better_errors
-  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx] # https://github.com/banister/binding_of_caller
+  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx] # https://github.com/banister/binding_of_caller  
+end
+
+group :test do
+  gem 'simplecov', :require => false            # https://github.com/colszowka/simplecov
+  gem 'rspec-rails', '= 2.14.0'                 # https://github.com/rspec/rspec-rails
+  gem 'rails-erd', '= 1.1.0'                    # https://github.com/voormedia/rails-erd
 end
 
 #gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'

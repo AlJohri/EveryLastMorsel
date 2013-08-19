@@ -296,6 +296,10 @@ GEM
     simple_form (2.0.3)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     sitemap_generator (4.1.1)
       builder
     slim (2.0.1)
@@ -388,6 +392,7 @@ DEPENDENCIES
   safe_yaml (= 0.9.5)
   sass-rails (= 3.2.6)
   simple_form (= 2.0.3)
+  simplecov
   sitemap_generator
   slim-rails (= 2.0.1)
   thin (= 1.5.1)
