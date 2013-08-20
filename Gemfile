@@ -27,6 +27,7 @@ gem 'carrierwave'
 gem 'bootsy', github: 'volmer/bootsy', branch: 'rails-3.2'
 
 gem 'braintree'
+gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
 
 gem 'haml'
 gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails

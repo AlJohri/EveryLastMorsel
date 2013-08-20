@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
          # :confirmable
 
   # Setup accessible (or protected) attributes for your model
+  # FIELDS = [:first_name, :last_name, :phone, :website, :company, :fax, :addresses, :credit_cards, :custom_fields]
   FIELDS = [:first_name, :last_name, :name, :email, :city, :state, :zip, :url]
   attr_accessor *FIELDS
   attr_accessible :role_ids, :as => :admin
@@ -202,27 +203,6 @@ class User < ActiveRecord::Base
     #puts self.state
     #puts self.zip
   end
-
-  def has_payment_info?
-    !!braintree_customer_id
-  end
-
-  def with_braintree_data!
-    return self unless has_payment_info?
-    braintree_data = Braintree::Customer.find(braintree_customer_id)
-
-    FIELDS.each do |field|
-      send(:"#{field}=", braintree_data.send(field))
-    end
-    self
-  end
-
-  def default_credit_card
-    return unless has_payment_info?
-
-    credit_cards.find { |cc| cc.default? }
-  end
-
 
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
