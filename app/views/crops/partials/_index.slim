@@ -10,7 +10,7 @@
             = link_to "#{crop.try(:crop_variety).try(:name)} #{crop.try(:crop_type).try(:name)}", polymorphic_url([parent, crop])
           p
             | Planted: 
-            = crop.plant_date.presence.strftime("%B %d, %Y")
+            = crop.try(:plant_date).try(:strftime, "%B %d, %Y")
           p
             | Yield: 
             = crop.crop_yields.last.try(:quantity)

@@ -21,7 +21,7 @@ ul.posts
           a href=user_url(post.user)
             = post.user.name
         .post-right-posted-date
-          | Posted #{post.created_at.strftime("%B %d, %Y")} at #{post.created_at.strftime("%I:%M %p")}
+          | Posted #{post.try(:created_at).try(:strftime, "%B %d, %Y")} at #{post.created_at.strftime("%I:%M %p")}
         .post-right-likes
           div id="dig-#{post.id}"
             = link_to like_post_url(post), :title => "Dig", :remote => true do
