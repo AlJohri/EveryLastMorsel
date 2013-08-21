@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   def render(*args)
 
     # Check if controller inherits from InheritedResources::Base
-    # If so, change view route to prepend "context/#{context}"
+    # If so, change view route to prepend "#{context}"
     # to serve the correct view.
     
     #&& (request.format == "text/html") # && (!request.xhr?)

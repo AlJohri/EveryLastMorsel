@@ -5,13 +5,7 @@ gem 'rails', '3.2.14'
 group :assets do
   gem 'sass-rails', '= 3.2.6'                   # https://github.com/rails/sass-rails
   gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
-
-  # https://github.com/jhollingworth/bootstrap-wysihtml5
-  # https://github.com/Nerian/bootstrap-wysihtml5-rails
-  # https://github.com/artillery/bootstrap-wysihtml5 -> Pull Request for Rails 3 Support in this repository
-  # gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21'
   gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
-
   gem 'bootstrap-datepicker-rails'              # https://github.com/Nerian/bootstrap-datepicker-rails
   gem 'x-editable-rails', '= 1.0.0'             # https://github.com/werein/x-editable-rails
   gem 'coffee-rails', '= 3.2.2'                 # https://github.com/rails/coffee-rails
@@ -25,10 +19,8 @@ end
 
 gem 'carrierwave'
 gem 'bootsy', github: 'volmer/bootsy', branch: 'rails-3.2'
-
 gem 'braintree'
 gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
-
 gem 'haml'
 gem 'slim-rails', '= 2.0.1'                     # https://github.com/slim-template/slim-rails
 gem 'devise', '= 2.2.4'                         # https://github.com/plataformatec/devise
@@ -65,34 +57,11 @@ gem 'ransack'                                   # https://github.com/ernie/ransa
 gem 'sitemap_generator'                         # https://github.com/kjvarga/sitemap_generator
 gem 'safe_yaml', '= 0.9.5'
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
-#gem 'make_flaggable', :github => 'Mab879/make_flaggable', :branch => "patch-2"
 
-# Conflict, requires bootstrap-sass 3.0.0.0
-# gem 'rails_admin'
-# This branch is only for Rails 4
-# gem 'rails_admin', :github => 'davebrace/rails_admin', :branch => 'use-static-bootstrap-2'
-
-# Web Analytics
-# https://www.ruby-toolbox.com/categories/Web_Analytics
-# gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
-# gem 'rack-piwik', '0.1.3', :require => 'rack/piwik', :require => false
-
-# SSL
-# gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
-
-# https://www.ruby-toolbox.com/categories/xml_mapping
-
-# http://somerandomdude.com/work/iconic/
-# https://github.com/nt/iconic
-
-# Give users a reputation based on how they interact with ELM.
-# https://www.ruby-toolbox.com/categories/Reputation_Engines
-
-# Allow users to rate things
-# https://github.com/muratguzel/letsrate
-
-# API
-# https://github.com/fabrik42/acts_as_api
+  # `rspec-rails` needs to be in the development group so that Rails generators work.
+group :development, :test do
+  gem 'rspec-rails', '= 2.14.0'                 # https://github.com/rspec/rspec-rails
+end
 
 group :development do
   gem 'nested_scaffold', '= 0.2.1'              # https://github.com/amatsuda/nested_scaffold
@@ -103,11 +72,31 @@ end
 
 group :test do
   gem 'simplecov', :require => false            # https://github.com/colszowka/simplecov
-  gem 'rspec-rails', '= 2.14.0'                 # https://github.com/rspec/rspec-rails
+  gem 'capybara'
+  gem "shoulda-matchers"
   gem 'rails-erd', '= 1.1.0'                    # https://github.com/voormedia/rails-erd
 end
 
-#gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
-
+# Other Gems
+# https://github.com/vcr/vcr
+# https://github.com/jhollingworth/bootstrap-wysihtml5
+# https://github.com/Nerian/bootstrap-wysihtml5-rails
+# https://github.com/artillery/bootstrap-wysihtml5 -> Pull Request for Rails 3 Support in this repository
+# gem 'bootstrap-wysihtml5-rails', '= 0.3.1.21'
+# gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 # gem 'angularjs-rails'
 # gem 'blogit'
+# gem 'rails_admin'
+# gem 'rails_admin', :github => 'davebrace/rails_admin', :branch => 'use-static-bootstrap-2'
+# https://www.ruby-toolbox.com/categories/Web_Analytics
+# gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
+# gem 'rack-piwik', '0.1.3', :require => 'rack/piwik', :require => false
+# gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
+# https://www.ruby-toolbox.com/categories/xml_mapping
+# http://somerandomdude.com/work/iconic/
+# https://github.com/nt/iconic
+# https://www.ruby-toolbox.com/categories/Reputation_Engines
+# Allow users to rate things
+# https://github.com/muratguzel/letsrate
+# https://github.com/fabrik42/acts_as_api
+# https://github.com/jim/carmen-rails

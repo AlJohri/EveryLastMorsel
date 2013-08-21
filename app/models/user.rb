@@ -1,31 +1,19 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
 
-  paginates_per 8
+  # Model Callbacks
 
-  has_many :posts
-  # has_many :plots
-  has_and_belongs_to_many :plots
+  after_destroy :destroy_customer
   before_create :concatenate_name
   before_create :geocode_zip  
   # after_create :update_mailchimp
-  rolify
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
-         # :confirmable
 
-  # Setup accessible (or protected) attributes for your model
-  # FIELDS = [:first_name, :last_name, :phone, :website, :company, :fax, :addresses, :credit_cards, :custom_fields]
-  FIELDS = [:first_name, :last_name, :name, :email, :city, :state, :zip, :url]
-  attr_accessor *FIELDS
+  # Model Relations
+
+  has_many :posts
+  has_and_belongs_to_many :plots
+
+  # Setup accessible attributes for model
+  attr_accessible :first_name, :last_name, :name, :email, :city, :state, :zip, :url
   attr_accessible :role_ids, :as => :admin
   attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :provider, :uid, :about
@@ -35,12 +23,20 @@ class User < ActiveRecord::Base
 
   validates :zip, presence: true
 
+  # External Classes
+
+  extend FriendlyId
+
+  # Ruby Mixins
+
+  rolify
   make_flagger
   acts_as_tagger
   acts_as_follower
   acts_as_followable
   acts_as_messageable
-  
+  paginates_per 8
+  friendly_id :name, use: :slugged
   has_attached_file :avatar, 
     :default_url => "/assets/placeholder_:style.jpg", 
     :styles => {
@@ -48,6 +44,22 @@ class User < ActiveRecord::Base
       square: '200x200#',
       medium: '300x300#'
     }
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, 
+       :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
+
+  # Methods
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  def crops
+    Crop.where(:plot_id => self.plots.pluck(:id))
+  end
+
+  def concatenate_name
+    self.name = "#{first_name} #{last_name}"
+  end  
   
   def avatar_remote_url(url_value, file_name)
     if url_value != nil
@@ -70,20 +82,33 @@ class User < ActiveRecord::Base
     }
   end
 
-  extend FriendlyId
-  friendly_id :name, use: :slugged
-
-  def name
-    "#{first_name} #{last_name}"
-  end
-
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
+  def update_mailchimp
+    gb = Gibbon.new
+    ret = gb.list_subscribe({:id => '814352e0b3', :email_address => self.email, :merge_vars => {:FNAME => self.first_name, :LNAME => self.last_name, :MMERGE3 => self.city, :MMERGE4 => self.created_at }})
+    
+    if ret == false
+      if ret['code'] == 214 # Email was already in MailChimp List
+        Rails.logger.debug(ret['error'])
       end
     end
+
   end
+
+  def geocode_zip
+    location = Geocoder.search(zip)
+    if location.present?
+      self.city = location[0].city
+      self.state = location[0].state
+    end
+  end
+
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+    #if true
+    return email
+    #if false
+    #return nil
+  end  
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -108,7 +133,6 @@ class User < ActiveRecord::Base
               email: auth.info.email,
               password: Devise.friendly_token[0,20]
             )
-      # user.skip_confirmation!
       user.save
       user.avatar_remote_url(auth.info.image, user.slug)
     end
@@ -119,9 +143,10 @@ class User < ActiveRecord::Base
     user = User.where(:name => auth.extra.raw_info.screen_name).first
 
     unless user
+        #extra.raw_info.screen_name
         #Hack to resolve the required email issue with Twitter and Devise
         user = User.new(
-                name: auth.info.name,  #extra.raw_info.screen_name
+                name: auth.info.name,
                 first_name: auth.info.name[0],
                 last_name: auth.info.name[1],
                 city: city,
@@ -132,7 +157,6 @@ class User < ActiveRecord::Base
                 email: "#{auth.extra.raw_info.screen_name}@twitter.com", 
                 password: Devise.friendly_token[0,20]
               )
-        # user.skip_confirmation!
         user.save
         user.avatar_remote_url(auth.info.image, user.slug)
     end
@@ -157,52 +181,24 @@ class User < ActiveRecord::Base
               password: Devise.friendly_token[0,20],
               uid: auth.uid
             )
-      # user.skip_confirmation!
       user.save
       user.avatar_remote_url(auth.info.image, user.slug)
     end
     user
   end
 
-  def mailboxer_email(object)
-    #Check if an email should be sent for that object
-    #if true
-    return email
-    #if false
-    #return nil
-  end  
-
-  def update_mailchimp
-    gb = Gibbon.new
-    ret = gb.list_subscribe({:id => '814352e0b3', :email_address => self.email, :merge_vars => {:FNAME => self.first_name, :LNAME => self.last_name, :MMERGE3 => self.city, :MMERGE4 => self.created_at }})
+  # This method works with the registerable module in Devise.
+  # Please see this StackOverflow answer: http://stackoverflow.com/a/11094517
+  # It is currently not needed.
     
-    if ret == false
-      if ret['code'] == 214 # Email was already in MailChimp List
-        Rails.logger.debug(ret['error'])
-      end
-    end
+  # def self.new_with_session(params, session)
+  #   super.tap do |user|
+  #     if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+  #       user.email = data["email"] if user.email.blank?
+  #     end
+  #   end
+  # end
 
-  end
-  
-  def crops
-    Crop.where(:plot_id => self.plots.pluck(:id))
-  end
-
-  def concatenate_name
-    self.name = "#{first_name} #{last_name}"
-  end
-
-  def geocode_zip
-    location = Geocoder.search(zip)
-    if location.present?
-      self.city = location[0].city
-      self.state = location[0].state
-    end
-
-    #puts self.city
-    #puts self.state
-    #puts self.zip
-  end
 
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
