@@ -1,4 +1,4 @@
-require 'rails_ext/tag_helper_ext'
+# require 'rails_ext/tag_helper_ext'
 
 if Rails.env.development?
 	Braintree::Configuration.environment = ENV["BRAINTREE_SANDBOX_ENVIRONMENT"].to_sym
