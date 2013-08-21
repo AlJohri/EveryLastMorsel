@@ -47,9 +47,6 @@ To accomplish this change I made a small override to the render function within 
         # If so, change view route to prepend "#{context}"
         # to serve the correct view.
 
-        #&& (request.format == "text/html") # && (!request.xhr?)
-        #context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.downcase.pluralize    
-
         options = args.extract_options!
 
         if (!options[:location]) && (self.class.ancestors.include? InheritedResources::Base)
@@ -69,16 +66,16 @@ Every Last Morsel loves Inherited Resources. Inherited Resources makes the creat
 
 #### Examples
 
-**Where would I find the view for a list of plots within the user profile?**
+##### Where would I find the view for a list of plots within the user profile?
 views/plots/users/index.slim
 
-**Where would I find the view for a list of crops within the plot profile?**
+##### Where would I find the view for a list of crops within the plot profile?
 views/crops/plots/index.slim
 
-**Where would I find the view for a list of posts within the user profile?**
+##### Where would I find the view for a list of posts within the user profile?
 views/posts/users/index.slim
 
-**Where would I find the view for an individual plot within the user profile?**
+##### Where would I find the view for an individual plot within the user profile?
 Doesn't exist! Viewing an individual plot profile must be done from a plot profile. If this did exist it would be views/plots/users/show.slim
 
 ### Service Objects Design Pattern
