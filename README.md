@@ -23,7 +23,7 @@ Every Last Morsel currently makes heavy use of [InheritedResouces](https://githu
 
 ### Polymorphic Controller Design Pattern
 
-The heavy use of polymorphic controllers is necessitated by the highly contextualized design. Each object can be viewed in multiple contexts: in the context of itself, in the context of a user profile, or in the context of a plot profile. To enable using a single polymorphic controller for these different views I make use of the ["Optional Belongs To"](https://github.com/josevalim/inherited_resources#optional-belongs-to) functionality within InheritedResources. This allows each resource to not only be nested, accesed in the context of its parent, but also to be independent, accessed in the context of itself.
+The heavy use of polymorphic controllers is necessitated by the highly contextualized design. Each object can be viewed in multiple contexts: in the context of itself, in the context of a user profile, or in the context of a plot profile. To enable using a single polymorphic controller for these different views I make use of the ["Optional Belongs To"](https://github.com/josevalim/inherited_resources#optional-belongs-to) functionality within InheritedResources. This allows each resource to not only be nested (accesed in the context of its parent) but also to be independent (accessed in the context of itself).
 
 In an effort to maintain relatively logicless views and keep thin controllers, instead of adding conditionals to change the view within the controller OR conditionals to change the content within the view, I added a "context" to each view.
 
