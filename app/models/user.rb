@@ -57,6 +57,10 @@ class User < ActiveRecord::Base
     Crop.where(:plot_id => self.plots.pluck(:id))
   end
 
+  def crop_yields
+    CropYield.where(:crop_id => self.crops.pluck(:id))
+  end
+
   def concatenate_name
     self.name = "#{first_name} #{last_name}"
   end  

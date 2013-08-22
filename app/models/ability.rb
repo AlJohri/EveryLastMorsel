@@ -10,9 +10,13 @@ class Ability
     elsif user.has_role? :admin
       can :manage, User
       can :manage, Plot
+      can :manage, Crop
+      can :manage, CropYield
     else
       can :manage, User, :id => user.id
       can :manage, Plot, :id => user.plots.pluck(:id)
+      can :manage, Crop, :id => user.crops.pluck(:id)
+      can :manage, CropYield, :id => user.crop_yields.pluck(:id)
     end
 
     # Define abilities for the passed in user here. For example:

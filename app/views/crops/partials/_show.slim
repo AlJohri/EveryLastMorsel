@@ -26,20 +26,24 @@
           = @crop.crop_yields.last.try(:quantity)
           |/ 
           = @crop.crop_yields.last.try(:quantity_unit)
+
         / a href='#' 
           / button.btn.btn-default type="button" Purchase
         / p $3.50/bundle
+
         table.table.table-striped
 
-          tr
-            td Variety
-            td= @crop.crop_variety.try(:name)
-          tr
-            td Coverage
-            td
-              = @crop.coverage
-              |/
-              = @crop.coverage_unit
+          - if @crop.crop_variety.try(:name)
+              tr
+                td Variety
+                td= @crop.crop_variety.try(:name)
+          - if (!@crop.coverage.blank? && !@crop.coverage_unit.blank?)
+              tr
+                td Coverage
+                td
+                  = @crop.coverage
+                  |/
+                  = @crop.coverage_unit
 
         - if @crop.crop_yields.count != 0
           h4 YIELDS
@@ -50,7 +54,7 @@
                 td #{crop_yield.quantity} #{crop_yield.quantity_unit}
                 td #{crop_yield.try(:pick_date).try(:strftime, "%B %d, %Y")}
 
-        - if user_signed_in?
+        - if can? :manage, @crop
           h4 ADD YIELD
           = simple_form_for @crop.crop_yields.build, :validate => true, url: polymorphic_url([parent, @crop, :crop_yields]) do |f|
             = f.hidden_field :crop_id, value: @crop.id
