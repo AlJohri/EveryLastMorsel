@@ -1,4 +1,24 @@
 GIT
+  remote: git://github.com/AlJohri/rails_admin.git
+  revision: fd30a6b6b3d0bcc91bbc64257c29af120263dc0c
+  branch: rails-3.x
+  specs:
+    rails_admin (0.4.9)
+      builder (~> 3.0)
+      coffee-rails (>= 3.1, < 5)
+      font-awesome-rails (~> 3.0)
+      haml (~> 4.0)
+      jquery-rails (>= 2.1, < 4)
+      jquery-ui-rails (>= 3.0, < 5)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.6)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      safe_yaml (~> 0.6)
+      sass-rails (~> 3.1)
+
+GIT
   remote: git://github.com/Nerian/bootstrap-wysihtml5-rails.git
   revision: 081b8ba0576dbfba2df1d21a46bc83a1e04404c9
   specs:
@@ -129,7 +149,7 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-rails (1.0.3)
+    compass-rails (2.0.alpha.0)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
     dalli (2.6.4)
@@ -204,6 +224,7 @@ GEM
     multi_json (1.7.9)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
+    nested_form (0.3.2)
     nested_scaffold (0.2.1)
       rails (~> 3.2.2)
     newrelic_rpm (3.6.5.130)
@@ -254,6 +275,9 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-pjax (0.7.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -380,7 +404,7 @@ DEPENDENCIES
   client_side_validations
   client_side_validations-simple_form!
   coffee-rails (= 3.2.2)
-  compass-rails (= 1.0.3)
+  compass-rails (~> 2.0.alpha.0)
   dalli (= 2.6.4)
   devise (= 2.2.4)
   faker (= 1.1.2)
@@ -410,6 +434,7 @@ DEPENDENCIES
   quiet_assets (= 1.0.2)
   rails (= 3.2.14)
   rails-erd (= 1.1.0)
+  rails_admin!
   ransack
   rolify (= 3.2.0)
   routing_concerns (= 0.1.0)

@@ -9,7 +9,7 @@ group :assets do
   gem 'bootstrap-datepicker-rails'              # https://github.com/Nerian/bootstrap-datepicker-rails
   gem 'x-editable-rails', '= 1.0.0'             # https://github.com/werein/x-editable-rails
   gem 'coffee-rails', '= 3.2.2'                 # https://github.com/rails/coffee-rails
-  gem 'compass-rails', '= 1.0.3'                # https://github.com/Compass/compass-rails
+  gem "compass-rails", "~> 2.0.alpha.0"         # https://github.com/Compass/compass-rails
   gem 'jquery-rails', '= 3.0.2'                 # https://github.com/rails/jquery-rails
   gem 'jquery-ui-rails', '= 3.0.1'              # https://github.com/joliss/jquery-ui-rails
   gem 'jquery-fileupload-rails', '= 0.4.1'      # https://github.com/tors/jquery-fileupload-rails
@@ -76,6 +76,8 @@ group :test do
   gem "shoulda-matchers"
   gem 'rails-erd', '= 1.1.0'                    # https://github.com/voormedia/rails-erd
 end
+
+gem 'rails_admin', :github => 'AlJohri/rails_admin', :branch => 'rails-3.x'
 
 # Other Gems
 # https://github.com/vcr/vcr
