@@ -14,8 +14,9 @@ EveryLastMorsel::Application.routes.draw do
 
   ######## Home (no Auth), Home (with Auth), About, Help, Map, Marketplace ########
   authenticated :user do
-    root :to => "activities#index"
+    root :to => "activities#index", as: :authenticated_root
   end
+  
   root :to => "static#home"
   scope :controller => "static" do
     get 'about'
@@ -38,7 +39,7 @@ EveryLastMorsel::Application.routes.draw do
   }
 
   ############## Rails Admin ##############
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   ####################################################################################
   # CONCERNS
@@ -64,7 +65,7 @@ EveryLastMorsel::Application.routes.draw do
 
   ############## Users, Plots, Posts, Crops, Activies ##############
   resources :users, only: [], :path => '', concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
-  resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
+  # resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
   resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
   resources :crops, only: [:index, :show], controller: 'crop_types'
@@ -91,7 +92,7 @@ EveryLastMorsel::Application.routes.draw do
     #   :registrations => "devise/custom/registrations" 
     # }
 
-    resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
+    # resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
     resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
     resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
     resources :crops, only: [:index, :show], :controller => 'crop_types'

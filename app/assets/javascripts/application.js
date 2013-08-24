@@ -19,12 +19,12 @@
 //= require bootstrap-datepicker
 //= require bootstrap-wysihtml5
 //= require rails.validations
-//= require rails.validations.simple_form
 //= require elm
 //= require map
 
 // require editable/bootstrap-editable
 // require editable/rails
+// require rails.validations.simple_form
 
 
 // Angular Dependencies (not enabled)
