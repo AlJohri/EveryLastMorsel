@@ -54,8 +54,9 @@ gem 'public_activity', '1.4.0'                           # https://github.com/po
 gem 'ransack'                                   # https://github.com/ernie/ransack
 gem 'sitemap_generator'                         # https://github.com/kjvarga/sitemap_generator
 gem 'safe_yaml'
-# gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
-gem 'make_flaggable', :github => 'medihack/make_flaggable'
+# gem 'make_flaggable', :github => 'cavneb/make_flaggable'
+# gem 'make_flaggable', :github => 'medihack/make_flaggable'
+gem 'make_flaggable', :github => 'logical42/make_flaggable', :ref => '46f545f'
 
   # `rspec-rails` needs to be in the development group so that Rails generators work.
 group :development, :test do
@@ -80,7 +81,7 @@ gem 'protected_attributes'
 gem 'activerecord-session_store'
 
 # gem 'rails_admin', :github => 'AlJohri/rails_admin', :branch => 'rails-3.x'
-# gem 'rails_admin', :github => 'bulleric/rails_admin', :branch => 'bootstrap2-dependency-patch'
+gem 'rails_admin', :github => 'bulleric/rails_admin', :branch => 'bootstrap2-dependency-patch'
 
 # Other Gems
 # https://github.com/vcr/vcr

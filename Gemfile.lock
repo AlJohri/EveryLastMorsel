@@ -13,6 +13,34 @@ GIT
     client_side_validations (3.2.2)
 
 GIT
+  remote: git://github.com/bulleric/rails_admin.git
+  revision: 0762ec42af7a3a709868a172ce3cc77062b6d416
+  branch: bootstrap2-dependency-patch
+  specs:
+    rails_admin (0.5.0)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (~> 3.0)
+      haml (~> 4.0)
+      jquery-rails (~> 3.0)
+      jquery-ui-rails (~> 4.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 0.9)
+      sass-rails (~> 4.0)
+
+GIT
+  remote: git://github.com/logical42/make_flaggable.git
+  revision: 46f545fcb068fa7304dc9506eaf14ff967cbfdad
+  ref: 46f545f
+  specs:
+    make_flaggable (0.1.0)
+      activerecord (>= 3.0.0)
+
+GIT
   remote: git://github.com/lyang/braintree-rails.git
   revision: 441137838b2c5c1c85949600cb9098ff8d2f077e
   branch: master
@@ -21,13 +49,6 @@ GIT
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       braintree (>= 2.16.0)
-
-GIT
-  remote: git://github.com/medihack/make_flaggable.git
-  revision: 4cec5f8e1366500b2ab8e73739e47cbb79c4bd65
-  specs:
-    make_flaggable (0.0.3)
-      activerecord (>= 3.0, <= 4.0)
 
 GIT
   remote: git://github.com/plataformatec/simple_form.git
@@ -213,6 +234,7 @@ GEM
     multi_json (1.7.9)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
+    nested_form (0.3.2)
     newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
@@ -261,6 +283,9 @@ GEM
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-pjax (0.7.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.0)
@@ -409,6 +434,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.0)
   rails-erd
+  rails_admin!
   ransack
   rolify
   rspec-rails
