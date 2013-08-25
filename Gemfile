@@ -79,6 +79,7 @@ end
 
 gem 'protected_attributes'
 gem 'activerecord-session_store'
+gem 'rails_12factor', group: :production
 
 # gem 'rails_admin', :github => 'AlJohri/rails_admin', :branch => 'rails-3.x'
 gem 'rails_admin', :github => 'bulleric/rails_admin', :branch => 'bootstrap2-dependency-patch'
