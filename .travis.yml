@@ -9,6 +9,7 @@ before_script:
 - psql -c 'create database EveryLastMorsel_test' -U postgres
 deploy:
   provider: heroku
+  strategy: git
   api_key:
     secure: LJMNYDH1lWnbboPUt2PCGJnyH7hTW1T6AwA5rwSE8JuRCs4HNhFyJW6t8Cs7OQcljYieTGU0Bt6DVB+gJ6OCK3PuHfFfEPYxM0dToJZ2tFU2VbEoQavYy3g64Mrc4cfq+S3BiE7PNZdjUr4CNipbqmV1s1mtmNSu3CHIaHCn6XQ=      
   app: 
