@@ -17,7 +17,7 @@
 //= require jquery-fileupload
 //= require lib/jquery/jquery.validate.js
 //= require bootstrap-datepicker
-//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/b3
 //= require rails.validations
 //= require elm
 //= require map

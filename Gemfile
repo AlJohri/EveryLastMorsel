@@ -4,7 +4,8 @@ gem 'rails', '4.0.0'
 
 gem 'sass-rails'                   # https://github.com/rails/sass-rails
 gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
-gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+# gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+gem 'bootstrap-wysihtml5-rails', github: 'Nerian/bootstrap-wysihtml5-rails', branch: 'b3'
 gem 'bootstrap-datepicker-rails'              # https://github.com/Nerian/bootstrap-datepicker-rails
 gem 'x-editable-rails'             # https://github.com/werein/x-editable-rails
 gem 'coffee-rails'                 # https://github.com/rails/coffee-rails
@@ -82,7 +83,7 @@ gem 'activerecord-session_store'
 gem 'rails_12factor', group: :production
 
 # gem 'rails_admin', :github => 'AlJohri/rails_admin', :branch => 'rails-3.x'
-gem 'rails_admin', :github => 'bulleric/rails_admin', :branch => 'bootstrap2-dependency-patch'
+# gem 'rails_admin', :github => 'bulleric/rails_admin', :branch => 'bootstrap2-dependency-patch'
 
 # Other Gems
 # https://github.com/vcr/vcr
