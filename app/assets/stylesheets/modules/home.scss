@@ -8,7 +8,7 @@
 
 .section-hero {
   width: 100%;
-  background-image: url(/assets/hero.jpg);
+  background-image: image-url("hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 35px 0px 100px 0px;
@@ -121,7 +121,7 @@ ul.tools {
 
 .section-track {
   background-color: #7dc6ca;
-  background-image: url('/assets/graph.png');
+  background-image: image-url('graph.png');
   background-repeat: no-repeat;
   background-position: 100% 170%;
   overflow: hidden;
