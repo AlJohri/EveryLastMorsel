@@ -42,12 +42,12 @@
 $(document).ready(function() {
 
   $('[data-behaviour~=wysihtml5]').wysihtml5({
-    "font-styles": true,
+    "font-styles": false,
     "emphasis": true,
     "lists": true,
     "html": false,
-    "link": false,
-    "image": false,
+    "link": true,
+    "image": true,
     "color": false
   });
 
@@ -55,6 +55,7 @@ $(document).ready(function() {
   $('[data-behaviour~=autocomplete]').each(function(i, elem) {
     $(elem).autocomplete({ source: $(elem).data('autocomplete-source') });
   });
+  
   // $.fn.editable.defaults.mode = 'inline';
   // $('.editable').editable();
 

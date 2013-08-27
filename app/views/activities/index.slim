@@ -10,7 +10,7 @@
 					- if activity.trackable_type == "User" && activity.key == "user.create"
 						- user = User.find(activity.trackable_id)
 						.row.activity-row
-							.col-lg-1.col-lg-offset-1
+							.col-lg-1
 								= image_tag user.avatar(:medium), class: "img-responsive"
 							.col-lg-9 
 								p 
@@ -22,7 +22,7 @@
 						- user = User.find(activity.owner_id)
 						- post = user.posts.find(activity.trackable_id)
 						.row.activity-row
-							.col-lg-1.col-lg-offset-1
+							.col-lg-1
 								= image_tag user.avatar(:medium), class: "img-responsive"
 							.col-lg-9
 								.row
@@ -57,7 +57,7 @@
 						- user = User.find(activity.owner_id)
 						- plot = user.plots.find(activity.trackable_id)
 						.row.activity-row
-							.col-lg-1.col-lg-offset-1
+							.col-lg-1
 								= image_tag user.avatar(:medium), class: "img-responsive"
 							.col-lg-9
 								.row
@@ -83,7 +83,7 @@
 						- user = User.find(activity.owner_id)
 						- crop = user.crops.find(activity.trackable_id)
 						.row.activity-row
-							.col-lg-1.col-lg-offset-1
+							.col-lg-1
 								= image_tag user.avatar(:medium), class: "img-responsive"
 							.col-lg-9
 								.row
@@ -107,7 +107,7 @@
 						- crop_yield = CropYield.find(activity.trackable_id)
 						- crop = Crop.find(crop_yield.crop.id)
 						.row.activity-row
-							.col-lg-1.col-lg-offset-1
+							.col-lg-1
 								= image_tag user.avatar(:medium), class: "img-responsive"
 							.col-lg-9
 								.row

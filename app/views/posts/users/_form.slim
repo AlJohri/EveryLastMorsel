@@ -1,7 +1,6 @@
 = simple_form_for @post, :validate => true, :url => polymorphic_url([parent, :posts])  do |f|
 	.row: .col-lg-12 = f.input :title
-	.row: .col-lg-12 = f.input :content
-	/, input_html: { data: { behaviour: "wysihtml5" }, class: "wysihtml5" }
+	.row: .col-lg-12 = f.input :content, input_html: { rows: 7, data: { behaviour: "wysihtml5" }, class: "wysihtml5" }
 	.row: .col-lg-12 = f.input :tag_list
 	.row: .col-lg-12 = f.input :picture, label: "Main Picture"
 	.row: .col-lg-12 = f.button :submit
