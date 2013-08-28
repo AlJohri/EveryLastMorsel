@@ -39,7 +39,7 @@ EveryLastMorsel::Application.routes.draw do
   }
 
   ############## Rails Admin ##############
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   ####################################################################################
   # CONCERNS

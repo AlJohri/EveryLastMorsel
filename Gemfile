@@ -50,7 +50,7 @@ gem 'activerecord-session_store'          # https://github.com/rails/activerecor
 gem 'bootstrap-sass'                      , github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'bootstrap-wysihtml5-rails'           , github: 'Nerian/bootstrap-wysihtml5-rails', branch: 'b3'
 gem 'bootsy'                              , github: 'volmer/bootsy', branch: 'master'
-gem 'rails_admin'                         , github: 'AlJohri/rails_admin', branch: 'master'
+# gem 'rails_admin'                         , github: 'AlJohri/rails_admin', branch: 'master'
 gem 'make_flaggable'                      , github: 'logical42/make_flaggable', ref: '46f545f'
 gem 'simple_form'                         , github: 'plataformatec/simple_form', branch: 'master'
 gem 'client_side_validations'             , github: 'bcardarella/client_side_validations', branch: '4-0-beta'
