@@ -42,16 +42,6 @@ GIT
       activerecord (>= 3.0.0)
 
 GIT
-  remote: git://github.com/lyang/braintree-rails.git
-  revision: 441137838b2c5c1c85949600cb9098ff8d2f077e
-  branch: master
-  specs:
-    braintree-rails (1.2.1)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      braintree (>= 2.16.0)
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 359606f222fa0972a4a14ec70140ac00f7c80839
   branch: master
@@ -59,6 +49,15 @@ GIT
     simple_form (3.0.0.rc)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
+
+GIT
+  remote: git://github.com/saveritemedical/client_side_validations-simple_form.git
+  revision: b97c938be745de1134169026425aa0c990b8b072
+  branch: master
+  specs:
+    client_side_validations-simple_form (2.1.0)
+      client_side_validations (~> 3.2.1)
+      simple_form (>= 2.1.0, < 4.0)
 
 GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
@@ -404,11 +403,11 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails!
   bootsy!
   braintree
-  braintree-rails!
   cancan
   capybara
   carrierwave
   client_side_validations!
+  client_side_validations-simple_form!
   coffee-rails
   compass-rails (~> 2.0.alpha.0)
   dalli
@@ -433,7 +432,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
-  paperclip (= 3.4.2)
+  paperclip
   pg
   protected_attributes
   public_activity (= 1.4.0)

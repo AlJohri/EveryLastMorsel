@@ -1,4 +1,4 @@
-= simple_form_for @crop, :validate => true, :url => polymorphic_url([parent, :crops])  do |f|
+= simple_form_for [parent, @crop], :validate => true do |f|
   .row: .col-lg-12 = f.input :plot_id, collection: current_user.plots, prompt: "Choose your plot"
   .row
     .col-lg-6 = f.input :coverage

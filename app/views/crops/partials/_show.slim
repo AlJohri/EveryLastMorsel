@@ -70,6 +70,6 @@
         / = hidden_field_tag "crop_yield[crop_id]", @crop.id
 
       .col-lg-12
-        = link_to 'Edit', polymorphic_url([parent, :crop], :action => 'edit') 
+        = link_to 'Edit', polymorphic_url([parent, @crop], :action => 'edit')
         | &nbsp;
         = link_to 'Back', polymorphic_url([parent, :crops])

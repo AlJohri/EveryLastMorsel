@@ -66,12 +66,14 @@ EveryLastMorsel::Application.routes.draw do
   ############## Users, Plots, Posts, Crops, Activies ##############
   resources :users, only: [], :path => '', concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   # resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
-  resources :plots, only: [:index, :show], concerns: [:is_followable, :has_crops]
+  resources :plots, only: [:index], concerns: [:is_followable, :has_crops]
   resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
   resources :crops, only: [:index, :show], controller: 'crop_types'
   resources :varieties, only: [:index, :show], controller: 'crop_varieties'
   resources :activites, only: [:index]
   resources :uploads # TEMPORARY
+
+  get 'plots/:id' => redirect('/plots/%{id}/crops'), :as => 'plot'
   
   ####################################################################################
   # ALIASED ROUTES
