@@ -21,7 +21,7 @@ hr
     - @post.comments.each do |c|
       p
         strong Commenter:
-        = c.user.try(:name) || "Anonymous"    
+        = c.user.try(:name) || "Anonymous"
       p
         strong Comment:
         = simple_format(c.comment)
@@ -32,7 +32,7 @@ hr
   = simple_form_for @post.comments.build, url: polymorphic_url([@post, :comments]) do |f|
     = f.hidden_field :commentable_id, value: @post.id
     = f.hidden_field :commentable_type, value: @post.class
-    = f.hidden_field :user_id, value: @user.id
+    = f.hidden_field :user_id, value: current_user.id
   	- if !user_signed_in?
   			= f.input :commenter
   	= f.input :comment, input_html: { rows: 5 }
