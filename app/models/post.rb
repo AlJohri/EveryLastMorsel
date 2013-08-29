@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   attr_accessible :picture
   
   has_attached_file :picture, 
-    :default_url => "/assets/placeholder_:style.jpg", 
+    :default_url =>  ActionController::Base.helpers.asset_path('/assets/placeholder_:style.jpg'), 
     styles: {
       thumb: '100x100>',
       square: '200x200#',

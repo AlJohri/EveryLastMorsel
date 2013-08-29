@@ -8,129 +8,117 @@
 			- @activities.each do |activity|
 				.col-lg-12
 					- if activity.trackable_type == "User" && activity.key == "user.create"
-						| blah1
-						- user = User.find_by_id(activity.trackable_id)
-						.row.activity-row
-							.col-lg-1
-								= image_tag user.avatar(:medium), class: "img-responsive"
-							.col-lg-9 
-								p 
-									a class='feed-link' href=user_url(user) #{user.name}
-								|  Just joined! Welcome #{user.first_name} to Every Last Morsel!
-								hr
-
-					- elsif activity.trackable_type == "Post" && activity.key == "post.create"
-						| blah2
-						- user = User.find_by_id(activity.owner_id)
-						- post = Post.find_by_id(activity.trackable_id)
-						.row.activity-row
-							.col-lg-1
-								= image_tag user.avatar(:medium), class: "img-responsive"
-							.col-lg-9
-								.row
-									.col-lg-12.col-padding
-										p
-											|#{user.name} 
-											= link_to "just posted, check it out!", user_post_url(post.user, post)
-						    	.post-top.row
-						        .col-lg-12
-									.post-middle.row
-										.col-lg-3
-											img.img-responsive src="http://placehold.it/260x180"
-										.col-lg-9
-											h3
-												strong: a href=user_post_url(post.user, post) #{post.title}
-											= truncate(post.short_body, length: 150)
-											p: a class="" href=user_post_url(post.user, post) Read more...
-									.post-bottom.row
-										.col-lg-12.col-padding-top
-											i class="icon icon-calendar"
-											| #{post.try(:created_at).try(:strftime, "%B %d, %Y")}&nbsp;|&nbsp;
-											i class="icon icon-comment"
-											a href="#"
-											| #{post.comments.count} Comments&nbsp;|&nbsp;
-											i class="icon icon-tags"
-											| Tags: 
-											- post.tags.each do |tag|
-												| &nbsp;
-												span class="label label-default" #{tag.name}
-									hr
-					- elsif activity.trackable_type == "Plot" && activity.key == "plot.create"
-						| blah3
-						- user = User.find_by_id(activity.owner_id)
-						- plot = Plot.find_by_id(activity.trackable_id)
-						.row.activity-row
-							.col-lg-1
-								= image_tag user.avatar(:medium), class: "img-responsive"
-							.col-lg-9
-								.row
-									.col-lg-12.col-padding
-										p
-											|#{user.name.presence} 
-											= link_to "just made a plot!", plot_url(plot.id), :class => 'feed-link'
-									.post-top.row
-						        .col-lg-12
-									.post-middle.row
-										.col-lg-3
-											img.img-responsive src="http://placehold.it/260x180"
-										.col-lg-9
-											h3
-												= link_to plot.name, plot_url(plot.id) 
-											= plot.about
-								.row
-									.col-lg-12.col-padding
-								hr
-
-
+  						- user = User.find_by_id(activity.trackable_id)
+  						.row.activity-row
+  							.col-lg-1
+  								= image_tag user.avatar(:medium), class: "img-responsive"
+  							.col-lg-9 
+  								p 
+  									a class='feed-link' href=user_url(user) #{user.name}
+  								|  Just joined! Welcome #{user.first_name} to Every Last Morsel!
+  								hr
+					- elsif (activity.trackable_type == "Post" && activity.key == "post.create")
+  						- user = User.find_by_id(activity.owner_id)
+  						- post = Post.find_by_id(activity.trackable_id)
+  						.row.activity-row
+  							.col-lg-1
+  								= image_tag user.avatar(:medium), class: "img-responsive"
+  							.col-lg-9
+  								.row
+  						    	.post-top.row
+  						        .col-lg-12
+  									.post-middle.row
+  										.col-lg-3
+  											img.img-responsive src="http://placehold.it/260x180"
+  										.col-lg-9
+  											h3
+  												strong: a href=user_post_url(user, post) #{post.try(:title)}
+  											= truncate(post.try(:short_body), length: 150)
+  											p: a class="" href=user_post_url(user, post) Read more...
+  									.post-bottom.row
+  										.col-lg-12.col-padding-top
+  											i class="icon icon-calendar"
+  											| #{post.try(:created_at).try(:strftime, "%B %d, %Y")}&nbsp;|&nbsp;
+  											i class="icon icon-comment"
+  											a href="#"
+  											| #{post.try(:comments).try(:count)} Comments&nbsp;|&nbsp;
+  											i class="icon icon-tags"
+  											| Tags: 
+  											- post.try(:tags).try(:each) do |tag|
+  												| &nbsp;
+  												span class="label label-default" #{tag.name}
+  									hr
+					- elsif (activity.trackable_type == "Plot" && activity.key == "plot.create")
+  						- user = User.find_by_id(activity.owner_id)
+  						- plot = Plot.find_by_id(activity.trackable_id)
+  						.row.activity-row
+  							.col-lg-1
+  								= image_tag user.avatar(:medium), class: "img-responsive"
+  							.col-lg-9
+  								.row
+  									.col-lg-12.col-padding
+  										p
+  											|#{user.name.presence} 
+  											= link_to "just made a plot!", plot_url(plot.id), :class => 'feed-link'
+  									.post-top.row
+  						        .col-lg-12
+  									.post-middle.row
+  										.col-lg-3
+  											img.img-responsive src="http://placehold.it/260x180"
+  										.col-lg-9
+  											h3
+  												= link_to plot.name, plot_url(plot.id) 
+  											= plot.about
+  								.row
+  									.col-lg-12.col-padding
+  								hr
 					- elsif activity.trackable_type == "Crop" && activity.key == "crop.create"
-						| blah4
-						- user = User.find_by_id(activity.owner_id)
-						- crop = Crop.find_by_id(activity.trackable_id)
-						.row.activity-row
-							.col-lg-1
-								= image_tag user.avatar(:medium), class: "img-responsive"
-							.col-lg-9
-								.row
-									.col-lg-12.col-padding
-										p
-											|#{user.name.presence} 
-											= link_to "just planted a crop!", user_crop_url(user.id, crop.id), :class => 'feed-link'
-									.post-top.row
-						        .col-lg-12
-									.post-middle.row
-										.col-lg-3
-											img.img-responsive src="http://placehold.it/260x180"
-										.col-lg-9
-											h3
-												= link_to crop.try(:crop_name).try(:pluralize), user_crop_url(user.id, crop.id)
-								.row
-									.col-lg-12.col-padding
-								hr
+  						- user = User.find_by_id(activity.owner_id)
+  						- crop = Crop.find_by_id(activity.trackable_id)
+  						.row.activity-row
+  							.col-lg-1
+  								= image_tag user.avatar(:medium), class: "img-responsive"
+  							.col-lg-9
+  								.row
+  									.col-lg-12.col-padding
+  										p
+  											|#{user.name.presence} 
+  											= link_to "just planted a crop!", user_crop_url(user.id, crop.id), :class => 'feed-link'
+  									.post-top.row
+  						        .col-lg-12
+  									.post-middle.row
+  										.col-lg-3
+  											img.img-responsive src="http://placehold.it/260x180"
+  										.col-lg-9
+  											h3
+  												= link_to crop.try(:crop_name).try(:pluralize), user_crop_url(user.id, crop.id)
+  								.row
+  									.col-lg-12.col-padding
+  								hr
 					- elsif activity.trackable_type == "CropYield" && activity.key == "crop_yield.create"
-						| blah5
-						- user = User.find_by_id(activity.owner_id)
-						- crop_yield = CropYield.find_by_id(activity.trackable_id)
-						- crop = Crop.find_by_id(crop_yield.crop.id) if crop_yield.present?
-						.row.activity-row
-							.col-lg-1
-								= image_tag user.avatar(:medium), class: "img-responsive"
-							.col-lg-9
-								.row
-									.col-lg-12.col-padding
-										p
-											|#{user.name.presence} 
-											= link_to "just harvested a crop!", user_crop_url(user.id, crop_yield.crop.id), :class => 'feed-link'
-									.post-top.row
-						        .col-lg-12
-									.post-middle.row
-										.col-lg-3
-											img.img-responsive src="http://placehold.it/260x180"
-										.col-lg-9
-											h3
-												= link_to crop.try(:crop_name).try(:pluralize), user_crop_url(user.id, crop.id)
-								.row
-									.col-lg-12.col-padding
-								hr
+  						- user = User.find_by_id(activity.owner_id)
+  						- crop_yield = CropYield.find_by_id(activity.trackable_id)
+  						- crop = Crop.find_by_id(crop_yield.crop.id) if crop_yield.present?
+  						.row.activity-row
+  							.col-lg-1
+  								= image_tag user.avatar(:medium), class: "img-responsive"
+  							.col-lg-9
+  								.row
+  									.col-lg-12.col-padding
+  										p
+  											|#{user.name.presence} 
+  											= link_to "just harvested a crop!", user_crop_url(user.id, crop_yield.crop.id), :class => 'feed-link'
+  									.post-top.row
+  						        .col-lg-12
+  									.post-middle.row
+  										.col-lg-3
+  											img.img-responsive src="http://placehold.it/260x180"
+  										.col-lg-9
+  											h3
+  												= link_to crop.try(:crop_name).try(:pluralize), user_crop_url(user.id, crop.id)
+  								.row
+  									.col-lg-12.col-padding
+  								hr
 					/ - else
 						/ = activity.trackable_type.constantize.find(activity.trackable_id)
 			= paginate @activities
