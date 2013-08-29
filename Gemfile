@@ -42,6 +42,7 @@ gem 'acts_as_follower'                    # https://github.com/tcocca/acts_as_fo
 gem 'acts_as_commentable'                 # https://github.com/jackdempsey/acts_as_commentable
 gem 'mailboxer'                           # https://github.com/ging/mailboxer
 gem 'public_activity', '1.4.0'            # https://github.com/pokonski/public_activity
+gem "squeel"							  # https://github.com/ernie/squeel
 gem 'ransack'                             # https://github.com/ernie/ransack
 gem 'sitemap_generator'                   # https://github.com/kjvarga/sitemap_generator
 gem 'safe_yaml'                           # https://github.com/dtao/safe_yaml

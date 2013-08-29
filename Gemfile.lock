@@ -337,6 +337,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    squeel (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      polyamorous (~> 0.6.0)
     subexec (0.2.3)
     temple (0.6.6)
     thin (1.5.1)
@@ -425,6 +429,7 @@ DEPENDENCIES
   simplecov
   sitemap_generator
   slim-rails
+  squeel
   thin
   uglifier
   x-editable-rails
