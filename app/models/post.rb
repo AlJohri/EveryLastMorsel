@@ -18,9 +18,9 @@ class Post < ActiveRecord::Base
   validates :content, presence: true  # length: { minimum: 10 }
 
   attr_accessible :picture
-  
+  # ActionController::Base.helpers.image_path("/default_avatar.png")
   has_attached_file :picture, 
-    :default_url =>  ActionController::Base.helpers.asset_path('/assets/placeholder_:style.jpg'), 
+    :default_url =>  ActionController::Base.helpers.asset_path('placeholder_:style.jpg'), 
     styles: {
       thumb: '100x100>',
       square: '200x200#',
