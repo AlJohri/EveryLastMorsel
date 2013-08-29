@@ -11,8 +11,11 @@ h1
 p.user-post-content = simple_format2(@post.content)
 
 - if (user_signed_in? && @user && current_user.id == @user.id && params[:action] == 'show')
-  button.btn.btn-default 
-    = link_to 'Edit', edit_user_post_path(@post.user, @post)
+
+  = link_to edit_user_post_path(@post.user, @post) do
+      button.btn.btn-default Edit
+  = link_to user_post_path(@post.user, @post), :method => :delete do
+    button.btn.btn-default Delete
 
 hr
 - if @post.comments.count !=0
@@ -21,7 +24,7 @@ hr
     - @post.comments.each do |c|
       p
         strong Commenter:
-        = c.user.try(:name) || "Anonymous"
+        = c.user.try(:name) || c.try(:commeneter) || "Anonymous"
       p
         strong Comment:
         = simple_format(c.comment)
@@ -32,9 +35,12 @@ hr
   = simple_form_for @post.comments.build, url: polymorphic_url([@post, :comments]) do |f|
     = f.hidden_field :commentable_id, value: @post.id
     = f.hidden_field :commentable_type, value: @post.class
-    = f.hidden_field :user_id, value: current_user.id
-  	- if !user_signed_in?
+  	
+    - if user_signed_in?
+        = f.hidden_field :user_id, value: current_user.id
+    - else
   			= f.input :commenter
+
   	= f.input :comment, input_html: { rows: 5 }
     = f.button :submit, 'Add Comment'
 hr

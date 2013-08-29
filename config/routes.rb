@@ -110,13 +110,13 @@ EveryLastMorsel::Application.routes.draw do
   get '/:id(.:format)' => redirect('/%{id}/posts'), :as => :user
 end
 
-  ####### USER -> PLOTS/POSTS REGULAR ROUTES #######
-  # create regular routes under "/user" path for API
-  # routes should appear as
-  # /user/:user_id/plots/new
-  # /user/:posts_id/posts/new
-  # user CRUD can be done from this route
-  # CORRECT: /users/:user_id/new
+####### USER -> PLOTS/POSTS REGULAR ROUTES #######
+# create regular routes under "/user" path for API
+# routes should appear as
+# /user/:user_id/plots/new
+# /user/:posts_id/posts/new
+# user CRUD can be done from this route
+# CORRECT: /users/:user_id/new
 
 
 # Notes

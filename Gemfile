@@ -71,6 +71,7 @@ group :test do
 end
 
 # Other Gems
+# https://github.com/ankane/searchkick
 # gem 'client_side_validations-simple_form', github: 'dockyard/client_side_validations-simple_form', branch: "master"
 # gem 'nested_scaffold', '= 0.2.1' # https://github.com/amatsuda/nested_scaffold
 # gem 'rails_admin', :github => 'bulleric/rails_admin', :branch => 'bootstrap2-dependency-patch'
