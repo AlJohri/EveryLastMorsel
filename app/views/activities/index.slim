@@ -11,7 +11,7 @@
   						- user = User.find_by_id(activity.trackable_id)
   						.row.activity-row
   							.col-lg-1
-  								= image_tag user.avatar(:medium), class: "img-responsive"
+  								= image_tag user.avatar.url, class: "img-responsive"
   							.col-lg-9 
   								p 
   									a class='feed-link' href=user_url(user) #{user.name}
@@ -22,7 +22,7 @@
   						- post = Post.find_by_id(activity.trackable_id)
   						.row.activity-row
   							.col-lg-1
-  								= image_tag user.avatar(:medium), class: "img-responsive"
+  								= image_tag user.avatar.url, class: "img-responsive"
   							.col-lg-9
   								.row
   						    	.post-top.row
@@ -53,7 +53,7 @@
   						- plot = Plot.find_by_id(activity.trackable_id)
   						.row.activity-row
   							.col-lg-1
-  								= image_tag user.avatar(:medium), class: "img-responsive"
+  								= image_tag user.avatar.url, class: "img-responsive"
   							.col-lg-9
   								.row
   									.col-lg-12.col-padding
@@ -77,7 +77,7 @@
   						- crop = Crop.find_by_id(activity.trackable_id)
   						.row.activity-row
   							.col-lg-1
-  								= image_tag user.avatar(:medium), class: "img-responsive"
+  								= image_tag user.avatar.url, class: "img-responsive"
   							.col-lg-9
   								.row
   									.col-lg-12.col-padding
@@ -101,7 +101,7 @@
   						- crop = Crop.find_by_id(crop_yield.crop.id) if crop_yield.present?
   						.row.activity-row
   							.col-lg-1
-  								= image_tag user.avatar(:medium), class: "img-responsive"
+  								= image_tag user.avatar.url, class: "img-responsive"
   							.col-lg-9
   								.row
   									.col-lg-12.col-padding

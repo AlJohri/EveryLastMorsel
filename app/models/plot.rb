@@ -20,7 +20,7 @@ class Plot < ActiveRecord::Base
   attr_accessible :avatar
   
   has_attached_file :avatar, 
-    :default_url =>  ActionController::Base.helpers.asset_path('placeholder_:style.jpg'),
+    :default_url =>  ActionController::Base.helpers.asset_path('placeholder.jpg'),
     styles: {
       thumb: '100x100>',
       square: '200x200#',

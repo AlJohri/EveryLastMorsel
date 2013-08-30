@@ -10,12 +10,12 @@ ul.posts
           / If user has profile picture, show the picture. If not, check if in development mode. If in dev
           / mode, show a random picture from online. If in production, show the generic thumnail image.
           - if post.user.avatar?
-            = image_tag post.user.avatar(:thumb)
+            = image_tag post.user.avatar.url(:thumb)
           - else
             - if Rails.env.development?
                 img src="http://lorempixel.com/100/100/?#{post.user.slug}" alt="random image"
             - else
-                = image_tag post.user.avatar(:thumb)
+                = image_tag post.user.avatar.url(:thumb)
       .post-right
         .post-right-author-name
           a href=user_url(post.user)
@@ -43,7 +43,7 @@ ul.posts
           = link_to "#{post.title}", user_post_url(post.user, post)                      
         - if post.picture?
           .post-right-picture
-            img src=post.picture.url(:medium)
+            img src=post.picture.url
         p.post-content == simple_format2(post.short_body)
         a href=user_post_url(post.user, post)
           | Read more...

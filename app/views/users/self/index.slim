@@ -10,7 +10,7 @@
             - @users.each do |user|  
               li.user.col-lg-3
                 div class="thumbnail" align="center"
-                  img.img-responsive-full src=user.avatar(:medium) alt=user.name
+                  img.img-responsive-full src=user.avatar.url alt=user.name
                   div class="caption"
                     h3: a href=user_url(user) #{user.name}
       .row
