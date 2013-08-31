@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  scope :without_plot, -> { where("users.id NOT IN (SELECT plots_users.user_id FROM plots_users)") }
+  scope :with_plot, -> { where("users.id IN (SELECT plots_users.user_id FROM plots_users)") }
+
   # Model Callbacks
 
   after_destroy :destroy_customer
