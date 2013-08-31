@@ -1,0 +1,84 @@
+Etsy API
+http://www.etsy.com/developers/documentation
+
+---------------------------------------------------------
+
+Cart
+http://www.etsy.com/developers/documentation/reference/cart
+
+Represents a shopping cart on Etsy. Users have one cart per shop.
+
+---------------------------------------------------------
+
+CartListing
+http://www.etsy.com/developers/documentation/reference/cartlisting
+
+Represents the purchase quantity and state for a cart listing.
+
+---------------------------------------------------------
+
+Guest
+http://www.etsy.com/developers/documentation/reference/guest
+A Guest represents an anonymous user that is using the Etsy API that has not yet authenticated, but may wish to store some information before authenticating (currently, guest carts). Guests are identified via a random 13-digit hash, which is unique to every Application. Important: This guest ID is associated directly to your Application, and will not be accessible through other API keys. Although Guests do not require an authenticated user, they do require your app to have production access in order to be interacted with. Please use the sandbox to test your app and apply for production access when you've got an application ready for public use.
+
+---------------------------------------------------------
+
+GuestCart
+http://www.etsy.com/developers/documentation/reference/guestcart
+
+Represents a guest shopping cart on Etsy. Users have one cart per shop.
+
+This is a cart that is not yet associated to a single user, but to a guest ID for tracking purposes. Some important things to note about Guest Carts:
+
+Each GuestID generated is associated only with the application that generated it. You may not access a guest's carts from multiple different applications.
+Although Guest Carts do not require an authenticated user, they do require your app to have production access in order to be interacted with. Please use the sandbox to test your app and apply for production access when you've got an application ready for public use.
+
+Guest Carts expire after 30 days of inactivity. Do not rely on a guest cart existing permanently, as they will be emptied and reset after those 30 days.
+
+---------------------------------------------------------
+
+Listing
+http://www.etsy.com/developers/documentation/reference/listing
+
+Listings on Etsy are items for sale. Each Listing is associated with a User, and with a Shop (Users own Shops.) Etsy Listings have a creation date, and are valid for approximately four months. Listings have a price and a quantity, and when they're sold out, the User must renew them before they can be sold again.
+
+---------------------------------------------------------
+
+Order
+http://www.etsy.com/developers/documentation/reference/order
+
+represents a collection of listings purchased by a user on a specific date and time.
+
+---------------------------------------------------------
+
+Payment
+http://www.etsy.com/developers/documentation/reference/payment
+
+Represents a Payment made with Direct Checkout. Please note all monetary amounts are in USD pennies unless otherwise specified.
+
+---------------------------------------------------------
+
+PaymentAdjustment
+http://www.etsy.com/developers/documentation/reference/paymentadjustment
+
+Represents refund on a Direct Checkout Payment. Please note all monetary amounts are in USD pennies unless otherwise specified.
+
+---------------------------------------------------------
+
+PaymentAdjustmentItem
+http://www.etsy.com/developers/documentation/reference/paymentadjustmentitem
+
+A Direct Checkout Payment may have adjustments, or refunds. These adjustments can have different items, associated with the area being refunded, like shipping, sales tax, or the item itself. Please note all monetary amounts are in USD pennies unless otherwise specified.
+
+---------------------------------------------------------
+
+PaymentTemplate
+http://www.etsy.com/developers/documentation/reference/paymenttemplate
+
+A payment template for a user.
+
+Shop
+http://www.etsy.com/developers/documentation/reference/shop
+
+Represents a shop with listings for sale.  Each shop is owned by one user.
+

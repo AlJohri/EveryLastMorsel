@@ -174,9 +174,11 @@ Future Work
 * Add 'guest' to allow users to interact with ELM before creating an account. [StackOverflow](http://stackoverflow.com/questions/6391883/how-to-create-a-guest-user-in-rails-3-devise), [Devise Wiki](https://github.com/plataformatec/devise/wiki/How-To:-Create-a-guest-user)
 * Convert [Paperclip](https://github.com/thoughtbot/paperclip) to [CarrierWave](https://github.com/carrierwaveuploader/carrierwave)
 * Add multi-picture upload to all models
-* Add 
-* Bootsrap 3 Compatibility: bootstrap-wysihtml5 to Bootstrap 3
 * Bootsrap 3 Compatibility: Rails Admin 
+
+`.modal-open` class offsetting body unnecessarily by 15px + Open modal is shifting body content to the left
+
+https://github.com/twbs/bootstrap/issues/9855
 
 License
 

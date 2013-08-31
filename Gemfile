@@ -52,10 +52,13 @@ gem 'bootstrap-sass'                      , github: 'thomas-mcdonald/bootstrap-s
 gem 'bootstrap-wysihtml5-rails'           , github: 'Nerian/bootstrap-wysihtml5-rails', branch: 'b3'
 gem 'bootsy'                              , github: 'volmer/bootsy', branch: 'master'
 # gem 'rails_admin'                         , github: 'AlJohri/rails_admin', branch: 'master'
-gem 'make_flaggable'                      , github: 'logical42/make_flaggable', ref: '46f545f'
 gem 'simple_form'                         , github: 'plataformatec/simple_form', branch: 'master'
 gem 'client_side_validations'             , github: 'bcardarella/client_side_validations', branch: '4-0-beta'
 gem 'client_side_validations-simple_form' , github: 'saveritemedical/client_side_validations-simple_form', branch: 'master'
+
+gem 'make_flaggable'                      , github: 'logical42/make_flaggable', ref: '46f545f'
+# Maybe replace make_flaggable with acts_as_votable?
+# https://github.com/ryanto/acts_as_votable
 
 gem 'quiet_assets', group: :development   # https://github.com/evrone/quiet_assets
 gem 'better_errors', group: :development  # https://github.com/charliesome/better_errors
