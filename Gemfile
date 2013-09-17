@@ -47,6 +47,7 @@ gem 'ransack'                             # https://github.com/ernie/ransack
 gem 'sitemap_generator'                   # https://github.com/kjvarga/sitemap_generator
 gem 'safe_yaml'                           # https://github.com/dtao/safe_yaml
 gem 'protected_attributes'                # https://github.com/rails/protected_attributes
+# must replace with strong_parameters immediately
 gem 'activerecord-session_store'          # https://github.com/rails/activerecord-session_store
 gem 'bootstrap-sass'                      , github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'bootstrap-wysihtml5-rails'           , github: 'Nerian/bootstrap-wysihtml5-rails', branch: 'b3'
