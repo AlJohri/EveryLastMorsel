@@ -17,6 +17,7 @@ class CreateMerchantAccounts < ActiveRecord::Migration
       t.boolean :tos_accepted, null: false, default: false
       t.string :master_merchant_account_id, null: false
       t.string :merchant_account_id, null: false
+      t.string :status
 
       t.timestamps
     end

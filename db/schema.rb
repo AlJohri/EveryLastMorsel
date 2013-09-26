@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20130926154016) do
     t.boolean  "tos_accepted",               default: false, null: false
     t.string   "master_merchant_account_id",                 null: false
     t.string   "merchant_account_id",                        null: false
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

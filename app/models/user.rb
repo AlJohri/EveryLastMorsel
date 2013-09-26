@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   # Model Relations
 
-  has_many :merchant_accounts, dependent: :destroy
+  has_one :merchant_account, dependent: :destroy
   has_many :posts
   has_and_belongs_to_many :plots
 
