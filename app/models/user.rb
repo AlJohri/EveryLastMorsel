@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   # Model Relations
 
+  has_many :merchant_accounts, dependent: :destroy
   has_many :posts
   has_and_belongs_to_many :plots
 
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :provider, :uid, :about
   attr_accessible :avatar
-  attr_accessible :braintree_customer_id
+  # attr_accessible :braintree_customer_id
   attr_reader :avatar_remote_url
 
   validates :zip, presence: true

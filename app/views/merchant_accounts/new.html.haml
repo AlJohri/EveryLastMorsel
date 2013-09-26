@@ -1,0 +1,64 @@
+.row
+  .col-lg-12
+    %h1 New Merchant Account
+               
+= simple_form_for [@user, @merchant_account], :validate => true  do |f|
+  .row
+    .col-lg-12
+      .well
+        .row
+          .col-lg-12
+            %label First name:
+            = f.input :first_name
+        .row
+          .col-lg-12
+            %label Last name:
+            = f.input :last_name
+        .row
+          .col-lg-12
+            %label Email:
+            = f.input :email
+        .row
+          .col-lg-12
+            %label Phone # (optional):
+            = f.input :phone
+        .row
+          .col-lg-12
+            %label Street Address:
+            = f.input :street_address
+        .row
+          .col-lg-12
+            %label Postal code:
+            = f.input :postal_code
+        .row
+          .col-lg-12
+            %label City:
+            = f.input :locality
+        .row
+          .col-lg-12
+            %label State:
+            = f.input :region, collection: us_states, prompt: 'Select state'
+        .row
+          .col-lg-12
+            %label Date of birth:
+            = f.input :date_of_birth
+        .row
+          .col-lg-12
+            %label SSN (optional):
+            = f.input :ssn
+        .row
+          .col-lg-12
+            %label Bank routing number:
+            = f.input :routing_number
+        .row
+          .col-lg-12
+            %label Bank account number:
+            = f.input :account_number
+        .row
+          .col-lg-12
+            %label I have read and accept the terms of service:
+            = f.input :tos_accepted
+        .row
+          .col-lg-12
+            = f.submit
+    

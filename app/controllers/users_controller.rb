@@ -14,6 +14,11 @@ class UsersController < InheritedResources::Base # ApplicationController
       format.xml { render :xml => @users }
     end    
   end
+  
+  def create_braintree_account
+    @user = User.find(params[:user_id])
+    
+  end
 
   # https://github.com/ryanb/cancan/wiki/Inherited-Resources
   # before_filter :authenticate_user!

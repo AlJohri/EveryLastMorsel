@@ -64,7 +64,9 @@ EveryLastMorsel::Application.routes.draw do
   ####################################################################################
 
   ############## Users, Plots, Posts, Crops, Activies ##############
-  resources :users, only: [], :path => '', concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
+  resources :users, only: [], :path => '', concerns: [:is_followable, :has_posts, :has_crops, :has_plots] do
+    resources :merchant_accounts, only: [:new, :create]
+  end
   # resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   resources :plots, only: [:index], concerns: [:is_followable, :has_crops]
   resources :posts, only: [:index, :show], concerns: [:is_likeable, :is_commentable]
