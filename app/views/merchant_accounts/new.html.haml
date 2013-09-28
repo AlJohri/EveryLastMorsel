@@ -41,7 +41,7 @@
         .row
           .col-lg-12
             %label Date of birth:
-            = f.input :date_of_birth
+            = f.input :date_of_birth, {prompt: true, start_year: 1900, end_year: DateTime.now.year, order: [:month, :day, :year]}
         .row
           .col-lg-12
             %label SSN (optional):
