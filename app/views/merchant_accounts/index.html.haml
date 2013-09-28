@@ -1,0 +1,25 @@
+.row
+  .col-lg-12
+    %h1 Merchant Account 
+- if @merchant_account              
+  .row
+    .col-lg-12
+      .well
+        .row
+          .col-lg-12
+            %label= @merchant_account.routing_number
+        .row
+          .col-lg-12
+            %label= @merchant_account.account_number
+        .row
+          .col-lg-12
+            %label= @merchant_account.status
+- else
+  .row
+    .col-lg-12
+      = link_to "Add Merchant Account", new_user_merchant_account_path(@user)
+
+%br
+%br
+%br
+%br

@@ -1,4 +1,4 @@
-- if controller_name == "registrations"
+- if controller_name == "registrations" || controller_name == "merchant_accounts"
   - @profile = @user
 - elsif parent == nil && resource.class.to_s == "Plot" || parent.class.to_s == "Plot"
   - @profile = @plot
@@ -63,6 +63,8 @@
                   = link_to "PLOT", polymorphic_url([@profile, :plots]), remote: false
                 li class=('active' if controller.controller_name == 'crops')
                   = link_to "CROP", polymorphic_url([@profile, :crops]), remote: false
+                li class=('active' if controller.controller_name == 'merchant_accounts')
+                  = link_to "MERCHANT ACCOUNT", polymorphic_url([@profile, :merchant_accounts]), remote: false
               - elsif @profile.class.to_s == "Plot"
                 li class=('active' if controller.controller_name == 'crops')
                   = link_to "CROP", polymorphic_url([@profile, :crops]), remote: false

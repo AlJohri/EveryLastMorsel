@@ -1,8 +1,15 @@
 class MerchantAccountsController < ApplicationController
   
+  layout "profile"
+  
   def new
     @user = User.find(params[:user_id])
     @merchant_account = @user.merchant_account || @user.build_merchant_account
+  end
+  
+  def index
+    @user = User.find(params[:user_id])
+    @merchant_account = @user.merchant_account
   end
   
   def create
