@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926154016) do
+ActiveRecord::Schema.define(version: 20131002161110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20130926154016) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_notification_message"
   end
 
   add_index "merchant_accounts", ["email"], name: "index_merchant_accounts_on_email", using: :btree
