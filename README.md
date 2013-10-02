@@ -6,11 +6,15 @@ Set Up
 	$ git clone git@github.com:AlJohri/EveryLastMorsel.git
 	$ cd EveryLastMorsel
 	$ cp ~/Downloads/application.yml ./config/ `# download application.yml first'
+    $ rename config/database.yml.sample to database.yml
+        $ If using vanilla configuration of Postgres.app (http://postgresapp.com) run this command to use the included database.yml
+        $ CREATE USER postgres WITH PASSWORD 'postgres' SUPERUSER CREATEROLE CREATEDB REPLICATION;
 	$ bundle install
 	$ rake db:create
 	$ vim config/application.yml `# modify ADMIN_NAME_FIRST, ADMIN_LAST_NAME, ADMIN_EMAIL`
 	$ rake db:seed
 	$ rails s
+
 ________________________
 
 Design Decisions
