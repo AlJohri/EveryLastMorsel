@@ -43,4 +43,12 @@ class MerchantAccount < ActiveRecord::Base
     self.status = result.merchant_account.status
   end
   
+  def active?
+    if self.status == "active"
+      true
+    else
+      false
+    end
+  end
+  
 end

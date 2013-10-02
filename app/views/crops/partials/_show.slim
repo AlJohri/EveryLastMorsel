@@ -28,7 +28,7 @@
           = @crop.crop_yields.last.try(:quantity_unit)
 
         / a href='#' 
-          / button.btn.btn-default type="button" Purchase
+        /   button.btn.btn-default type="button" Purchase
         / p $3.50/bundle
 
         table.table.table-striped
@@ -53,7 +53,13 @@
                 td Yield #{index + 1}
                 td #{crop_yield.quantity} #{crop_yield.quantity_unit}
                 td #{crop_yield.try(:pick_date).try(:strftime, "%B %d, %Y")}
-
+                / - if current_user.merchant_account && current_user.merchant_account.active?
+                = simple_form_for :crop_yield, url: [@crop.plot, @crop, crop_yield], method: :put do |f|
+                  = f.input :quantity_for_sale, as: :hidden, input_html: {value: crop_yield.quantity}
+                  td= f.button :submit, "sell"
+                # - else
+                #   td #{link_to "sell", new_user_merchant_account_path}
+                
         - if can? :manage, @crop
           h4 ADD YIELD
           = simple_form_for @crop.crop_yields.build, :validate => true, url: polymorphic_url([parent, @crop, :crop_yields]) do |f|
