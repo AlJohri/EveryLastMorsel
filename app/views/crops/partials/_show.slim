@@ -53,12 +53,12 @@
                 td Yield #{index + 1}
                 td #{crop_yield.quantity} #{crop_yield.quantity_unit}
                 td #{crop_yield.try(:pick_date).try(:strftime, "%B %d, %Y")}
-                / - if current_user.merchant_account && current_user.merchant_account.active?
-                = simple_form_for :crop_yield, url: [@crop.plot, @crop, crop_yield], method: :put do |f|
-                  = f.input :quantity_for_sale, as: :hidden, input_html: {value: crop_yield.quantity}
-                  td= f.button :submit, "sell"
-                # - else
-                #   td #{link_to "sell", new_user_merchant_account_path}
+                - if crop_yield.for_sale?
+                  td #{pluralize(crop_yield.quantity, crop_yield.quantity_unit)} for sale!
+                - else
+                  = simple_form_for :crop_yield, url: [@crop.plot, @crop, crop_yield], method: :put do |f|
+                    = f.input :quantity_for_sale, as: :hidden, input_html: {value: crop_yield.quantity}
+                    td= f.button :submit, "sell"
                 
         - if can? :manage, @crop
           h4 ADD YIELD
