@@ -1,6 +1,16 @@
 .row
   .col-lg-12
     %h1 New Merchant Account
+.row
+  .col-lg-12
+    - if @braintree_result && !@braintree_result.success?
+      - @braintree_result.errors.each do |error|
+        = error.message
+        %br
+    - if @merchant_account.errors.any?
+      - @merchant_account.errors.full_messages.each do |msg|
+        = msg
+        %br
                
 = simple_form_for [@user, @merchant_account], :validate => true  do |f|
   .row

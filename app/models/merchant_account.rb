@@ -9,7 +9,7 @@ class MerchantAccount < ActiveRecord::Base
   # validations
   validates :first_name, :last_name, :email, :street_address, :postal_code,
             :locality, :region, :date_of_birth, :tos_accepted, :user_id, :master_merchant_account_id,
-            presence: true
+            :account_number, :routing_number, presence: true
   
   # methods
   
@@ -32,9 +32,15 @@ class MerchantAccount < ActiveRecord::Base
         :account_number => self.account_number
       },
       :tos_accepted => self.tos_accepted,
-      :master_merchant_account_id => Braintree::Configuration.merchant_id
+      :master_merchant_account_id => ENV["BRAINTREE_SANDBOX_MASTER_MERCHANT_ID"]
     )
     result
+  end
+  
+  def add_merchant_ids_and_status(result)
+    self.master_merchant_account_id = result.merchant_account.master_merchant_account.id
+    self.merchant_account_id = result.merchant_account.id
+    self.status = result.merchant_account.status
   end
   
 end
