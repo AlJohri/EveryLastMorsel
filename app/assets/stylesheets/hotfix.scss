@@ -1,4 +1,3 @@
-
 .elm-container { @extend .container; margin: 20px auto; @include clearfix; background: #fff; }
 .elm-container-top { @extend .row; background: #7dc6ca; color: #fff; }
 .elm-container-bottom { @extend .row; }
@@ -79,6 +78,13 @@
     align-self: auto;
 }
 
+// Open modal is shifting body content to the left
+// TWBS Issue #9855
+// hotfix until pull request is accepted into TWBS and then ported into bootstrap-sass
+// https://github.com/twbs/bootstrap/issues/9855#issuecomment-24230474
+body, .navbar-fixed-top, .navbar-fixed-bottom {
+  margin-right: 0 !important;
+}
 
 /*
     Legacy Firefox implementation treats all flex containers
