@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130823234525) do
+ActiveRecord::Schema.define(version: 20131002161110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,33 @@ ActiveRecord::Schema.define(version: 20130823234525) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "merchant_accounts", force: true do |t|
+    t.integer  "user_id",                                    null: false
+    t.string   "first_name",                                 null: false
+    t.string   "last_name",                                  null: false
+    t.string   "email",                                      null: false
+    t.string   "phone"
+    t.string   "street_address",                             null: false
+    t.string   "postal_code",                                null: false
+    t.string   "locality",                                   null: false
+    t.string   "region",                                     null: false
+    t.date     "date_of_birth",                              null: false
+    t.string   "ssn"
+    t.string   "routing_number"
+    t.string   "account_number"
+    t.boolean  "tos_accepted",               default: false, null: false
+    t.string   "master_merchant_account_id",                 null: false
+    t.string   "merchant_account_id",                        null: false
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "last_notification_message"
+  end
+
+  add_index "merchant_accounts", ["email"], name: "index_merchant_accounts_on_email", using: :btree
+  add_index "merchant_accounts", ["merchant_account_id"], name: "index_merchant_accounts_on_merchant_account_id", using: :btree
+  add_index "merchant_accounts", ["user_id"], name: "index_merchant_accounts_on_user_id", using: :btree
 
   create_table "notifications", force: true do |t|
     t.string   "type"

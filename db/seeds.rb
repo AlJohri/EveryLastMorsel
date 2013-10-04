@@ -12,8 +12,11 @@
 
 puts 'ROLES'
 YAML.load(ENV['ROLES']).each do |role|
-  Role.find_or_create_by_name({ :name => role }, :without_protection => true)
-  puts 'role: ' << role
+  unless Role.find_by_name(role)
+  # Role.find_or_create_by_name({ :name => role }, :without_protection => true)
+    Role.create(name: role)
+    puts 'role: ' << role
+  end
 end
 puts 'DEFAULT USERS'
 
