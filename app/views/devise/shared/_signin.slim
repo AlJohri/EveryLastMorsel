@@ -1,14 +1,17 @@
 = simple_form_for devise_resource, :as => devise_resource_name, :url => session_path(devise_resource_name), :html => {:autocomplete => "off"} do |f|
   .row: .col-lg-12 = f.input :email
   .row: .col-lg-12 = f.input :password
-  .row: .col-lg-12
-    ul.list-unstyled.list-inline
-      = f.button :submit, 'Sign In'
-      li: a href=user_omniauth_authorize_path(:facebook)
-        button.btn.btn-default type="button"
-          span.icon-facebook
-      li: a href=user_omniauth_authorize_path(:google_oauth2)
-        button.btn.btn-default type="button"
-          span.icon-google-plus
-  .row: .col-lg-12
-      = f.input :remember_me, :as => :boolean, label: "Remember me?" if devise_mapping.rememberable?
+  .row
+    .col-lg-12.clearfix
+      //= f.button :submit, 'Sign In'
+	  button.btn.btn-default type="submit"
+        span Sign In
+      ul.list-unstyled.list-inline.social  
+        li.first: a href=user_omniauth_authorize_path(:facebook)
+          button.btn-transparent type="button"
+            span.icon-facebook
+        li: a href=user_omniauth_authorize_path(:google_oauth2)
+          button.btn-transparent type="button"
+            span.icon-google-plus
+    .col-lg-12
+	  = f.input :remember_me, :as => :boolean, label: "Remember me?" if devise_mapping.rememberable?
