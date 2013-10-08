@@ -32,7 +32,7 @@ class MerchantAccount < ActiveRecord::Base
         :account_number => self.account_number
       },
       :tos_accepted => self.tos_accepted,
-      :master_merchant_account_id => ENV["BRAINTREE_SANDBOX_MASTER_MERCHANT_ID"]
+      :master_merchant_account_id => ENV["BRAINTREE_MASTER_MERCHANT_ID"]
     )
     result
   end
