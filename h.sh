@@ -49,31 +49,37 @@ if [ -z "$1" ]; then
 	BRAINTREE_PRODUCTION_MERCHANT_ID=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_PRODUCTION_MERCHANT_ID'];"`
 	BRAINTREE_PRODUCTION_PUBLIC_KEY=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_PRODUCTION_PUBLIC_KEY'];"`
 	BRAINTREE_PRODUCTION_PRIVATE_KEY=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_PRODUCTION_PRIVATE_KEY'];"`
-	BRAINTREE_SANDBOX_ENVIRONMENT=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_PRODUCTION_ENVIRONMENT'];"`
-	BRAINTREE_SANDBOX_MERCHANT_ID=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_PRODUCTION_MERCHANT_ID'];"`
-	BRAINTREE_SANDBOX_PUBLIC_KEY=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_PRODUCTION_PUBLIC_KEY'];"`
-	BRAINTREE_SANDBOX_PRIVATE_KEY=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_PRODUCTION_PRIVATE_KEY'];"`
+	BRAINTREE_SANDBOX_ENVIRONMENT=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_SANDBOX_ENVIRONMENT'];"`
+	BRAINTREE_SANDBOX_MERCHANT_ID=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_SANDBOX_MERCHANT_ID'];"`
+	BRAINTREE_SANDBOX_MASTER_MERCHANT_ID=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_SANDBOX_MASTER_MERCHANT_ID'];"`
+	BRAINTREE_SANDBOX_PUBLIC_KEY=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_SANDBOX_PUBLIC_KEY'];"`
+	BRAINTREE_SANDBOX_PRIVATE_KEY=`ruby -ryaml -e "data = YAML.load_file('config/application.yml'); puts data['BRAINTREE_SANDBOX_PRIVATE_KEY'];"`
 
 	echo "Assigning each braintree variable to its respective server..."
 
 	heroku config:add BRAINTREE_ENVIRONMENT=$BRAINTREE_SANDBOX_ENVIRONMENT --app $DEV
 	heroku config:add BRAINTREE_MERCHANT_ID=$BRAINTREE_SANDBOX_MERCHANT_ID --app $DEV
+	heroku config:add BRAINTREE_MASTER_MERCHANT_ID=$BRAINTREE_SANDBOX_MASTER_MERCHANT_ID --app $DEV
 	heroku config:add BRAINTREE_PUBLIC_KEY=$BRAINTREE_SANDBOX_PUBLIC_KEY --app $DEV
 	heroku config:add BRAINTREE_PRIVATE_KEY=$BRAINTREE_SANDBOX_PRIVATE_KEY --app $DEV
 	heroku config:add BRAINTREE_ENVIRONMENT=$BRAINTREE_SANDBOX_ENVIRONMENT --app $STAGE
 	heroku config:add BRAINTREE_MERCHANT_ID=$BRAINTREE_SANDBOX_MERCHANT_ID --app $STAGE
+	heroku config:add BRAINTREE_MASTER_MERCHANT_ID=$BRAINTREE_SANDBOX_MASTER_MERCHANT_ID --app $STAGE
 	heroku config:add BRAINTREE_PUBLIC_KEY=$BRAINTREE_SANDBOX_PUBLIC_KEY --app $STAGE
 	heroku config:add BRAINTREE_PRIVATE_KEY=$BRAINTREE_SANDBOX_PRIVATE_KEY --app $STAGE
 	heroku config:add BRAINTREE_ENVIRONMENT=$BRAINTREE_SANDBOX_ENVIRONMENT --app $ALPHA
 	heroku config:add BRAINTREE_MERCHANT_ID=$BRAINTREE_SANDBOX_MERCHANT_ID --app $ALPHA
+	heroku config:add BRAINTREE_MASTER_MERCHANT_ID=$BRAINTREE_SANDBOX_MASTER_MERCHANT_ID --app $ALPHA
 	heroku config:add BRAINTREE_PUBLIC_KEY=$BRAINTREE_SANDBOX_PUBLIC_KEY --app $ALPHA
 	heroku config:add BRAINTREE_PRIVATE_KEY=$BRAINTREE_SANDBOX_PRIVATE_KEY --app $ALPHA
 	heroku config:add BRAINTREE_ENVIRONMENT=$BRAINTREE_PRODUCTION_ENVIRONMENT --app $BETA
 	heroku config:add BRAINTREE_MERCHANT_ID=$BRAINTREE_PRODUCTION_MERCHANT_ID --app $BETA
+	heroku config:add BRAINTREE_MASTER_MERCHANT_ID=$BRAINTREE_PRODUCTION_MASTER_MERCHANT_ID --app $BETA
 	heroku config:add BRAINTREE_PUBLIC_KEY=$BRAINTREE_PRODUCTION_PUBLIC_KEY --app $BETA
 	heroku config:add BRAINTREE_PRIVATE_KEY=$BRAINTREE_PRODUCTION_PRIVATE_KEY --app $BETA
 	heroku config:add BRAINTREE_ENVIRONMENT=$BRAINTREE_PRODUCTION_ENVIRONMENT --app $MASTER
 	heroku config:add BRAINTREE_MERCHANT_ID=$BRAINTREE_PRODUCTION_MERCHANT_ID --app $MASTER
+	heroku config:add BRAINTREE_MASTER_MERCHANT_ID=$BRAINTREE_PRODUCTION_MASTER_MERCHANT_ID --app $MASTER
 	heroku config:add BRAINTREE_PUBLIC_KEY=$BRAINTREE_PRODUCTION_PUBLIC_KEY --app $MASTER
 	heroku config:add BRAINTREE_PRIVATE_KEY=$BRAINTREE_PRODUCTION_PRIVATE_KEY --app $MASTER
 
