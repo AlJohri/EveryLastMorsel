@@ -3,7 +3,7 @@ class MerchantAccountsController < ApplicationController
   layout "profile"
   
   def bt_webhook_notification
-    Braintree::WebhookNotification.verify(params[:bt_challenge_param])
+    @bt_webhook_result = Braintree::WebhookNotification.verify(params[:bt_challenge_param])
     # notification = Braintree::WebhookNotification.parse(
     #   params[:bt_signature],
     #   params[:bt_payload]
