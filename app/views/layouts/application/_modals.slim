@@ -1,4 +1,4 @@
-#devise.modal.fade
+#devise-signin.modal.fade
     .modal-dialog
         .modal-content
             / .modal-header
@@ -6,21 +6,26 @@
             /     h3 Have an Account?
             .modal-body
                 button.close type="button" data-dismiss="modal" aria-hidden="true"&times;
-                ul.nav.nav-tabs
-                  li.active
-                    a data-toggle="tab" href="#login" Login
-                  li
-                    a data-toggle="tab" href="#create" Create Account
+                h4 Sign In!
+                p.note It's as easy as watching grass grow.
                 #myTabContent.tab-content
                   #login.tab-pane.active.in
                     br
                     = render "devise/shared/signin"
                     = render "devise/shared/links"
-                  #create.tab-pane.fade
+
+#devise-signup.modal.fade
+    .modal-dialog
+        .modal-content
+            / .modal-header
+            /     button.close type="button" data-dismiss="modal" aria-hidden="true"&times;
+            /     h3 Have an Account?
+            .modal-body
+                button.close type="button" data-dismiss="modal" aria-hidden="true"&times;
+                h4 Sign Up!
+                p.note It's as easy as watching grass grow.
+                #myTabContent.tab-content
+                  #create.tab-pane.active.in
                     br
                     = render "devise/shared/signup"
                     = render "devise/shared/links"
-
-/ p.note It's as easy as watching grass grow!
-/ = render "devise/shared/signup"
-/ = render "devise/shared/links"

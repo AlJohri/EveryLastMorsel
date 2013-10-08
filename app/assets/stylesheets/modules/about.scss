@@ -12,7 +12,7 @@
 .about-wrapper {
     h1 {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     h2 {
@@ -40,33 +40,70 @@
 
 h2.the-people-header { 
     width:100%; 
+    font-size: 18px;
+    line-height: 1;
     text-align:center; 
-    // border-bottom: 1px solid #000; 
-    // line-height: 0.5em; 
-    margin:10px 0 40px; 
+    text-transform: uppercase;
+    margin:30px 0 40px; 
+    position: relative;
 } 
-h2.the-people-header span { background:#fff; padding:0 10px; margin-bottom: 20px; }
+h2.the-people-header:before {
+    content: "";
+    display: block;
+    border-top: solid 1px black;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+}
+h2.the-people-header span {
+    background: #fff;
+    padding: 0 20px;
+    position: relative;
+    z-index: 5;
+}
 
 .team-bio {
     @include clearfix;
-    max-width: 70%;
-    margin: 0 auto;
+    margin: 0 auto percentage(50/960) auto;
+
+    &.left {
+        .team-bio-copy {
+            padding: 0 percentage(100/960) 0 percentage(30/960);
+        }
+    }
+
+    &.right {
+        .team-bio-copy {
+            text-align: right;
+            padding: 0 percentage(30/960) 0 percentage(100/960);
+        }
+    }
 }
 
 .team-bio-copy {
     float: left;
-    max-width: 79%;
-    padding: 0 5%;
+    width: percentage(820/960);
     font-style: italic;
-    display: block
+    display: block;
+
+    h3 {
+        margin-top: 0;
+    }
 }
 
 .team-bio-image {
     float: left;
     border-radius: 50%;
+    width: percentage(140/960);
     min-width: 10%;
     overflow: hidden;
     display: block;
+}
+
+.team-bio-image img {
+    width: 100%;
 }
 
 .right-justify {

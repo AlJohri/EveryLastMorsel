@@ -1,0 +1,88 @@
+.modal-content {
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,.25);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.25);
+
+    button.close {
+        display: block;
+        width: 11px;
+        height: 11px;
+        text-indent: -9999px;
+        background: url(/assets/sprite.png) no-repeat -199px -50px;
+        opacity: 1;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        width: 290px;
+        height: 30px;
+        font-style: italic;
+        background-color: #ebebeb;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .btn-default {
+        height:40px;
+		padding: 0 20px;
+        border: none;
+        border-radius: 2px;
+        color: #fff;
+        text-transform: uppercase;
+        background: #ff8b35; /* Old browsers */
+        background: -moz-linear-gradient(top,  #ff8b35 0%, #f07519 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8b35), color-stop(100%,#f07519)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #ff8b35 0%,#f07519 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #ff8b35 0%,#f07519 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #ff8b35 0%,#f07519 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #ff8b35 0%,#f07519 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8b35', endColorstr='#f07519',GradientType=0 ); /* IE6-9 */
+		-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.25);
+		box-shadow: 0 1px 1px rgba(0,0,0,.25);        
+
+        span {
+			display: block;
+			line-height: 1;
+			padding-left: 42px;
+            position: relative;
+			
+        }
+
+		span:before {
+			content: ' ';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 30px;
+			height: 30px;
+			background: url(/assets/sprite.png) no-repeat -100px -50px;
+		}
+    }
+
+    .btn-transparent {
+        background: transparent;
+        border: none;
+        height: 40px;
+    }
+
+    .btn-default, ul.social {
+        float: left;
+    }
+
+    ul.social {
+        padding-left: 15px;
+    }
+
+    ul.social li {
+        padding: 0;
+    }
+
+	.user_remember_me, .checkbox {
+		margin-bottom: 0;
+	}
+}
