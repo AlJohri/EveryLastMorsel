@@ -69,7 +69,7 @@ EveryLastMorsel::Application.routes.draw do
   end
   
   # webhooks for Braintree
-  match "/sub_merchant_acct_notification", to: "merchant_accounts#bt_webhook_notification", via: :get
+  get "/sub_merchant_acct_notification" => "merchant_accounts#bt_webhook_notification"
   
   # resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   resources :plots, only: [:index], concerns: [:is_followable, :has_crops]

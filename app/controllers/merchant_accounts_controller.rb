@@ -1,6 +1,6 @@
 class MerchantAccountsController < ApplicationController
   
-  layout "profile"
+  layout "profile", except: [:bt_webhook_notification]
   
   def bt_webhook_notification
     @bt_webhook_result = Braintree::WebhookNotification.verify(params[:bt_challenge_param])
