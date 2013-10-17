@@ -3,18 +3,18 @@ class MerchantAccountsController < ApplicationController
   layout "profile", except: [:bt_webhook_notification]
   
   def bt_webhook_notification
-    @bt_webhook_result = Braintree::WebhookNotification.verify(params[:bt_challenge_param])
-    # notification = Braintree::WebhookNotification.parse(
-    #   params[:bt_signature],
-    #   params[:bt_payload]
-    # )
-    # logger.info "Braintree Notification: #{notification}"
-    # @merchant_account = MerchantAccount.find_by_merchant_account_id(notification.merchant_account.id)
-    # @merchant_account.status = notification.merchant_account.status
-    # if notification.kind == Braintree::WebhookNotification::Kind::SubMerchantAccountDeclined
-    #   @merchant_account.last_notification_message = notification.message
-    # end
-    # @merchant_account.save!
+    Braintree::WebhookNotification.verify(params[:bt_challenge_param])
+    notification = Braintree::WebhookNotification.parse(
+      params[:bt_signature],
+      params[:bt_payload]
+    )
+    logger.info "Braintree Notification: #{notification}"
+    @merchant_account = MerchantAccount.find_by_merchant_account_id(notification.merchant_account.id)
+    @merchant_account.status = notification.merchant_account.status
+    if notification.kind == Braintree::WebhookNotification::Kind::SubMerchantAccountDeclined
+      @merchant_account.last_notification_message = notification.message
+    end
+    @merchant_account.save!
   end
   
   def index

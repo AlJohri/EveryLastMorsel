@@ -1,4 +1,7 @@
 EveryLastMorsel::Application.routes.draw do
+  
+  # webhooks for Braintree
+  post "/sub_merchant_acct_notification" => "merchant_accounts#bt_webhook_notification"
 
   resources :conversations, only: [:index, :show, :new, :create] do
     member do
@@ -67,9 +70,6 @@ EveryLastMorsel::Application.routes.draw do
   resources :users, only: [], :path => '', concerns: [:is_followable, :has_posts, :has_crops, :has_plots] do
     resources :merchant_accounts, only: [:new, :create, :index]
   end
-  
-  # webhooks for Braintree
-  get "/sub_merchant_acct_notification" => "merchant_accounts#bt_webhook_notification"
   
   # resources :users, only: [:index, :show], concerns: [:is_followable, :has_posts, :has_crops, :has_plots]
   resources :plots, only: [:index], concerns: [:is_followable, :has_crops]
