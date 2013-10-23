@@ -52,3 +52,4 @@ en:
         pick_date: 'Enter date picked'
         quantity: 'Enter quantity'
         quantity_unit: 'Enter quantity unit'
+        price: 'Enter selling price'

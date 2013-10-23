@@ -11,11 +11,13 @@
           p
             | Planted: 
             = crop.try(:plant_date).try(:strftime, "%B %d, %Y")
-          p
-            | Yield: 
-            = crop.crop_yields.last.try(:quantity)
-            |/ 
-            | bundles
+          - crop.crop_yields.each do |crop_yield|
+            p
+              | Yield: 
+              = crop_yield.try(:quantity)
+              |/#{crop_yield.try(:quantity_unit)}
+              |/ selling price (#{number_to_currency(crop_yield.try(:price))})
+
       hr
 
   .col-lg-12

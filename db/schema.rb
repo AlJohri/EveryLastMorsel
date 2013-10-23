@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002161110) do
+ActiveRecord::Schema.define(version: 20131023153735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20131002161110) do
     t.integer  "crop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "price",             default: 0.0
   end
 
   add_index "crop_yields", ["crop_id"], name: "index_crop_yields_on_crop_id", using: :btree

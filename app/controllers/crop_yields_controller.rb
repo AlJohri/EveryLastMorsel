@@ -16,12 +16,17 @@ class CropYieldsController < InheritedResources::Base
 	 create! { polymorphic_url([parent, @crop]) }
   end
   
+  def edit
+    @crop_yield = CropYield.find(params[:id])
+    @crop = @crop_yield.crop
+  end
+  
   def update
     @crop_yield = CropYield.find(params[:id])
     if @crop_yield.update_attributes(params[:crop_yield])
       redirect_to user_crop_path(current_user, @crop_yield.crop), notice: 'Crop yield is now for sale.'
     else
-      render "crops/partials/show"
+      render "crop_yields/users/edit"
     end
   end
   

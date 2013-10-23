@@ -1,7 +1,7 @@
 class MerchantAccount < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :phone, :street_address, :postal_code,
                   :locality, :region, :date_of_birth, :ssn, :routing_number, :account_number,
-                  :tos_accepted
+                  :tos_accepted, :master_merchant_account_id
                   
   # associations
   belongs_to :user
