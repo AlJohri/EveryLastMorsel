@@ -53,3 +53,4 @@ en:
         quantity: 'Enter quantity'
         quantity_unit: 'Enter quantity unit'
         price: 'Enter selling price'
+        quantity_for_sale: 'Quantity for Sale'

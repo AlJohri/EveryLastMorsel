@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023153735) do
+ActiveRecord::Schema.define(version: 20131023174347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20131023153735) do
   create_table "crop_yields", force: true do |t|
     t.decimal  "quantity"
     t.string   "quantity_unit"
-    t.decimal  "quantity_for_sale"
-    t.datetime "pick_date"
+    t.decimal  "quantity_for_sale", default: 0.0
+    t.date     "pick_date"
     t.integer  "crop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
