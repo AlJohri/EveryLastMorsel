@@ -1,5 +1,6 @@
 class CropYieldsController < InheritedResources::Base
   before_filter :user_has_active_merchant_account, only: [:update]
+  before_filter :correct_user, only: [:edit, :update]
 
   respond_to :html, :xml, :json
 
@@ -31,6 +32,11 @@ class CropYieldsController < InheritedResources::Base
   end
   
   private
+
+    def correct_user
+      @crop_yield = CropYield.find(params[:id])
+      redirect_to root_path unless current_user && @crop_yield.crop.plot.users.to_a.include?(current_user)
+    end
   
     def user_has_active_merchant_account
       unless current_user.merchant_account && current_user.merchant_account.active?

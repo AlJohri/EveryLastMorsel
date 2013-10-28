@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def current_user?(user)
+    user == current_user
+  end
+
   def devise_resource_name
     :user
   end

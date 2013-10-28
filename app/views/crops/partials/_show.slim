@@ -57,7 +57,7 @@
                   td #{pluralize(crop_yield.quantity, crop_yield.quantity_unit)} for sale (#{number_to_currency(crop_yield.price)} each)
                 - else
                   td n/a
-                td= link_to "edit", [current_user, @crop, crop_yield]
+                td= link_to "edit", edit_user_crop_crop_yield_path(current_user, @crop, crop_yield)
                 
         - if can? :manage, @crop
           h4 ADD YIELD
