@@ -11,4 +11,8 @@ class CropYield < ActiveRecord::Base
   def for_sale?
     self.quantity_for_sale > 0 ? true : false
   end
+  
+  def farmers
+    self.crop.plot.users.pluck(:name).to_sentence
+  end
 end

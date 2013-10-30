@@ -1,5 +1,5 @@
 class CropYieldsController < InheritedResources::Base
-  before_filter :user_has_active_merchant_account, only: [:update]
+  # before_filter :user_has_active_merchant_account, only: [:update]
   before_filter :correct_user, only: [:edit, :update]
 
   respond_to :html, :xml, :json
@@ -8,7 +8,7 @@ class CropYieldsController < InheritedResources::Base
   belongs_to :crop
   
   def marketplace
-    # @crop_yields = 
+    @crop_yields = CropYield.for_sale.order("pick_date ASC")
   end
 
   def index

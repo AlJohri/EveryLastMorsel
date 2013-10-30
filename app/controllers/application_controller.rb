@@ -45,13 +45,16 @@ class ApplicationController < ActionController::Base
     
     #&& (request.format == "text/html") # && (!request.xhr?)
     #context = parent? ? parent_class.to_s.downcase.pluralize : "self" # parent_type.to_s.downcase.pluralize    
+    
 
     options = args.extract_options!
     
-    if (!options[:location]) && (self.class.ancestors.include? InheritedResources::Base)
-      action = options[:action] || action_name
-      context = parent? ? parent_type.to_s.downcase.pluralize : "self"
-      path = "#{controller_name}/#{context}/#{action}"
+    unless request.path == '/marketplace'
+      if (!options[:location]) && (self.class.ancestors.include? InheritedResources::Base)
+        action = options[:action] || action_name
+        context = parent? ? parent_type.to_s.downcase.pluralize : "self"
+        path = "#{controller_name}/#{context}/#{action}"
+      end
     end
 
     options[:template] = path if context != nil
