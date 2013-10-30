@@ -1,12 +1,25 @@
 .container
   .row
     .span12
-      - form_for @transaction do |f|
-        = f.text_field :quantity
-        = f.submit
-  .row
-    .span12
-      %h1 Transaction
+      = link_to "back to marketplace", marketplace_path
+  - if @crop_yield
+    .row
+      .span12
+        = render "crop_yields/list_item", crop_yield: @crop_yield
+    .row
+      .span12
+        %h1 Transaction
+    = simple_form_for @transaction do |f|
+      .row
+        .span12
+          = f.hidden_field :crop_yield_id, value: @crop_yield.id
+          %label How many would you like to purchase?
+          = f.input :quantity
+          = f.button :submit, "Submit Transaction"
+  - else
+    .row
+      .span12
+        No crop selected.
 
   
   

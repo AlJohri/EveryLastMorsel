@@ -1,0 +1,10 @@
+%label 
+%h3= crop_yield.crop.crop_name
+%h4 Farm: #{crop_yield.farmers}
+%h5= crop_yield.crop.plot.address
+= pluralize(crop_yield.quantity_for_sale, crop_yield.quantity_unit)
+%br
+picked on #{crop_yield.pick_date.strftime('%D')}
+%br
+= number_to_currency(crop_yield.price)
+each
