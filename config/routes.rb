@@ -25,7 +25,7 @@ EveryLastMorsel::Application.routes.draw do
     get 'about'
     get 'help'
     get 'map'
-    get 'marketplace'
+    # get 'marketplace'
     get 'checkout'
     get 'confirm'
     get 'pricing' # TEMPORARY
@@ -61,6 +61,8 @@ EveryLastMorsel::Application.routes.draw do
       resources :crop_yields
     end
   end
+  
+  match "/marketplace", to: "crop_yields#marketplace", via: :get
 
   ####################################################################################
   # RESOURCES

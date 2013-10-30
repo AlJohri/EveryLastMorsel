@@ -1,6 +1,6 @@
 = simple_form_for :crop_yield, url: [@crop.plot, @crop, @crop_yield], method: :put do |f|
   %label Quantity for Sale
-  = f.input :quantity_for_sale, input_html: {value: @crop_yield.quantity}
+  = f.input :quantity_for_sale
   = f.hidden_field :crop_id, value: @crop.id
   %label Pick Date
   = f.input :pick_date, :as => :string, :input_html => { data: { behaviour: "datepicker" } }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023174347) do
+ActiveRecord::Schema.define(version: 20131030140146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20131023174347) do
   add_index "crop_varieties", ["crop_type_id"], name: "index_crop_varieties_on_crop_type_id", using: :btree
 
   create_table "crop_yields", force: true do |t|
-    t.decimal  "quantity"
+    t.integer  "quantity"
     t.string   "quantity_unit"
-    t.decimal  "quantity_for_sale", default: 0.0
+    t.integer  "quantity_for_sale", default: 0
     t.date     "pick_date"
     t.integer  "crop_id"
     t.datetime "created_at"

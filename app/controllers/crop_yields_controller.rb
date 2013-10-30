@@ -6,6 +6,10 @@ class CropYieldsController < InheritedResources::Base
 
   belongs_to :user, :plot, :polymorphic => true
   belongs_to :crop
+  
+  def marketplace
+    # @crop_yields = 
+  end
 
   def index
     super do |format|
