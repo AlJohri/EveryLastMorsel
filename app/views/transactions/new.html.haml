@@ -1,0 +1,12 @@
+.container
+  .row
+    .span12
+      - form_for @transaction do |f|
+        = f.text_field :quantity
+        = f.submit
+  .row
+    .span12
+      %h1 Transaction
+
+  
+  
