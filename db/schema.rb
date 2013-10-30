@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030140146) do
+ActiveRecord::Schema.define(version: 20131030155210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -290,6 +290,18 @@ ActiveRecord::Schema.define(version: 20131030140146) do
   create_table "tags", force: true do |t|
     t.string "name"
   end
+
+  create_table "transactions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.integer  "crop_yield_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["crop_yield_id"], name: "index_transactions_on_crop_yield_id", using: :btree
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
 
   create_table "uploads", force: true do |t|
     t.datetime "created_at"

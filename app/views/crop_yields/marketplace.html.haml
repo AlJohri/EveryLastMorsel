@@ -15,7 +15,8 @@
         %br
         = number_to_currency(crop_yield.price)
         each
-        = button_to "Purchase", '#', class: "btn", method: :get
+        %br
+        = link_to "Purchase", new_transaction_path(crop_yield: crop_yield.id), class: "btn"
 %br
 %br
 %br
