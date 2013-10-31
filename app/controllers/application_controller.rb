@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
     options = args.extract_options!
     elements = request.path.split('/')[1..-1]
     
-    unless elements[0] == 'marketplace'
+    unless elements && elements[0] == 'marketplace'
       if (!options[:location]) && (self.class.ancestors.include? InheritedResources::Base)
         action = options[:action] || action_name
         context = parent? ? parent_type.to_s.downcase.pluralize : "self"

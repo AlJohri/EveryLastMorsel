@@ -8,10 +8,10 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(params[:transaction])
     @crop_yield = CropYield.find_by_id(params[:transaction][:crop_yield_id])
-    
-    if @transaction.save
-      # error if purchasing too many
-      # change crop_yield quantity to subtract from transaction quantity
+    @transaction.get_amount(@crop_yield)
+    if @transaction.save # add error if purchasing too many
+      redirect_to marketplace_path, notice: "Transaction has been saved."
+      @transaction.reduce_crop_yield_quantity
     else
       render 'new'
     end
