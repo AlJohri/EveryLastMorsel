@@ -1,0 +1,11 @@
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <% unless msg == "Password digest can't be blank" %>
+        <li><%= msg %></li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

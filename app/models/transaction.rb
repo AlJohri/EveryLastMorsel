@@ -35,13 +35,9 @@ class Transaction < ActiveRecord::Base
       :merchant_account_id => "blue_ladders_store",
       :credit_card => {
         :number => "4111111111111111",
-        :expiration_date => "12/12"
-      },
-      :options => {
-        :submit_for_settlement => true,
-        :hold_in_escrow => true
-      },
-      :service_fee_amount => "10.00"
+        :expiration_month => "05",
+        :expiration_year => "2012"
+      }
     )
     result
   end

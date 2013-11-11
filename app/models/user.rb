@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :transactions
   has_and_belongs_to_many :plots
+  has_many :crop_yields
 
   # Setup accessible attributes for model
   attr_accessible :first_name, :last_name, :name, :email, :city, :state, :zip, :url

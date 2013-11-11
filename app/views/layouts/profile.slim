@@ -4,6 +4,8 @@
   - @profile = @plot
 - elsif parent == nil && resource.class.to_s == "User" || parent.class.to_s == "User"
   - @profile = @user
+- elsif controller_name == "crop_yields" && current_user
+  - @profile = current_user
 - else
   - raise
 

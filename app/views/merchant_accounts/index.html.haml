@@ -7,13 +7,16 @@
       .well
         .row
           .col-lg-12
-            %label= @merchant_account.routing_number
+            %label Account Number:
+            = @merchant_account.account_number
         .row
           .col-lg-12
-            %label= @merchant_account.account_number
+            %label Routing Number:
+            = @merchant_account.routing_number
         .row
           .col-lg-12
-            %label= @merchant_account.status
+            %label Status:
+            = @merchant_account.status
 - else
   .row
     .col-lg-12

@@ -7,6 +7,8 @@ class CropYieldsController < InheritedResources::Base
   belongs_to :user, :plot, :polymorphic => true
   belongs_to :crop
   
+  layout "profile"
+  
   def marketplace
     @crop_yields = CropYield.for_sale.order("pick_date ASC")
   end
@@ -18,7 +20,13 @@ class CropYieldsController < InheritedResources::Base
   end
 
   def create
-	 create! { polymorphic_url([parent, @crop]) }
+    @crop_yield = CropYield.new(params[:crop_yield])
+    @crop = @crop_yield.crop
+    if @crop_yield.save
+      redirect_to [@crop.plot, @crop], notice: "Crop yield has been added."
+    else
+      render "crops/users/show"
+    end
   end
   
   def edit
@@ -28,8 +36,9 @@ class CropYieldsController < InheritedResources::Base
   
   def update
     @crop_yield = CropYield.find(params[:id])
+    @crop = @crop_yield.crop
     if @crop_yield.update_attributes(params[:crop_yield])
-      redirect_to user_crop_path(current_user, @crop_yield.crop), notice: 'Crop yield is now for sale.'
+      redirect_to user_crop_path(current_user, @crop_yield.crop), notice: 'Crop yield has been updated.'
     else
       render "crop_yields/users/edit"
     end

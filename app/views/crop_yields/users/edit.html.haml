@@ -1,3 +1,4 @@
+= render 'shared/error_messages', object: @crop_yield
 = simple_form_for :crop_yield, url: [@crop.plot, @crop, @crop_yield], method: :put do |f|
   %label Quantity for Sale
   = f.input :quantity_for_sale

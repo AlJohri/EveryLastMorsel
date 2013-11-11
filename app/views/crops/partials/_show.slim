@@ -61,8 +61,10 @@
                 
         - if can? :manage, @crop
           h4 ADD YIELD
-          = simple_form_for @crop.crop_yields.build, :validate => true, url: polymorphic_url([parent, @crop, :crop_yields]) do |f|
+          = render 'shared/error_messages', object: @crop_yield if @crop_yield
+          = simple_form_for @crop.crop_yields.build, :validate => true, url: polymorphic_url([@crop.plot, @crop, :crop_yields]) do |f|
             = f.hidden_field :crop_id, value: @crop.id
+            = f.hidden_field :user_id, value: current_user.id
             .row: .col-lg-12
               label Pick Date
               = f.input :pick_date, :input_html => { data: { behaviour: "datepicker" } }
@@ -84,6 +86,6 @@
         / = hidden_field_tag "crop_yield[crop_id]", @crop.id
 
       .col-lg-12
-        = link_to 'Edit', polymorphic_url([parent, @crop], :action => 'edit')
+        = link_to 'Edit', polymorphic_url([@crop.plot, @crop], :action => 'edit')
         | &nbsp;
-        = link_to 'Back', polymorphic_url([parent, :crops])
+        = link_to 'Back', polymorphic_url([@crop.plot, :crops])
