@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
     @crop_yield = CropYield.find_by_id(params[:transaction][:crop_yield_id])
     @transaction.get_amount(@crop_yield)
     @transaction.user = current_user if current_user
+    @braintree_result = @transaction.send_to_braintree
     if @transaction.quantity_is_less_than?(@crop_yield)
       if @transaction.save # add error if purchasing too many
         redirect_to marketplace_path, notice: "Transaction has been saved."

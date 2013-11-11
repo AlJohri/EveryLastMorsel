@@ -29,4 +29,21 @@ class Transaction < ActiveRecord::Base
     end
   end
   
+  def send_to_braintree
+    result = Braintree::Transaction.sale(
+      :amount => self.amount.to_s,
+      :merchant_account_id => "blue_ladders_store",
+      :credit_card => {
+        :number => "4111111111111111",
+        :expiration_date => "12/12"
+      },
+      :options => {
+        :submit_for_settlement => true,
+        :hold_in_escrow => true
+      },
+      :service_fee_amount => "10.00"
+    )
+    result
+  end
+  
 end
