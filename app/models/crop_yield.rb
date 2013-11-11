@@ -3,6 +3,9 @@ class CropYield < ActiveRecord::Base
   attr_accessible :crop_id
   attr_accessible :pick_date, :quantity, :quantity_for_sale, :quantity_unit, :price
   
+  # validations
+  validates :quantity, :numericality => { only_integer: true, greater_than_or_equal_to: 0 }
+  
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }  
   

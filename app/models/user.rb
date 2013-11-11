@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   has_one :merchant_account, dependent: :destroy
   has_many :posts
+  has_many :transactions
   has_and_belongs_to_many :plots
 
   # Setup accessible attributes for model
