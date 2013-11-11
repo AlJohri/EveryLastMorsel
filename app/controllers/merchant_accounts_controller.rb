@@ -4,9 +4,9 @@ class MerchantAccountsController < ApplicationController
   
   def bt_webhook_notification
     
-    challenge = request.params["bt_challenge"]
-    challenge_response = Braintree::WebhookNotification.verify(challenge)
-    return [200, challenge_response]
+    # challenge = request.params["bt_challenge"]
+    # challenge_response = Braintree::WebhookNotification.verify(challenge)
+    # return [200, challenge_response]
 
     # @merchant_account = MerchantAccount.find_by_merchant_account_id(notification.merchant_account.id)
     # @merchant_account.status = notification.merchant_account.status
