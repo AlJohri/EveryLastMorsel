@@ -1,0 +1,35 @@
+<h1>Notifications</h1>
+
+<%= link_to "create request", webhooks_path, :method => :post %>
+<%= link_to "reset", reset_webhooks_path, :method => :delete %>
+
+<table cellspacing="0" cellpadding="0">
+  <tr>
+    <th>Timestamp</th>
+    <th>Kind</th>
+    <th>Subscription Id</th>
+    <th>Status</th>
+    <th>Price</th>
+    <th>Balance</th>
+    <th>Next Billing Amount</th>
+    <th>Billing Period Start Date</th>
+    <th>Billing Period End Date</th>
+    <th>Current Billing Cycle</th>
+    <th>Transaction Ids</th>
+  </tr>
+  <% @notifications.each do |notification| %>
+    <tr>
+      <td><%= notification.timestamp %></td>
+      <td><%= notification.kind %></td>
+      <td><%= notification.subscription.id %></td>
+      <td><%= notification.subscription.status %></td>
+      <td><%= notification.subscription.price %></td>
+      <td><%= notification.subscription.balance %></td>
+      <td><%= notification.subscription.next_billing_period_amount %></td>
+      <td><%= notification.subscription.billing_period_start_date %></td>
+      <td><%= notification.subscription.billing_period_end_date %></td>
+      <td><%= notification.subscription.current_billing_cycle %></td>
+      <td><%= notification.subscription.transactions.map(&:id).join(", ") %></td>
+    </tr>
+  <% end %>
+</table>

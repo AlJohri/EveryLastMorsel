@@ -2,13 +2,11 @@ EveryLastMorsel::Application.routes.draw do
   
   resources :transactions
 
-  # webhooks for Braintree
-  # get "/sub_merchant_acct_notification" => "merchant_accounts#bt_webhook_notification"
-  get "/sub_merchant_acct_notification" do
-    challenge = request.params["bt_challenge"]
-    challenge_response = Braintree::WebhookNotification.verify(challenge)
-    return [200, challenge_response]
-  end
+  # webhooks for Braintree  
+  match 'webhooks/process' => 'webhooks#handle', :as => :process_webhook, :via => :post
+  match 'webhooks/process' => 'webhooks#verify', :as => :verify_webhook, :via => :get
+  match 'webhooks/reset' => 'webhooks#destroy_all', :as => :reset_webhooks, :via => :delete
+  resources :webhooks, :only => [:create, :index]
 
   resources :conversations, only: [:index, :show, :new, :create] do
     member do
