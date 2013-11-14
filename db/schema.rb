@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111212913) do
+ActiveRecord::Schema.define(version: 20131114222332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -304,6 +304,11 @@ ActiveRecord::Schema.define(version: 20131111212913) do
     t.string   "cc_expiration_year"
     t.string   "cc_cardholder_name"
     t.string   "cc_cvv"
+    t.boolean  "success"
+    t.string   "status"
+    t.string   "processor_response_code"
+    t.string   "processor_response_text"
+    t.string   "gateway_rejection_reason"
   end
 
   add_index "transactions", ["crop_yield_id"], name: "index_transactions_on_crop_yield_id", using: :btree

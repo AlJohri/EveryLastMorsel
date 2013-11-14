@@ -9,12 +9,29 @@
     .row
       .span12
         %h1 Transaction
+        - if @braintree_result && !@braintree_result.success?
+          - @braintree_result.errors.each do |error|
+            = error.message
+            %br
+        - if @transaction.errors.any?
+          - @transaction.errors.full_messages.each do |msg|
+            = msg
     = simple_form_for @transaction do |f|
       .row
         .span12
           = f.hidden_field :crop_yield_id, value: @crop_yield.id
           %label How many would you like to purchase?
-          = f.input :quantity
+          = f.input :quantity, autocomplete: :off
+          %label Cardholder's Full Name
+          = f.input :cc_cardholder_name, autocomplete: :off
+          %label Credit Card Number
+          = f.input :cc_number, autocomplete: :off
+          %label CVV
+          = f.input :cc_cvv, autocomplete: :off
+          %label Exp Month
+          = f.input :cc_expiration_month, autocomplete: :off, collection: 1..12, prompt: "Month"
+          %label Exp Year
+          = f.input :cc_expiration_year, autocomplete: :off, collection: 2013..2020, prompt: "Year"
           = f.button :submit, "Submit Transaction"
   - else
     .row
