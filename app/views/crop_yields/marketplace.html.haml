@@ -2,12 +2,17 @@
   .row
     .span12
       %h1 Crops to purchase
-  - @crop_yields.each do |crop_yield|
+  - if @crop_yields.any?
+    - @crop_yields.each do |crop_yield|
+      .row
+        .span12
+          = render "list_item", crop_yield: crop_yield
+          %br
+          = link_to "Purchase", new_transaction_path(crop_yield: crop_yield.id), class: "btn"
+  - else
     .row
       .span12
-        = render "list_item", crop_yield: crop_yield
-        %br
-        = link_to "Purchase", new_transaction_path(crop_yield: crop_yield.id), class: "btn"
+        %h2 No crops on the market.
 %br
 %br
 %br

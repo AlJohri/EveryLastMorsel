@@ -1,5 +1,7 @@
 class MerchantAccountsController < ApplicationController
   
+  layout lambda { |placeholder| params[:plot_id] ? "profile" : "profile" }
+  
   def index
     @user = User.find(params[:user_id])
     @merchant_account = @user.merchant_account

@@ -7,7 +7,7 @@ class CropYieldsController < InheritedResources::Base
   belongs_to :user, :plot, :polymorphic => true
   belongs_to :crop
   
-  layout "profile"
+  layout "profile", except: [:marketplace]
   
   def marketplace
     @crop_yields = CropYield.for_sale.order("pick_date ASC")
